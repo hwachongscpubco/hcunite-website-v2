@@ -17,8 +17,14 @@
             <div class="shrink-0 w-[40%]"></div>
             <div v-for="(img, i) in cheers"
             :key="i" 
+            class="h-[70vw] sm:h-[70vh] flex items-center justify-center snap-center flex-shrink-0"
+            >
+                <img
+            @load="event => onImageLoad(event, i)"
+            :src="img" 
+            alt="cheers booklet" 
+            class="aspect-auto rounded-xl transition-all duration-500" 
             :ref="el => cheerRefs[i] = el"
-            class="flex items-center justify-center snap-center flex-shrink-0 transition-all duration-500"
             :class="[
                 currentIndex === i ? 'scale-100':'scale-60',
                 limitBy[i] === 'height'
@@ -27,12 +33,7 @@
                         ? 'w-[70%] h-auto'
                         : 'w-[70%] h-auto'
                 ]"
-            >
-                <img
-            @load="event => onImageLoad(event, i)"
-            :src="img" 
-            alt="cheers booklet" 
-            class="max-h-full max-w-full aspect-auto rounded-xl" />
+            />
             </div>
             <div class="shrink-0 w-[40%]"></div>
         </div>

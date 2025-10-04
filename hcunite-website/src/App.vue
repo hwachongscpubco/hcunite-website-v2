@@ -14,7 +14,7 @@ const menuItems = [
     external: false,
     to: '/council51',
     subitems: [
-      // {label: '52nd HCSC', external: false, to: '/council52'},
+      {label: '52nd HCSC', external: false, to: '/council52'},
       {label: '51st HCSC', external: false, to: '/council51'},
       {label: '50th HCSC', external: false, to: '/council50'},
       {label: '49th HCSC', external: false, to: '/council49'},

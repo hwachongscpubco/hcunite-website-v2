@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Change this to your images folder
-const folder = path.join(__dirname, '/public/images/48th');
+const folder = path.join(__dirname, '/public/images/52nd');
 
 const files = fs.readdirSync(folder);
 

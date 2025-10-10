@@ -5,8 +5,9 @@ import MenuItem from './components/MenuItem.vue'
 import { useRoute } from 'vue-router'
 
 //routing data
-const mobileMenuOpen = ref(false);
+const mobileMenuOpen = ref(false)
 const activeIndex = ref(null)
+
 const menuItems = [
   { label: 'CCAS', external: true, to: 'https://hwachongccas.wixsite.com/ccawebsite' },
   { 
@@ -35,9 +36,11 @@ const menuItems = [
   },
   { label: 'SODACHE', external: false, to: '/sodache'  },
   { label: 'ELECTIONS', external: false, to: '/elections'  },
-  { label: 'IMPORTANT LINKS', external: false, to: '/links'  }
+  { label: 'LINKS', external: false, to: '/links'  },
+  { label: 'COMMON ROOM', external: false, to: '/common'  },
 ]
 
+//scrolling logic
 const isAtTop = ref(true);
 const isVisible = ref(true);
 const lastScrollY = ref(0);
@@ -50,30 +53,43 @@ const handleScroll = () => {
 
   // Detect scroll direction for hide/show
   if (currentY > lastScrollY.value && currentY > 100) {
-    isVisible.value = false; // scrolling down
+    isVisible.value = false;
   } else {
-    isVisible.value = true; // scrolling up
+    isVisible.value = true;
   }
 
   lastScrollY.value = currentY;
 };
 
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
-
 //nav logic
+const navBarContentTitles = ref(null)
+const showHamburger = ref(false)
+
 const handleToggle = (index) => {
   activeIndex.value = activeIndex.value === index ? null : index
+}
+
+const checkNavWidth = () => {
+  const el = navBarContentTitles.value
+  if (!el) return
+  const parentWidth = el.parentElement?.offsetWidth || window.innerWidth
+  showHamburger.value = el.scrollWidth > 0.8 * parentWidth
 }
 
 const handleClose = () => {
   mobileMenuOpen.value = false
 }
+
+//mounting
+onMounted(() => {checkWidth()
+  window.addEventListener('resize', checkWidth)
+  window.addEventListener("scroll", handleScroll)
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', checkWidth)
+  window.removeEventListener("scroll", handleScroll)
+});
 
 //theme colors
 const route = useRoute()
@@ -192,7 +208,6 @@ const bgClass = computed(() => {
       return 'bg-white'
     }
 })
-
 </script>
 
 
@@ -212,12 +227,12 @@ const bgClass = computed(() => {
         <!-- logo -->
         <div class="text-2xl font-inter font-black lg:text-4xl transition-colors duration-300" :class="logoClass"><router-link to="/">HCUNITE</router-link></div>
         <!-- headers -->
-        <div class="hidden lg:flex max-w-[80%] gap-5 xl:gap-10 justify-between">
+        <div class="gap-5 xl:gap-10 justify-between" :class="showHamburger ? 'hidden':'flex max-w-[80%]'" ref="navBarContentTitles">
           <DropdownMenu v-for="(item, key) in menuItems" :key="key" :item="item"/>
         </div>
 
         <!-- hamburger icon -->
-        <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden">
+        <button @click="mobileMenuOpen = !mobileMenuOpen" :class="showHamburger? '':'hidden'">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M4 6h16M4 12h16M4 18h16" />
           </svg>

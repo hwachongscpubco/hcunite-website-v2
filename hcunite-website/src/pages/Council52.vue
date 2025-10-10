@@ -242,7 +242,7 @@ const councillors = {
 
 <!-- hero section -->
     <section class="mt-30 pb-12">
-        <h1 class="z-20 text-black lg:text-8xl w-full text-center p-4">52nd STUDENTS' COUNCIL</h1>
+        <h1 class="z-20 text-black lg:text-8xl w-full text-center p-4">52ND STUDENTS' COUNCIL</h1>
         <img src="/images/52nd/52nd_HCSC.jpg" alt="background" class="z-0 w-full">
         <div class="p-6">
             <p class="centered-text-block">
@@ -250,15 +250,15 @@ const councillors = {
                 <br><br>Front Row:
                 <br>Ms Chan Hui Chieh (Teacher Advisor); 
                 Mrs Raj-Priyahlatha Nainar (Teacher Advisor); 
-                Mr Edwin Zheng (Teacher Advisor); 
+                Mr Edwin Zheng Zhehong (Teacher Advisor); 
                 Ms How Lai Yin Deborah (Deputy Principal (College)); 
                 Zhou Jingyi; 
                 Mr Lee Peck Ping (Principal); 
                 Chia Zhen Teng; 
-                Dr Lim Hong Seng Melvyn (Deputy Principal / Student Development (College)); 
-                Mrs Sim-Lim Siew Hui (Principal Consultant / Student Development); 
-                ;
-                Mr How (Teacher Advisor);
+                Dr Lim Hong Seng Melvyn (Deputy Principal (College)); 
+                Ms Lim Siew Hui (HOD / Student Leadership)
+                Mr Jeremy Ng (Teacher Advisor);
+                Mr How Hung Kin (Teacher Advisor);
                 Dr Sin Yee Theng (Teacher Advisor)
                 <br><br>Second Row: 
                 <br>

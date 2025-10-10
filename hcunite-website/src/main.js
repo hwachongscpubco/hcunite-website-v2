@@ -18,6 +18,7 @@ import Athena from "./pages/Athena.vue"
 import Sodache from "./pages/Sodache.vue"
 import Elections from "./pages/Elections.vue"
 import Links from "./pages/Links.vue"
+import Common from "./pages/Common.vue"
 
 const routes = [
     { path: '/', component: Home},
@@ -34,6 +35,7 @@ const routes = [
     { path: '/sodache', component: Sodache},
     { path: '/elections', component: Elections},
     { path: '/links', component: Links},
+    { path: '/common', component: Common},
 ]
 
 const router = createRouter({

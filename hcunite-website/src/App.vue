@@ -62,38 +62,24 @@ const handleScroll = () => {
 };
 
 //nav logic
-const navBarContentTitles = ref(null)
-const showHamburger = ref(false)
-
 const handleToggle = (index) => {
   activeIndex.value = activeIndex.value === index ? null : index
 }
-
-const checkNavWidth = () => {
-  const el = navBarContentTitles.value
-  if (!el) return
-  const parentWidth = el.parentElement?.offsetWidth || window.innerWidth
-  showHamburger.value = el.scrollWidth > 0.8 * parentWidth
-}
-
 const handleClose = () => {
   mobileMenuOpen.value = false
 }
 
 //mounting
-onMounted(() => {checkWidth()
-  window.addEventListener('resize', checkWidth)
+onMounted(() => {
   window.addEventListener("scroll", handleScroll)
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener('resize', checkWidth)
   window.removeEventListener("scroll", handleScroll)
 });
 
 //theme colors
 const route = useRoute()
-
 const navbarClass = computed(() => {
   switch (route.path) {
     case '/':
@@ -222,17 +208,25 @@ const bgClass = computed(() => {
     >
       <!-- inner box -->
       <div 
-      class="w-full flex flex-row justify-between m-auto px-5 py-3 rounded-xl transition-all duration-500" 
-      :class="navbarClass">
+      class="w-full flex gap-12 flex-row justify-between m-auto px-5 py-3 rounded-xl transition-all duration-500" 
+      :class="navbarClass"
+      >
         <!-- logo -->
-        <div class="text-2xl font-inter font-black lg:text-4xl transition-colors duration-300" :class="logoClass"><router-link to="/">HCUNITE</router-link></div>
+        <div 
+        class="text-2xl font-inter font-black lg:text-4xl transition-colors duration-300" 
+        :class="logoClass"
+        >
+          <router-link to="/">HCUNITE</router-link>
+        </div>
         <!-- headers -->
-        <div class="gap-5 xl:gap-10 justify-between" :class="showHamburger ? 'hidden':'flex max-w-[80%]'" ref="navBarContentTitles">
+        <div 
+        class="gap-5 xl:gap-10 justify-between lg:flex hidden"
+        >
           <DropdownMenu v-for="(item, key) in menuItems" :key="key" :item="item"/>
         </div>
 
         <!-- hamburger icon -->
-        <button @click="mobileMenuOpen = !mobileMenuOpen" :class="showHamburger? '':'hidden'">
+        <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M4 6h16M4 12h16M4 18h16" />
           </svg>

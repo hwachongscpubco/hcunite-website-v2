@@ -248,7 +248,8 @@ const councillors = {
             <p class="centered-text-block">
                 (FROM LEFT TO RIGHT)
                 <br><br>Front Row:
-                <br>Ms Chan Hui Chieh (Teacher Advisor); 
+                <br>
+                Ms Chan Hui Chieh (Teacher Advisor); 
                 Mrs Raj-Priyahlatha Nainar (Teacher Advisor); 
                 Mr Edwin Zheng Zhehong (Teacher Advisor); 
                 Ms How Lai Yin Deborah (Deputy Principal (College)); 
@@ -262,12 +263,60 @@ const councillors = {
                 Dr Sin Yee Theng (Teacher Advisor)
                 <br><br>Second Row: 
                 <br>
+                Noelle Lee Hsuen; 
+                Karine Toh Yun Ying; 
+                Lau Han Ning;
+                Chua Zhi En; 
+                Benjamin Lien Chen Yan; 
+                Chan Jian Kai; 
+                Ashton Tan Ke Han; 
+                Elijah Christian Koh Zhi En; 
+                Teo Jie Jun Jayden; 
+                Tan Xuanqi, Arin; 
                 <br><br>Third Row:
                 <br>
+                Lee Si Ying, Renae; 
+                Tan King Hei Isaac; 
+                Lin Zicheng
+                Jovan Lim Chen Yu; 
+                Kartha Jeremiah Jeevan; 
+                Randal Siow Yi Xuan; 
+                Mikhail Sergeyevich Parinov; 
+                Daryl Lee Tzer Yuh; 
+                Brayden Tee Qi Yuan; 
+                Goh Mu Xun; 
+                Jake Ying Jue Rui;
+                Ryan Vaswani; 
+                Kwa Ming Feng; 
+                Li Yuquan; 
+                Ong Jia Zhen; 
+                Sincere Foo; 
                 <br><br>Fourth Row:
                 <br>
+                Ng Yu Wen; 
+                Ong Yee Lynn; 
+                Tan E Shyan; 
+                Choo En Min, Chloe; 
+                Rishika Kashyap; 
+                Goh Kong Yi; 
+                Liu Jinghan, Sophie; 
+                Teng Yun Xin; 
+                Tan Zhen Ying; 
+                Chong En Yu; 
+                Hebe Tang Qiao En; 
+                Djie Atria; 
                 <br><br>Last Row:
                 <br>
+                Choo Qian Ning; 
+                Shane Lee Zi Hao; 
+                Pan Xi; 
+                Huang Ju; 
+                Kong Cheng Jun; 
+                Yang Shurui; 
+                Yang He;
+                Goh Kai Tong; 
+                Huang Xi; 
+                Danielle Oh Xuan Rong; 
             </p>
         </div>
     </section>

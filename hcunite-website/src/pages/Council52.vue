@@ -4,233 +4,233 @@ import CouncilCard from '../components/CouncilCard.vue';
 const councillors = {
   "NSE": {
     "Chia Zhen Teng": {
-      "position": "",
+      "position": "President, EleCo NSE Attaché",
       "description": "hi! im zhen teng from the Non-Stop-Eating committee 😋. while i never stop eating, i also never sleep enough 💤 (pls don't confuse me with the eleco sec-tres)"
     },
     "Zhou Jingyi": {
-      "position": "",
+      "position": "Vice President, O1Co NSE Attaché",
       "description": "heyy! i’m jingyi from the Need-Strong-Espresso committee😪. although i’m low on caffeine 24/7, im never snoozing on y'all🫡. but i’ll need more than coffee to get through these spreadsheets☹️ (jake told me to put 1100 bananas into the procurement form🍌🙈)"
     },
     "Chua Zhi En": {
-      "position": "",
+      "position": "General Secretary, MAFCo NSE Attaché",
       "description": "helllooo!!! im zhi en 🦸‍♀️💜🌕 from the Natural-Spreadsheet-Experts committee. i typed =FUN() and suddenly the words started juggling themselves 🎪. now im stressed 😞😧"
     },
     "Elijah Christian Koh Zhi En": {
-      "position": "",
+      "position": "General Secretary, OHCo NSE Attaché",
       "description": "hellooo! im also zhi en and im from the Never-Stressing-Enough committee 🙀🙀 im trying to write today’s morning mumbles but i cant think of a good joke 😧 maybe i shld email jian kai for help… 😨"
     },
     "Chan Jian Kai": {
-      "position": "",
+      "position": "General Treasurer, MAFCo NSE Attaché",
       "description": "heya! i'm jian kai from the Never-Stop-Emailing committee  📩 i might have hit “send” with one too many digits in my email to the bento company 😬 …guess we're in for a feast 🍽️🤤!"
     }
   },
   "EcaCo": {
     "Noelle Lee Hsuen": {
-      "position": "",
+      "position": "President of Green Council, MAFCo Member",
       "description": "Hi! I’m Noelle 🍀 and I’m the detective🕵️‍♀️! When I was at the buttgard🌳🌸 just now, I heard a loud scream and I saw Karine running away. Just as I suspected🤨🧐, her hands were stained red with blood 🩸 … "
     },
     "Karine Toh Yun Ying": {
-      "position": "",
+      "position": "President of Students’ National Education Council (SNEC), EleCo Member",
       "description": "helloo! I’m Karine 😀 When I was leaving the sniac room after taking a yuuuuuumy 🧟 nap 😴 , i saw noelle hiding suspiciously 🤨 behind the buttgard trees… 🧐"
     },
     "Tan Xuanqi, Arin": {
-      "position": "",
+      "position": "President of Values-In-Action Council (VIAC), TDCo Member",
       "description": "HELLO! I’m Arin 🫰and last night, when I was in the SNIAC Room packing care packages 🎁and planning our next volunteering session, 🫂I decided to guard Mikhail 👼 Uh oh why is Karine here? ⚰️😵"
     },
     "Mikhail Sergeyevich Parinov": {
-      "position": "",
+      "position": "Vice President of Green Council, O1Co Member",
       "description": "Greetings! I’m Mikhail and I'm the oh so benevolent and marvelous doctor🧑‍⚕️! Last night when I was vetting the National Day Celebration proposal 🇸🇬🎉, Atria failed REAMs♻️ so I decided to poison her morning Teh Peng🫖 as a punishment! 😡😛"
     },
     "Djie Atria": {
-      "position": "",
-      "description": "helloo!! I'm atria 🫀, the steadfast and courageous knight ⚔️!  \nlast night, someone POISONED me 🤢☠️while I was editing ✍️ my NDC proposal…so I took my revenge by challenging 🎯 Brayden!"
+      "position": "Vice President of Students’ National Education Council (SNEC), OHCo Member",
+      "description": "helloo!! I'm atria 🫀, the steadfast and courageous knight ⚔️! Last night, someone POISONED me 🤢☠️while I was editing ✍️ my NDC proposal…so I took my revenge by challenging 🎯 Brayden!"
     },
     "Brayden Tee Qi Yuan": {
-      "position": "",
+      "position": "VicePresident of Values-In-Action Council (VIAC), OHCo Member",
       "description": "Hi! I’m Brayden😛, after a challenging 🎯long day of volunteering 🫶at the Active Ageing Centre, I felt inspired to be extra compassionate 🥰and spread kindness to everyone!!! 🎉🥹😇"
     },
     "Chia Zhen Teng": {
-      "position": "",
+      "position": "NSE Attaché, EleCo NSE Attaché",
       "description": " hi! I’m Zhen Teng and I’m innocent 💀. Last night, Brayden killed me :("
     }
   },
   "PubCo": {
     "Benjamin Lien Chen Yan": {
-      "position": "",
+      "position": "PubCo Chairperson, OHCo ExCo Attaché",
       "description": "hi i'm benjamin! 👨‍💻🎬i have a dream that one day pubco members will chain themselves ⛓️⛓️⛓️"
     },
     "Lee Si Ying, Renae": {
-      "position": "",
+      "position": "PubCo Secretary-Treasurer, PromCo Member, EleCo Member",
       "description": "HIII🤗🥰! i'm renae 🖼️🖌️and i dream that one day our posts will all line up while we snack🍽️🍰🍣🍪"
     },
     "Chan Jian Kai": {
-      "position": "",
+      "position": "NSE Attaché, MAFCo NSE Attaché",
       "description": "hey! i'm jian kai 🎨 💻 and i have a dream that one day posts will design themselves while we nap 🥱"
     },
     "Danielle Oh Xuan Rong": {
-      "position": "",
+      "position": "PubCo Member, MAFCo Member, O1Co Member",
       "description": "heyy i'm danielle 🦭 and i have a dream that one day the school will be decorated with lots of food 🍔 🫐 🍽️"
     },
     "Goh Mu Xun": {
-      "position": "",
+      "position": "PubCo Member, TDCo Member, OHCo Member",
       "description": "hihi i'm mu xun 🐄🍄 and I have a dream that one day all my 📸 shots are 😎 smooth like ✨butter✨ 🧈 (and i won't be the criminal🦹 under cover😱)"
     },
     "Hebe Tang Qiao En": {
-      "position": "",
+      "position": "PubCo Member, MAFCo Member, OHCo Member",
       "description": "hey! im hebe 📢😛 and i have a dream that one day i will get 8 hours of sleep per day every day 🥱😴🛏️💤"
     },
     "Huang Xi": {
-      "position": "",
+      "position": "PubCo Member, PromCo Chairperson, EleCo Member",
       "description": "HIIIII im huang xi sophie and I have a dream that one day the school will be decorated with hello kitty😼😼😸😸😽😽 (Party, cocktail, and everything nice, Blossom signing in😉🌸🌸)"
     },
     "Kartha Jeremiah Jeevan": {
-      "position": "",
+      "position": "PubCo Member, TDCo Member, O1Co Member",
       "description": "hi! i'm jeremiah! i have a dream where one day in the future i will not be locked up ⛓️‍💥⛓️‍💥⛓️‍💥, and be locked in 😭✌️"
     },
     "Lin Zicheng": {
-      "position": "",
+      "position": "PubCo Member, MAFCo Member, O1Co Member",
       "description": "hey chat!! I'm Zicheng, but most people call me Charlie 🍫 and I have a dream that one day procreate would stop registering my farts 💨 💨  as the gesture to erase my canvas 😔😔 (they're not even that loud 😭😭 ) "
     },
     "Ng Yu Wen": {
-      "position": "",
-      "description": "hello im yu wen 📸 🥮 \ni have a dream that hcunite reels trended worldwide 😮‍💨😮‍💨"
+      "position": "PubCo Member, MAFCo Secretary-Treasurer, EleCo Member",
+      "description": "hello im yu wen 📸 🥮 I have a dream that hcunite reels trended worldwide 😮‍💨😮‍💨"
     },
     "Sincere Foo": {
-      "position": "",
+      "position": "PubCo Member, PromCo Member, O1Co Chairperson",
       "description": "HI EVERYONE 🌟🌟 I'm sincere 💝and I have a dream that one day I will be rewarded with one cup of matcha🍵 for every pub work I do 🤗🤗💪💪  (I told Jake to get 1100 bandanas 🙉🙉)"
     }
   },
   "SnR": {
     "Teo Jie Jun Jayden": {
-      "position": "",
+      "position": "SnR Chairperson, O1Co ExCo Attaché",
       "description": "helloo friends! ❤️💛💚💙 i’m jayden and ohgyat do you hear that music… who is THAT dancing away? 😱😱 (jingyi asked me to help her collect 1100 bananas, sincere looks confused 😓)"
     },
     "Goh Kai Tong": {
-      "position": "",
+      "position": "SnR Secretary-Treasurer, TDCo Member, EleCo Member",
       "description": "HEYO i'm kai tong!!💃 ❤️💛💚💙 as i was grooving around, i think i just witness super women fly past the barn....?! 🦸‍♀️👀"
     },
     "Chua Zhi En": {
-      "position": "",
+      "position": "NSE Attaché, MAFCo NSE Attaché",
       "description": "HELLOOO im zhi en!! ❤️💛💚💙 i was flying walking to sch one day and i saw a yellow cow 🐮☀️☀️ omg she's mooooving here right now… "
     },
     "Pan Xi": {
-      "position": "",
+      "position": "Apollo Faculty Head, MAFCo Member",
       "description": "radiant day to all!! ☀️💛 i am panxi and i was just on my moorning walk (haha…) 😁 wait where’s that cow off to…and why is he shouting cowabunga ⁉️🐮"
     },
     "Jovan Lim Chen Yu": {
-      "position": "",
+      "position": "Apollo Deputy Faculty Head, O1Co Member",
       "description": "COWabunggaa everyone I'm Jovan!! 🌟 i was just at the moooovies 🐮💛 and WHOA! who's that gal galloping down the street??"
     },
     "Tan E Shyan": {
-      "position": "",
+      "position": "Ares Faculty Head, O1Co Member",
       "description": "HAYYYY EVERYONE I’M E SHYAN, ready to stirrup some fun!!🐴❤️‍🔥 Oh wait… mamma mia what’s that guy doing horsing around?? 😟☝️🐎"
     },
     "Ryan Vaswani": {
-      "position": "",
+      "position": "Ares Deputy Faculty Head, OHCo Member",
       "description": "Haylooo, it’s Ryan🐴, just horsing around as usual. But—AWOOOOO!! 🐺🌕 Don’t neigh-glect the alpha wolf, ‘cause he’s ready to howl up a storm! 🥶"
     },
     "Yang Shurui": {
-      "position": "",
+      "position": "Artemis Faculty Head, TDCo Member",
       "description": "Awoo-nderful day pups! I’m Langshurui🐺💙and it’s been a howlsome day✨…until I spotted a big bad wolf wolfing down ALL my food??😡🍔"
     },
     "Choo Qian Ning": {
-      "position": "",
+      "position": "Artemis Deputy Faculty Head, O1Co Member",
       "description": "awesome pawsome day everybody I am qian ning! 🐺 holy moly I see an owl with a lightsaber, is it the ahoot king? 😱🔥"
     },
     "Ong Jia Zhen": {
-      "position": "",
+      "position": "Athena Faculty Head, O1Co Member",
       "description": "hello im jiazhen! ahoot ahoot omg i see an owl that looks like me. wowww but hes a little taller and a little cuter 🥰 i hope we can be ahoot friends 🙏"
     },
     "Kong Cheng Jun": {
-      "position": "",
+      "position": "Athena Deputy Faculty Head, PromCo Member",
       "description": "Hey everyone, I'm Cheng Jun! 🦉💚 Just flew in from a night of winging it😆 AHOOT who's that nonchalant guy sitting down like a boss? boss music plays"
     }
   },
   "SecCo": {
     "Lau Han Ning": {
-      "position": "",
+      "position": "SecCo Chairperson, PromCo ExCo Attaché",
       "description": "HELLO i’d like to report that kong yi stole my secco shirt! 😡😡 i’m han ning and i’m the chairperson of the elijah’s dad fan club 👨 and secco 💗 but the edfc 👨 is #1 in my heart 💁‍♀️💁‍♀️ (party, cocktail and everything nice, buttercup signing in 😎🍀🍀)"
     },
     "Goh Kong Yi": {
-      "position": "",
+      "position": "SecCo Secretary-Treasurer, MAFCo Member, EleCo Member",
       "description": "HI i'm kong yi and i'm pretty sure han ning took my shirt by accident although it's LITERALLY one size larger than hers 🤦‍♂️🤦‍♂️ but i heard elijah's dad prints money so maybe i'll get some from him to get a new shirt 😁🤑"
     },
     "Elijah Christian Koh Zhi En": {
-      "position": "",
+      "position": "NSE Attaché, OHCo NSE Attaché",
       "description": "HELLO! im elijah and i am a proud owner of three secco shirts 👚👚👚 i’ve been hearing that my dad is a man of many professions… 🤔🤔🤔 does anyone happen to know anything about it! 😨"
     },
     "Liu Jinghan, Sophie": {
-      "position": "",
+      "position": "Student Engagement Coordinator, MAFCo Member, OHCo Secretary-Treasurer",
       "description": "hi I'm sophie and I'm the SNC that laughs at my own jokes on stage 🤣🤣 elijah's dad is my comedic inspiration 😋 I heard he invented knock knock jokes, he truly deserves the no-bell prize 🥸🏆 (hahahahahaha)"
     },
     "Tan King Hei Isaac": {
-      "position": "",
+      "position": "Student Engagement Coordinator, PromCo Member, EleCo Member",
       "description": "hi im isaac and im the SNC that keeps hitting tiktok dances on stage 😛 that’s why i always count on elijah’s dad for a speaker to blast my music from 💔🥀"
     },
     "Chong En Yu": {
-      "position": "",
+      "position": "Song I/C, PromCo Secretary-Treasurer, OHCo Member",
       "description": "hello! i'm enyu, song ic ##1 1️⃣🥇☝🏻i won 1st place at a singing competition held by elijah’s dad last year 🤷🏻‍♀️ i think he also offers vocal lessons... maybe i'll sign up to learn how to harmonize 👏🏻 (Party, cocktail and everything nice, Bubbles signing in 😋🫧🫧)"
     },
     "Li Yuquan": {
-      "position": "",
+      "position": "Song I/C, PromCo Member, EleCo Member",
       "description": "hello! i'm yuquan, song ic ##2 2️⃣🥈✌ I won 2nd place at a singing competition held by elijah's dad last year 👨‍🎤i heard he offers vocal lessons too🧐maybe i should sign up to learn how to hit higher notes🎤🆙"
     },
     "Choo En Min, Chloe": {
-      "position": "",
+      "position": "Dance I/C, TDCo Chairperson, OHCo Member",
       "description": "hellos! i’m chloe, DA (the) dance ic 💃 did you see yun xin? cos she’s 在我心里 😝 oh! elijah's dad built a dance studio for us to practice our choreo and moves too! 😎🕺🪩 #HUATS 🧧🧧"
     },
     "Teng Yun Xin": {
-      "position": "",
+      "position": "Dance I/C, TDCo Member, OHCo Member",
       "description": "hii! i'm yun xin, the dance ic 🆙💖i'm chloe's favourite partner in crime DAh (duh) ☺️ elijah's father promised to sponsor us 🩰 & i'm highly looking forward to that🤞🧋😋 "
     },
     "Jake Ying Jue Rui": {
-      "position": "",
-      "description": "i think we should have 2000 people for nsg supp- chat am i muted \nhi i am jake \nelijah's dad folded me 1100 clappers... we using it for tnf i guess?\n(i asked jingyi to put 1100 bandanas in the procurement form)"
+      "position": "Cheer I/C, PromCo Member, O1Co Secretary-Treasurer",
+      "description": "i think we should have 2000 people for nsg supp- chat am i muted. Hi i am jake. Elijah's dad folded me 1100 clappers... we using it for tnf i guess? (i asked jingyi to put 1100 bandanas in the procurement form)"
     },
     "Ong Yee Lynn": {
-      "position": "",
-      "description": "woah it's finally so peaceful in here\nhi guys im yee lynn\ni think elijah's dad is the national stadium... let's break the floor during tnf"
+      "position": "Cheer I/C, MAFCo Member, EleCo Member",
+      "description": "woah it's finally so peaceful in here. Hi guys im yee lynn. I think elijah's dad is the national stadium... let's break the floor during tnf"
     }
   },
   "WelCo": {
     "Ashton Tan Ke Han": {
-      "position": "",
+      "position": "WelCo Chairperson, TDCo Exco Attaché",
       "description": "HI i'm Ashton and \"i'm ready to go to work!!\" ~ Spongebob 💼🧽"
     },
     "Yang He": {
-      "position": "",
+      "position": "WelCo Secretary-Treasurer, MAFCo Member, O1Co Member",
       "description": "HII, I'm Yang He and remember \"A wise bear always keeps a marmalade sandwich in his hat in case of emergency 🧸🍞🫰\" ~ Paddington 🧸🍞🫰"
     },
     "Zhou Jingyi": {
-      "position": "",
+      "position": "NSE Attaché, O1Co NSE Attaché",
       "description": "HIII i'm Jingyi and \"Some people (y'all) are worth melting for:)🥺\" ~ Olaf"
     },
     "Daryl Lee Tzer Yuh": {
-      "position": "",
+      "position": "WelCo Member, TDCo Secretary-Treasurer, O1Co Member",
       "description": "HIIII i'm Daryl and \"It never hurts to keep looking for sunshine ☀️\" ~ Eeyore 🫏"
     },
     "Huang Ju": {
-      "position": "",
+      "position": "WelCo Member, PromCo Member, OHCo Member",
       "description": "˖°𓇼⋆ HIIIII i'm huang ju and \"when life gets you down, do you wanna know what you’ve gotta do? Just keep swimming🌊.” ~ Dory🐠•"
     },
     "Kwa Ming Feng": {
-      "position": "",
+      "position": "WelCo Member, TDCo Member, OHCo Chairperson",
       "description": "HIIIIII i'm Ming Feng and \"to laugh at yourself is to love yourself. 😍\" ~ Mickey Mouse 🐭"
     },
     "Randal Siow Yi Xuan": {
-      "position": "",
+      "position": "WelCo Member, MAFCo Chairperson, O1Co Member",
       "description": "HIIIIIII i’m Randal and “The flower that blooms in adversity is the most rare and beautiful of all🌻” ~ Mulan🌟🤩"
     },
     "Rishika Kashyap": {
-      "position": "",
+      "position": "WelCo Member, TDCo Member, EleCo Member",
       "description": "HIIIIIIII i'm Rishika and life advice 101 \"you're never too old to be young☀️🍀\" ~ Snow White and the seven dwarfs ☃️❄️🗻🌨️"
     },
     "Shane Lee Zi Hao": {
-      "position": "",
-      "description": "HIIIIIIIII i’m shane and “if you are what you eat, then i only want to eat the good stuff” ~ Remy😆\n(i keep on mixing up the eleco sec-tres and eleco attaché)"
+      "position": "WelCo Member, PromCo Member, EleCo Chairperson",
+      "description": "HIIIIIIIII i’m shane and “if you are what you eat, then i only want to eat the good stuff” ~ Remy😆(i keep on mixing up the eleco sec-tres and eleco attaché)"
     },
     "Tan Zhen Ying": {
-      "position": "",
+      "position": "WelCo Member, MAFCo Member, EleCo Secretary-Treasurer",
       "description": "HIIIIIIIIII i'm zhen ying and \"I'm always on (Common Room) duty!🥰\" ~ Inspector Gadget🔎 (pls don't confuse me with the eleco attaché)"
     }
   }

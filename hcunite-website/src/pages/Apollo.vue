@@ -9,8 +9,8 @@
       @touchstart="handleTouchStart"
       @touchend="handleTouchEnd"
     >
-        <div class="w-full aspect-auto">
-          <img src="/images/Apollo/apollo_photo.jpg" alt="">
+        <div class="w-full">
+          <img class="w-full aspect-auto" src="/images/Apollo/apollo_photo.jpg" alt="">
         </div>
 
         <div 
@@ -52,11 +52,13 @@
     <p class="centered-text-block">
       (FROM LEFT TO RIGHT)
       <br><br>First Row: 
-      <br>Toh Jun Hao; Chen Leqi
+      <br>Pan Xi, Jovan Lim Chen Yu
       <br><br>Second Row: 
-      <br>Yeoh Yu Bin Irvin; Aveline Tan Wan Yu; Leow Wei Sheen; Bai Zheng; Ang Shi Yi Torres; Tay Ming Feng Kyan
+      <br>Peh Jia Lin, Chay Jialin, Jamie, Dana Goh Siew Yuen, Liu Rui-Han, Rachel
       <br><br>Third Row: 
-      <br>Wu Wan Ying Dorine; Lauren Kate Tham Qi; Zhang Yueshan; Tan Qi An; Cheng Wen Xin; Boon Kelley; Sng Yun Yi Claire
+      <br>Loh En Ling, Giselle, Liao Sen Hei, Chong Jia Xuan Roxanne, Ariel Koh Rui Xuan 
+      <br><br>Fourth Row: 
+      <br>Darius Kwang Yi Fan, Lim Jun Jie Caleb, Ryan Ng Yiheng, Quah Hoon Ee Ally, Wan Hexin
     </p>
   </section>
 

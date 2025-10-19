@@ -13,16 +13,12 @@
 
 <template>
     <!-- hero section -->
-     <section class="w-full flex flex-col">
-            <!-- hero widget -->
-             <div class="w-full overflow-hidden relative lg:h-screen h-[70vh]">
-                <router-link to="/Council52">
-                    <img src="../assets/home/council_pic.jpg" alt="background" class="absolute top-0 left-0 w-full h-full object-cover">
-
-                    <h1 class="p-4 md:p-12 absolute bottom-0 z-20 text-white">HWA CHONG STUDENTS' COUNCIL</h1>
-                </router-link>
-             </div>
-     </section>
+    <section class="w-full overflow-hidden relative lg:h-screen h-[70vh]">
+        <router-link to="/Council52">
+            <img src="../assets/home/council_pic.jpg" alt="background" class="absolute top-0 left-0 w-full h-full object-cover">
+            <h1 class="p-4 md:p-12 absolute bottom-0 z-20 text-white">HWA CHONG STUDENTS' COUNCIL</h1>
+        </router-link>
+    </section>
 
     <!-- why were here section -->
     <section class="w-full">

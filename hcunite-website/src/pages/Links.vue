@@ -118,7 +118,7 @@
         <h2>Freshmen Essentials: C1 Orientation</h2>
         <p class="mt-4">College Reception (Emergency Contact): 6468 3955</p>
         <div class="py-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-            <div class="relative rounded-xl overflow-hidden scale-100 hover:shadow-xl hover:scale-105 transition-all duration-500" >
+            <div class="relative rounded-xl overflow-hidden lg:scale-100 lg:hover:shadow-xl lg:hover:scale-105 transition-all duration-500" >
                 <img class="relative z-0 w-full h-30 lg:h-60 xl:h-full rounded-xl aspect-auto object-cover object-center" src="../assets/links/map.jpeg" alt="">
                 <div class="flex flex-row w-full justify-between py-4 lg:px-4 lg:absolute lg:bottom-0 lg:text-white lg:bg-gradient-to-t from-black to-transparent">
                     <div class="z-20">
@@ -133,7 +133,7 @@
                 </div>
                 
             </div>
-            <div class="relative rounded-xl overflow-hidden scale-100 hover:shadow-xl hover:scale-105 transition-all duration-500" >
+            <div class="relative rounded-xl overflow-hidden lg:scale-100 lg:hover:shadow-xl lg:hover:scale-105 transition-all duration-500" >
                 <img class="relative z-0 w-full h-30 lg:h-60 xl:h-full rounded-xl aspect-auto object-cover object-center" src="../assets/links/handbook.jpg" alt="">
                 <div class="flex flex-row w-full justify-between py-4 lg:px-4 lg:absolute lg:bottom-0 lg:text-white lg:bg-gradient-to-t from-black to-transparent">
                     <div class="z-20">
@@ -148,7 +148,7 @@
                 </div>
                 
             </div>
-            <div class="relative rounded-xl overflow-hidden scale-100 sm:col-span-2 xl:col-span-1 hover:shadow-xl hover:scale-105 transition-all duration-500" >
+            <div class="relative rounded-xl overflow-hidden lg:scale-100 sm:col-span-2 xl:col-span-1 lg:hover:shadow-xl lg:hover:scale-105 transition-all duration-500" >
                 <img class="relative z-0 w-full h-30 lg:h-60 xl:h-full rounded-xl aspect-auto object-cover object-center" src="../assets/links/sodache.JPG" alt="">
                 <div class="flex flex-row w-full justify-between py-4 lg:px-4 lg:absolute lg:bottom-0 lg:text-white lg:bg-gradient-to-t from-black to-transparent">
                     <div class="z-20">

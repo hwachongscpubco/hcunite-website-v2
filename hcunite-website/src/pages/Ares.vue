@@ -9,8 +9,8 @@
       @touchstart="handleTouchStart"
       @touchend="handleTouchEnd"
     >
-        <div class="w-full aspect-auto">
-          <img src="/images/Ares/ares_photo.jpg" alt="">
+        <div class="w-full">
+          <img class="w-full aspect-auto"  src="/images/Ares/ares_photo.jpg" alt="">
         </div>
 
         <div 
@@ -52,11 +52,11 @@
     <p class="centered-text-block">
       (FROM LEFT TO RIGHT)
       <br><br>First row
-      <br>Pei Miaozhuang; Sonya Koh; Koh Wei En Ezekiel; Ang Yi Zhe 
+      <br>E Shyan, Ryan Vaswani 
       <br><br>Second row
-      <br>Heidi Danielle Foo; Ooi Pei Qi; Chang Soo Yin; Ho Rae Hsien Emma; Chai Xin Ying Charisse 
+      <br>Isabelle, Gwendolyn, Denzel, Yun Yang, Kaitlin, Aislin
       <br><br>Third row
-      <br>Kaelyn Hong Yan Ning; Kyra Tan Xi Xuan; Tasha Rahardja; Kelly Ho Jia Yi; Zhang Yiran; Tan Sze Xuan
+      <br>Alexander, Yi Shan, Ashleigh, Shermaine, Mirabelle, Joyee, Alesea
 
 
     </p>

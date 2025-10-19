@@ -207,8 +207,6 @@ function scrollToMobileEvent(index) {
 function onSelect(index) {
     selectedIndex.value = index
     currentImageIndex.value = 0
-    console.log('Event selected:', events[index].name)
-    console.log('image index: ', currentImageIndex.value)
 }
 
 //scrolling headers

@@ -18,7 +18,7 @@ import Athena from "./pages/Athena.vue"
 import Sodache from "./pages/Sodache.vue"
 import Elections from "./pages/Elections.vue"
 import Links from "./pages/Links.vue"
-import Common from "./pages/Common.vue"
+import Common from "./pages/TempCommon.vue"
 
 const routes = [
     { path: '/', component: Home},

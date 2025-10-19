@@ -9,8 +9,8 @@
       @touchstart="handleTouchStart"
       @touchend="handleTouchEnd"
     >
-        <div class="w-full aspect-auto">
-          <img src="/images/Artemis/artemis_photo.jpg" alt="">
+        <div class="w-full">
+          <img class="w-full aspect-auto" src="/images/Artemis/artemis_photo.jpg" alt="">
         </div>
 
         <div 
@@ -52,13 +52,11 @@
     <p class="centered-text-block">
       (FROM LEFT TO RIGHT)
       <br><br>First Row
-      <br>Lucas Chin Yee Seng; Lee Kai Bin, Ethan
+      <br>Tay Hong Yee, Sim Shan Yew, Yang Shurui, Quek Rui Wen, Choo Qian Ning
       <br><br>Second Row
-      <br>Lau Ray Kai Elliot; Song Haoran; Jiang Sirui Serena; Lee Pei Xuan Chloe
+      <br>Aeon Taspinar, Tan Jie Min, Kam Yu Tong Chloe, Lu Yitong, Wang Yifei
       <br><br>Third Row: 
-      <br>Mao Tianze; Tith Bunnath; Pan Jiayao
-      <br><br>Fourth Row
-      <br>Lecia Ang Ler Xuan; Teo Jing Wei; Ran Zhuo Er, Joelle; Low Esme; Yeo Hsin Yun; Hu Enxi
+      <br>Kelly Chia, Zhang Min Qi, Meng Zhanfei Jeffrey, Jiang Yixiang, Low Yu Ze
     </p>
   </section>
 

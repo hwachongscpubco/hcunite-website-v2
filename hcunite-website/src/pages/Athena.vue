@@ -9,8 +9,8 @@
       @touchstart="handleTouchStart"
       @touchend="handleTouchEnd"
     >
-        <div class="w-full aspect-auto">
-          <img src="/images/Athena/athena_photo.jpg" alt="">
+        <div class="w-full">
+          <img class="w-full aspect-auto" src="/images/Athena/athena_photo.jpg" alt="">
         </div>
 
         <div 
@@ -52,11 +52,9 @@
     <p class="centered-text-block">
       (FROM LEFT TO RIGHT)
       <br><br>First Row
-      <br>Sun Peiyan; Alastair Chua Wei Jie
+      <br>Chin Shi Xuan Cadence, Leanne Tan, Xin Qingyue, Ong Jia Zhen, Kong Cheng Jun, Esther Seng Ying Ying, Kaylen Liew Tong En, Shanaia Megan Teo
       <br><br>Second Row
-      <br>Kwan Qiao Le; Teo Kai Xuan Venus; Rachel Chan Rui En; Choo Ying En Hannah; Koh En-Rui Charlotte; Liang Yu Fei
-      <br><br>Third Row
-      <br>Ang Shi Qi Georia; Ang Wei Lin; Tan Suan Yee; Ong Peng Yu; Gu Ruishan; Fan Yinuo; Cui Ning Wen
+      <br>Hoon Jia Qi Amelia, Xie Xinran, Tang Shing Yi, Dylan Seah, Tan Jun Han Jayden, Ashley Ng, Xiong Zhihan
     </p>
   </section>
 

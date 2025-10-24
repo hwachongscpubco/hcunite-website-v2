@@ -52,11 +52,11 @@
     <p class="centered-text-block">
       (FROM LEFT TO RIGHT)
       <br><br>First row
-      <br>E Shyan, Ryan Vaswani 
+      <br>Tan E Shyan, Ryan Vaswani
       <br><br>Second row
-      <br>Isabelle, Gwendolyn, Denzel, Yun Yang, Kaitlin, Aislin
+      <br>Tang Ho Yan Isabelle, Gwendolyn Chia Yu Tong, Ong Jin Rong Denzel, Lim Yun Yang, Leong An Teng Kaitlin, Liu Lingru (Aislin)
       <br><br>Third row
-      <br>Alexander, Yi Shan, Ashleigh, Shermaine, Mirabelle, Joyee, Alesea
+      <br>Ho Shun Yi, Alexander, Cai Yi Shan, Ong Hwai Suan Ashleigh, Song An An Shermaine, Mirabelle Phua Jing Ni, Tan Jo Yee, Alesea Tan Jingxi
 
 
     </p>

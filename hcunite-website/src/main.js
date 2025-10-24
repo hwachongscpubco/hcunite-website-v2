@@ -18,7 +18,7 @@ import Athena from "./pages/Athena.vue"
 import Sodache from "./pages/Sodache.vue"
 import Elections from "./pages/Elections.vue"
 import Links from "./pages/Links.vue"
-import Common from "./pages/TempCommon.vue"
+import Common from "./pages/Common.vue"
 
 const routes = [
     { path: '/', component: Home},
@@ -41,6 +41,9 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 }
+  },
 })
 
 const app = createApp(App)

@@ -92,7 +92,8 @@ const resetScales = () => {
 
 <template>
     <section class="w-full overflow-hidden relative lg:h-screen h-[70vh]">
-        <img src="../assets/home/council_pic.jpg" alt="background" class="absolute top-0 left-0 w-full h-full object-cover">
+        <img src="../assets/common/common_room.jpg" alt="background" class="absolute top-0 left-0 w-full h-full object-cover">
+        <div class="w-full h-full absolute bg-gradient-to-t from-black to-transparent opacity-50"></div>
         <h1 class="p-4 md:p-12 absolute bottom-0 z-20 text-white">COMMON ROOM</h1>
     </section>
     <section>

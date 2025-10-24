@@ -57,7 +57,7 @@ const councillors = {
   "PubCo": {
     "Benjamin Lien Chen Yan": {
       "position": "PubCo Chairperson, OHCo ExCo Attaché",
-      "description": "hi i'm benjamin! 👨‍💻🎬i have a dream that one day pubco members will chain themselves ⛓️⛓️⛓️"
+      "description": "hi i'm benjamin! 👨‍💻🎬i have a dream that hcunite videos post themselves while i EAT"
     },
     "Lee Si Ying, Renae": {
       "position": "PubCo Secretary-Treasurer, PromCo Member, EleCo Member",
@@ -398,24 +398,23 @@ const councillors = {
 
     <!-- nse -->
     <section ref="nse" class="pb-12 px-3">
-        <div class=" aspect-3/2 rounded-xl overflow-hidden relative">
-            <img src="/images/52nd/52nd_NSE.jpg" alt="background" class="w-full h-full z-0 object-cover brightness-70">
-            <h1 class="absolute top-[50%] left-[52%] transform -translate-x-1/2 -translate-y-1/2 z-20 text-center font-inter font-black text-white tracking-[0.5em] text-3xl/10 sm:text-5xl/18 lg:tracking-[0.4em] lg:text-8xl/33">
-                THE NON-<br>
-                STANDING<br>
-                EXECUTIVE<br>
-                COMMITTEE<br>
-                (NSE)
-            </h1>
-        </div>
 
-        <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+        <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
+          <div class= "xl:flex-1/2 overflow-hidden rounded-xl">
+            <img src="/images/52nd/52nd_NSE.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
+          </div>
+          <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
+            <h2 class="flex-2/3 xl:mb-8">THE NON-STANDING EXECUTIVE COMMITTEE (NSE)</h2>
+            <div class="flex-1/3">
+              <p class=" text-justify font-poppins lg:text-right">
                 As the core body in the Executive Committee, the Non-Standing Executive Committee is responsible for 
                 steering the council direction, while pushing boundaries to lead the council to greater heights. 
                 On an individual level, the committee is committed to supporting each and every councillor to pursue their passions, 
                 and partner them in their council journey ahead.
-            </p>
+              </p>
+            </div>
+          </div>
+            
         </div>
 
         <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">
@@ -432,26 +431,23 @@ const councillors = {
 
     <!-- ecaco -->
     <section ref="ecaco" class="pb-12 px-3">
-        <div class="aspect-3/2 rounded-xl overflow-hidden relative">
-            <img src="/images/52nd/52nd_EcaCo.jpg" alt="background" class="w-full h-full z-0 object-cover brightness-70">
-            <h1 class="w-full absolute top-[50%] left-[52%] transform -translate-x-1/2 -translate-y-1/2 z-20 text-center font-inter font-black text-white tracking-[0.3em] text-2xl/10 sm:text-5xl/18 lg:tracking-[0.4em] lg:text-8xl/25">
-                THE EXTENDED-<br>
-                COUNCIL<br>
-                ATTACHE<br>
-                COMMITTEE<br>
-                (ECACO)
-            </h1>
-        </div>
-
-        <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+        <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
+          <div class= "xl:flex-1/2 overflow-hidden rounded-xl">
+            <img src="/images/52nd/52nd_EcaCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
+          </div>
+          <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
+            <h2 class="flex-2/3 xl:mb-8">THE EXTENDED-COUNCIL ATTACHE COMMITTEE (ECACO)</h2>
+            <div class="flex-1/3">
+              <p class=" text-justify font-poppins lg:text-right">
                 The Extended Council Attaché Committee comprises the Councillors who serve as Presidents and Vice-Presidents 
                 to the Values-In-Action Council, Green Council and Students' National Education Council. 
                 Each of these Presidents and Vice Presidents will serve in both the Students' Council and their 
                 Extended Councils, acting as a bridge to promote better communication between leadership bodies. 
                 In doing so, they work to build meaningful collaborations 
                 that will create a holistic experience for the student body.
-            </p>
+              </p>
+            </div>
+          </div>
         </div>
 
         <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">
@@ -468,24 +464,22 @@ const councillors = {
 
     <!-- pubco -->
     <section ref="pubco" class="pb-12 px-3 ">
-        <div class=" aspect-3/2 rounded-xl overflow-hidden relative">
-            <img src="/images/52nd/52nd_PubCo.jpg" alt="background" class="w-full h-full z-0 object-cover brightness-70">
-            <h1 class="w-full absolute top-[50%] left-[52%] transform -translate-x-1/2 -translate-y-1/2 z-20 text-center font-inter font-black text-white tracking-[0.4em] text-2xl/10 sm:text-5xl/18 lg:tracking-[0.2em] lg:text-8xl/25">
-                THE PUBLICATIONS<br>
-                AND PUBLICITY<br>
-                COMMITTEE<br>
-                (PUBCO)
-            </h1>
-        </div>
-
-        <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+        <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
+          <div class= "xl:flex-1/2 overflow-hidden rounded-xl">
+            <img src="/images/52nd/52nd_PubCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
+          </div>
+          <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
+            <h2 class="flex-2/3 xl:mb-8">THE PUBLICATIONS AND PUBLICITY COMMITTEE (PUBCO)</h2>
+            <div class="flex-1/3">
+              <p class=" text-justify font-poppins lg:text-right">
                 Through the use of HCunite and the Council Board, the Publication and Publicity Committee 
                 publicises council events and initiatives, 
                 aiming to increase communication and transparency between the student body and the Students' Council. 
                 Moreover, our team is also dedicated to promoting a common identity for the Council and the school, 
                 while aspiring to make student life more exciting!
-            </p>
+              </p>
+            </div>
+          </div>
         </div>
 
         <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">
@@ -502,28 +496,22 @@ const councillors = {
 
     <!-- secco -->
     <section ref="secco" class="pb-12 px-3 ">
-        <div class=" aspect-3/2 rounded-xl overflow-hidden relative">
-            <img src="/images/52nd/52nd_SecCo.jpg" alt="background" class="w-full h-full z-0 object-cover brightness-70">
-            <h1 class="w-full absolute top-[50%] left-[52%] transform -translate-x-1/2 -translate-y-1/2 z-20 text-center font-inter font-black text-white tracking-[0.5em] text-2xl/10 sm:text-5xl/18 lg:tracking-[0.3em] lg:text-8xl/30">
-                THE STUDENT<br>
-                ENGAGEMENT<br>
-                AND CULTURE<br>
-                COMMITTEE<br>
-                (SECCO)
-            </h1>
-        </div>
-
-        <div class="px-6 py-12 text-center md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
-                By forging common experiences, 
-                the Student Engagement and Culture committee aspires to be the champion of our school's culture and identity, 
-                fostering a strong sense of belonging to the school, 
-                and keeping the Hwa Chong spirit burning bright. 
-                The committee is also the torchbearer of our school's vibrant song, dance and cheer culture, 
-                also known as SODACHE. 
-                The Student Engagement and Culture Committee works to strengthen student bonds and 
-                create memories that will last a lifetime.
-            </p>
+        <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
+          <div class= "xl:flex-1/2 overflow-hidden rounded-xl">
+            <img src="/images/52nd/52nd_SecCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
+          </div>
+          <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
+            <h2 class="flex-2/3 xl:mb-8">THE STUDENT ENGAGEMENT AND CULTURE COMMITTEE (SECCO)</h2>
+            <div class="flex-1/3">
+              <p class=" text-justify font-poppins lg:text-right">
+                By forging common experiences, the Student Engagement and Culture committee aspires to be 
+                the champion of our school's culture and identity, fostering a strong sense of belonging to the school, 
+                and keeping the Hwa Chong spirit burning bright. The committee is also the torchbearer of our school's 
+                vibrant song, dance and cheer culture, also known as SODACHE. The Student Engagement and Culture Committee 
+                works to strengthen student bonds and create memories that will last a lifetime.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">
@@ -540,18 +528,14 @@ const councillors = {
 
     <!-- snr -->
     <section ref="snr" class="pb-12 px-3 ">
-        <div class=" aspect-3/2 rounded-xl overflow-hidden relative">
-            <img src="/images/52nd/52nd_SnR.jpg" alt="background" class="w-full h-full z-0 object-cover brightness-70">
-            <h1 class="w-full absolute top-[50%] left-[52%] transform -translate-x-1/2 -translate-y-1/2 z-20 text-center font-inter font-black text-white tracking-[0.5em] text-2xl/10 sm:text-5xl/18 lg:tracking-[0.3em] lg:text-8xl/30">
-                THE SOCIAL<br>
-                AND RELATIONS<br>
-                COMMITTEE<br>
-                (SNR)
-            </h1>
-        </div>
-
-        <div class="px-6 py-12 text-center md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+        <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
+          <div class= "xl:flex-1/2 overflow-hidden rounded-xl">
+            <img src="/images/52nd/52nd_SnR.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
+          </div>
+          <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
+            <h2 class="flex-2/3 xl:mb-8">THE SOCIAL AND RELATIONS COMMITTEE (SNR)</h2>
+            <div class="flex-1/3">
+              <p class=" text-justify font-poppins lg:text-right">
                 The Social and Relations Committee seeks to be the eyes and ears of the council, 
                 championing grassroot efforts to connect with the student body on a deeper level. 
                 Through building bonds and promoting interactions between the council and the student body, 
@@ -559,7 +543,9 @@ const councillors = {
                 promoting the #Facs1Hwach spirit that we all know and love! 
                 In addition, the committee spearheads external communications with external Councils from other institutions, 
                 laying the groundwork for prospective collaborations to further vitalise the experience of Hwa Chongians.
-            </p>
+              </p>
+            </div>
+          </div>
         </div>
 
         <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">
@@ -576,17 +562,14 @@ const councillors = {
 
     <!-- welco -->
     <section ref="welco" class="pb-12 px-3 ">
-        <div class=" aspect-3/2 rounded-xl overflow-hidden relative">
-            <img src="/images/52nd/52nd_WelCo.jpg" alt="background" class="w-full h-full z-0 object-cover brightness-70">
-            <h1 class="w-full absolute top-[50%] left-[52%] transform -translate-x-1/2 -translate-y-1/2 z-20 text-center font-inter font-black text-white tracking-[0.5em] text-2xl/10 sm:text-5xl/20 lg:tracking-[0.4em] lg:text-8xl/40">
-                THE WELFARE<br>
-                COMMITTEE<br>
-                (WELCO)
-            </h1>
-        </div>
-
-        <div class="px-6 py-12 text-center md:text-left">
-            <p class="max-w-[700px] mx-auto font-poppins">
+        <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
+          <div class= "xl:flex-1/2 overflow-hidden rounded-xl">
+            <img src="/images/52nd/52nd_WelCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
+          </div>
+          <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
+            <h2 class="flex-2/3 xl:mb-8">THE WELFARE COMMITTEE (WELCO)</h2>
+            <div class="flex-1/3">
+              <p class=" text-justify font-poppins lg:text-right">
                 The Welfare Committee champions the welfare of the student population with heart and dedication. 
                 The committee strives to promote the well being of the student population for a conducive learning environment for 
                 all HwaChongians. Through infrastructure such as the Common Room and Welfare Room, 
@@ -594,7 +577,9 @@ const councillors = {
                 rendering services and hosting activities that add vibrancy to the student experience. 
                 As the saying in the Welfare Committee goes, "Your Welfare Is Our Affair". 
                 The 52nd Welfare Committee hopes to do their best to let you smile a little wider, laugh a little louder.
-            </p>
+              </p>
+            </div>
+          </div>
         </div>
 
         <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">

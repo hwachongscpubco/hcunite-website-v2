@@ -14,7 +14,7 @@
 
             </div>
             <div class="flex-2 flex flex-col gap-4 scroll-smooth">
-                <a href="https://isp.hci.edu.sg/" target="_blank">
+                <a href="https://iemb.hci.edu.sg/" target="_blank">
                     <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
                         <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">IEMB</h3>
                         <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">For school announcements</p>
@@ -25,7 +25,7 @@
 
                     <div class=""></div>
                 </a>
-                <a href="https://iemb.hci.edu.sg/" target="_blank">
+                <a href="https://isp.hci.edu.sg/" target="_blank">
                     <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
                         <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">ISP</h3>
                         <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">For attendance, results, and other school services</p>
@@ -62,7 +62,18 @@
 
             </div>
             <div class="flex-2 flex flex-col gap-4 scroll-smooth">
-                <a href="https://isp.hci.edu.sg/" target="_blank">
+                <a href="https://forms.gle/pUrP8Sq8CTGduYMW7" target="_blank">
+                    <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
+                        <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Open Feedback Form</h3>
+                        <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Got feedback for HCSC? Tell us here!</p>
+                        <div 
+                        class="z-0 absolute inset-0 bg-hwachred -translate-x-full group-hover:translate-x-0 transform transition-transform duration-300 ease-in-out"
+                        ></div>
+                    </div>
+
+                    <div class=""></div>
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFCdSojRpbd-YMdPmMQk8hZoa5ZQTWSimouar6ZFYOQmDUBQ/viewform?usp=preview" target="_blank">
                     <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
                         <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">SnR TownHall Signups</h3>
                         <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Come talk to us!</p>
@@ -73,7 +84,7 @@
 
                     <div class=""></div>
                 </a>
-                <a href="https://iemb.hci.edu.sg/" target="_blank">
+                <a href="https://www.youtube.com/@TheHCunite" target="_blank">
                     <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
                         <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">HCUnite Youtube</h3>
                         <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">For more content on Hwa Chong</p>
@@ -82,7 +93,7 @@
                         ></div>
                     </div>
                 </a>
-                <a href="https://sites.google.com/hci.edu.sg/college-ehandbook/home" target="_blank">
+                <a href="https://forms.gle/FbsASvSPGwoKZnVd9" target="_blank">
                     <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
                         <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Morning Mumbles Submission Form</h3>
                         <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Give us your best quotes, jokes, and ASEAN news!</p>
@@ -91,19 +102,10 @@
                         ></div>
                     </div>
                 </a>
-                <a href="https://sites.google.com/hci.edu.sg/college-ehandbook/home" target="_blank">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhGFq9QJrUBaAeveHa9IqLYkKnmk5Zfn8k0Kwj4foE1Bl_XA/viewform" target="_blank">
                     <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
                         <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Loaning of Council Room Items Protocol</h3>
-                        <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">For when you need to borrow something from us</p>
-                        <div 
-                        class="z-0 absolute inset-0 bg-hwachred -translate-x-full group-hover:translate-x-0 transform transition-transform duration-300 ease-in-out"
-                        ></div>
-                    </div>
-                </a>
-                <a href="https://sites.google.com/hci.edu.sg/college-ehandbook/home" target="_blank">
-                    <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
-                        <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Submission of HCUnite Mascot</h3>
-                        <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Design our School Mascot!</p>
+                        <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">For when you need to borrow something from us!</p>
                         <div 
                         class="z-0 absolute inset-0 bg-hwachred -translate-x-full group-hover:translate-x-0 transform transition-transform duration-300 ease-in-out"
                         ></div>

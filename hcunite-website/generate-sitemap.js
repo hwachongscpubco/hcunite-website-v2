@@ -4,8 +4,6 @@ import { SitemapStream, streamToPromise } from 'sitemap'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import './src/main.js'
-
 const routes = [
   '/', '/council52', '/council51', '/council50', '/council49', '/council48',
   '/faculties', '/apollo', '/ares', '/artemis', '/athena',

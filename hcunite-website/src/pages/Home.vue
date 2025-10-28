@@ -55,11 +55,11 @@
         <div class="w-full py-15 px-[10%] text-center lg:text-left lg:w-[60%] lg:px-0 lg:max-w-[900px] m-auto">
             <h2 class="">Publication and Publicity Committee’s Note:</h2>
             <p class="text-md mt-6 lg:text-lg">
-                31st August 2024
+                29th October 2025
                 <br><br>Hello! Welcome to HCUnite.com! We'd like to thank you for taking the time to visit our Website! Hopefully you've found what you were looking for and that (HC)ULIKE our Website!
                 <br><br>If you have any feedback with regard to HCUnite and any of our related initiatives, we would love to hear it. Please feel free to share your feedback with us in the form below:
             </p>
-            <a class="text-white font-poppins text-md inline-block bg-black hover:bg-hwachred rounded-full p-6 mt-6 lg:text-lg transition-colors duration-300" href="https://docs.google.com/forms/d/e/1FAIpQLSdGMzgk4LTGrJUL52nhbXky8hGFeRRt1c9PfcAaEFKppeCexA/closedform" target="_blank">Feedback</a>
+            <a class="text-white font-poppins text-md inline-block bg-black hover:bg-hwachred rounded-full p-6 mt-6 lg:text-lg transition-colors duration-300" href="https://forms.gle/kT7bP6BH9Ddfrw2z9" target="_blank">Feedback</a>
         </div>
         
     </section>

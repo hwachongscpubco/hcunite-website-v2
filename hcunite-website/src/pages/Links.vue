@@ -73,9 +73,9 @@
 
                     <div class=""></div>
                 </a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFCdSojRpbd-YMdPmMQk8hZoa5ZQTWSimouar6ZFYOQmDUBQ/viewform?usp=preview" target="_blank">
+                <a href="forms.gle/t9WyEFV7XEAeUV44A" target="_blank">
                     <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
-                        <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">SnR TownHall Signups</h3>
+                        <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">SnR TownHall Topic Suggestions</h3>
                         <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Come talk to us!</p>
                         <div 
                         class="z-0 absolute inset-0 bg-hwachred -translate-x-full group-hover:translate-x-0 transform transition-transform duration-300 ease-in-out"

@@ -73,7 +73,7 @@
 
                     <div class=""></div>
                 </a>
-                <a href="forms.gle/t9WyEFV7XEAeUV44A" target="_blank">
+                <a href="https://forms.gle/t9WyEFV7XEAeUV44A" target="_blank">
                     <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
                         <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">SnR TownHall Topic Suggestions</h3>
                         <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Come talk to us!</p>

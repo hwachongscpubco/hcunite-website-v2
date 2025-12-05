@@ -345,7 +345,7 @@ const councillors = {
         <div class="w-full">
             <h2 class="centered-text-block">Our Committees</h2>
             <p class="centered-text-block mt-6">
-                The HCSC consists of the Executive Committee, the 5 Standing Committees (SC), and the 7 Working Committees (WC).
+                The HCSC consists of the Executive Committee, the 5 Standing Committees (SC), and the 6 Working Committees (WC).
                 Headed by the Non-Standing Executive Committee (NSE), the 5 SCs work together over their 2 Council Terms to best serve the students and their needs, in their differently unique aspects. 
                 <br><br>The 5 SCs consist of: the Extended Council Attaché Committee (ECACo), the Publications and Publicity Committee (PubCo), the Student Engagement and Culture Committee (SECCo), 
                 the Social and Relations Committee (SnR), and the Welfare Committee (WelCo).

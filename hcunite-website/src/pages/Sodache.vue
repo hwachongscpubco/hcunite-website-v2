@@ -1,4 +1,26 @@
 <template>
+    <section class="w-full">
+        <Parallax :scrollY="scrollY" :speed="0", :limit="200">
+            <div class="w-full h-auto relative overflow-hidden">
+                <div 
+                    class="absolute inset-0 flex items-center justify-center"
+                >
+                    <h1 class="text-center text-white z-1">SODACHE</h1>
+                </div>
+                
+                <div class="w-full">
+
+                    <Parallax :scrollY="scrollY" :speed="0.5", :limit="200">
+                    <img class="w-full aspect-auto"src="/images/sodache/sodache_hero.JPG" alt="">
+                    </Parallax>
+                </div>
+            </div>
+        </Parallax>
+    </section>
+
+
+
+
     <section class="mt-20 px-8 py-4 lg:py-12">
         <h1 class="text-6xl lg:text-9xl cursor-pointer">
             <span @click="changeSection('song')" class="transition-colors duration-300" :class="activeSection=='song' ? 'text-song':'text-gray-700'">SO</span>
@@ -28,8 +50,9 @@
 
 <script setup>
 import SodacheItem from '../components/SodacheItem.vue'
+import Parallax from '../components/Parallax.vue'
 import { useSodacheStore } from '../stores/sodacheStore'
-import {ref, watch} from 'vue'
+import {ref, watch, onMounted, onUnmounted } from 'vue'
 
 const activeSection = ref("song")
 const sodacheStore = useSodacheStore()
@@ -224,4 +247,19 @@ const sodache = {
 watch(activeSection, (newVal) => {
   sodacheStore.activeSection = newVal
 }, { immediate: true })
+
+
+const scrollY = ref(0)
+
+const onScroll = () => {
+  scrollY.value = window.scrollY
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+})
 </script>

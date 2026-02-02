@@ -1,21 +1,18 @@
 <template>
-    <section class="w-full">
-        <Parallax :scrollY="scrollY" :speed="0", :limit="200">
-            <div class="w-full h-auto relative overflow-hidden">
-                <div 
-                    class="absolute inset-0 flex items-center justify-center"
-                >
-                    <h1 class="text-center text-white z-1">SODACHE</h1>
-                </div>
-                
-                <div class="w-full">
-
-                    <Parallax :scrollY="scrollY" :speed="0.5", :limit="200">
-                    <img class="w-full aspect-auto"src="/images/sodache/sodache_hero.JPG" alt="">
-                    </Parallax>
-                </div>
+    <section class="w-full overflow-hidden">
+        <div class="w-full h-[80vh] relative z-0">
+            <Parallax class="w-full relative h-full" :scrollY="scrollY" :speed="0.95" :limit="1200">
+                <img class="absolute inset-0 w-full h-full object-cover z-0"src="/images/sodache/sodache_hero.jpg" alt="">
+            </Parallax>
+            
+            <div class="absolute inset-0 w-full h-full flex justify-center items-center">
+                <h1 class="text-white">SECCO</h1>
             </div>
-        </Parallax>
+        </div>
+
+        <!-- <div class="relative w-full h-auto p-32 z-1">
+            <div class="aspect-video bg-amber-950"></div>
+        </div> -->
     </section>
 
 
@@ -250,9 +247,16 @@ watch(activeSection, (newVal) => {
 
 
 const scrollY = ref(0)
+let ticking = false;
 
 const onScroll = () => {
-  scrollY.value = window.scrollY
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      scrollY.value = window.scrollY
+      ticking = false
+    })
+    ticking = true
+  }
 }
 
 onMounted(() => {

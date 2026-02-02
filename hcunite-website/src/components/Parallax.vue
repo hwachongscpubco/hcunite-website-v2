@@ -1,11 +1,11 @@
 <template>
-  <div
-    ref="el"
-    :style="style"
-    class="will-change-transform"
-  >
-    <slot />
-  </div>
+    <div
+        ref="el"
+        :style="style"
+        class="will-change-transform w-full h-full"
+    >
+        <slot />
+    </div>
 </template>
 
 <script setup>
@@ -31,7 +31,9 @@ onMounted(() => {
 const clamp = (v, min, max) => Math.min(max, Math.max(min, v))
 const style = computed(() => {
     const relativeScroll = props.scrollY - elementTop.value
-    const yOffset = clamp(relativeScroll* props.speed, -props.limit, props.limit);
+    let yOffset = relativeScroll* props.speed
+    if (props.limit !=null) yOffset = clamp(yOffset, -props.limit, props.limit)
+
     return {
         transform: `translateY(${yOffset}px)`
     }

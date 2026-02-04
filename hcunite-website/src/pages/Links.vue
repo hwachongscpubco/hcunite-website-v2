@@ -127,7 +127,7 @@
                         <h3>School Map</h3>
                         <p>For all your navigation needs</p>
                     </div>
-                    <a href="https://hc-oh.com/media/campus.png" target="_blank" class="text-white w-fit font-poppins text-md inline-flex items-center bg-black hover:bg-hwachred rounded-full py-2 px-6 lg:bg-transparent lg:border-white lg:border-1 lg:text-lg lg:hover:bg-white lg:hover:text-black transition-colors duration-300">
+                    <a href="https://www.hci.edu.sg/hci-contact-us/" target="_blank" class="text-white w-fit font-poppins text-md inline-flex items-center bg-black hover:bg-hwachred rounded-full py-2 px-6 lg:bg-transparent lg:border-white lg:border-1 lg:text-lg lg:hover:bg-white lg:hover:text-black transition-colors duration-300">
                         <p>
                             View
                         </p>           

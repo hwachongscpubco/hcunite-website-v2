@@ -29,8 +29,8 @@
                 and who is open to learning along the way, the Students’ Council would be a meaningful path to consider. 
                 Should you choose to step forward, we will be ready to walk the journey with you. <br><br>
                 To find out more about what the Students’ Council entails, you may join us at our Tea Session 
-                on 11, 20, or 23 February 2026 from 1600h to 1800h at the Common Room. <br><br>
-                You may sign up here: <a class=" text-blue-600 underline" target="_blank" href="https://forms.gle/qSmmL5UVmxGaFBzW7">https://forms.gle/qSmmL5UVmxGaFBzW7</a> <br><br>
+                on 11 February 2026 (1600h to 1800h) and 20 and 23 Febrary 2026 (1630h to 1800h) at the Common Room. Sign ups are at the bottom of the page!<br><br>
+                
                 All the best! <br>
                 Elections Committee <br>
                 52nd Hwa Chong Students’ Council <br>

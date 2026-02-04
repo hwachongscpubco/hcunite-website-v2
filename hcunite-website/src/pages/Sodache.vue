@@ -2,7 +2,7 @@
     <section class="w-full overflow-hidden">
         <div class="w-full h-[80vh] relative z-0">
             <Parallax class="w-full relative h-full" :scrollY="scrollY" :speed="0.95" :limit="1200">
-                <img class="absolute inset-0 w-full h-full object-cover z-0"src="/images/sodache/sodache_hero.jpg" alt="">
+                <img class="absolute inset-0 w-full h-full object-cover z-0" src="/images/sodache/sodache_hero.jpg" alt="">
             </Parallax>
             
             <div class="absolute inset-0 w-full h-full flex justify-center items-center">

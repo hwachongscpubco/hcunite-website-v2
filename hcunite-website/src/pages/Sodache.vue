@@ -1,6 +1,6 @@
 <template>
     <section class="w-full overflow-hidden">
-        <div class="w-full h-[80vh] relative z-0">
+        <div class="w-full h-screen relative z-0">
             <Parallax class="w-full relative h-full" :scrollY="scrollY" :speed="0.95" :limit="1200">
                 <img class="absolute inset-0 w-full h-full object-cover z-0" src="/images/sodache/sodache_pic.jpg" alt="">
             </Parallax>
@@ -18,7 +18,7 @@
 
 
 
-    <section class="mt-20 px-8 py-4 lg:py-12">
+    <section class="px-8 py-4 lg:py-12">
         <h1 class="text-6xl lg:text-9xl cursor-pointer">
             <span @click="changeSection('song')" class="transition-colors duration-300" :class="activeSection=='song' ? 'text-song':'text-gray-700'">SO</span>
             <span @click="changeSection('dance')" class="transition-colors duration-300" :class="activeSection=='dance' ? 'text-dance':'text-gray-700'">DA</span>

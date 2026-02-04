@@ -3,7 +3,6 @@
 
     <section class="w-full h-[70vh] lg:h-[110vh] overflow-hidden">
         <Parallax :scrollY="scrollY"  :speed="parallaxSpeed">
-
             <img class="w-full h-full lg:h-auto aspect-auto object-cover object-top" src="/images/elections/eleco_banner.jpg" alt="">
         </Parallax>
     </section>

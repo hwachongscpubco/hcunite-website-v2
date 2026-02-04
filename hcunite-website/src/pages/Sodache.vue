@@ -1,7 +1,7 @@
 <template>
     <section class="w-full overflow-hidden">
         <div class="w-full h-screen relative z-0">
-            <Parallax class="w-full relative h-full" :scrollY="scrollY" :speed="0.95" :limit="1200">
+            <Parallax class="w-full relative h-full" :scrollY="scrollY" :speed="0.5" :limit="1200">
                 <img class="absolute inset-0 w-full h-full object-cover z-0" src="/images/sodache/sodache_pic.jpg" alt="">
             </Parallax>
             

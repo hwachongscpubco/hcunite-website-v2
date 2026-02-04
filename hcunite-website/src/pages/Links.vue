@@ -14,9 +14,9 @@
 
             </div>
             <div class="flex-2 flex flex-col gap-4 scroll-smooth">
-                <a href="https://iemb.hci.edu.sg/" target="_blank">
+                <a href="https://nurture.diveanalytics.com/en/login" target="_blank">
                     <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
-                        <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">IEMB</h3>
+                        <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Nurture</h3>
                         <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">For school announcements</p>
                         <div 
                         class="z-0 absolute inset-0 bg-hwachred -translate-x-full group-hover:translate-x-0 transform transition-transform duration-300 ease-in-out"
@@ -142,7 +142,7 @@
                         <h3>C1 Handbook</h3>
                         <p>Your Trusty Guide</p>
                     </div>
-                    <a href="https://drive.google.com/file/d/1-7Zv1xGBPIISOEz_B2uwtOlKQyfJG4uP/view?usp=drivesdk" target="_blank" class="text-white w-fit font-poppins text-md inline-flex items-center bg-black hover:bg-hwachred rounded-full py-2 px-6 lg:bg-transparent lg:border-white lg:border-1 lg:text-lg lg:hover:bg-white lg:hover:text-black transition-colors duration-300">
+                    <a href="https://drive.google.com/drive/folders/1AtKMPQObeJQOy47ANxT5ZF0jz6ObR3eJ?usp=drive_link" target="_blank" class="text-white w-fit font-poppins text-md inline-flex items-center bg-black hover:bg-hwachred rounded-full py-2 px-6 lg:bg-transparent lg:border-white lg:border-1 lg:text-lg lg:hover:bg-white lg:hover:text-black transition-colors duration-300">
                         <p>
                             View
                         </p>           
@@ -157,7 +157,7 @@
                         <h3>SODACHE</h3>
                         <p>#WHYHC</p>
                     </div>
-                    <a href="https://drive.google.com/file/d/1pTajo1IW3E_sH8HrpvLgLdDCH10Fx99O/view?usp=drivesdk" target="_blank" class="text-white w-fit font-poppins text-md inline-flex items-center bg-black hover:bg-hwachred rounded-full py-2 px-6 lg:bg-transparent lg:border-white lg:border-1 lg:text-lg lg:hover:bg-white lg:hover:text-black transition-colors duration-300">
+                    <a href="https://drive.google.com/drive/folders/1rMVVLk3O2bjK_3QaBPIwJdVzMOv-er1s" target="_blank" class="text-white w-fit font-poppins text-md inline-flex items-center bg-black hover:bg-hwachred rounded-full py-2 px-6 lg:bg-transparent lg:border-white lg:border-1 lg:text-lg lg:hover:bg-white lg:hover:text-black transition-colors duration-300">
                         <p>
                             View
                         </p>           

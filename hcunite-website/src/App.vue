@@ -34,7 +34,7 @@ const menuItems = [
       {label: 'Athena', external: false, to: '/athena'},
     ]
   },
-  { label: 'SODACHE', external: false, to: '/sodache'  },
+  { label: 'SECCO', external: false, to: '/sodache'  },
   { label: 'ELECTIONS', external: false, to: '/elections'  },
   { label: 'LINKS', external: false, to: '/links'  },
   { label: 'COMMON ROOM', external: false, to: '/common'  },
@@ -88,6 +88,7 @@ const navbarClass = computed(() => {
     case '/artemis':
     case '/athena':
     case '/common':
+    case '/elections':
       if(isAtTop.value){
         return 'bg-transparent text-white'
       } 

@@ -6,7 +6,7 @@
             <img class="w-full h-full lg:h-auto aspect-auto object-cover object-top" src="/images/elections/eleco_banner.jpg" alt="">
         </Parallax>
     </section>
-    <section class="w-full py-12">
+    <section class="w-full py-12 px-8">
         <div class="max-w-[900px] mx-auto">
             <h2>Foreword</h2>
             <p class="mt-4 text-left">

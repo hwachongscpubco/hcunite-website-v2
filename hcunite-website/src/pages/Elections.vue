@@ -42,9 +42,9 @@
     </section>
     <section class="w-full p-8">
         <h2>What are you waiting for?</h2>
-        <div class="mt-8 w-full flex flex-col lg:flex-row lg:flex-wrap gap-4">
-            <a class="flex-1 flex flex-col lg:flex-row hover:drop-shadow-lg drop-shadow-sm transition-all ease-in-out duration-200" href="https://forms.gle/qSmmL5UVmxGaFBzW7" target="_blank">
-                <div class="relative group p-4 lg:p-8 bg-gray-100 rounded-xl overflow-hidden">
+        <div class="mt-8 w-full flex flex-col items-stretch lg:flex-row gap-4">
+            <a class="flex-1 hover:drop-shadow-lg drop-shadow-sm transition-all ease-in-out duration-200" href="https://forms.gle/qSmmL5UVmxGaFBzW7" target="_blank">
+                <div class="relative h-full w-full group p-4 lg:p-8 bg-gray-100 rounded-xl overflow-hidden">
                     <h3 class="text-2xl lg:text-4xl relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Tea Session Sign Ups</h3>
                     <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Learn more about us!</p>
                     <div 
@@ -53,8 +53,8 @@
                 </div>
                 <div class=""></div>
             </a>
-            <a class="flex-1 flex flex-col lg:flex-row hover:drop-shadow-lg drop-shadow-sm transition-all ease-in-out duration-200" href="https://drive.google.com/file/d/1PLRe9VKhTxwXQaOYieaRIv922lAtSmCV/preview" target="_blank">
-                <div class="relative group p-4 lg:p-8 bg-gray-100 rounded-xl overflow-hidden">
+            <a class="flex-1 hover:drop-shadow-lg drop-shadow-sm transition-all ease-in-out duration-200" href="https://drive.google.com/file/d/1PLRe9VKhTxwXQaOYieaRIv922lAtSmCV/preview" target="_blank">
+                <div class="relative h-full w-full group p-4 lg:p-8 bg-gray-100 rounded-xl overflow-hidden">
                     <h3 class="text-2xl lg:text-4xl relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Elections Information Booklet</h3>
                     <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Find out more!</p>
                     <div 
@@ -63,8 +63,8 @@
                 </div>
                 <div class=""></div>
             </a>
-            <a class="flex-1 flex flex-col lg:flex-row hover:drop-shadow-lg drop-shadow-sm transition-all ease-in-out duration-200" href="https://forms.gle/5Bc7sro9NoG5zezu6" target="_blank">
-                <div class="relative group p-4 lg:p-8 bg-gray-100 rounded-xl overflow-hidden">
+            <a class="flex-1 hover:drop-shadow-lg drop-shadow-sm transition-all ease-in-out duration-200" href="https://forms.gle/5Bc7sro9NoG5zezu6" target="_blank">
+                <div class="relative h-full w-full group p-4 lg:p-8 bg-gray-100 rounded-xl overflow-hidden">
                     <h3 class="text-2xl lg:text-4xl relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">53rd HCSC Sign Ups</h3>
                     <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Ready to join us?</p>
                     <div 

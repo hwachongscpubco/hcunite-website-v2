@@ -53,7 +53,7 @@
                 </div>
                 <div class=""></div>
             </a>
-            <a class="flex-1 hover:drop-shadow-lg drop-shadow-sm transition-all ease-in-out duration-200" href="https://drive.google.com/file/d/1PLRe9VKhTxwXQaOYieaRIv922lAtSmCV/preview" target="_blank">
+            <a class="flex-1 hover:drop-shadow-lg drop-shadow-sm transition-all ease-in-out duration-200" href="https://drive.google.com/drive/folders/1-CLmZXY4nuVjRLXLIlNAjB0ia952MjT6?usp=sharing" target="_blank">
                 <div class="relative h-full w-full group p-4 lg:p-8 bg-gray-100 rounded-xl overflow-hidden">
                     <h3 class="text-2xl lg:text-4xl relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Elections Information Booklet</h3>
                     <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Find out more!</p>

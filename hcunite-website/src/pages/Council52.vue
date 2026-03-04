@@ -146,22 +146,22 @@ const councillors = {
       "description": "Hey everyone, I'm Cheng Jun! 🦉💚 Just flew in from a night of winging it😆 AHOOT who's that nonchalant guy sitting down like a boss? boss music plays"
     }
   },
-  "SecCo": {
-    "Lau Han Ning": {
-      "position": "SecCo Chairperson, PromCo ExCo Attaché",
-      "description": "HELLO i’d like to report that kong yi stole my secco shirt! 😡😡 i’m han ning and i’m the chairperson of the elijah’s dad fan club 👨 and secco 💗 but the edfc 👨 is #1 in my heart 💁‍♀️💁‍♀️ (party, cocktail and everything nice, buttercup signing in 😎🍀🍀)"
+  "SECCo": {
+    "Liu Jinghan, Sophie": {
+      "position": "SECCo Chairperson, Student Engagement Coordinator, MAFCo Member, OHCo Secretary-Treasurer",
+      "description": "hi I'm sophie and I'm the secco chair 🪑 as well as the SNC that laughs at my own jokes on stage 🤣🤣 elijah's dad is my comedic inspiration 😋 I heard he invented knock knock jokes, he truly deserves the no-bell prize 🥸🏆 (hahahahahaha)"
     },
     "Goh Kong Yi": {
-      "position": "SecCo Secretary-Treasurer, MAFCo Member, EleCo Member",
+      "position": "SECCo Secretary-Treasurer, MAFCo Member, EleCo Member",
       "description": "HI i'm kong yi and i'm pretty sure han ning took my shirt by accident although it's LITERALLY one size larger than hers 🤦‍♂️🤦‍♂️ but i heard elijah's dad prints money so maybe i'll get some from him to get a new shirt 😁🤑"
     },
     "Elijah Christian Koh Zhi En": {
       "position": "NSE Attaché, OHCo NSE Attaché",
       "description": "HELLO! im elijah and i am a proud owner of three secco shirts 👚👚👚 i’ve been hearing that my dad is a man of many professions… 🤔🤔🤔 does anyone happen to know anything about it! 😨"
     },
-    "Liu Jinghan, Sophie": {
-      "position": "Student Engagement Coordinator, MAFCo Member, OHCo Secretary-Treasurer",
-      "description": "hi I'm sophie and I'm the SNC that laughs at my own jokes on stage 🤣🤣 elijah's dad is my comedic inspiration 😋 I heard he invented knock knock jokes, he truly deserves the no-bell prize 🥸🏆 (hahahahahaha)"
+    "Lau Han Ning": {
+      "position": "SECCo Member, PromCo ExCo Attaché",
+      "description": "HELLO i’d like to report that kong yi stole my secco shirt! 😡😡 i’m han ning and i’m the #1 fan 🪭 of the elijah’s dad fan club 👨 (party, cocktail and everything nice, buttercup signing in 😎🍀🍀)"
     },
     "Tan King Hei Isaac": {
       "position": "Student Engagement Coordinator, PromCo Member, EleCo Member",
@@ -376,7 +376,7 @@ const councillors = {
                     <button @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-black hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
                 <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border-1 border-gray-200 font-poppins font-normal">
-                    <img class="w-full grow object-cover" src="/images/52nd/52nd_SecCo.jpg" alt="">
+                    <img class="w-full grow object-cover" src="/images/52nd/52nd_SECCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">SECCO</h2>
                     <button @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-black hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
@@ -498,7 +498,7 @@ const councillors = {
     <section ref="secco" class="pb-12 px-3 ">
         <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
           <div class= "xl:flex-1/2 overflow-hidden rounded-xl">
-            <img src="/images/52nd/52nd_SecCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
+            <img src="/images/52nd/52nd_SECCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
           </div>
           <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
             <h2 class="flex-2/3 xl:mb-8">THE STUDENT ENGAGEMENT AND CULTURE COMMITTEE (SECCO)</h2>
@@ -515,10 +515,10 @@ const councillors = {
         </div>
 
         <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">
-            <CouncilCard v-for="(data,name) in councillors['SecCo']" 
+            <CouncilCard v-for="(data,name) in councillors['SECCo']" 
             :key="name" 
             :name="name" 
-            council="SecCo" 
+            council="SECCo" 
             year="52nd" 
             :position="data['position']" 
             :description="data['description']" 

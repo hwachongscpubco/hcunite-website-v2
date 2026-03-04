@@ -349,7 +349,7 @@ const councillors = {
                 Headed by the Non-Standing Executive Committee (NSE), the 5 SCs work together over their 2 Council Terms to best serve the students and their needs, in their differently unique aspects. 
                 <br><br>The 5 SCs consist of: the Extended Council Attaché Committee (ECACo), the Publications and Publicity Committee (PubCo), the Student Engagement and Culture Committee (SECCo), 
                 the Social and Relations Committee (SnR), and the Welfare Committee (WelCo).
-                <br><br>The 6 WCs serve to organise 6 Working Events, namely Teachers’ Day (TDCo), Mid-Autumn Festival (MAFCo), Senior Promenade (PromCo), 
+                <br><br>The 6 WCs serve to organise 6 Working Events, namely Teachers’ Day (TDCo), Mid-Autumn Festival (MAFCo), Prom Night (PromCo), 
                 Open House (OHCo), Orientation (O1Co), and Elections (EleCo). 
                 Each WC consists of its elected Chairperson, Secretary-Treasurer, ExCo Attaché, and members.
             </p>
@@ -540,7 +540,7 @@ const councillors = {
                 championing grassroot efforts to connect with the student body on a deeper level. 
                 Through building bonds and promoting interactions between the council and the student body, 
                 the committee strives to inculcate a unified sense of belonging to the school across all domains, 
-                promoting the #Facs1Hwach spirit that we all know and love! 
+                promoting the #Fac1Hwach spirit that we all know and love! 
                 In addition, the committee spearheads external communications with external Councils from other institutions, 
                 laying the groundwork for prospective collaborations to further vitalise the experience of Hwa Chongians.
               </p>

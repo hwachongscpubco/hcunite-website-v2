@@ -1,0 +1,25 @@
+{
+  "name": "hcunite-website",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node generate-sitemap.js",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "glob": "^11.0.3",
+    "pinia": "^3.0.3",
+    "tailwind-scrollbar-hide": "^4.0.0",
+    "tailwindcss": "^4.1.11",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "sitemap": "^8.0.1",
+    "vite": "^7.0.0"
+  }
+}

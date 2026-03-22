@@ -35,7 +35,15 @@ const menuItems = [
     ]
   },
   { label: 'SECCO', external: false, to: '/sodache'  },
-  { label: 'ELECTIONS', external: false, to: '/elections'  },
+  { 
+    label: 'ELECTIONS', 
+    external: false, 
+    to: '/elects53',
+    subitems:[
+      {label: 'Election Details', external: false, to: '/elections'},
+      {label: '53rd Elects', external: false, to: '/elects53'},
+    ]
+  },
   { label: 'LINKS', external: false, to: '/links'  },
   { label: 'COMMON ROOM', external: false, to: '/common'  },
 ]

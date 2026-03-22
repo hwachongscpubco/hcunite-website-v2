@@ -25,7 +25,7 @@
     @apply font-inter font-black text-5xl md:text-7xl lg:text-9xl
   }
   h2 {
-    @apply text-4xl lg:text-6xl font-poppins
+    @apply text-6xl lg:text-6xl font-poppins
   }
   h3{
     @apply text-3xl lg:text-4xl font-poppins

@@ -325,7 +325,7 @@ const councillors = {
 
     <section class="w-full py-15 px-6">
         <div class="w-full">
-            <h2 class="!text-left centered-text-block">A message from the 52nd...</h2>
+            <h2 class="text-left! centered-text-block">A message from the 52nd...</h2>
             <p class="centered-text-block mt-6 ">
                 Hi everyone! We’re the 52nd Hwa Chong Students’ Council (HCSC)!
                 <br><br>We are a passionate cohort of 50 Councillors who are privileged 
@@ -360,33 +360,33 @@ const councillors = {
 
     <section class="py-12 px-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border-1 border-gray-200 font-poppins font-normal">
+                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border border-gray-200 font-poppins font-normal">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_NSE.jpg" alt="">
                     <h2 class="ml-6 font-semibold">NSE</h2>
                     <button @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:py-3 sm:max-w-[50%] md:max-w-[30%] lg:text-sm sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-black hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border-1 border-gray-200 font-poppins font-normal">
+                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border border-gray-200 font-poppins font-normal">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_EcaCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">ECACO</h2>
                     <button @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-black hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border-1 border-gray-200 font-poppins font-normal">
+                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border border-gray-200 font-poppins font-normal">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_PubCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">PUBCO</h2>
                     <button @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-black hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border-1 border-gray-200 font-poppins font-normal">
+                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border border-gray-200 font-poppins font-normal">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_SECCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">SECCO</h2>
                     <button @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-black hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
                 
-                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border-1 border-gray-200 font-poppins font-normal">
+                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border border-gray-200 font-poppins font-normal">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_SnR.jpg" alt="">
                     <h2 class="ml-6 font-semibold">SNR</h2>
                     <button @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-black hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border-1 border-gray-200 font-poppins font-normal">
+                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border border-gray-200 font-poppins font-normal">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_WelCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">WELCO</h2>
                     <button @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-black hover:bg-hwachred transition-colors duration-300">View</button>

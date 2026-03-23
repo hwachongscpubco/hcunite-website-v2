@@ -5,24 +5,34 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Change this to your images folder
-const folder = path.join(__dirname, '/public/images/52nd');
+const folder = path.join(__dirname, '/public/images/Elects53');
 
-const files = fs.readdirSync(folder);
+const processFolder = (dir) => {
+  const files = fs.readdirSync(dir);
 
-files.forEach(file => {
-  const ext = path.extname(file);
-  const name = path.basename(file, ext);
+  files.forEach(file => {
+    const fullPath = path.join(dir,file);
 
-  let newExt = ext;
-  if (/^\.jpe?g$/i.test(ext)) newExt = '.jpg';
-  if (/^\.png$/i.test(ext)) newExt = '.png';
+    if(fs.statSync(fullPath).isDirectory()) {
+      processFolder(fullPath);
+      return;
+    }
+    
+    const ext = path.extname(file);
+    const name = path.basename(file, ext);
+  
+    let newExt = ext;
+    if (/^\.jpe?g$/i.test(ext)) newExt = '.png';
+    if (/^\.png$/i.test(ext)) newExt = '.png';
+  
+    const newPath = path.join(dir, name + newExt);
+    
+    if (fullPath !== newPath) {
+      fs.renameSync(fullPath, newPath);
+      console.log(`Renamed: ${file} → ${name + newExt}`);
+    }
+  })
 
-  const oldPath = path.join(folder, file);
-  const newPath = path.join(folder, name + newExt);
+}
 
-  if (oldPath !== newPath) {
-    fs.renameSync(oldPath, newPath);
-    console.log(`Renamed: ${file} → ${name + newExt}`);
-  }
-});
+processFolder(folder);

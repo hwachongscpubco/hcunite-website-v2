@@ -26,7 +26,6 @@
                             <img class="w-full object-cover" :src="member.imagePath" alt="">
                         </div>
                         <div class="">
-                            <p>{{ member.imagePath }}</p>
                             <h4 class="font-poppins text-3xl mt-4">{{ member.name }}</h4>
                             <p class="text-base sm:text-lg" v-html="member.description"></p>
                         </div>

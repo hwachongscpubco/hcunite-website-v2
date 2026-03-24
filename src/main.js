@@ -17,7 +17,7 @@ import Artemis from "./pages/Artemis.vue"
 import Athena from "./pages/Athena.vue"
 import Sodache from "./pages/Sodache.vue"
 import Elections from "./pages/Elections.vue"
-import Elects from "./pages/Elects53.vue"
+import Candidates from "./pages/Candidates53.vue"
 import Links from "./pages/Links.vue"
 import Common from "./pages/Common.vue"
 
@@ -35,7 +35,7 @@ const routes = [
     { path: '/athena', component: Athena},
     { path: '/sodache', component: Sodache},
     { path: '/elections', component: Elections},
-    { path: '/elects53', component: Elects},
+    { path: '/candidates53', component: Candidates},
     { path: '/links', component: Links},
     { path: '/common', component: Common},
 ]

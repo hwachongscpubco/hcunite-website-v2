@@ -38,10 +38,10 @@ const menuItems = [
   { 
     label: 'ELECTIONS', 
     external: false, 
-    to: '/elects53',
+    to: '/candidates53',
     subitems:[
       {label: 'Election Details', external: false, to: '/elections'},
-      {label: '53rd Elects', external: false, to: '/elects53'},
+      {label: '53rd Elects', external: false, to: '/candidates53'},
     ]
   },
   { label: 'LINKS', external: false, to: '/links'  },

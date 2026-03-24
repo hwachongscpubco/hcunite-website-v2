@@ -22,16 +22,16 @@
 
 @layer base {
   h1 {
-    @apply font-inter font-black text-5xl md:text-7xl lg:text-9xl
+    @apply font-inter font-black text-6xl sm:text-8xl lg:text-9xl
   }
   h2 {
-    @apply text-6xl lg:text-6xl font-poppins
+    @apply text-6xl sm:text-7xl lg:text-8xl font-poppins text-wrap
   }
   h3{
     @apply text-3xl lg:text-4xl font-poppins
   }
   p{
-    @apply font-poppins text-xs md:text-base
+    @apply font-poppins text-base sm:text-xl
   }
 }
 

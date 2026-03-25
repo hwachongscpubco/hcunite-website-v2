@@ -41,7 +41,7 @@ const menuItems = [
     to: '/candidates53',
     subitems:[
       {label: 'Election Details', external: false, to: '/elections'},
-      {label: '53rd Elects', external: false, to: '/candidates53'},
+      {label: '53rd Candidates', external: false, to: '/candidates53'},
     ]
   },
   { label: 'LINKS', external: false, to: '/links'  },

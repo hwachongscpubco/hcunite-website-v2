@@ -111,7 +111,7 @@ const resetScales = () => {
             <p>
                 <a 
                 target="_blank"
-                href="https://docs.google.com/spreadsheets/d/1kctt8UMp5ie1bMkZgqnC8Yj1HHa34mVDnjvDqtmPhUQ/edit?usp=sharing"
+                href="https://docs.google.com/document/d/11JQaOtSR0vX_2abRcMibvEtwDp1giUs_N7MrbQ7Jm_g/edit?tab=t.0"
                 class="inline-block px-4 py-6 rounded-full border border-hwachred text-hwachred 
                 hover:border-none hover:bg-hwachred hover:text-white 
                 transition-colors duration-500 ease-in-out"
@@ -156,7 +156,7 @@ const resetScales = () => {
             <p>
                 <a 
                 target="_blank"
-                href="https://docs.google.com/spreadsheets/d/1kctt8UMp5ie1bMkZgqnC8Yj1HHa34mVDnjvDqtmPhUQ/edit?gid=2062082697#gid=2062082697"
+                href="https://docs.google.com/document/d/11JQaOtSR0vX_2abRcMibvEtwDp1giUs_N7MrbQ7Jm_g/edit?tab=t.0"
                 class="inline-block px-4 py-6 rounded-full border border-hwachred text-hwachred 
                 hover:border-none hover:bg-hwachred hover:text-white 
                 transition-colors duration-500 ease-in-out"
@@ -167,7 +167,7 @@ const resetScales = () => {
         <div class="flex-1 origin-right p-4">
             <iframe 
             class="w-full h-[80vh]"
-            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0Te4Rk1Uh8vGpmCGVSkgrJSPs7baEV8UtdS9TBt2PCmnAXs8vh4CxEl5WNSx0t0BNbTcXxiKR-V-B/pubhtml?gid=2062082697&amp;single=true&amp;widget=true&amp;headers=false&chrome=false"></iframe>
+            src="https://docs.google.com/document/d/11JQaOtSR0vX_2abRcMibvEtwDp1giUs_N7MrbQ7Jm_g/edit?tab=t.0&amp;single=true&amp;widget=true&amp;headers=false&chrome=false"></iframe>
         </div>
     </section>
     <section class="px-12 py-8 w-full">
@@ -175,7 +175,7 @@ const resetScales = () => {
             <p>
                 <a 
                 target="_blank"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfsEpbFGq0UqLBMvEwELbnK7WOIbb5HNQ96oy64_IaCi__h6Q/viewform"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSezWSornwTlAZ2K9tFl0ZVk8rZXDrhThNeulpLoXapol0ywNQ/viewform?usp=sharing&ouid=105980804582763504075"
                 class="inline-block px-4 py-6 rounded-full border border-hwachred text-hwachred 
                 hover:border-none hover:bg-hwachred hover:text-white 
                 transition-colors duration-500 ease-in-out"

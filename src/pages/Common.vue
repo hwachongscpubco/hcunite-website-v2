@@ -156,7 +156,7 @@ const resetScales = () => {
             <p>
                 <a 
                 target="_blank"
-                href="https://docs.google.com/document/d/11JQaOtSR0vX_2abRcMibvEtwDp1giUs_N7MrbQ7Jm_g/edit?tab=t.0"
+                href="https://poki.com/en/g/crossy-road"
                 class="inline-block px-4 py-6 rounded-full border border-hwachred text-hwachred 
                 hover:border-none hover:bg-hwachred hover:text-white 
                 transition-colors duration-500 ease-in-out"
@@ -164,11 +164,6 @@ const resetScales = () => {
                 See document
                 </a>
             </p>
-        <div class="flex-1 origin-right p-4">
-            <iframe 
-            class="w-full h-[80vh]"
-            src="https://docs.google.com/document/d/11JQaOtSR0vX_2abRcMibvEtwDp1giUs_N7MrbQ7Jm_g/edit?tab=t.0&amp;single=true&amp;widget=true&amp;headers=false&chrome=false"></iframe>
-        </div>
     </section>
     <section class="px-12 py-8 w-full">
         <h2 class="mb-4">Booking Form</h2>

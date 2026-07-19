@@ -3,7 +3,7 @@
     "checkJs": false,
     "module": "esnext",
     "target": "esnext",
-    "moduleResolution": "node"
+    "moduleResolution": "bundler"
   },
   "exclude": ["node_modules"]
 }

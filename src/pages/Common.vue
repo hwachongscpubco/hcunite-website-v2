@@ -156,7 +156,7 @@ const resetScales = () => {
             <p>
                 <a 
                 target="_blank"
-                href="https://poki.com/en/g/crossy-road"
+                href="about:blank"
                 class="inline-block px-4 py-6 rounded-full border border-hwachred text-hwachred 
                 hover:border-none hover:bg-hwachred hover:text-white 
                 transition-colors duration-500 ease-in-out"

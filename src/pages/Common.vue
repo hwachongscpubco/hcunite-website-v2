@@ -6,7 +6,7 @@ const guidelines = {
         "All students utilising the Common Room are expected to conduct themselves in a manner that respects the rights and comfort of others.",
         "Keep noise levels at a reasonable volume to avoid disruption to fellow students and classes ongoing in the same block.",
         "Clean up after yourself and maintain the common areas in a tidy and organised manner.",
-        "Students are to minimally be in half uniform (College PE Shirt/Faculty Shirt + School Pants/Skirt). Shoes and socks are to be worn in the room at all times.",
+        "Students are to be in school-based attire and minimally with PE shorts. Shoes and socks are to be worn in the room at all times.",
         "Students are expected to conform to pre-existing school rules prescribed by the school management.",
     ],
     "Shared Resources":[

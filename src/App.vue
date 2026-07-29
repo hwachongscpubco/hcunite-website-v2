@@ -44,7 +44,6 @@ const menuItems = [
       {label: '53rd Candidates', external: false, to: '/candidates53'},
     ]
   },
-  { label: 'LINKS', external: false, to: '/links'  },
   { label: 'COMMON ROOM', external: false, to: '/common'  },
 ]
 

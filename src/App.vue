@@ -348,9 +348,6 @@ const bgClass = computed(() => {
             <router-link to="/elections">
               <p>Elections</p>
             </router-link>
-            <router-link to="/links">
-              <p>Helpful Links</p>
-            </router-link>
             <router-link to="/common">
               <p>Common Room</p>
             </router-link>

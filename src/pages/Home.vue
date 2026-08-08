@@ -35,7 +35,7 @@
                 <h2 class="m-auto">Why we're here:</h2>
                 <p class=" text-md mt-6 lg:text-lg max-w-lg m-auto">
                     We are committed to building a united Hwa Chong family. 
-                    <br>We are here for you, whenever and wherever you need it. 
+                    <br><br>We are here for you, whenever and wherever you need it. 
                     <br><br>We are the Hwa Chong Students’ Council.
                 </p>
             </div>
@@ -47,14 +47,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- insta section -->
-    <section class="w-full py-15 px-6 text-center sm:text-left">
-        <div class="m-auto sm:max-w-[650px] flex flex-col sm:flex-row sm:justify-between  sm:items-end">
-            <h3 class="mb-3"> Follow our Instagram!</h3>
-            <h3 class="text-3xl font-poppins text-hwachred mb-3 bg-red-50 border-1 border-hwachred rounded-xl p-3">@HCUNITE</h3>
-        </div>
-        <behold-widget class="rounded-xl" feed-id="jc8RM2ufBxJ7fUp50RC9"></behold-widget>
-     </section>
 
      <!-- official links section -->
      <section class="mt-24 lg:mt-30 px-12 py-8">
@@ -74,6 +66,18 @@
             </div>
         </div>
     </section>
+
+     <div class="section-divider"></div>
+
+
+    <!-- insta section -->
+    <section class="w-full py-15 px-6 text-center sm:text-left">
+        <div class="m-auto sm:max-w-[650px] flex flex-col sm:flex-row sm:justify-between  sm:items-end">
+            <h3 class="mb-3"> Follow our Instagram!</h3>
+            <h3 class="text-3xl font-poppins text-hwachred mb-3 bg-red-50 border-1 border-hwachred rounded-xl p-3">@HCUNITE</h3>
+        </div>
+        <behold-widget class="rounded-xl" feed-id="jc8RM2ufBxJ7fUp50RC9"></behold-widget>
+     </section>
 
     <section class="px-12 py-8">
         <div class="flex flex-col lg:flex-row gap-8">
@@ -95,6 +99,8 @@
     </section>
     
     <div class="section-divider"></div>
+
+    
     <!-- pubs note section -->
      <section class="w-full">
         <div class="w-full py-15 px-[10%] text-center lg:text-left lg:w-[60%] lg:px-0 lg:max-w-[900px] m-auto">

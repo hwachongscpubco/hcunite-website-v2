@@ -1,3 +1,9 @@
+<!--
+  Dropdown.vue — a generic collapsible header + content slot (accordion).
+  Not currently used by any page; kept as a ready-made building block for
+  future FAQ-style content. Slot the content in; use the class props to
+  restyle without editing this file.
+-->
 <script setup>
 import { ref, watchEffect, onMounted, nextTick } from 'vue'
 

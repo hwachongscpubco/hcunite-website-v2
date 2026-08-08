@@ -1,5 +1,11 @@
+<!--
+  CouncilCard.vue — one councillor's portrait + position + bio, used
+  inside CouncilCommittee.vue. Builds its own image URL from `year`,
+  `council` and `name` — see public/images/README.md for the exact
+  filename convention this depends on (tries .jpg, then .png, then .webp).
+-->
 <template>
-    <div @click="test">
+    <div>
         <img :src="imageUrl" @error="onImgError" alt="" class="rounded-xl m-auto w-full aspect-3/4 object-cover">
         <div class="py-4 sm:py-6 w-full m-auto font-poppins">
             <h2 class="text-2xl sm:text-3xl">{{ name }}</h2>
@@ -20,11 +26,12 @@ const props = defineProps({
     description: String,
 })
 
+// Council portrait filenames use "+" for spaces and drop commas/slashes
+// entirely (see public/images/README.md for the full naming convention).
 const formattedName = props.name
   .replace(/,/g, '')
-  .replace(/\s+/g, '+')
-  .replace(/[,]/g, '')
   .replace(/\//g, '')
+  .replace(/\s+/g, '+')
 
 const exts = ['.jpg', '.png', '.webp']
 const currentIndex = ref(0)

@@ -1,3 +1,8 @@
+<!--
+  Elections.vue — general elections info page (/elections): foreword,
+  timeline image, and sign-up/info links. For the candidate campaign
+  group listing, see Candidates53.vue instead.
+-->
 <template>
     <section class="w-full h-[70vh] lg:h-[110vh] overflow-hidden">
         <Parallax :scrollY="scrollY"  :speed="parallaxSpeed">

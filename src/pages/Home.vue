@@ -1,5 +1,12 @@
+<!--
+  Home.vue — the / landing page: hero, "why we're here" blurb, embedded
+  Instagram feed, the Official Links / Others card lists (data in
+  src/data/links.js), and the PubCo feedback note.
+-->
 <script setup>
     import { onMounted } from 'vue'
+    import LinkCard from '../components/LinkCard.vue'
+    import { officialLinks, otherLinks } from '../data/links'
 
     onMounted(() => {
     if (!document.querySelector('script[src="https://w.behold.so/widget.js"]')) {
@@ -38,7 +45,7 @@
         </div>
     </section>
 
-    <div class="h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+    <div class="section-divider"></div>
 
     <!-- insta section -->
     <section class="w-full py-15 px-6 text-center sm:text-left">
@@ -61,39 +68,9 @@
                         Everything you need as a student
                     </p>
                 </div>
-                
-
             </div>
             <div class="flex-2 flex flex-col gap-4 scroll-smooth">
-                <a href="https://nurture.diveanalytics.com/en/login" target="_blank">
-                    <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
-                        <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Nurture</h3>
-                        <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">For school announcements</p>
-                        <div 
-                        class="z-0 absolute inset-0 bg-hwachred -translate-x-full group-hover:translate-x-0 transform transition-transform duration-300 ease-in-out"
-                        ></div>
-                    </div>
-
-                    <div class=""></div>
-                </a>
-                <a href="https://isp.hci.edu.sg/" target="_blank">
-                    <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
-                        <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">ISP</h3>
-                        <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">For attendance, results, and other school services</p>
-                        <div 
-                        class="z-0 absolute inset-0 bg-hwachred -translate-x-full group-hover:translate-x-0 transform transition-transform duration-300 ease-in-out"
-                        ></div>
-                    </div>
-                </a>
-                <a href="https://sites.google.com/hci.edu.sg/college-ehandbook/home" target="_blank">
-                    <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
-                        <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Student Handbook</h3>
-                        <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Your guide to Hwa Chong</p>
-                        <div 
-                        class="z-0 absolute inset-0 bg-hwachred -translate-x-full group-hover:translate-x-0 transform transition-transform duration-300 ease-in-out"
-                        ></div>
-                    </div>
-                </a>
+                <LinkCard v-for="link in officialLinks" :key="link.title" v-bind="link" />
             </div>
         </div>
     </section>
@@ -109,65 +86,15 @@
                         Explore additional resources and helpful sites
                     </p>
                 </div>
-                
-
             </div>
             <div class="flex-2 flex flex-col gap-4 scroll-smooth">
-                <a href="https://forms.gle/pUrP8Sq8CTGduYMW7" target="_blank">
-                    <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
-                        <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Open Feedback Form</h3>
-                        <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Got feedback for HCSC? Tell us here!</p>
-                        <div 
-                        class="z-0 absolute inset-0 bg-hwachred -translate-x-full group-hover:translate-x-0 transform transition-transform duration-300 ease-in-out"
-                        ></div>
-                    </div>
-
-                    <div class=""></div>
-                </a>
-                <a href="https://forms.gle/t9WyEFV7XEAeUV44A" target="_blank">
-                    <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
-                        <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">SnR TownHall Topic Suggestions</h3>
-                        <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Come talk to us!</p>
-                        <div 
-                        class="z-0 absolute inset-0 bg-hwachred -translate-x-full group-hover:translate-x-0 transform transition-transform duration-300 ease-in-out"
-                        ></div>
-                    </div>
-
-                    <div class=""></div>
-                </a>
-                <a href="https://www.youtube.com/@TheHCunite" target="_blank">
-                    <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
-                        <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">HCUnite Youtube</h3>
-                        <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">For more content on Hwa Chong</p>
-                        <div 
-                        class="z-0 absolute inset-0 bg-hwachred -translate-x-full group-hover:translate-x-0 transform transition-transform duration-300 ease-in-out"
-                        ></div>
-                    </div>
-                </a>
-                <a href="https://forms.gle/FbsASvSPGwoKZnVd9" target="_blank">
-                    <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
-                        <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Morning Mumbles Submission Form</h3>
-                        <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Give us your best quotes, jokes, and ASEAN news!</p>
-                        <div 
-                        class="z-0 absolute inset-0 bg-hwachred -translate-x-full group-hover:translate-x-0 transform transition-transform duration-300 ease-in-out"
-                        ></div>
-                    </div>
-                </a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdhGFq9QJrUBaAeveHa9IqLYkKnmk5Zfn8k0Kwj4foE1Bl_XA/viewform" target="_blank">
-                    <div class="relative group p-8 bg-gray-100 rounded-xl overflow-hidden">
-                        <h3 class="relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">Loaning of Council Room Items Protocol</h3>
-                        <p class="pt-2 relative z-10 group-hover:text-white transition-color duration-300 ease-in-out">For when you need to borrow something from us!</p>
-                        <div 
-                        class="z-0 absolute inset-0 bg-hwachred -translate-x-full group-hover:translate-x-0 transform transition-transform duration-300 ease-in-out"
-                        ></div>
-                    </div>
-                </a>
+                <LinkCard v-for="link in otherLinks" :key="link.title" v-bind="link" />
             </div>
         </div>
         
     </section>
     
-    <div class="h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+    <div class="section-divider"></div>
     <!-- pubs note section -->
      <section class="w-full">
         <div class="w-full py-15 px-[10%] text-center lg:text-left lg:w-[60%] lg:px-0 lg:max-w-[900px] m-auto">

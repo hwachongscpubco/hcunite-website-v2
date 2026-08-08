@@ -1,3 +1,12 @@
+<!--
+  Sodache.vue — the SODACHE archive (/sodache): Song, Dance and Cheer.
+  Switching the SO/DA/CHE tabs below updates the `sodache` object's active
+  section further down this file, which is where the actual song/dance/
+  cheer entries live — add a new entry to the matching array (`song`,
+  `dance` or `cheer`) to add it to the page. `song` entries render as
+  SodacheItem cards; `dance`/`cheer` entries render as a YouTube embed +
+  description.
+-->
 <template>
     <section class="w-full overflow-hidden">
         <div class="w-full h-screen relative z-0">

@@ -1,3 +1,8 @@
+<!--
+  MenuItem.vue — one nav item in the mobile fullscreen menu (App.vue's
+  `menuItems`), with an expand/collapse if it has `subitems`. Desktop
+  uses DropdownMenu.vue instead.
+-->
 <template>
   <li class="mb-4">
     <div class="flex items-center justify-between cursor-pointer text-white" v-on="item.subitems ? {click: () => $emit('toggle')} : {}">
@@ -85,8 +90,7 @@ function updateScrollHeight() {
 
 onMounted(updateScrollHeight)
 
-watch(() => props.isActive, (newVal) => {
-  console.log("success!")
+watch(() => props.isActive, () => {
   updateScrollHeight()
 })
 </script>

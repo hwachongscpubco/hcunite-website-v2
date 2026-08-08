@@ -1,3 +1,10 @@
+<!--
+  Multicarousel.vue — the "Events" carousel on Faculty pages: an event
+  name list (mobile: horizontal scroll; desktop: vertical list) paired
+  with a captioned image gallery for whichever event is selected. Takes
+  `events` (array of {name, images[], text[]} — text[i] capitons images[i])
+  and `faculty` (used only to pick this faculty's accent colour below).
+-->
 <template>
   <div class="rounded-xl border-1 overflow-hidden flex flex-col lg:flex-row" :class="(isMobile? '': 'max-h-[70vh] ') + borderClass">
     <!-- Mobile (horizontal) -->
@@ -149,52 +156,30 @@ const eventRefs = []
 const mobileContainer = ref(null)
 const visibleIndex = ref(null)
 
-const borderClass = computed(() => {
-  const map = {
-    apollo: 'border-apollo',
-    ares: 'border-ares',
-    artemis:   'border-artemis',
-    athena:    'border-athena'
-  }
-  return map[props.faculty] || ''
-})
-
-const bgClass = computed(() => {
-  const map = {
-    apollo: 'bg-apollo',
-    ares: 'bg-ares',
-    artemis: 'bg-artemis',
-    athena: 'bg-athena'
-  }
-  return map[props.faculty] || ''
-})
-
-const textClass = computed(() => {
-  const map = {
-    apollo: 'text-black',
-    ares: 'text-white',
-    artemis: 'text-white',
-    athena: 'text-white'
-  }
-  return map[props.faculty] || ''
-})
+// One lookup per faculty instead of 3 separate maps for the same 4 keys.
+const FACULTY_STYLES = {
+  apollo:  { border: 'border-apollo',  bg: 'bg-apollo',  text: 'text-black' },
+  ares:    { border: 'border-ares',    bg: 'bg-ares',    text: 'text-white' },
+  artemis: { border: 'border-artemis', bg: 'bg-artemis', text: 'text-white' },
+  athena:  { border: 'border-athena',  bg: 'bg-athena',  text: 'text-white' },
+}
+const facultyStyle = computed(() => FACULTY_STYLES[props.faculty] || {})
+const borderClass = computed(() => facultyStyle.value.border || '')
+const bgClass = computed(() => facultyStyle.value.bg || '')
+const textClass = computed(() => facultyStyle.value.text || '')
 
 //mobile
 function scrollEventLeft() {
   if (selectedIndex.value > 0) {
     selectedIndex.value--
-    console.log(selectedIndex.value)
     scrollToMobileEvent(selectedIndex.value)
-    console.log("event left")
   }
 }
 
 function scrollEventRight() {
   if (selectedIndex.value < events.length - 1) {
     selectedIndex.value++
-    console.log(selectedIndex.value)
     scrollToMobileEvent(selectedIndex.value)
-    console.log("event right")
   }
 }
 
@@ -248,7 +233,6 @@ function updateCurrentIndex() {
   const containerWidth = imageContainer.value.clientWidth
   const index = Math.round(scrollLeft / containerWidth)
   currentImageIndex.value = index
-  console.log(index)
 }
 
 function scrollImageLeft() {
@@ -282,7 +266,6 @@ watchEffect(() => {
 })
 
 function toggleImageText(index) {
-    console.log(selectedIndex.value, index)
     overlayToggles.value[selectedIndex.value][index] = !overlayToggles.value[selectedIndex.value][index]
 }
 

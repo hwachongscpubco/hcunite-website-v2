@@ -1,3 +1,8 @@
+// main.js — app entry point: wires up the router (one entry per page,
+// see src/pages/README.md) and Pinia, then mounts App.vue.
+// To add or remove a page, see the root README's "Adding or removing a
+// page" section — it walks through every place a route needs touching
+// (this file, App.vue's nav, generate-sitemap.js).
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'

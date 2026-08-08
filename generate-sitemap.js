@@ -1,4 +1,9 @@
-// generate-sitemap.js
+// generate-sitemap.js — runs after `vite build` (see package.json's
+// "build" script) to emit dist/sitemap.xml. `routes` below is a
+// hand-maintained, SEO-relevant subset of the app's actual routes
+// (main.js) — deliberately excludes pages like /links and /candidates53
+// that aren't meant to be indexed. Add a new page's path here too if it
+// should appear in the sitemap.
 import { writeFileSync } from 'fs'
 import { SitemapStream, streamToPromise } from 'sitemap'
 import path from 'path'

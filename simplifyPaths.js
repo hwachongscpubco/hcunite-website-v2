@@ -1,3 +1,7 @@
+// simplifyPaths.js — one-off manual utility (not part of the build or
+// dev pipeline; run it yourself with `node simplifyPaths.js` if needed).
+// Recursively renames every .jpg/.jpeg/.png under public/images/Elects53
+// to .png. Update the `folder` path below before reusing it elsewhere.
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';

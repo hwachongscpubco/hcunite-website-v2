@@ -1,3 +1,8 @@
+<!--
+  DropdownMenu.vue — one top-level desktop nav item (App.vue's
+  `menuItems`), with a hover dropdown if it has `subitems`. Mobile uses
+  MenuItem.vue instead.
+-->
 <template>
   <div class="relative group">
     <a v-if="item.external" :href="item.to" target="_blank" rel="noopener" class="m-auto h-full flex items-center font-inter font-normal text-nowrap text-sm xl:text-lg hover:text-hwachred transition-color duration-500">

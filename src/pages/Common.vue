@@ -1,3 +1,9 @@
+<!--
+  Common.vue — the Common Room page (/common): a blurb, a categorised
+  list of house rules, and links to the opening schedule / booking form.
+  To edit the rules, edit the `guidelines` object below — each key is a
+  category shown in the left list, each value is an array of rule strings.
+-->
 <script setup>
 import {ref, watch, nextTick} from 'vue'
 

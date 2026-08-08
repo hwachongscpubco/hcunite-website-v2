@@ -1,5 +1,12 @@
+<!--
+  Council49.vue — the 49th HCSC council page. `councillors`
+  below is a hand-maintained object of { committeeName: { councillorName:
+  { position, description } } }; CouncilCommittee.vue turns each
+  committee into a grid of portraits (see src/pages/README.md for the
+  full format and the image-naming convention it depends on).
+-->
 <script setup>
-import CouncilCard from '../components/CouncilCard.vue';
+import CouncilCommittee from '../components/CouncilCommittee.vue'
 
 const councillors = {
     "ExCo": {
@@ -218,7 +225,7 @@ const councillors = {
         </div>
     </section>
 
-    <div class="h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+    <div class="section-divider"></div>
     
     <section class="w-full py-15 px-6">
         <div class="w-full">
@@ -231,7 +238,7 @@ const councillors = {
         </div>
     </section>
 
-    <div class="h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+    <div class="section-divider"></div>
 
     <section class="py-12 px-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -292,16 +299,7 @@ const councillors = {
             </p>
         </div>
 
-        <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">
-            <CouncilCard v-for="(data,name) in councillors['ExCo']" 
-            :key="name" 
-            :name="name" 
-            council="ExCo" 
-            year="49th" 
-            :position="data['position']" 
-            :description="data['description']" 
-            />
-        </div>
+        <CouncilCommittee :committee="councillors['ExCo']" council="ExCo" year="49th" />
     </section>
 
     <!-- ecaco -->
@@ -339,16 +337,7 @@ const councillors = {
             <div class="mt-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
         </div>
 
-        <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">
-            <CouncilCard v-for="(data,name) in councillors['EcaCo']" 
-            :key="name" 
-            :name="name" 
-            council="EcaCo" 
-            year="49th" 
-            :position="data['position']" 
-            :description="data['description']" 
-            />
-        </div>
+        <CouncilCommittee :committee="councillors['EcaCo']" council="EcaCo" year="49th" />
     </section>
 
     <!-- pubco -->
@@ -386,16 +375,7 @@ const councillors = {
             <div class="mt-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
         </div>
 
-        <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">
-            <CouncilCard v-for="(data,name) in councillors['PubCo']" 
-            :key="name" 
-            :name="name" 
-            council="PubCo" 
-            year="49th" 
-            :position="data['position']" 
-            :description="data['description']" 
-            />
-        </div>
+        <CouncilCommittee :committee="councillors['PubCo']" council="PubCo" year="49th" />
     </section>
 
     <!-- secco -->
@@ -433,16 +413,7 @@ const councillors = {
             <div class="mt-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
         </div>
 
-        <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">
-            <CouncilCard v-for="(data,name) in councillors['SecCo']" 
-            :key="name" 
-            :name="name" 
-            council="SecCo" 
-            year="49th" 
-            :position="data['position']" 
-            :description="data['description']" 
-            />
-        </div>
+        <CouncilCommittee :committee="councillors['SecCo']" council="SecCo" year="49th" />
     </section>
 
     <!-- snr -->
@@ -482,16 +453,7 @@ const councillors = {
             <div class="mt-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
         </div>
 
-        <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">
-            <CouncilCard v-for="(data,name) in councillors['SnR']" 
-            :key="name" 
-            :name="name" 
-            council="SnR" 
-            year="49th" 
-            :position="data['position']" 
-            :description="data['description']" 
-            />
-        </div>
+        <CouncilCommittee :committee="councillors['SnR']" council="SnR" year="49th" />
     </section>
 
     <!-- welco -->
@@ -530,15 +492,6 @@ const councillors = {
             <div class="mt-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
         </div>
 
-        <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">
-            <CouncilCard v-for="(data,name) in councillors['WelCo']" 
-            :key="name" 
-            :name="name" 
-            council="WelCo" 
-            year="49th" 
-            :position="data['position']" 
-            :description="data['description']" 
-            />
-        </div>
+        <CouncilCommittee :committee="councillors['WelCo']" council="WelCo" year="49th" />
     </section>
 </template>

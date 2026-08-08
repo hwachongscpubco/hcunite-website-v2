@@ -1,99 +1,43 @@
+<!--
+  Athena.vue — the Athena Faculty page.
+  Layout/behaviour lives in components/FacultyPage.vue; this file only
+  supplies Athena's content: colours, roster/blurb text, and the events +
+  cheers data shown in the carousels below.
+  See src/pages/README.md for the format used by the other Faculty pages.
+-->
 <template>
-  <section
-    class="relative w-full overflow-hidden custom-cursor-eye-open"
-    :class="{'custom-cursor-eye-close': showOverlay}"
+  <FacultyPage
+    name="ATHENA"
+    instagram="https://www.instagram.com/athenafaculty/"
+    hero-image="/images/Athena/athena_photo.jpg"
+    border-class="border-athena"
+    hover-class="hover:bg-athena"
+    accent-class="bg-athena"
+    animal-title="The Owl"
+    animal-image="/images/Athena/athena.png"
+    faculty="athena"
+    :events="events"
+    :cheers="cheers"
   >
-
-    <div class="w-full h-auto bg-cover bg-center flex" 
-      @click="handleDesktopClick"
-      @touchstart="handleTouchStart"
-      @touchend="handleTouchEnd"
-    >
-        <div class="w-full">
-          <img class="w-full aspect-auto" src="/images/Athena/athena_photo.jpg" alt="">
-        </div>
-
-        <div 
-            class="absolute inset-0 bg-black transition-opacity duration-500" 
-            :class="showOverlay ? 'opacity-50' : 'opacity-0'"
-        >
-        </div>
-
-        <div class="absolute inset-0 flex flex-col items-center justify-center w-full transition-all duration-500 text-white text-center opacity-0" 
-          :class="{'backdrop-blur-xl opacity-100': showOverlay}"
-        >
-            <h1>
-                ATHENA
-            </h1>
-            <a 
-            @click.stop 
-            @touchstart.stop 
-            @touchend.stop 
-            target="blank"
-            href="https://www.instagram.com/athenafaculty/" 
-            class="text-white font-poppins text-md inline-block border-1 border-athena hover:bg-athena rounded-full py-3 px-6 mt-6 lg:text-lg transition-colors duration-300"
-            :class="{'pointer-events-auto opacity-100': showOverlay, 'pointer-events-none opacity-0': !showOverlay}"
-            >
-            Instagram
-            </a>
-        </div>
-
-        <div 
-          class="absolute bottom-8 lg:bottom-12 w-full text-center text-white text-base md:text-xl font-poppins pointer-events-none z-20 transition-all duration-500"
-          :class="showOverlay ? 'opacity-50' : 'opacity-0'"
-        >
-          Tap to reveal image
-        </div>
-    </div>
-    
-  </section>
-
-  <section class="p-12">
-    <p class="centered-text-block">
+    <template #roster>
       (FROM LEFT TO RIGHT)
       <br><br>First Row
       <br>Chin Shi Xuan Cadence, Leanne Tan, Xin Qingyue, Ong Jia Zhen, Kong Cheng Jun, Esther Seng Ying Ying, Kaylen Liew Tong En, Shanaia Megan Teo
       <br><br>Second Row
       <br>Hoon Jia Qi Amelia, Xie Xinran, Tang Shing Yi, Dylan Seah, Tan Jun Han Jayden, Ashley Ng, Xiong Zhihan
-    </p>
-  </section>
-
-  <div class="h-px w-[60%] max-w-[900px] bg-athena m-auto"></div>
-
-  <section class="text-justify p-12">
-    <img src="/images/Athena/athena.png" alt="" class="aspect-square w-[70%] max-w-[500px] m-auto rounded-xl object-cover">
-    <h2 class="mt-12 text-center">The Owl</h2>
-    <p class="centered-text-block mt-6">
-      Master strategist in warfare, patron of heroic endeavours, it is no surprise that tales from Olympus sung praise to the Goddess of Wisdom, Athena. 
-      Closer to home, the Athena Faculty in Hwa Chong is a faculty lush green with zest, joy, and supportive fellow faculty members. 
-      We soar with the mighty owl, an emblem of wisdom, and a reminder of the significance we place on embodying thoughtfulness and care in our actions. 
-      With Athena Faculty’s unique familial spirit (more specifically, Espirito Verde), we will have one another’s backs through thick and thin. 
-      Helmed with knowledge and perspicacity, Athenians work and play hard in this faculty we call home. 
-    </p>
-  </section>
-
-
-  <section class="w-full py-6 px-4">
-    <h2 class="text-center">Events</h2>
-    <p class="text-center mt-2 text-gray-600">Click on the images to learn more</p>
-    <div class="mt-4 lg:px-12">
-      <MultiCarousel :events="events" faculty="athena"></MultiCarousel>   
-    </div>
-  </section>
-
-  <section class="w-full py-6">
-    <h2 class="text-center">Faculty Cheers</h2>
-    <div class="mt-4">
-      <Carousel :cheers="cheers"></Carousel>
-    </div>
-  </section>
+    </template>
+    <template #blurb>
+      Master strategist in warfare, patron of heroic endeavours, it is no surprise that tales from Olympus sung praise to the Goddess of Wisdom, Athena.
+      Closer to home, the Athena Faculty in Hwa Chong is a faculty lush green with zest, joy, and supportive fellow faculty members.
+      We soar with the mighty owl, an emblem of wisdom, and a reminder of the significance we place on embodying thoughtfulness and care in our actions.
+      With Athena Faculty’s unique familial spirit (more specifically, Espirito Verde), we will have one another’s backs through thick and thin.
+      Helmed with knowledge and perspicacity, Athenians work and play hard in this faculty we call home.
+    </template>
+  </FacultyPage>
 </template>
 
 <script setup>
-import Dropdown from '../components/Dropdown.vue'
-import MultiCarousel from '../components/Multicarousel.vue'
-import Carousel from '../components/Carousel.vue'
-import { ref } from 'vue'
+import FacultyPage from '../components/FacultyPage.vue'
 
 const events = [
   {
@@ -154,36 +98,4 @@ const cheers = [
   "/images/Athena/athena_cheer_3.jpeg",
   "/images/Athena/athena_cheer_4.jpeg",
 ]
-
-const showOverlay = ref(true)
-
-let touchYStart = null
-
-function handleTouchStart(event) {
-  touchYStart = event.touches[0].clientY
-}
-
-function handleTouchEnd(event) {
-  const touchYEnd = event.changedTouches[0].clientY
-  const deltaY = Math.abs(touchYEnd - touchYStart)
-
-  if (deltaY < 10) {
-    // Considered a tap
-    toggleOverlay()
-  }
-
-  // otherwise let it scroll
-}
-
-function handleDesktopClick() {
-  if (!isMobile()) toggleOverlay()
-}
-
-function isMobile() {
-  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-}
-
-function toggleOverlay() {
-  showOverlay.value = !showOverlay.value
-}
 </script>

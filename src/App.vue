@@ -1,8 +1,19 @@
+<!--
+  App.vue — the root layout: navbar (desktop dropdowns + mobile
+  fullscreen menu), <router-view> for the current page, and footer.
+  `menuItems` below is the single source of truth for both nav menus —
+  add a subitem there to add a link to the nav (see the root README's
+  "Adding or removing a page" section for the full checklist of what a
+  new page needs). The navbar/logo/footer colour computeds recolour
+  themselves per-route (and, on /sodache, per active SODACHE tab via
+  the shared sodacheStore).
+-->
 <script setup>
 import { ref, onMounted, computed, onBeforeUnmount } from 'vue'
 import DropdownMenu from './components/DropdownMenu.vue'
 import MenuItem from './components/MenuItem.vue'
 import { useRoute } from 'vue-router'
+import { useSodacheStore } from './stores/sodacheStore'
 
 //routing data
 const mobileMenuOpen = ref(false)
@@ -87,6 +98,7 @@ onBeforeUnmount(() => {
 
 //theme colors
 const route = useRoute()
+const sodacheStore = useSodacheStore()
 const navbarClass = computed(() => {
   switch (route.path) {
     case '/':
@@ -120,105 +132,62 @@ const navbarClass = computed(() => {
   }
 })
 
+// Per-faculty theme classes, keyed by route path, shared by the logo/footer
+// colour computeds below (each faculty page used to repeat its own
+// text-<faculty>/bg-<faculty> class in 3 separate switch statements).
+const FACULTY_ROUTE_THEME = {
+  '/apollo':  { logo: 'text-apollo hover:text-hwachred',  footer: 'bg-apollo text-black',  icon: 'text-apollo' },
+  '/ares':    { logo: 'text-ares hover:text-hwachred',    footer: 'bg-ares text-white',    icon: 'text-ares' },
+  '/artemis': { logo: 'text-artemis hover:text-hwachred', footer: 'bg-artemis text-white', icon: 'text-artemis' },
+  '/athena':  { logo: 'text-athena hover:text-hwachred',  footer: 'bg-athena text-white',  icon: 'text-athena' },
+}
+
 const logoClass = computed(() => {
-  switch (route.path) {
-    case '/apollo':
-      if(isAtTop.value){
-        return 'text-white hover:text-hwachred'
-      } 
-      else{
-        return 'text-apollo hover:text-hwachred'
-      } 
-    case '/ares':
-      if(isAtTop.value){
-        return 'text-white hover:text-hwachred'
-      } 
-      else{
-        return 'text-ares hover:text-hwachred'
-      } 
-    case '/artemis':
-      if(isAtTop.value){
-        return 'text-white hover:text-hwachred'
-      } 
-      else{
-        return 'text-artemis hover:text-hwachred'
-      } 
-    case '/athena':
-      if(isAtTop.value){
-        return 'text-white hover:text-hwachred'
-      } 
-      else{
-        return 'text-athena hover:text-hwachred'
-      } 
-    case '/sodache':
-      switch (sodacheStore.activeSection) {
-        case 'song':
-          return 'text-song hover:text-white'
-        case 'dance':
-          return 'text-dance hover:text-white'
-        case 'cheer':
-          return 'text-cheer hover:text-white'
-        default:
-          return 'bg-hwachred text-white'
-      }
-    default:
-      return 'text-hwachred hover:text-amber-500'
+  const theme = FACULTY_ROUTE_THEME[route.path]
+  if (theme) return isAtTop.value ? 'text-white hover:text-hwachred' : theme.logo
+
+  if (route.path === '/sodache') {
+    switch (sodacheStore.activeSection) {
+      case 'song': return 'text-song hover:text-white'
+      case 'dance': return 'text-dance hover:text-white'
+      case 'cheer': return 'text-cheer hover:text-white'
+      default: return 'bg-hwachred text-white'
+    }
   }
+
+  return 'text-hwachred hover:text-amber-500'
 })
 
-import { useSodacheStore } from './stores/sodacheStore'
-const sodacheStore = useSodacheStore()
-
 const footerClass = computed(() => {
-  switch (route.path) {
-    case '/apollo':
-      return 'bg-apollo text-black'
-    case '/ares':
-      return 'bg-ares text-white'
-    case '/artemis':
-      return 'bg-artemis text-white'
-    case '/athena':
-      return 'bg-athena text-white'
-    case '/sodache':
-      switch (sodacheStore.activeSection) {
-        case 'song':
-          return 'bg-song text-black'
-        case 'dance':
-          return 'bg-dance text-white'
-        case 'cheer':
-          return 'bg-cheer text-white'
-        default:
-          return 'bg-hwachred text-white'
-      }
-    default:
-      return 'bg-hwachred text-white'
+  const theme = FACULTY_ROUTE_THEME[route.path]
+  if (theme) return theme.footer
+
+  if (route.path === '/sodache') {
+    switch (sodacheStore.activeSection) {
+      case 'song': return 'bg-song text-black'
+      case 'dance': return 'bg-dance text-white'
+      case 'cheer': return 'bg-cheer text-white'
+      default: return 'bg-hwachred text-white'
+    }
   }
+
+  return 'bg-hwachred text-white'
 })
 
 const footerIconClass = computed(() => {
-  switch (route.path) {
-    case '/apollo':
-      return 'text-apollo'
-    case '/ares':
-      return 'text-ares'
-    case '/artemis':
-      return 'text-artemis'
-    case '/athena':
-      return 'text-athena'
-    case '/sodache':
-      switch (sodacheStore.activeSection) {
-        case 'song':
-          return 'text-song'
-        case 'dance':
-          return 'text-dance'
-        case 'cheer':
-          return 'text-cheer'
-        default:
-          return 'text-hwachred'
-      }
-    default:
-      return 'text-hwachred'
+  const theme = FACULTY_ROUTE_THEME[route.path]
+  if (theme) return theme.icon
+
+  if (route.path === '/sodache') {
+    switch (sodacheStore.activeSection) {
+      case 'song': return 'text-song'
+      case 'dance': return 'text-dance'
+      case 'cheer': return 'text-cheer'
+      default: return 'text-hwachred'
+    }
   }
+
+  return 'text-hwachred'
 })
 
 const bgClass = computed(() => {

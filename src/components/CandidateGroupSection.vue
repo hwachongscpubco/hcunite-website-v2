@@ -1,3 +1,10 @@
+<!--
+  CandidateGroupSection.vue — the expanded view of one election campaign
+  group, shown by Candidates53.vue once a group is selected from a tab.
+  Derives its group photo and each member's photo path from `groupData`/
+  `groupFaculty`/`groupNumber` — see public/images/README.md for the
+  exact filename convention this depends on.
+-->
 <template>
     <div v-if="group" :class="bgColors[group.groupFaculty]" class="pt-8">
         <div class="sm:px-6 pt-4">

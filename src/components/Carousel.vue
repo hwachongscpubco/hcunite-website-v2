@@ -1,6 +1,10 @@
+<!--
+  Carousel.vue — the "Faculty Cheers" horizontal image carousel. Takes a
+  flat `cheers` array of image paths and scroll-snaps between them.
+-->
 <template>
     <div class="relative">
-        
+
         <div class="absolute top-1/2 left-0 sm:left-12 z-20 transform -translate-y-1/2 backdrop-blur-xl bg-white/60 rounded-3xl">
             <svg @click="prev" class="w-12 sm:w-16 aspect-square" viewBox="0 0 24 24" fill="none">
             <path d="M15 7L10 12L15 17" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -111,8 +115,6 @@ function onImageLoad(event, index) {
         // Image is wider than allowed — limit by width
         limitBy.value[index] = 'width'
     }
-
-    console.log(`Image ${index}: ${naturalWidth}x${naturalHeight} → limit by ${limitBy.value[index]}`)
 }
 
 </script>

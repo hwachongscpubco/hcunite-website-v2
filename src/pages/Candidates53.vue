@@ -1,3 +1,13 @@
+<!--
+  Candidates53.vue — the 53rd HCSC election candidates page (/candidates53).
+  `campaignGroups` below is keyed by faculty, each holding a list of
+  campaign groups (groupName, groupDescription, members[]). Selecting a
+  group from the tab lists renders it via CandidateGroupSection, which
+  also derives each group/member's photo path from its name — see
+  public/images/README.md for the exact filename convention required.
+  For a future election, copy this file's structure and add a matching
+  Candidates<NN>/ image folder.
+-->
 <template>
     <section class="w-full h-screen flex flex-col justify-end">
         <div class="overflow-hidden">
@@ -12,60 +22,18 @@
     <section class="p-4 lg:p-8 mt-16">
         <h4 class="font-poppins text-xl">Click on any campaign group to learn more about them!</h4>
         <div class="flex flex-col sm:flex-row w-full">
-            <div class="flex-1 w-full pt-4">
-                <h4 class="w-full text-left border-b-2 pl-4 py-2 border-apollo font-poppins">Apollo</h4>
-                <div 
-                v-for="(group,index) in campaignGroups['Apollo']" 
-                :key="index" 
-                class="relative w-full group overflow-hidden border-b-2 border-black">     
-                    <button 
-                    @click="selectGroup('Apollo', index)" 
+            <div v-for="tab in facultyTabs" :key="tab.name" class="flex-1 w-full pt-4">
+                <h4 class="w-full text-left border-b-2 pl-4 py-2 font-poppins" :class="tab.borderClass">{{ tab.name }}</h4>
+                <div
+                v-for="(group,index) in campaignGroups[tab.name]"
+                :key="index"
+                class="relative w-full group overflow-hidden border-b-2 border-black">
+                    <button
+                    @click="selectGroup(tab.name, index)"
                     class="z-10 w-full h-full text-left relative font-poppins group-hover:pl-8 pl-4 py-1 text-black group-hover:text-white transition-all duration-300 ease-in-out ">
                         {{ group.groupName }}
                     </button>
-                    <div class="z-0 absolute inset-0 bg-apollo-dark w-full translate-y-full group-hover:translate-0 transition-all duration-300"></div>
-                </div>
-            </div>
-            <div class="flex-1 w-full pt-4">
-                <h4 class="w-full text-left border-b-2 pl-4 py-2 border-ares font-poppins">Ares</h4>
-                <div 
-                v-for="(group,index) in campaignGroups['Ares']" 
-                :key="index" 
-                class="relative w-full group overflow-hidden border-b-2 border-black">     
-                    <button 
-                    @click="selectGroup('Ares', index)" 
-                    class="z-10 w-full h-full text-left relative font-poppins group-hover:pl-8 pl-4 py-1 text-black group-hover:text-white transition-all duration-300 ease-in-out ">
-                        {{ group.groupName }}
-                    </button>
-                    <div class="z-0 absolute inset-0 bg-ares w-full translate-y-full group-hover:translate-0 transition-all duration-300"></div>
-                </div>
-            </div>
-            <div class="flex-1 w-full pt-4">
-                <h4 class="w-full text-left border-b-2 pl-4 py-2 border-artemis font-poppins">Artemis</h4>
-                <div 
-                v-for="(group,index) in campaignGroups['Artemis']" 
-                :key="index" 
-                class="relative w-full group overflow-hidden border-b-2 border-black">     
-                    <button 
-                    @click="selectGroup('Artemis', index)" 
-                    class="z-10 w-full h-full text-left relative font-poppins group-hover:pl-8 pl-4 py-1 text-black group-hover:text-white transition-all duration-300 ease-in-out ">
-                        {{ group.groupName }}
-                    </button>
-                    <div class="z-0 absolute inset-0 bg-artemis w-full translate-y-full group-hover:translate-0 transition-all duration-300"></div>
-                </div>
-            </div>
-            <div class="flex-1 w-full pt-4">
-                <h4 class="w-full text-left border-b-2 pl-4 py-2 border-athena font-poppins">Athena</h4>
-                <div 
-                v-for="(group,index) in campaignGroups['Athena']" 
-                :key="index" 
-                class="relative w-full group overflow-hidden border-b-2 border-black">     
-                    <button 
-                    @click="selectGroup('Athena', index)" 
-                    class="z-10 w-full h-full text-left relative font-poppins group-hover:pl-8 pl-4 py-1 text-black group-hover:text-white transition-all duration-300 ease-in-out ">
-                        {{ group.groupName }}
-                    </button>
-                    <div class="z-0 absolute inset-0 bg-athena w-full translate-y-full group-hover:translate-0 transition-all duration-300"></div>
+                    <div class="z-0 absolute inset-0 w-full translate-y-full group-hover:translate-0 transition-all duration-300" :class="tab.hoverBgClass"></div>
                 </div>
             </div>
         </div>
@@ -78,8 +46,19 @@
 </template>
 
 <script setup>
-    import CandidateGroupSection from '../components/CandidateGroupSection.vue'; 
+    import CandidateGroupSection from '../components/CandidateGroupSection.vue';
     import { ref } from 'vue'
+
+    // The 4 faculty tabs above are structurally identical; only the name and
+    // colour differ, so they're rendered from this list instead of being
+    // copy-pasted 4 times. Apollo's hover uses the darker "-dark" shade
+    // because plain apollo yellow is too light against the white button text.
+    const facultyTabs = [
+        { name: 'Apollo', borderClass: 'border-apollo', hoverBgClass: 'bg-apollo-dark' },
+        { name: 'Ares', borderClass: 'border-ares', hoverBgClass: 'bg-ares' },
+        { name: 'Artemis', borderClass: 'border-artemis', hoverBgClass: 'bg-artemis' },
+        { name: 'Athena', borderClass: 'border-athena', hoverBgClass: 'bg-athena' },
+    ]
 
     const campaignGroups = {
         Apollo:[
@@ -607,7 +586,6 @@
 
     function selectGroup(faculty, index) {
         selectedGroup.value = index
-        selectedFaculty.value = faculty;
-        console.log(faculty + index);
+        selectedFaculty.value = faculty
     }
 </script>

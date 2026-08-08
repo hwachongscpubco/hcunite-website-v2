@@ -1,3 +1,8 @@
+<!--
+  Faculties.vue — the /faculties landing page: 4 logo links out to the
+  individual Faculty pages (Apollo/Ares/Artemis/Athena), plus a static
+  address from the SnR Chairperson. Fully static — no script needed.
+-->
 <script></script>
 
 <template>

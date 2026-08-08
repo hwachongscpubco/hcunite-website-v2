@@ -47,6 +47,11 @@
   @apply mx-auto max-w-[700px] text-justify
 }
 
+/* Thin red rule used between page sections (Council/Faculties pages) */
+.section-divider{
+  @apply h-px w-[60%] max-w-[900px] bg-hwachred m-auto
+}
+
 .custom-scroll-hide::-webkit-scrollbar {
   display: none;
 }

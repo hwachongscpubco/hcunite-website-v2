@@ -1,3 +1,8 @@
+<!--
+  SodacheItem.vue — one song card on the Sodache page (song entries only
+  — dance/cheer entries render inline in Sodache.vue instead). Click to
+  expand the description; Spotify/YouTube icons appear on image hover.
+-->
 <template>
     <div class="lg:h-full">
         <div class="group/card z-10 relative flex flex-row items-center w-full h-auto lg:h-auto overflow-hidden lg:flex-col transition-colors duration-300 ease-in-out gap-4 rounded-xl px-2 py-2 sm:py-4 lg:py-2 hover:bg-gray-900" @click="toggleExpand">

@@ -1,3 +1,9 @@
+<!--
+  Parallax.vue — wraps its slot content and offsets it vertically as the
+  page scrolls, for a parallax effect. The parent must track window
+  scroll itself and pass it in as `scrollY` (see Elections.vue or
+  Sodache.vue for the scroll-listener pattern this expects).
+-->
 <template>
     <div
         ref="el"

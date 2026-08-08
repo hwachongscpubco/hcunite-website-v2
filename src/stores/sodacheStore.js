@@ -1,3 +1,4 @@
+// See src/stores/README.md for what this is for.
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 

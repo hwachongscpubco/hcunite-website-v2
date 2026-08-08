@@ -1,108 +1,52 @@
+<!--
+  Apollo.vue — the Apollo Faculty page.
+  Layout/behaviour lives in components/FacultyPage.vue; this file only
+  supplies Apollo's content: colours, roster/blurb text, and the
+  events + cheers data shown in the carousels below.
+  See src/pages/README.md for the format used by the other Faculty pages.
+-->
 <template>
-  <section
-    class="relative w-full overflow-hidden custom-cursor-eye-open"
-    :class="{'custom-cursor-eye-close': showOverlay}"
+  <FacultyPage
+    name="APOLLO"
+    instagram="https://www.instagram.com/apollofaculty/"
+    hero-image="/images/Apollo/apollo_photo.jpg"
+    border-class="border-apollo"
+    hover-class="hover:bg-apollo"
+    accent-class="bg-apollo"
+    animal-title="The Bull"
+    animal-image="/images/Apollo/apollo.jpg"
+    faculty="apollo"
+    :events="events"
+    :cheers="cheers"
   >
-
-    <div class="w-full h-auto bg-cover bg-center flex" 
-      @click="handleDesktopClick"
-      @touchstart="handleTouchStart"
-      @touchend="handleTouchEnd"
-    >
-        <div class="w-full">
-          <img class="w-full aspect-auto" src="/images/Apollo/apollo_photo.jpg" alt="">
-        </div>
-
-        <div 
-            class="absolute inset-0 bg-black transition-opacity duration-500" 
-            :class="showOverlay ? 'opacity-50' : 'opacity-0'"
-        >
-        </div>
-
-        <div class="absolute inset-0 flex flex-col items-center justify-center w-full transition-all duration-500 text-white text-center opacity-0" 
-          :class="{'backdrop-blur-xl opacity-100': showOverlay}"
-        >
-            <h1>
-                APOLLO
-            </h1>
-            <a 
-            @click.stop 
-            @touchstart.stop 
-            @touchend.stop 
-            target="blank"
-            href="https://www.instagram.com/apollofaculty/" 
-            class="text-white font-poppins text-md inline-block border-1 border-apollo hover:bg-apollo rounded-full py-3 px-6 mt-6 lg:text-lg transition-colors duration-300"
-            :class="{'pointer-events-auto opacity-100': showOverlay, 'pointer-events-none opacity-0': !showOverlay}"
-            >
-            Instagram
-            </a>
-        </div>
-
-        <div 
-          class="absolute bottom-8 lg:bottom-12 w-full text-center text-white text-base md:text-xl font-poppins pointer-events-none z-20 transition-all duration-500"
-          :class="showOverlay ? 'opacity-50' : 'opacity-0'"
-        >
-          Tap to reveal image
-        </div>
-    </div>
-    
-  </section>
-
-  <section class="p-12">
-    <p class="centered-text-block">
+    <template #roster>
       (FROM LEFT TO RIGHT)
-      <br><br>First Row: 
+      <br><br>First Row:
       <br>Pan Xi, Jovan Lim Chen Yu
-      <br><br>Second Row: 
+      <br><br>Second Row:
       <br>Peh Jia Lin, Chay Jialin, Jamie, Dana Goh Siew Yuen, Liu Rui-Han, Rachel
-      <br><br>Third Row: 
-      <br>Loh En Ling, Giselle, Liao Sen Hei, Chong Jia Xuan Roxanne, Ariel Koh Rui Xuan 
-      <br><br>Fourth Row: 
+      <br><br>Third Row:
+      <br>Loh En Ling, Giselle, Liao Sen Hei, Chong Jia Xuan Roxanne, Ariel Koh Rui Xuan
+      <br><br>Fourth Row:
       <br>Darius Kwang Yi Fan, Lim Jun Jie Caleb, Ryan Ng Yiheng, Quah Hoon Ee Ally, Wan Hexin
-    </p>
-  </section>
-
-  <div class="h-px w-[60%] max-w-[900px] bg-apollo m-auto"></div>
-
-  <section class="text-justify p-12">
-    <img src="/images/Apollo/apollo.jpg" alt="" class="aspect-square w-[70%] max-w-[500px] m-auto rounded-xl object-cover">
-    <h2 class="mt-12 text-center">The Bull</h2>
-    <p class="centered-text-block mt-6">
-      Roaming through Apollo Faculty's spirit, our sacred animal – the bull – 
-      serves as an emblem of artistic expression and free exploration. 
-      It is a radiant representation of the Faculty's tenacity and commitment to fostering a robust academic environment, 
-      embodying the unwavering resolve that all members of the Apollo Faculty possess in the face of challenges.  
-      <br><br>In the vibrant tapestry of our Faculty’s identity, the distinguishing yellow radiates optimism, 
-      cradling all in its warm golden rays. 
-      Greek God of the Sun and twin brother to Artemis, 
-      Apollo epitomises the vitality and vibrancy the Faculty strives to exemplify. 
-      By embracing the Faculty motto “Live Loud, Live Proud”, 
+    </template>
+    <template #blurb>
+      Roaming through Apollo Faculty's spirit, our sacred animal – the bull –
+      serves as an emblem of artistic expression and free exploration.
+      It is a radiant representation of the Faculty's tenacity and commitment to fostering a robust academic environment,
+      embodying the unwavering resolve that all members of the Apollo Faculty possess in the face of challenges.
+      <br><br>In the vibrant tapestry of our Faculty’s identity, the distinguishing yellow radiates optimism,
+      cradling all in its warm golden rays.
+      Greek God of the Sun and twin brother to Artemis,
+      Apollo epitomises the vitality and vibrancy the Faculty strives to exemplify.
+      By embracing the Faculty motto “Live Loud, Live Proud”,
       we strive to boldly soar to great heights and take pride in our stellar achievements.
-    </p>
-  </section>
-
-
-  <section class="w-full py-6 px-4">
-    <h2 class="text-center">Events</h2>
-    <p class="text-center mt-2 text-gray-600">Click on the images to learn more</p>
-    <div class="mt-4 lg:px-12">
-      <MultiCarousel :events="events" faculty="apollo"></MultiCarousel>   
-    </div>
-  </section>
-
-  <section class="w-full py-6">
-    <h2 class="text-center">Faculty Cheers</h2>
-    <div class="mt-4">
-      <Carousel :cheers="cheers"></Carousel>
-    </div>
-  </section>
+    </template>
+  </FacultyPage>
 </template>
 
 <script setup>
-import Dropdown from '../components/Dropdown.vue'
-import MultiCarousel from '../components/Multicarousel.vue'
-import Carousel from '../components/Carousel.vue'
-import { ref } from 'vue'
+import FacultyPage from '../components/FacultyPage.vue'
 
 const events = [
   {
@@ -168,36 +112,4 @@ const cheers = [
   "/images/Apollo/apollo_cheer_6.jpg",
   "/images/Apollo/apollo_cheer_7.jpg",
 ]
-
-const showOverlay = ref(true)
-
-let touchYStart = null
-
-function handleTouchStart(event) {
-  touchYStart = event.touches[0].clientY
-}
-
-function handleTouchEnd(event) {
-  const touchYEnd = event.changedTouches[0].clientY
-  const deltaY = Math.abs(touchYEnd - touchYStart)
-
-  if (deltaY < 10) {
-    // Considered a tap
-    toggleOverlay()
-  }
-
-  // otherwise let it scroll
-}
-
-function handleDesktopClick() {
-  if (!isMobile()) toggleOverlay()
-}
-
-function isMobile() {
-  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-}
-
-function toggleOverlay() {
-  showOverlay.value = !showOverlay.value
-}
 </script>

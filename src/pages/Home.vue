@@ -67,18 +67,6 @@
         </div>
     </section>
 
-     <div class="section-divider"></div>
-
-
-    <!-- insta section -->
-    <section class="w-full py-15 px-6 text-center sm:text-left">
-        <div class="m-auto sm:max-w-[650px] flex flex-col sm:flex-row sm:justify-between  sm:items-end">
-            <h3 class="mb-3"> Follow our Instagram!</h3>
-            <h3 class="text-3xl font-poppins text-hwachred mb-3 bg-red-50 border-1 border-hwachred rounded-xl p-3">@HCUNITE</h3>
-        </div>
-        <behold-widget class="rounded-xl" feed-id="jc8RM2ufBxJ7fUp50RC9"></behold-widget>
-     </section>
-
     <section class="px-12 py-8">
         <div class="flex flex-col lg:flex-row gap-8">
             <div class="flex-2 border-b-2 border-hwachred lg:border-r-2 lg:border-b-0">
@@ -100,6 +88,16 @@
     
     <div class="section-divider"></div>
 
+    <!-- insta section -->
+    <section class="w-full py-15 px-6 text-center sm:text-left">
+        <div class="m-auto sm:max-w-[650px] flex flex-col sm:flex-row sm:justify-between  sm:items-end">
+            <h3 class="mb-3"> Follow our Instagram!</h3>
+            <h3 class="text-3xl font-poppins text-hwachred mb-3 bg-red-50 border-1 border-hwachred rounded-xl p-3">@HCUNITE</h3>
+        </div>
+        <behold-widget class="rounded-xl" feed-id="jc8RM2ufBxJ7fUp50RC9"></behold-widget>
+     </section>
+
+     <div class="section-divider"></div>
     
     <!-- pubs note section -->
      <section class="w-full">

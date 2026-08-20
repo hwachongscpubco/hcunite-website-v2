@@ -5,7 +5,7 @@
 -->
 <script setup>
     import { onMounted } from 'vue'
-    import LinkCard from '../components/LinkCard.vue'
+    import LinkCategoryCarousel from '../components/LinkCategoryCarousel.vue'
     import { officialLinks, otherLinks } from '../data/links'
 
     onMounted(() => {
@@ -48,42 +48,20 @@
     <div class="section-divider"></div>
 
 
-     <!-- official links section -->
-     <section class="mt-24 lg:mt-30 px-12 py-8">
-        <div class="flex flex-col lg:flex-row gap-8">
-            <div class="flex-2 border-b-2 border-hwachred lg:border-r-2 lg:border-b-0 ">
-                <div class="py-4 lg:pl-24 lg:pr-12">
-                    <h2 class="">
-                        Official Links
-                    </h2>
-                    <p class="mt-4">
-                        Everything you need as a student
-                    </p>
-                </div>
-            </div>
-            <div class="flex-2 flex flex-col gap-4 scroll-smooth">
-                <LinkCard v-for="link in officialLinks" :key="link.title" v-bind="link" />
-            </div>
+     <!-- links section: one rectangle per category, each autoscrolling through its links -->
+     <section class="mt-24 lg:mt-30 px-6 sm:px-12 py-8">
+        <div class="flex flex-col gap-8 max-w-5xl mx-auto">
+            <LinkCategoryCarousel
+                title="Official Links"
+                description="Everything you need as a student"
+                :links="officialLinks"
+            />
+            <LinkCategoryCarousel
+                title="Others"
+                description="Explore additional resources and helpful sites"
+                :links="otherLinks"
+            />
         </div>
-    </section>
-
-    <section class="px-12 py-8">
-        <div class="flex flex-col lg:flex-row gap-8">
-            <div class="flex-2 border-b-2 border-hwachred lg:border-r-2 lg:border-b-0">
-                <div class="py-4 lg:pl-24 lg:pr-12">
-                    <h2 class="">
-                        Others
-                    </h2>
-                    <p class="mt-4">
-                        Explore additional resources and helpful sites
-                    </p>
-                </div>
-            </div>
-            <div class="flex-2 flex flex-col gap-4 scroll-smooth">
-                <LinkCard v-for="link in otherLinks" :key="link.title" v-bind="link" />
-            </div>
-        </div>
-        
     </section>
     
     <div class="section-divider"></div>

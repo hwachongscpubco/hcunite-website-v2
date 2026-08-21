@@ -33,7 +33,7 @@
                     <a
                         :href="links[index].href"
                         target="_blank"
-                        class="text-white font-poppins text-sm inline-block bg-black hover:bg-hwachred rounded-full py-2 px-6 mt-6 transition-colors duration-300 shrink-0"
+                        class="text-white font-poppins text-md inline-block bg-black hover:bg-hwachred rounded-full p-6 mt-6 lg:text-lg transition-colors duration-300 shrink-0"
                     >
                         Visit
                     </a>

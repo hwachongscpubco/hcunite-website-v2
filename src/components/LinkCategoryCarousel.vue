@@ -22,23 +22,34 @@
 
         <!-- current link -->
         <div
-            class="lg:w-3/5 bg-white flex flex-col justify-between gap-8 px-8 py-10 lg:px-12 lg:py-12 h-[300px] lg:h-[340px]"
+            class="lg:w-3/5 bg-white flex flex-col justify-between gap-8 px-8 py-10 lg:px-12 lg:py-12 min-h-[220px]"
             @touchstart="onTouchStart"
             @touchend="onTouchEnd"
         >
-            <transition name="link-fade" mode="out-in">
-                <div :key="index" class="flex-1 min-h-0 flex flex-col justify-center overflow-hidden">
-                    <h3 class="text-black text-2xl lg:text-3xl line-clamp-2">{{ links[index].title }}</h3>
-                    <p class="mt-3 text-gray-500 text-base sm:text-lg line-clamp-3">{{ links[index].description }}</p>
+            <!--
+              All links are stacked in the same grid cell at once (rather than
+              swapped one at a time) so the cell auto-sizes to the tallest
+              entry in the category — the box never resizes or truncates text
+              as the carousel cycles. Only the current one is visible.
+            -->
+            <div class="grid">
+                <div
+                    v-for="(link, i) in links"
+                    :key="link.title"
+                    class="col-start-1 row-start-1 transition-opacity duration-300 ease-in-out"
+                    :class="i === index ? 'opacity-100' : 'opacity-0 pointer-events-none'"
+                >
+                    <h3 class="text-black text-2xl lg:text-3xl">{{ link.title }}</h3>
+                    <p class="mt-3 text-gray-500 text-base sm:text-lg">{{ link.description }}</p>
                     <a
-                        :href="links[index].href"
+                        :href="link.href"
                         target="_blank"
-                        class="text-white font-poppins text-md inline-block bg-black hover:bg-hwachred rounded-full p-6 mt-6 lg:text-lg transition-colors duration-300 shrink-0"
+                        class="text-white font-poppins text-md inline-block bg-black hover:bg-hwachred rounded-full p-6 mt-6 lg:text-lg transition-colors duration-300"
                     >
                         Visit
                     </a>
                 </div>
-            </transition>
+            </div>
 
             <button
                 type="button"
@@ -109,15 +120,6 @@ onUnmounted(() => clearInterval(timer))
 </script>
 
 <style scoped>
-.link-fade-enter-active,
-.link-fade-leave-active {
-    transition: opacity 0.35s ease;
-}
-.link-fade-enter-from,
-.link-fade-leave-to {
-    opacity: 0;
-}
-
 @keyframes swipe-arrow {
     0%, 100% { transform: translateX(0); }
     50% { transform: translateX(6px); }

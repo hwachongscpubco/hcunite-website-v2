@@ -22,18 +22,18 @@
 
         <!-- current link -->
         <div
-            class="lg:w-3/5 bg-white flex flex-col justify-between gap-8 px-8 py-10 lg:px-12 lg:py-12 min-h-[280px] lg:min-h-[320px]"
+            class="lg:w-3/5 bg-white flex flex-col justify-between gap-8 px-8 py-10 lg:px-12 lg:py-12 h-[300px] lg:h-[340px]"
             @touchstart="onTouchStart"
             @touchend="onTouchEnd"
         >
             <transition name="link-fade" mode="out-in">
-                <div :key="index">
-                    <h3 class="text-black text-2xl lg:text-3xl">{{ links[index].title }}</h3>
-                    <p class="mt-3 text-gray-500 text-base sm:text-lg">{{ links[index].description }}</p>
+                <div :key="index" class="flex-1 min-h-0 flex flex-col justify-center overflow-hidden">
+                    <h3 class="text-black text-2xl lg:text-3xl line-clamp-2">{{ links[index].title }}</h3>
+                    <p class="mt-3 text-gray-500 text-base sm:text-lg line-clamp-3">{{ links[index].description }}</p>
                     <a
                         :href="links[index].href"
                         target="_blank"
-                        class="text-white font-poppins text-md inline-block bg-black hover:bg-hwachred rounded-full py-3 px-6 mt-6 transition-colors duration-300"
+                        class="text-white font-poppins text-md inline-block bg-black hover:bg-hwachred rounded-full py-3 px-6 mt-6 transition-colors duration-300 shrink-0"
                     >
                         Visit
                     </a>
@@ -42,7 +42,7 @@
 
             <button
                 type="button"
-                class="flex items-center gap-2 text-gray-400 self-start sm:self-end select-none cursor-pointer hover:text-hwachred transition-colors duration-300"
+                class="flex items-center gap-2 text-gray-400 self-start sm:self-end shrink-0 select-none cursor-pointer hover:text-hwachred transition-colors duration-300"
                 @click="onArrowClick"
                 aria-label="See next link"
             >

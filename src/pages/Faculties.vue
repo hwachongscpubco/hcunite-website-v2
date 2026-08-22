@@ -56,6 +56,7 @@
                 From the traditions passed down by our seniors to the new memories created by every batch, the faculties continue to add colour, energy and warmth to the vibrant kaleidoscope of College life. 
                 <br><br>
                 4Facs1Hwach, the Hwa Chong spirit lives on.
+                <br><br>
                 <br><br><br><b>Li Xiyuan</b>
                 <br><br>Social and Relations Committee Chairperson
                 <br><br>53rd Hwa Chong Students’ Council

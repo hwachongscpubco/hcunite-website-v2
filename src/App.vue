@@ -342,7 +342,7 @@ const bgClass = computed(() => {
         </div>
         <div class="w-full text-left lg:text-right">
           <p>CREDIT: STUDIO ARDENT FOR RELEVANT IMAGES</p>
-          <p>WEBSITE UPDATED BY LIN ZICHENG AND PUBCO</p>
+          <p>WEBSITE UPDATED BY NG XU THONG AND PUBCO</p>
         </div>
       </div>
       

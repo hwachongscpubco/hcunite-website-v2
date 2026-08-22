@@ -45,25 +45,20 @@
         <div class="w-full py-15">
             <h2 class="!text-left centered-text-block">Address by SnR Chairperson</h2>
             <p class="mt-6 centered-text-block">
-                Apollo, Artemis, Ares and Athena - Welcome to the Faculties of Hwa Chong! 
-                The faculty system presents a home within a home, another reinforced pillar of support for our students. 
-                Sorted by subject combinations and classes, each faculty possesses a unique identity, 
-                each with a special flair that students can identify with. The sights and sounds of the Faculty 
-                are encapsulated in both events such as Faculty Brunch, as well as the little daily interactions in class. 
+                When Hwa Chong unite, we show our might!
                 <br><br>
-                Each faculty houses souls brimming with passion for building a community, embellished by 
-                electrifying dances and thunderous cheers. This is the work of the Faculty Committees — 
-                a group of highly committed students that champion the well-being of every student, 
-                navigating them through their Hwa Chong Journey. As such, the voices of the Faculties are amplified, 
-                translating into reverberating waves of laughter and joy on campus.
+                Welcome to Hwa Chong’s faculty system, the heart of the College experience. Comprising Apollo, Ares, Artemis, and Athena, each faculty is formed by students from different subject combinations and classes, and carries its own distinct identity, culture and spirit. From Apollo’s yellow and its iconic cows, Ares’ red and roaring horses, Artemis’ blue and its moonlit wolves, to Athena’s green and wise owls — every faculty offers students a community they can confidently call their own.
                 <br><br>
-                Together, they form a fusion of cultures, more affectionately known as the 4Facs1Hwach Family 
-                that we all know and love. The faculties adds exuberance to the vibrant kaleidoscope of school life, 
-                hopefully leaving fond, everlasting memories of a uniquely Hwa Chong life in every student after their 
-                two years with us.
-                <br><br><br><b>Teo Jie Jun Jayden</b>
+                Within each of these faculties, the Faculty Committees bring together groups of passionate students committed to strengthening bonds and championing the well-being of their peers. Through experiences such as Civics Group Orientation (CG Ori), Introduction to Faculty (I2F), Faculty Brunch, or simply through everyday interactions on campus, the Faculty Committees create spaces for students to connect, belong and make lasting memories throughout their Hwa Chong journey.
+                <br><br>
+                Beyond the four distinct colours and cultures lies one shared identity. Together, they form a fusion of cultures, affectionately known as the 4Facs1Hwach family.
+                <br><br>
+                From the traditions passed down by our seniors to the new memories created by every batch, the faculties continue to add colour, energy and warmth to the vibrant kaleidoscope of College life. 
+                <br><br>
+                4Facs1Hwach, the Hwa Chong spirit lives on.
+                <br><br><br><b>Li Xiyuan</b>
                 <br><br>Social and Relations Committee Chairperson
-                <br><br>52nd Hwa Chong Students’ Council
+                <br><br>53rd Hwa Chong Students’ Council
             </p>
         </div>
     </section>

@@ -15,7 +15,7 @@
             </Parallax>
             
             <div class="absolute inset-0 w-full h-full flex justify-center items-center">
-                <h1 class="text-white">SECCO</h1>
+                <h1 class="text-white">SODACHE</h1>
             </div>
         </div>
 

@@ -45,16 +45,19 @@ const menuItems = [
       {label: 'Athena', external: false, to: '/athena'},
     ]
   },
-  { label: 'SECCO', external: false, to: '/sodache'  },
-  { 
-    label: 'ELECTIONS', 
-    external: false, 
-    to: '/candidates53',
-    subitems:[
-      {label: 'Election Details', external: false, to: '/elections'},
-      {label: '53rd Candidates', external: false, to: '/candidates53'},
-    ]
-  },
+  { label: 'SODACHE', external: false, to: '/sodache'  },
+  // ELECTIONS nav item hidden (2026-08-22) — Elections page is not currently
+  // in use. To unhide, uncomment this block. The routes/pages themselves are
+  // untouched in main.js, so unhiding is nav-only.
+  // {
+  //   label: 'ELECTIONS',
+  //   external: false,
+  //   to: '/candidates53',
+  //   subitems:[
+  //     {label: 'Election Details', external: false, to: '/elections'},
+  //     {label: '53rd Candidates', external: false, to: '/candidates53'},
+  //   ]
+  // },
   { label: 'COMMON ROOM', external: false, to: '/common'  },
 ]
 
@@ -313,9 +316,10 @@ const bgClass = computed(() => {
             <router-link to="/sodache">
               <p>SODACHE</p>
             </router-link>
-            <router-link to="/elections">
+            <!-- Elections footer link hidden alongside the nav item above (2026-08-22) — uncomment to unhide. -->
+            <!-- <router-link to="/elections">
               <p>Elections</p>
-            </router-link>
+            </router-link> -->
             <router-link to="/common">
               <p>Common Room</p>
             </router-link>

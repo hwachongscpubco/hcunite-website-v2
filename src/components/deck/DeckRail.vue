@@ -7,11 +7,16 @@
     tracks the viewport with no scroll listeners, 208px wide to fit the
     216px right gutter App.vue reserves on non-home routes. The active
     track's spine sits proud in red with its disc spinning (DeckRow.vue).
-    Below the spines, a big "now playing" disc fills the rest of the
-    rail down to the bottom of the screen — same sticky box, so it
-    scrolls with the rail — printed with the current *route's* own hero
-    photo (imageForPath, not just its track's default: /apollo and
-    /ares both read as the "faculties" track but show their own photo).
+    Below the spines, a huge "now playing" disc — printed with the
+    current *route's* own hero photo (imageForPath, not just its
+    track's default: /apollo and /ares both read as the "faculties"
+    track but show their own photo) — sits `position: absolute` off
+    the aside's own right edge, deliberately oversized so only its left
+    half is on screen and the rest bleeds past the viewport's right
+    edge (BIG_DISC_RIGHT_OFFSET below does the math); `bottom-6` anchors
+    it near the screen's bottom edge, and being inside the same sticky
+    `<aside>` (a valid containing block for its `absolute`) means it
+    still rides along as the page scrolls.
   - Mobile (<lg): DeckRow's case/spine sizing assumes a side rail, so
     below lg it collapses to a slim horizontal scroll-snap strip
     (colour dot + name) pinned to the top instead — same tracks, same
@@ -85,12 +90,19 @@
         :active="activeTrack?.key === t.key"
       />
 
-      <!-- now playing: fills the rest of the rail down to the bottom
-           of the screen, `justify-center` giving it natural breathing
-           room instead of sitting flush under the last spine. -->
-      <div class="flex-1 min-h-0 flex items-center justify-center pt-5">
+      <!--
+        now playing: pinned near the screen's bottom edge, bled off to
+        the right so only its left half shows — see BIG_DISC_RIGHT_OFFSET.
+        pointer-events-none since half of it isn't reachable anyway,
+        and it shouldn't intercept clicks on whatever it visually
+        overlaps (short pages' footer, mainly).
+      -->
+      <div
+        class="absolute bottom-6 pointer-events-none"
+        :style="{ right: BIG_DISC_RIGHT_OFFSET }"
+      >
         <Disc
-          :size="164"
+          :size="BIG_DISC_SIZE"
           :color="activeTrack?.color"
           :image="nowPlayingImage"
           :spinning="true"
@@ -113,4 +125,14 @@ const route = useRoute()
 const isHome = computed(() => route.path === '/')
 const { activeTrack } = useActiveTrack()
 const nowPlayingImage = computed(() => imageForPath(route.path))
+
+// Deliberately bigger than the 208px rail itself. `right` is negative
+// by (half the disc + the page's own lg:px-10 gutter, 2.5rem) so the
+// disc's centre lands exactly on the viewport's right edge, regardless
+// of viewport width: aside's right edge already sits 2.5rem in from
+// the true edge (that gutter), so pushing out by another
+// (2.5rem + half the disc) re-centres it there. Left half visible,
+// right half clipped by html's overflow-x: hidden (style.css).
+const BIG_DISC_SIZE = 340
+const BIG_DISC_RIGHT_OFFSET = `calc(-1 * (${BIG_DISC_SIZE / 2}px + 2.5rem))`
 </script>

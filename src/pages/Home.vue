@@ -25,19 +25,29 @@ import { officialLinks, otherLinks } from '../data/links'
     </div>
 
     <DeckPlayer>
-      <!-- Right in the platter's own column, snug under it, rather
-           than a separate full-width section spanning the binder too. -->
+      <!--
+        Right in the platter's own column, snug under it, rather than a
+        separate full-width section spanning the binder too. Side by
+        side (not stacked) so the pair's combined height matches one
+        carousel, not two — stacked, "Others" ran on well past the
+        binder's own bottom edge; side by side, this row ends level
+        with the binder, and everything below moves up to match.
+      -->
       <template #below>
-        <LinkCategoryCarousel
-          title="Official Links"
-          description="Everything you need as a student"
-          :links="officialLinks"
-        />
-        <LinkCategoryCarousel
-          title="Others"
-          description="Explore additional resources and helpful sites"
-          :links="otherLinks"
-        />
+        <div class="flex flex-col sm:flex-row gap-4">
+          <LinkCategoryCarousel
+            title="Official Links"
+            description="Everything you need as a student"
+            :links="officialLinks"
+            class="flex-1 min-w-0"
+          />
+          <LinkCategoryCarousel
+            title="Others"
+            description="Explore additional resources and helpful sites"
+            :links="otherLinks"
+            class="flex-1 min-w-0"
+          />
+        </div>
       </template>
     </DeckPlayer>
   </section>

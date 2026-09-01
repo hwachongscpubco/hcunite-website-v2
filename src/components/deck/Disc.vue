@@ -36,6 +36,22 @@
         spinning ? { animation: `disc-spin ${speed} linear infinite` } : {},
       ]"
     ></div>
+    <!--
+      Data rings — a real CD/vinyl's fine concentric grooves. A
+      repeating-radial-gradient centred on the disc is rotationally
+      symmetric, so it reads identically whether or not it's on the
+      spinning layer; `mix-blend-mode: overlay` etches it into
+      whatever's underneath (colour or photo) instead of painting flat
+      rings over it. Band width scales with `size` so tiny spines and
+      the huge sidebar disc both show a similar ring *count*, not the
+      same fixed groove width.
+    -->
+    <div
+      class="absolute inset-0 pointer-events-none mix-blend-overlay"
+      :style="{
+        background: `repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) ${ringWidth}px, rgba(40,28,16,0.16) ${ringWidth}px, rgba(40,28,16,0.16) ${ringWidth * 2}px)`,
+      }"
+    ></div>
     <div
       class="absolute inset-0"
       style="background:
@@ -80,4 +96,5 @@ const props = defineProps({
 
 const hubSize = computed(() => Math.round(props.size * 0.44))
 const holeSize = computed(() => Math.round(props.size * 0.25))
+const ringWidth = computed(() => Math.max(0.6, props.size / 34))
 </script>

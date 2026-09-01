@@ -158,18 +158,24 @@
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /*
-  Route/page-swap transition (App.vue's <Transition name="page">) — an
-  eject/insert motion: the outgoing page (the CD player, leaving home)
-  slides fully off to the right, then the chosen page slides in from
-  off-screen left. translateX(100%)/(-100%) are relative to the page's
-  own box, so this clears the viewport at any width; html's
-  overflow-x: hidden (see @layer base above) keeps it from drawing a
-  horizontal scrollbar while off-screen mid-transition.
+  Route/page-swap transition (App.vue's <Transition :name="pageTransitionName">)
+  — an eject/insert motion, direction set by App.vue depending on
+  whether home is being left or returned to:
+    - "forward" (leaving home for a page): the CD player slides fully
+      off to the right, the chosen page slides in from off-screen left.
+    - "backward" (ejecting back to home): reversed — the page slides
+      off to the left, the CD player slides back in from the right.
+  translateX(100%)/(-100%) are relative to the page's own box, so this
+  clears the viewport at any width; html's overflow-x: hidden (see
+  @layer base above) keeps it from drawing a horizontal scrollbar while
+  off-screen mid-transition.
 */
-.page-enter-active { transition: opacity 420ms var(--ease-enter), transform 420ms var(--ease-enter); }
-.page-leave-active { transition: opacity 320ms var(--ease-exit), transform 320ms var(--ease-exit); }
-.page-enter-from { opacity: 0; transform: translateX(-100%); }
-.page-leave-to { opacity: 0; transform: translateX(100%); }
+.page-forward-enter-active, .page-backward-enter-active { transition: opacity 420ms var(--ease-enter), transform 420ms var(--ease-enter); }
+.page-forward-leave-active, .page-backward-leave-active { transition: opacity 320ms var(--ease-exit), transform 320ms var(--ease-exit); }
+.page-forward-enter-from { opacity: 0; transform: translateX(-100%); }
+.page-forward-leave-to { opacity: 0; transform: translateX(100%); }
+.page-backward-enter-from { opacity: 0; transform: translateX(100%); }
+.page-backward-leave-to { opacity: 0; transform: translateX(-100%); }
 
 /* Docked spine rail slide-in (DeckRail.vue's <Transition name="rail">) */
 .rail-enter-active, .rail-leave-active { transition: transform 560ms var(--ease-mech), opacity 560ms var(--ease-mech); }
@@ -187,7 +193,8 @@
     scroll-behavior: auto !important;
   }
   .reveal,
-  .page-enter-from, .page-leave-to {
+  .page-forward-enter-from, .page-forward-leave-to,
+  .page-backward-enter-from, .page-backward-leave-to {
     transform: none;
   }
 }

@@ -65,6 +65,7 @@
               :key="previewTrack.key"
               :size="180"
               :color="previewTrack.color"
+              :image="previewTrack.image"
               :spinning="true"
               class="!w-[92%] !h-[92%] [grid-area:1/1]"
             />
@@ -118,6 +119,12 @@
         <span class="w-2 h-2 rounded-full bg-seafoam"></span>
         <span>Click, tap, or drag a case onto the deck — every case is a real link.</span>
       </div>
+
+      <!-- Home.vue's link carousels land here, in the platter's own
+           column, right under it — not a full-width section below the
+           whole deck, so they sit snugly beside the binder instead of
+           padding out the page with a near-empty row. -->
+      <slot name="below" />
     </div>
   </div>
 

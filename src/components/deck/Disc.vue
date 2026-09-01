@@ -13,6 +13,11 @@
       class="group" is hovered (used by the /leaders cards, so 9 discs
       never spin at once without any JS). Ignored if `spinning` is true.
     - speed: one full turn duration, e.g. "4.2s" (default) / "5.2s" (Sodache).
+    - image: optional photo (that page's hero image, see data/tracks.js)
+      printed on the disc in place of the plain spectral sheen — a
+      picture disc. Still spins with the same layer, so the photo
+      visibly turns with it; the colour hub + hole sit on top, static,
+      like a printed centre label.
   Slot: optional content laid over the disc (used by the platter for its
   filename-pill readout label).
 -->
@@ -22,10 +27,14 @@
     :style="{ width: size + 'px', height: size + 'px', boxShadow: '0 3px 6px -3px rgba(60,40,20,0.75), inset 0 0 0 1px rgba(255,255,255,0.65)' }"
   >
     <div
-      class="absolute inset-0"
+      class="absolute inset-0 bg-cover bg-center"
       :class="hoverSpin && !spinning ? 'group-hover:[animation:disc-spin_3s_linear_infinite]' : ''"
-      style="background: conic-gradient(from 0deg, #7FE0C0, #F6E27A 12%, #FF8A6A 25%, #B08CFF 38%, #6FD9E8 50%, #FFC178 62%, #E38CFF 75%, #7FE0C0 100%); opacity: .62;"
-      :style="spinning ? { animation: `disc-spin ${speed} linear infinite` } : {}"
+      :style="[
+        image
+          ? { backgroundImage: `url(${image})` }
+          : { background: 'conic-gradient(from 0deg, #7FE0C0, #F6E27A 12%, #FF8A6A 25%, #B08CFF 38%, #6FD9E8 50%, #FFC178 62%, #E38CFF 75%, #7FE0C0 100%)', opacity: .62 },
+        spinning ? { animation: `disc-spin ${speed} linear infinite` } : {},
+      ]"
     ></div>
     <div
       class="absolute inset-0"
@@ -66,6 +75,7 @@ const props = defineProps({
   spinning: { type: Boolean, default: false },
   hoverSpin: { type: Boolean, default: false },
   speed: { type: String, default: '4.2s' },
+  image: { type: String, default: null },
 })
 
 const hubSize = computed(() => Math.round(props.size * 0.44))

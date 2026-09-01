@@ -9,14 +9,25 @@
   per-route/per-sodache-tab exactly as before via footerClass).
 -->
 <script setup>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { computed, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import DeckRail from './components/deck/DeckRail.vue'
 import { useSodacheStore } from './stores/sodacheStore'
 
 const route = useRoute()
+const router = useRouter()
 const sodacheStore = useSodacheStore()
 const isHome = computed(() => route.path === '/')
+
+// Eject/insert page-swap direction: leaving home is "forward" (the CD
+// player slides out right, the chosen page slides in from the left);
+// returning to home — ejecting back to the deck — reverses it. Set in
+// beforeEach (not a route.path watcher) so the name is already updated
+// before the route change triggers <Transition>'s own re-render.
+const pageTransitionName = ref('page-forward')
+router.beforeEach((to) => {
+  pageTransitionName.value = to.path === '/' ? 'page-backward' : 'page-forward'
+})
 
 // Per-faculty theme classes, keyed by route path, shared by the footer
 // colour computeds below (each faculty page used to repeat its own
@@ -87,7 +98,7 @@ const bgClass = computed(() => {
     >
       <main class="min-w-0">
         <router-view v-slot="{ Component }">
-          <Transition name="page" mode="out-in">
+          <Transition :name="pageTransitionName" mode="out-in">
             <!--
               The wrapping div (not the route component's own root) is
               what <Transition> tracks. Page components render several

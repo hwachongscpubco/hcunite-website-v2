@@ -24,23 +24,22 @@ import { officialLinks, otherLinks } from '../data/links'
       </div>
     </div>
 
-    <DeckPlayer />
-  </section>
-
-  <!-- links -->
-  <section class="px-1 sm:px-4 pb-8">
-    <div class="flex flex-col gap-4 max-w-[1180px] mx-auto">
-      <LinkCategoryCarousel
-        title="Official Links"
-        description="Everything you need as a student"
-        :links="officialLinks"
-      />
-      <LinkCategoryCarousel
-        title="Others"
-        description="Explore additional resources and helpful sites"
-        :links="otherLinks"
-      />
-    </div>
+    <DeckPlayer>
+      <!-- Right in the platter's own column, snug under it, rather
+           than a separate full-width section spanning the binder too. -->
+      <template #below>
+        <LinkCategoryCarousel
+          title="Official Links"
+          description="Everything you need as a student"
+          :links="officialLinks"
+        />
+        <LinkCategoryCarousel
+          title="Others"
+          description="Explore additional resources and helpful sites"
+          :links="otherLinks"
+        />
+      </template>
+    </DeckPlayer>
   </section>
 
   <div class="section-divider my-4"></div>

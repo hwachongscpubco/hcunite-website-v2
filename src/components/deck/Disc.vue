@@ -12,7 +12,7 @@
     - hoverSpin: pure-CSS alternative — spins only while an ancestor with
       class="group" is hovered (used by the /leaders cards, so 9 discs
       never spin at once without any JS). Ignored if `spinning` is true.
-    - speed: one full turn duration, e.g. "4.2s" (default) / "5.2s" (Sodache).
+    - speed: one full turn duration, e.g. "7s" (default) / "9s" (Sodache).
     - image: optional photo (that page's hero image, see data/tracks.js)
       printed on the disc in place of the plain spectral sheen — a
       picture disc. Still spins with the same layer, so the photo
@@ -50,7 +50,7 @@
     <div class="absolute inset-0 rounded-full overflow-hidden isolate [clip-path:circle(50%)]">
       <div
         class="absolute inset-0 bg-cover bg-center"
-        :class="hoverSpin && !spinning ? 'group-hover:[animation:disc-spin_3s_linear_infinite]' : ''"
+        :class="hoverSpin && !spinning ? 'group-hover:[animation:disc-spin_5s_linear_infinite]' : ''"
         :style="[
           image
             ? { backgroundImage: `url(${image})` }
@@ -118,7 +118,7 @@ const props = defineProps({
   color: { type: String, default: 'var(--color-hwachred)' },
   spinning: { type: Boolean, default: false },
   hoverSpin: { type: Boolean, default: false },
-  speed: { type: String, default: '4.2s' },
+  speed: { type: String, default: '7s' },
   image: { type: String, default: null },
 })
 

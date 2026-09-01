@@ -30,7 +30,7 @@
 
     <section class="px-4 sm:px-8 py-8 lg:py-14">
         <div class="max-w-[1180px] mx-auto grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-8 sm:gap-10 items-center">
-            <Disc :size="220" :color="discColor" spinning speed="5.2s" class="mx-auto sm:mx-0" />
+            <Disc :size="220" :color="discColor" spinning speed="9s" class="mx-auto sm:mx-0" />
             <div>
                 <h1 class="!text-6xl lg:!text-8xl cursor-pointer">
                     <span @click="changeSection('song')" class="transition-colors duration-300" :class="activeSection=='song' ? 'text-song':'text-[#4A4238]'">SO</span>

@@ -32,9 +32,11 @@
     the top, so there's no bottom-of-screen space for one to sit in.
 
   "Eject to deck" (both layouts) returns to `/`, the permanent
-  empty-deck home state. On mobile it's `sticky left-0` within the
-  scroll strip (with its own opaque backdrop) so it can never scroll
-  out of view behind the track list, the one way back to the deck.
+  empty-deck home state. On mobile it's a plain first item in the
+  strip's normal flow, not `position: sticky` — sticky-with-an-opaque-
+  backdrop looked like it was overlapping the track right behind it as
+  the strip scrolled underneath. A plain linear row (eject, then every
+  track in order, all scrolling together) reads as one sequence instead.
 -->
 <template>
   <!-- mobile strip — separate <Transition> (not just a `lg:hidden` sibling
@@ -50,7 +52,7 @@
       <div class="flex items-center gap-4 px-4 sm:px-6 py-2.5 overflow-x-auto custom-scroll-hide snap-x snap-mandatory">
         <router-link
           to="/"
-          class="sticky left-0 z-10 shrink-0 font-poppins text-[10px] tracking-[0.1em] uppercase text-mute-light border border-hairline rounded-full px-2.5 py-1 bg-ivory/95 backdrop-blur"
+          class="shrink-0 snap-start font-poppins text-[10px] tracking-[0.1em] uppercase text-mute-light border border-hairline rounded-full px-2.5 py-1"
         >Eject</router-link>
         <component
           :is="t.external ? 'a' : 'router-link'"

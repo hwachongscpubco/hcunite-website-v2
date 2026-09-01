@@ -11,8 +11,10 @@
 -->
 <template>
   <div class="flex flex-col lg:flex-row items-start gap-6 lg:gap-8 w-full max-w-[1180px] mx-auto" @pointerleave="onRowLeave">
-    <!-- binder -->
-    <div class="order-2 lg:order-1 flex flex-col gap-3.5 w-full lg:w-[300px] shrink-0">
+    <!-- binder — first in source order, so it's first on every
+         breakpoint: above the platter (and the carousels slotted below
+         it) on mobile, to its left from lg up. -->
+    <div class="flex flex-col gap-3.5 w-full lg:w-[300px] shrink-0">
       <div class="font-poppins text-[11px] tracking-[0.14em] uppercase text-mute">Binder — pick a disc</div>
       <div
         class="grain rounded-2xl border border-hairline p-3 flex gap-2 lg:flex-col overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none"
@@ -32,7 +34,7 @@
     </div>
 
     <!-- platter -->
-    <div class="order-1 lg:order-2 flex flex-col gap-4 w-full">
+    <div class="flex flex-col gap-4 w-full">
       <div
         ref="platterEl"
         class="relative rounded-2xl border border-hairline p-6 sm:p-7 grid grid-cols-1 sm:grid-cols-[minmax(180px,240px)_1fr] gap-6 sm:gap-7 items-center"

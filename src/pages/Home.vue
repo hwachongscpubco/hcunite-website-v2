@@ -13,10 +13,11 @@ import LinkCategoryCarousel from '../components/LinkCategoryCarousel.vue'
 import { officialLinks, otherLinks } from '../data/links'
 
 // Below sm, the two link carousels page one-at-a-time (native
-// scroll-snap, so swiping "just works") instead of sitting side by
-// side — each LinkCategoryCarousel keeps its exact existing box, only
-// how the pair of them is navigated changes. linkPage drives the dots
-// and hides the "swipe for more" arrow once there's nothing further.
+// scroll-snap, so swiping "just works" in any browser) instead of
+// sitting side by side — each LinkCategoryCarousel keeps its exact
+// existing box, only how the pair of them is navigated changes.
+// linkPage drives the dots and hides the "Swipe to see more" text
+// hint once there's nothing further to swipe to.
 const pagerEl = ref(null)
 const linkPage = ref(0)
 
@@ -75,15 +76,20 @@ function goToLinkPage(i) {
           Below sm, side by side would squeeze both boxes to half
           width — instead, one full-size box at a time, paged via
           native horizontal scroll-snap (swipes for free, no gesture
-          code needed), each LinkCategoryCarousel's own box completely
-          unchanged. The arrow + dots exist only because the second
-          category isn't visible up front; each carousel keeps cycling
-          its own links on its own timer underneath, exactly as before.
+          code needed, and standards-based so it works the same in any
+          browser — not a hand-rolled touch handler). Each
+          LinkCategoryCarousel's own box is completely untouched; the
+          hint text + dots live below it, not on top of it, so they
+          can't grow the box or cover its own "OPEN →"/dot UI. The hint
+          is text-first (not just an icon) precisely so it reads
+          clearly everywhere, including screen readers. Each carousel
+          keeps cycling its own links on its own timer underneath,
+          exactly as before.
         -->
-        <div class="sm:hidden relative">
+        <div class="sm:hidden">
           <div
             ref="pagerEl"
-            class="flex overflow-x-auto snap-x snap-mandatory custom-scroll-hide"
+            class="flex overflow-x-auto snap-x snap-mandatory custom-scroll-hide [-webkit-overflow-scrolling:touch]"
             @scroll.passive="onPagerScroll"
           >
             <div class="w-full shrink-0 snap-center">
@@ -102,26 +108,27 @@ function goToLinkPage(i) {
             </div>
           </div>
 
-          <button
-            v-if="linkPage === 0"
-            type="button"
-            @click="goToLinkPage(1)"
-            class="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full grid place-items-center bg-ivory border border-hairline shadow-[0_4px_10px_-6px_rgba(60,40,20,0.6)] text-ink-soft"
-            aria-label="Swipe to see more links"
-          >
-            <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M1.5 1.5L7 7L1.5 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-
-          <div class="flex items-center justify-center gap-1.5 mt-2.5">
+          <div class="flex flex-col items-center gap-1.5 mt-2.5">
             <button
-              v-for="(label, i) in ['Official Links', 'Others']"
-              :key="label"
+              v-if="linkPage === 0"
               type="button"
-              @click="goToLinkPage(i)"
-              class="h-[5px] rounded-full transition-all duration-300 cursor-pointer"
-              :class="linkPage === i ? 'w-3.5 bg-hwachred' : 'w-[5px] bg-khaki'"
-              :aria-label="`Show ${label}`"
-            ></button>
+              @click="goToLinkPage(1)"
+              class="flex items-center gap-1.5 font-poppins text-[11px] text-mute cursor-pointer"
+            >
+              <span>Swipe to see more</span>
+              <svg width="7" height="11" viewBox="0 0 9 14" fill="none"><path d="M1.5 1.5L7 7L1.5 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="flex items-center gap-1.5">
+              <button
+                v-for="(label, i) in ['Official Links', 'Others']"
+                :key="label"
+                type="button"
+                @click="goToLinkPage(i)"
+                class="h-[5px] rounded-full transition-all duration-300 cursor-pointer"
+                :class="linkPage === i ? 'w-3.5 bg-hwachred' : 'w-[5px] bg-khaki'"
+                :aria-label="`Show ${label}`"
+              ></button>
+            </div>
           </div>
         </div>
       </template>

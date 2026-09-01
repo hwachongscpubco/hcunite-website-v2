@@ -19,7 +19,7 @@ import Disc from '../components/deck/Disc.vue'
 
 const groups = [
   { name: "Students' Council", note: 'HCSC · 53rd Council', color: '#CE2222', handle: '@hcunite', href: 'https://www.instagram.com/hcunite/', linkLabel: 'INSTAGRAM' },
-  { name: 'CCA Council', note: 'CCAs', color: '#0F3C6E', handle: '@hcccas', href: 'https://www.instagram.com/hcccas/', linkLabel: 'INSTAGRAM' },
+  { name: 'CCA Council', note: 'CCAs', color: '#0F3C6E', handle: '@hcccasgit', href: 'https://www.instagram.com/hcccas/', linkLabel: 'INSTAGRAM' },
   { name: 'Apollo Faculty', note: 'The Bull · Live Loud, Live Proud', color: '#FFCC02', handle: '@apollofaculty', href: 'https://www.instagram.com/apollofaculty/', linkLabel: 'INSTAGRAM' },
   { name: 'Ares Faculty', note: 'The Horse', color: '#C9102D', handle: '@aresfaculty', href: 'https://www.instagram.com/aresfaculty/', linkLabel: 'INSTAGRAM' },
   { name: 'Artemis Faculty', note: 'The Wolf', color: '#06048D', handle: '@artemisfaculty', href: 'https://www.instagram.com/artemisfaculty/', linkLabel: 'INSTAGRAM' },

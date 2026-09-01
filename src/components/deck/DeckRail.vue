@@ -35,16 +35,17 @@
     >
       <div class="flex items-center gap-4 px-4 sm:px-6 py-2.5 overflow-x-auto custom-scroll-hide snap-x snap-mandatory">
         <router-link to="/" class="shrink-0 font-poppins text-[10px] tracking-[0.1em] uppercase text-mute-light border border-hairline rounded-full px-2.5 py-1">Eject</router-link>
-        <router-link
+        <component
+          :is="t.external ? 'a' : 'router-link'"
           v-for="t in TRACKS"
           :key="t.key"
-          :to="t.to"
+          v-bind="t.external ? { href: t.to, target: '_blank', rel: 'noopener' } : { to: t.to }"
           class="shrink-0 flex items-center gap-1.5 snap-start font-poppins text-xs whitespace-nowrap"
           :class="activeTrack?.key === t.key ? 'text-hwachred font-medium' : 'text-ink-soft'"
         >
           <span class="w-2 h-2 rounded-full shrink-0" :style="{ background: t.color }"></span>
           {{ t.title }}
-        </router-link>
+        </component>
       </div>
     </nav>
   </Transition>

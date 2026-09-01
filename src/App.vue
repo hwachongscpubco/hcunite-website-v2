@@ -77,9 +77,21 @@ const bgClass = computed(() => {
       :class="isHome ? '' : 'pt-[58px] lg:pt-8 lg:grid lg:grid-cols-[1fr_216px] lg:gap-2'"
     >
       <main class="min-w-0">
-        <Transition name="page" mode="out-in">
-          <router-view :key="route.path" />
-        </Transition>
+        <router-view v-slot="{ Component }">
+          <Transition name="page" mode="out-in">
+            <!--
+              The wrapping div (not the route component's own root) is
+              what <Transition> tracks. Page components render several
+              top-level sections (a Fragment) — animating a Fragment
+              directly isn't supported and silently drops the page on
+              route change, so every page gets funnelled through this
+              single real element instead, keyed on the path.
+            -->
+            <div :key="route.path">
+              <component :is="Component" />
+            </div>
+          </Transition>
+        </router-view>
       </main>
       <DeckRail />
     </div>

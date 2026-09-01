@@ -10,7 +10,7 @@
   what every other page looks like.
 -->
 <template>
-  <div class="flex flex-col lg:flex-row items-start gap-6 lg:gap-8 w-full max-w-[1180px] mx-auto">
+  <div class="flex flex-col lg:flex-row items-start gap-6 lg:gap-8 w-full max-w-[1180px] mx-auto" @pointerleave="onRowLeave">
     <!-- binder -->
     <div class="order-2 lg:order-1 flex flex-col gap-3.5 w-full lg:w-[300px] shrink-0">
       <div class="font-poppins text-[11px] tracking-[0.14em] uppercase text-mute">Binder — pick a disc</div>
@@ -25,7 +25,6 @@
           mode="case"
           class="shrink-0 w-[240px] lg:w-auto snap-center"
           @pointerenter="onRowEnter(t)"
-          @pointerleave="onRowLeave"
           @pointerdown="onRowPointerDown(t, $event)"
           @click="onRowClick"
         />
@@ -45,7 +44,7 @@
 
         <!-- well + disc -->
         <div
-          class="relative mx-auto w-[220px] h-[220px] sm:w-full sm:aspect-square rounded-full grid place-items-center"
+          class="relative mx-auto w-[220px] h-[220px] sm:w-full sm:h-auto sm:aspect-square rounded-full grid place-items-center"
           style="background: radial-gradient(circle at 50% 50%, #E7DBC8 0 30%, #DFD2BC 30% 96%, #D3C4AB 100%); box-shadow: inset 0 6px 18px -6px rgba(90,62,32,0.45), inset 0 0 0 1px #D8C9B1;"
         >
           <Transition name="disc-fade">
@@ -77,6 +76,20 @@
             </div>
           </Transition>
           <div class="flex items-center gap-3">
+            <component
+              :is="previewTrack ? 'router-link' : 'span'"
+              :to="previewTrack?.to"
+              class="shrink-0 w-9 h-9 rounded-full grid place-items-center transition-[transform,background] duration-[180ms] ease-standard"
+              :class="previewTrack
+                ? 'bg-gradient-to-b from-hwachred to-[#B81C1C] shadow-[0_4px_10px_-4px_rgba(140,20,20,0.7)] hover:scale-105 cursor-pointer'
+                : 'bg-khaki/40'"
+              :aria-label="previewTrack ? `Play ${previewTrack.title}` : 'No disc loaded'"
+            >
+              <span
+                class="w-0 h-0 border-y-[7px] border-y-transparent border-l-[11px] ml-0.5"
+                :class="previewTrack ? 'border-l-ivory' : 'border-l-mute-light'"
+              ></span>
+            </component>
             <div class="flex-1 h-1 rounded-full bg-khaki/60 overflow-hidden">
               <div
                 class="h-full rounded-full transition-[width] duration-[560ms] ease-enter"

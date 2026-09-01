@@ -168,10 +168,13 @@
   translateX(100%)/(-100%) are relative to the page's own box, so this
   clears the viewport at any width; html's overflow-x: hidden (see
   @layer base above) keeps it from drawing a horizontal scrollbar while
-  off-screen mid-transition.
+  off-screen mid-transition. Durations lean on the --dur-page/--dur-slow
+  tokens (style.css's own motion scale) rather than one-off numbers —
+  slower than a plain fade needs to be, since the eye has a full slide
+  to track, not just a cross-dissolve.
 */
-.page-forward-enter-active, .page-backward-enter-active { transition: opacity 420ms var(--ease-enter), transform 420ms var(--ease-enter); }
-.page-forward-leave-active, .page-backward-leave-active { transition: opacity 320ms var(--ease-exit), transform 320ms var(--ease-exit); }
+.page-forward-enter-active, .page-backward-enter-active { transition: opacity var(--dur-page) var(--ease-enter), transform var(--dur-page) var(--ease-enter); }
+.page-forward-leave-active, .page-backward-leave-active { transition: opacity var(--dur-slow) var(--ease-exit), transform var(--dur-slow) var(--ease-exit); }
 .page-forward-enter-from { opacity: 0; transform: translateX(-100%); }
 .page-forward-leave-to { opacity: 0; transform: translateX(100%); }
 .page-backward-enter-from { opacity: 0; transform: translateX(100%); }

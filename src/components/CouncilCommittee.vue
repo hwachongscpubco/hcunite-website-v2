@@ -20,8 +20,11 @@
 <template>
   <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">
     <CouncilCard
-      v-for="(data, name) in committee"
+      v-for="(data, name, i) in committee"
       :key="name"
+      :ref="setEl(i)"
+      :style="{ transitionDelay: (i % 3) * 60 + Math.floor(i / 3) * 60 + 'ms' }"
+      class="reveal"
       :name="name"
       :council="council"
       :year="year"
@@ -33,10 +36,13 @@
 
 <script setup>
 import CouncilCard from './CouncilCard.vue'
+import { useRevealOnScroll } from '../composables/useRevealOnScroll'
 
 defineProps({
   committee: { type: Object, required: true },
   council: { type: String, required: true },
   year: { type: String, required: true },
 })
+
+const { setEl } = useRevealOnScroll()
 </script>

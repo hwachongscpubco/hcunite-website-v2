@@ -12,7 +12,7 @@ import { fileURLToPath } from 'url'
 const routes = [
   '/', '/council52', '/council51', '/council50', '/council49', '/council48',
   '/faculties', '/apollo', '/ares', '/artemis', '/athena',
-  '/sodache', '/elections', '/common'
+  '/sodache', '/elections', '/common', '/leaders'
 ]
 
 const siteUrl = 'https://hcunite.vercel.app'

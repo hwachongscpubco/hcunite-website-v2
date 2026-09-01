@@ -5,7 +5,7 @@
 -->
 <template>
     <div class="lg:h-full">
-        <div class="group/card z-10 relative flex flex-row items-center w-full h-auto lg:h-auto overflow-hidden lg:flex-col transition-colors duration-300 ease-in-out gap-4 rounded-xl px-2 py-2 sm:py-4 lg:py-2 hover:bg-gray-900" @click="toggleExpand">
+        <div class="group/card z-10 relative flex flex-row items-center w-full h-auto lg:h-auto overflow-hidden lg:flex-col transition-colors duration-300 ease-in-out gap-4 rounded-xl px-2 py-2 sm:py-4 lg:py-2 hover:bg-[#1E1E1E]" @click="toggleExpand">
             
             <div class="group/image relative max-w-[60%] lg:w-full lg:max-w-none self-stretch aspect-square rounded-xl overflow-hidden transition-all duration-500 ease-in-out" :style="isMobile? { width: textDivScrollHeight + 'px'}:{}">
                 <a :href="isMobile? data.spotify: null">

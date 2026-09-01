@@ -33,11 +33,24 @@ explaining its props — this file is just the map of what exists.
   captioned image gallery) used on Faculty pages; the desktop/mobile
   layouts differ, so this one is the most involved component in the repo.
 
-## Navigation
+## Navigation — the CD deck
 
-- **`DropdownMenu.vue`** / **`MenuItem.vue`** — desktop dropdown and
-  mobile fullscreen nav item respectively, both driven by the same
-  `menuItems` array defined in [`App.vue`](../App.vue).
+The word navbar is gone. `src/components/deck/` is the site's whole
+navigation model now — see the root [README](../../README.md#the-navigation-model)
+for the concept, and [`src/data/tracks.js`](../data/README.md) for the
+one data array both pieces below render off:
+
+- **`deck/Disc.vue`** — the CD visual (spectral sheen + coloured hub)
+  used at every size: binder/spine mini-discs, the platter, the
+  `/leaders` cards, the Sodache side disc.
+- **`deck/DeckRow.vue`** — one binder case or docked spine row for a
+  single track (`mode: 'case' | 'spine'`).
+- **`deck/DeckPlayer.vue`** — the homepage's interactive binder +
+  platter (`Home.vue` only).
+- **`deck/DeckRail.vue`** — the site's navigation everywhere else:
+  mounted once in [`App.vue`](../App.vue), a sticky right-hand rail on
+  desktop, a fixed horizontal strip on mobile.
+
 - **`Dropdown.vue`** — a generic collapsible/accordion (header + content
   slot). Not currently used by any page, but kept as a ready-made building
   block for FAQ-style content — wire it up rather than writing a new

@@ -51,7 +51,12 @@ editing any of the four.
 
 ## Everything else
 
-- `Home.vue` — landing page (hero, Instagram feed, official links, PubCo note).
+- `Home.vue` — landing page: the CD deck (`DeckPlayer.vue`), official
+  links, "why we're here" and the PubCo note. The old Instagram feed is
+  gone — see `Leaders.vue` below.
+- `Leaders.vue` — `/leaders`, every student leadership body with a link
+  out to its Instagram (or, where none exists, its website). Data is
+  local to this file (only page that needs it).
 - `Faculties.vue` — the `/faculties` landing page linking out to the 4 faculty pages above.
 - `Sodache.vue` — the Song/Dance/Cheer archive (`/sodache`), driven by the `sodache` data object in that file.
 - `Elections.vue` — general elections info page.

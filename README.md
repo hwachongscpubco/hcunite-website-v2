@@ -31,6 +31,18 @@ Each of those has its own README explaining its format — read the one for
 the folder you're about to touch before adding something new, so new
 content follows the same shape as what's already there.
 
+## The navigation model
+
+There's no word navbar. The site is styled as a CD deck: the homepage
+(`Home.vue`) renders `DeckPlayer.vue`, an interactive binder-of-cases +
+platter; every other page instead shows `DeckRail.vue` (mounted once in
+`App.vue`, outside `<router-view>`) — a sticky spine rail on desktop, a
+fixed horizontal strip on mobile. Both read off the same array,
+[`src/data/tracks.js`](src/data/README.md), which is the single source
+of truth for what's in the deck and which routes count as "this track is
+active" for highlighting. See `src/components/README.md`'s "Navigation —
+the CD deck" section for the component breakdown.
+
 ## Adding or removing a page
 
 A page is one Vue file plus a handful of registration points. To **add**
@@ -43,11 +55,12 @@ one:
 2. **Register the route** in [`src/main.js`](src/main.js): import the
    component and add `{ path: '/new-page', component: NewPage }` to the
    `routes` array.
-3. **Link to it from the nav** (optional, but almost always wanted) in
-   [`src/App.vue`](src/App.vue): add an entry (or a `subitems` entry
-   under an existing one) to the `menuItems` array. Both the desktop
-   dropdown and mobile menu read from this same array, so one edit
-   updates both.
+3. **Add it to the deck** (optional, but almost always wanted) by adding
+   an entry to [`src/data/tracks.js`](src/data/README.md) — both
+   `DeckPlayer.vue` (homepage) and `DeckRail.vue` (everywhere else) pick
+   it up automatically. Give it a `routes` list covering every path that
+   should highlight it (e.g. a page with year variants should list all
+   of them).
 4. **Add its images**, following whichever convention applies —
    [`src/assets/README.md`](src/assets/README.md) vs
    [`public/images/README.md`](public/images/README.md) explains which
@@ -56,8 +69,8 @@ one:
    engines to index) by adding its path to the `routes` array in
    [`generate-sitemap.js`](generate-sitemap.js).
 
-To **remove** a page, reverse the above: delete the nav entry in
-`App.vue`, delete the route in `main.js`, delete it from
+To **remove** a page, reverse the above: delete its entry in
+`src/data/tracks.js`, delete the route in `main.js`, delete it from
 `generate-sitemap.js` if it was there, then delete the page file itself
 (and its images, if nothing else uses them).
 

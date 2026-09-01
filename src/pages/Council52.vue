@@ -249,8 +249,8 @@ const councillors = {
 
 <!-- hero section -->
     <section class="mt-30 pb-12">
-        <h1 class="z-20 text-black lg:text-8xl w-full text-center p-4">52ND STUDENTS' COUNCIL</h1>
-        <img src="/images/52nd/52nd_HCSC.jpg" alt="background" class="z-0 w-full">
+        <h1 class="z-20 text-ink lg:text-8xl w-full text-center p-4">52ND STUDENTS' COUNCIL</h1>
+        <img src="/images/52nd/52nd_HCSC.jpg" alt="background" class="z-0 w-full rounded-2xl">
         <div class="p-6">
             <p class="centered-text-block">
                 (FROM LEFT TO RIGHT)
@@ -367,36 +367,36 @@ const councillors = {
 
     <section class="py-12 px-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border border-gray-200 font-poppins font-normal">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_NSE.jpg" alt="">
                     <h2 class="ml-6 font-semibold">NSE</h2>
-                    <button @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:py-3 sm:max-w-[50%] md:max-w-[30%] lg:text-sm sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-black hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:py-3 sm:max-w-[50%] md:max-w-[30%] lg:text-sm sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border border-gray-200 font-poppins font-normal">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_EcaCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">ECACO</h2>
-                    <button @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-black hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border border-gray-200 font-poppins font-normal">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_PubCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">PUBCO</h2>
-                    <button @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-black hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border border-gray-200 font-poppins font-normal">
-                    <img class="w-full grow object-cover" src="/images/52nd/52nd_SECCo.jpg" alt="">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                    <img class="w-full grow object-cover" src="/images/52nd/52nd_SecCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">SECCO</h2>
-                    <button @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-black hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
                 
-                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border border-gray-200 font-poppins font-normal">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_SnR.jpg" alt="">
                     <h2 class="ml-6 font-semibold">SNR</h2>
-                    <button @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-black hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-xl overflow-hidden bg-gray-100 border border-gray-200 font-poppins font-normal">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_WelCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">WELCO</h2>
-                    <button @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-black hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
         </div>
     </section>
@@ -407,7 +407,7 @@ const councillors = {
     <section ref="nse" class="pb-12 px-3">
 
         <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
-          <div class= "xl:flex-1/2 overflow-hidden rounded-xl">
+          <div class= "xl:flex-1/2 overflow-hidden rounded-2xl">
             <img src="/images/52nd/52nd_NSE.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
           </div>
           <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
@@ -430,7 +430,7 @@ const councillors = {
     <!-- ecaco -->
     <section ref="ecaco" class="pb-12 px-3">
         <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
-          <div class= "xl:flex-1/2 overflow-hidden rounded-xl">
+          <div class= "xl:flex-1/2 overflow-hidden rounded-2xl">
             <img src="/images/52nd/52nd_EcaCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
           </div>
           <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
@@ -454,7 +454,7 @@ const councillors = {
     <!-- pubco -->
     <section ref="pubco" class="pb-12 px-3 ">
         <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
-          <div class= "xl:flex-1/2 overflow-hidden rounded-xl">
+          <div class= "xl:flex-1/2 overflow-hidden rounded-2xl">
             <img src="/images/52nd/52nd_PubCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
           </div>
           <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
@@ -477,8 +477,8 @@ const councillors = {
     <!-- secco -->
     <section ref="secco" class="pb-12 px-3 ">
         <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
-          <div class= "xl:flex-1/2 overflow-hidden rounded-xl">
-            <img src="/images/52nd/52nd_SECCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
+          <div class= "xl:flex-1/2 overflow-hidden rounded-2xl">
+            <img src="/images/52nd/52nd_SecCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
           </div>
           <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
             <h2 class="flex-2/3 xl:mb-8">THE STUDENT ENGAGEMENT AND CULTURE COMMITTEE (SECCO)</h2>
@@ -500,7 +500,7 @@ const councillors = {
     <!-- snr -->
     <section ref="snr" class="pb-12 px-3 ">
         <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
-          <div class= "xl:flex-1/2 overflow-hidden rounded-xl">
+          <div class= "xl:flex-1/2 overflow-hidden rounded-2xl">
             <img src="/images/52nd/52nd_SnR.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
           </div>
           <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
@@ -525,7 +525,7 @@ const councillors = {
     <!-- welco -->
     <section ref="welco" class="pb-12 px-3 ">
         <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
-          <div class= "xl:flex-1/2 overflow-hidden rounded-xl">
+          <div class= "xl:flex-1/2 overflow-hidden rounded-2xl">
             <img src="/images/52nd/52nd_WelCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
           </div>
           <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">

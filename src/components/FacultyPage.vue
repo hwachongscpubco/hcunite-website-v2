@@ -34,7 +34,7 @@
 -->
 <template>
   <section
-    class="relative w-full overflow-hidden custom-cursor-eye-open"
+    class="relative w-full overflow-hidden rounded-b-3xl custom-cursor-eye-open"
     :class="{ 'custom-cursor-eye-close': showOverlay }"
   >
     <div
@@ -45,6 +45,13 @@
     >
       <div class="w-full">
         <img class="w-full aspect-auto" :src="heroImage" alt="">
+      </div>
+
+      <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent pointer-events-none"></div>
+
+      <div class="absolute left-4 bottom-4 md:left-10 md:bottom-10 pointer-events-none">
+        <div class="font-poppins text-[11px] tracking-[0.16em] uppercase mb-2.5" :class="labelClass">TRACK 03 · {{ name }}</div>
+        <h1 class="text-ivory !leading-[0.88]">{{ name }}</h1>
       </div>
 
       <div
@@ -79,32 +86,34 @@
     </div>
   </section>
 
-  <section class="p-12">
-    <p class="centered-text-block">
+  <section class="p-6 md:p-12">
+    <p class="centered-text-block text-ink-soft leading-relaxed">
       <slot name="roster" />
     </p>
   </section>
 
   <div class="h-px w-[60%] max-w-[900px] m-auto" :class="accentClass"></div>
 
-  <section class="text-justify p-12">
-    <img :src="animalImage" alt="" class="aspect-square w-[70%] max-w-[500px] m-auto rounded-xl object-cover">
-    <h2 class="mt-12 text-center">{{ animalTitle }}</h2>
-    <p class="centered-text-block mt-6">
+  <section class="text-justify p-6 md:p-12">
+    <img :src="animalImage" alt="" class="aspect-square w-[70%] max-w-[500px] m-auto rounded-2xl object-cover">
+    <div class="w-14 h-[3px] bg-hwachred rounded-full mx-auto mt-10 mb-3"></div>
+    <div class="font-poppins text-[11px] tracking-[0.16em] uppercase text-hwachred text-center">SACRED ANIMAL</div>
+    <h2 class="mt-2 text-center text-ink">{{ animalTitle }}</h2>
+    <p class="centered-text-block text-ink-soft leading-relaxed mt-6">
       <slot name="blurb" />
     </p>
   </section>
 
   <section class="w-full py-6 px-4">
-    <h2 class="text-center">Events</h2>
-    <p class="text-center mt-2 text-gray-600">Click on the images to learn more</p>
+    <h2 class="text-center text-ink">Events</h2>
+    <p class="text-center mt-2 text-mute">Click on the images to learn more</p>
     <div class="mt-4 lg:px-12">
       <MultiCarousel :events="events" :faculty="faculty"></MultiCarousel>
     </div>
   </section>
 
   <section class="w-full py-6">
-    <h2 class="text-center">Faculty Cheers</h2>
+    <h2 class="text-center text-ink">Faculty Cheers</h2>
     <div class="mt-4">
       <Carousel :cheers="cheers"></Carousel>
     </div>
@@ -112,11 +121,12 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import MultiCarousel from './Multicarousel.vue'
 import Carousel from './Carousel.vue'
 import { useTapToReveal } from '../composables/useTapToReveal'
 
-defineProps({
+const props = defineProps({
   name: { type: String, required: true },
   instagram: { type: String, required: true },
   heroImage: { type: String, required: true },
@@ -129,6 +139,16 @@ defineProps({
   events: { type: Array, required: true },
   cheers: { type: Array, required: true },
 })
+
+// Apollo's yellow is too light to read on a dark scrim as a label —
+// every other faculty's label uses its own colour directly.
+const LABEL_CLASS = {
+  apollo: 'text-white',
+  ares: 'text-ares',
+  artemis: 'text-artemis',
+  athena: 'text-athena',
+}
+const labelClass = computed(() => LABEL_CLASS[props.faculty] || 'text-coral')
 
 const { showOverlay, handleTouchStart, handleTouchEnd, handleDesktopClick } = useTapToReveal()
 </script>

@@ -1,81 +1,73 @@
 <!--
   LinkCategoryCarousel.vue
 
-  A single "category rectangle" used on the homepage's links section (one
-  per category — Official Links / Others). Left side is a red panel naming
-  the category; right side is a white panel that cycles through that
+  A single "link rectangle" used on the homepage's links section (one
+  per category — Official Links / Others). Cycles through that
   category's links (data/links.js) one at a time, autoplaying on an
-  interval and also swipeable on touch devices. Add/remove links by editing
-  data/links.js — no changes needed here.
+  interval, swipeable on touch, and jumpable via the position dots.
+  Add/remove links by editing data/links.js — no changes needed here.
 -->
 <template>
     <div
-        class="flex flex-col lg:flex-row rounded-2xl overflow-hidden shadow-lg shadow-hwachred/10 border border-black/5"
+        class="relative rounded-2xl overflow-hidden border border-hairline bg-[#F4EADB] p-3.5 flex"
     >
-        <!-- category label -->
-        <div class="lg:w-2/5 bg-hwachred flex items-center px-8 py-10 lg:px-12 lg:py-12">
-            <div>
-                <h3 class="text-white">{{ title }}</h3>
-                <p class="text-white/85 mt-3">{{ description }}</p>
-            </div>
-        </div>
-
-        <!-- current link -->
         <div
-            class="lg:w-3/5 bg-white flex flex-col justify-between gap-8 px-8 py-10 lg:px-12 lg:py-12 min-h-[220px]"
+            class="relative flex-1 min-w-0 h-[120px] rounded-xl border border-hairline bg-[#FBF3E8] flex items-stretch gap-3.5 overflow-hidden shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]"
             @touchstart="onTouchStart"
             @touchend="onTouchEnd"
         >
-            <!--
-              All links are stacked in the same grid cell at once (rather than
-              swapped one at a time) so the cell auto-sizes to the tallest
-              entry in the category — the box never resizes or truncates text
-              as the carousel cycles. Only the current one is visible.
-            -->
-            <div class="grid">
-                <div
-                    v-for="(link, i) in links"
-                    :key="link.title"
-                    class="col-start-1 row-start-1 transition-opacity duration-300 ease-in-out"
-                    :class="i === index ? 'opacity-100' : 'opacity-0 pointer-events-none'"
-                >
-                    <h3 class="text-black text-2xl lg:text-3xl">{{ link.title }}</h3>
-                    <p class="mt-3 text-gray-500 text-base sm:text-lg">{{ link.description }}</p>
-                    <a
-                        :href="link.href"
-                        target="_blank"
-                        class="text-white font-poppins text-md inline-block bg-black hover:bg-hwachred rounded-full py-2 px-6 mt-6 lg:text-lg transition-colors duration-300"
+            <div class="flex-none w-[3px] bg-hwachred"></div>
+
+            <div class="flex-1 min-w-0 flex flex-col justify-center gap-2 py-4">
+                <div class="flex items-center gap-2">
+                    <span class="font-poppins text-[9.5px] tracking-[0.14em] uppercase text-hwachred">{{ title }}</span>
+                    <span class="font-poppins text-[9.5px] text-mute-light">{{ links.length }} LINKS</span>
+                </div>
+
+                <!--
+                  All links are stacked in the same grid cell at once (rather than
+                  swapped one at a time) so the cell auto-sizes to the tallest
+                  entry in the category — the box never resizes or truncates text
+                  as the carousel cycles. Only the current one is visible.
+                -->
+                <div class="grid">
+                    <div
+                        v-for="(link, i) in links"
+                        :key="link.title"
+                        class="col-start-1 row-start-1 min-w-0 transition-opacity duration-300 ease-in-out"
+                        :class="i === index ? 'opacity-100' : 'opacity-0 pointer-events-none'"
                     >
-                        Visit
-                    </a>
+                        <div class="font-poppins font-medium text-lg sm:text-xl text-ink truncate">{{ link.title }}</div>
+                        <div class="font-poppins text-xs sm:text-sm text-mute mt-1 truncate">{{ link.description }}</div>
+                    </div>
                 </div>
             </div>
 
-            <button
-                type="button"
-                class="flex items-center gap-2 text-gray-400 self-start sm:self-end shrink-0 select-none cursor-pointer hover:text-hwachred transition-colors duration-300"
-                @click="onArrowClick"
-                aria-label="See next link"
-            >
-                <span class="font-poppins text-sm">Swipe to see more</span>
-                <svg
-                    class="w-4 h-4 animate-swipe-arrow"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
-                    <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-            </button>
+            <div class="flex-none flex flex-col items-end justify-between gap-2 py-4 pr-4">
+                <a
+                    :href="current.href"
+                    target="_blank"
+                    class="font-poppins text-[10px] text-hwachred hover:text-coral transition-colors shrink-0"
+                >OPEN →</a>
+
+                <div class="flex items-center gap-1">
+                    <button
+                        v-for="(link, i) in links"
+                        :key="link.title"
+                        type="button"
+                        @click="goTo(i)"
+                        class="h-[5px] rounded-full transition-all duration-300 cursor-pointer"
+                        :class="i === index ? 'w-3.5 bg-hwachred' : 'w-[5px] bg-khaki'"
+                        :aria-label="`Show ${link.title}`"
+                    ></button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const props = defineProps({
     title: { type: String, required: true },
@@ -83,9 +75,10 @@ const props = defineProps({
     links: { type: Array, required: true },
 })
 
-const AUTOPLAY_MS = 4500
+const AUTOPLAY_MS = 4000
 
 const index = ref(0)
+const current = computed(() => props.links[index.value])
 let timer = null
 
 function next() {
@@ -97,8 +90,8 @@ function startTimer() {
     timer = setInterval(next, AUTOPLAY_MS)
 }
 
-function onArrowClick() {
-    next()
+function goTo(i) {
+    index.value = i
     startTimer()
 }
 
@@ -109,22 +102,11 @@ function onTouchStart(e) {
 function onTouchEnd(e) {
     const dx = e.changedTouches[0].clientX - touchStartX
     if (Math.abs(dx) < 40) return
-    index.value = dx < 0
+    goTo(dx < 0
         ? (index.value + 1) % props.links.length
-        : (index.value - 1 + props.links.length) % props.links.length
-    startTimer()
+        : (index.value - 1 + props.links.length) % props.links.length)
 }
 
 onMounted(startTimer)
 onUnmounted(() => clearInterval(timer))
 </script>
-
-<style scoped>
-@keyframes swipe-arrow {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(6px); }
-}
-.animate-swipe-arrow {
-    animation: swipe-arrow 1.4s ease-in-out infinite;
-}
-</style>

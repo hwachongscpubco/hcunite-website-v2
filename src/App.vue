@@ -1,165 +1,32 @@
 <!--
-  App.vue — the root layout: navbar (desktop dropdowns + mobile
-  fullscreen menu), <router-view> for the current page, and footer.
-  `menuItems` below is the single source of truth for both nav menus —
-  add a subitem there to add a link to the nav (see the root README's
-  "Adding or removing a page" section for the full checklist of what a
-  new page needs). The navbar/logo/footer colour computeds recolour
-  themselves per-route (and, on /sodache, per active SODACHE tab via
-  the shared sodacheStore).
+  App.vue — the root layout. The word navbar is gone: DeckRail.vue (the
+  docked CD-spine rail) is the site's navigation on every page except
+  the homepage, which renders its own full DeckPlayer.vue inline
+  instead (see src/components/deck/README notes in
+  src/components/README.md). This file now only wires up: the
+  page-swap transition around <router-view>, the right-hand gutter
+  DeckRail sticks in, and the footer (unchanged content, recoloured
+  per-route/per-sodache-tab exactly as before via footerClass).
 -->
 <script setup>
-import { ref, onMounted, computed, onBeforeUnmount } from 'vue'
-import DropdownMenu from './components/DropdownMenu.vue'
-import MenuItem from './components/MenuItem.vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import DeckRail from './components/deck/DeckRail.vue'
 import { useSodacheStore } from './stores/sodacheStore'
 
-//routing data
-const mobileMenuOpen = ref(false)
-const activeIndex = ref(null)
-
-const menuItems = [
-  { label: 'CCAS', external: true, to: 'https://hwachongccas.wixsite.com/ccawebsite' },
-  { 
-    label: 'STUDENTS\' COUNCIL',
-    external: false,
-    to: '/council52',
-    subitems: [
-      {label: '52nd HCSC', external: false, to: '/council52'},
-      {label: '51st HCSC', external: false, to: '/council51'},
-      {label: '50th HCSC', external: false, to: '/council50'},
-      {label: '49th HCSC', external: false, to: '/council49'},
-      {label: '48th HCSC', external: false, to: '/council48'},
-    ]
-  },
-  {
-    label: 'FACULTIES',
-    external: false,
-    to: '/faculties',
-    subitems: [
-      {label: 'About', external: false, to: '/faculties'},
-      {label: 'Apollo', external: false, to: '/apollo'},
-      {label: 'Ares', external: false, to: '/ares'},
-      {label: 'Artemis', external: false, to: '/artemis'},
-      {label: 'Athena', external: false, to: '/athena'},
-    ]
-  },
-  { label: 'SODACHE', external: false, to: '/sodache'  },
-  // ELECTIONS nav item hidden (2026-08-22) — Elections page is not currently
-  // in use. To unhide, uncomment this block. The routes/pages themselves are
-  // untouched in main.js, so unhiding is nav-only.
-  // {
-  //   label: 'ELECTIONS',
-  //   external: false,
-  //   to: '/candidates53',
-  //   subitems:[
-  //     {label: 'Election Details', external: false, to: '/elections'},
-  //     {label: '53rd Candidates', external: false, to: '/candidates53'},
-  //   ]
-  // },
-  { label: 'COMMON ROOM', external: false, to: '/common'  },
-]
-
-//scrolling logic
-const isAtTop = ref(true);
-const isVisible = ref(true);
-const lastScrollY = ref(0);
-
-const handleScroll = () => {
-  const currentY = window.scrollY;
-
-  // Detect top state
-  isAtTop.value = currentY <= 30;
-
-  // Detect scroll direction for hide/show
-  if (currentY > lastScrollY.value && currentY > 100) {
-    isVisible.value = false;
-  } else {
-    isVisible.value = true;
-  }
-
-  lastScrollY.value = currentY;
-};
-
-//nav logic
-const handleToggle = (index) => {
-  activeIndex.value = activeIndex.value === index ? null : index
-}
-const handleClose = () => {
-  mobileMenuOpen.value = false
-}
-
-//mounting
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll)
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener("scroll", handleScroll)
-});
-
-//theme colors
 const route = useRoute()
 const sodacheStore = useSodacheStore()
-const navbarClass = computed(() => {
-  switch (route.path) {
-    case '/':
-    case '/apollo':
-    case '/ares':
-    case '/artemis':
-    case '/athena':
-    case '/common':
-    case '/elections':
-      if(isAtTop.value){
-        return 'bg-transparent text-white'
-      } 
-      else{
-        return 'bg-white/75 text-black backdrop-blur-xl'
-      } 
-    case '/sodache':
-      if(isAtTop.value){
-        return 'bg-transparent border border-white/20 text-white'
-      } 
-      else{
-        return 'bg-transparent border border-white/20 text-white backdrop-blur-xl'
-      } 
-      return 
-    default:
-      if(isAtTop.value){
-        return 'bg-transparent text-black'
-      } 
-      else{
-        return 'bg-white/50 text-black backdrop-blur-xl'
-      } 
-  }
-})
+const isHome = computed(() => route.path === '/')
 
-// Per-faculty theme classes, keyed by route path, shared by the logo/footer
+// Per-faculty theme classes, keyed by route path, shared by the footer
 // colour computeds below (each faculty page used to repeat its own
-// text-<faculty>/bg-<faculty> class in 3 separate switch statements).
+// text-<faculty>/bg-<faculty> class in separate switch statements).
 const FACULTY_ROUTE_THEME = {
-  '/apollo':  { logo: 'text-apollo hover:text-hwachred',  footer: 'bg-apollo text-black',  icon: 'text-apollo' },
-  '/ares':    { logo: 'text-ares hover:text-hwachred',    footer: 'bg-ares text-white',    icon: 'text-ares' },
-  '/artemis': { logo: 'text-artemis hover:text-hwachred', footer: 'bg-artemis text-white', icon: 'text-artemis' },
-  '/athena':  { logo: 'text-athena hover:text-hwachred',  footer: 'bg-athena text-white',  icon: 'text-athena' },
+  '/apollo':  { footer: 'bg-apollo text-black', icon: 'text-apollo' },
+  '/ares':    { footer: 'bg-ares text-white',   icon: 'text-ares' },
+  '/artemis': { footer: 'bg-artemis text-white',icon: 'text-artemis' },
+  '/athena':  { footer: 'bg-athena text-white', icon: 'text-athena' },
 }
-
-const logoClass = computed(() => {
-  const theme = FACULTY_ROUTE_THEME[route.path]
-  if (theme) return isAtTop.value ? 'text-white hover:text-hwachred' : theme.logo
-
-  if (route.path === '/sodache') {
-    switch (sodacheStore.activeSection) {
-      case 'song': return 'text-song hover:text-white'
-      case 'dance': return 'text-dance hover:text-white'
-      case 'cheer': return 'text-cheer hover:text-white'
-      default: return 'bg-hwachred text-white'
-    }
-  }
-
-  return 'text-hwachred hover:text-amber-500'
-})
 
 const footerClass = computed(() => {
   const theme = FACULTY_ROUTE_THEME[route.path]
@@ -196,73 +63,28 @@ const footerIconClass = computed(() => {
 const bgClass = computed(() => {
   switch (route.path) {
     case '/sodache':
-      return 'bg-gray-950'
+      return 'bg-[#141414]'
     default:
-      return 'bg-white'
-    }
+      return 'bg-ivory'
+  }
 })
 </script>
 
-
-
 <template>
   <div class="min-h-screen flex flex-col overflow-x-hidden overflow-y-scroll custom-scroll-hide" :class="bgClass">
-    <nav 
-    class="w-full fixed py-5 px-6 z-50 transition-all duration-500" 
-    :class="{
-      '-translate-y-full': !isVisible,
-    }"
+    <div
+      class="flex-grow w-full px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8"
+      :class="isHome ? '' : 'pt-[58px] lg:pt-8 lg:grid lg:grid-cols-[1fr_216px] lg:gap-2'"
     >
-      <!-- inner box -->
-      <div 
-      class="w-full flex gap-12 flex-row justify-between m-auto px-5 py-3 rounded-xl transition-all duration-500" 
-      :class="navbarClass"
-      >
-        <!-- logo -->
-        <div 
-        class="text-2xl font-inter font-black lg:text-4xl transition-colors duration-300" 
-        :class="logoClass"
-        >
-          <router-link to="/">HCUNITE</router-link>
-        </div>
-        <!-- headers -->
-        <div 
-        class="gap-5 xl:gap-10 justify-between lg:flex hidden"
-        >
-          <DropdownMenu v-for="(item, key) in menuItems" :key="key" :item="item"/>
-        </div>
-
-        <!-- hamburger icon -->
-        <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-    </nav>
-
-    <!-- mobilee fullscreen menu -->
-    <div :class="mobileMenuOpen? 'translate-x-0': 'translate-x-full'" class="fixed top-0 left-0 bg-hwachred-dark size-full  z-50 flex flex-col items-center justify-center text-xl transition-transform duration-500">
-      <button @click="mobileMenuOpen = !mobileMenuOpen" class="absolute top-10 right-10">
-        <svg fill="white" class="size-5" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.775 460.775" xml:space="preserve">
-        <path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55
-          c-4.127,0-8.08,1.639-10.993,4.55l-171.138,171.14L59.25,4.565c-2.913-2.911-6.866-4.55-10.993-4.55
-          c-4.126,0-8.08,1.639-10.992,4.55L4.558,37.284c-6.077,6.075-6.077,15.909,0,21.986l171.138,171.128L4.575,401.505
-          c-6.074,6.077-6.074,15.911,0,21.986l32.709,32.719c2.911,2.911,6.865,4.55,10.992,4.55c4.127,0,8.08-1.639,10.994-4.55
-          l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719
-          c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z"/>
-        </svg>
-      </button>
-      <ul>
-        <MenuItem v-for="(item, index) in menuItems" :key="index" :item="item" :is-active="activeIndex === index" @toggle="handleToggle(index)" @closeMenu="handleClose()" />
-      </ul>
+      <main class="min-w-0">
+        <Transition name="page" mode="out-in">
+          <router-view :key="route.path" />
+        </Transition>
+      </main>
+      <DeckRail />
     </div>
 
-    <main class="flex-grow">
-      <router-view />
-    </main>
-
-    <footer class="text-inter text-center transition-all duration-500" :class="footerClass">
+    <footer class="text-inter text-center transition-all duration-500 mt-16" :class="footerClass">
       <div class="flex flex-row gap-4 px-[3vw] py-8">
         <div class="w-[40px] h-[40px] lg:w-[60px] lg:h-[60px]">
           <div class="bg-white rounded-full p-1">
@@ -316,12 +138,11 @@ const bgClass = computed(() => {
             <router-link to="/sodache">
               <p>SODACHE</p>
             </router-link>
-            <!-- Elections footer link hidden alongside the nav item above (2026-08-22) — uncomment to unhide. -->
-            <!-- <router-link to="/elections">
-              <p>Elections</p>
-            </router-link> -->
             <router-link to="/common">
               <p>Common Room</p>
+            </router-link>
+            <router-link to="/leaders">
+              <p>Leader Groups</p>
             </router-link>
           </div>
           <div class="text-left flex flex-col gap-1">
@@ -345,7 +166,7 @@ const bgClass = computed(() => {
           <p>WEBSITE UPDATED BY NG XU THONG AND PUBCO</p>
         </div>
       </div>
-      
+
       <div class="mt-16 w-full flex items-center justify-center overflow-hidden">
         <h1 class="text-[21vw]">HCUNITE</h1>
       </div>

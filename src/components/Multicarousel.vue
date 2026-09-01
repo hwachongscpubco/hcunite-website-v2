@@ -9,8 +9,8 @@
   <div class="rounded-xl border-1 overflow-hidden flex flex-col lg:flex-row" :class="(isMobile? '': 'max-h-[70vh] ') + borderClass">
     <!-- Mobile (horizontal) -->
     <div v-if="isMobile" class="relative overflow-hidden">
-      <div class="absolute top-0 left-0 h-full w-28 z-10 bg-linear-to-r from-white to-transparent pointer-events-none"></div>
-      <div class="absolute top-0 right-0 h-full w-28 z-10 bg-linear-to-r to-white from-transparent pointer-events-none"></div>
+      <div class="absolute top-0 left-0 h-full w-28 z-10 bg-linear-to-r from-ivory to-transparent pointer-events-none"></div>
+      <div class="absolute top-0 right-0 h-full w-28 z-10 bg-linear-to-r to-ivory from-transparent pointer-events-none"></div>
       <div class="absolute top-1/2 left-2 p-2 z-20 transform -translate-y-1/2 ">
         <svg @click="scrollEventLeft" width="32px" height="32px" viewBox="0 0 24 24" fill="none">
           <path d="M15 7L10 12L15 17" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

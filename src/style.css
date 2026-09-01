@@ -1,15 +1,31 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Poppins:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Poppins:wght@400;500;600&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Long+Cang&family=Ma+Shan+Zheng&display=swap');
 
 @import "tailwindcss";
 
+/*
+  "Now Playing" redesign tokens — see HCUnite Redesign.dc.html / its
+  README for the full spec these come from. Surface/ink/accent/track
+  colours live in @theme so Tailwind generates utilities for them
+  (bg-ivory, text-ink, border-hairline, ...). Motion tokens are plain
+  CSS custom properties on :root instead — they're durations/easings,
+  not colours/fonts, so there's no Tailwind utility to generate; use
+  them via inline style bindings or the .ease-* utilities below.
+*/
 @theme {
   --font-inter: 'Inter';
   --font-poppins: 'Poppins';
   --font-longcang: 'Long Cang';
   --font-mashanzheng: 'Ma Shan Zheng';
+
+  /* accent — one per surface, never two */
   --color-hwachred: #CE2222;
   --color-hwachred-dark: #6D1212;
+  --color-coral: #FF6441;
+  --color-seafoam: #C3D79B;
+  --color-gold: #F0C35F;
+
+  /* faculty + sodache tokens — unchanged */
   --color-apollo: #ffcc02;
   --color-apollo-dark: #f1aa00;
   --color-ares: #c9102d;
@@ -18,14 +34,49 @@
   --color-song: #00D689;
   --color-dance: #AB00D6;
   --color-cheer: #FFB71C;
+
+  /* surface + ink */
+  --color-ivory: #FAF0E6;
+  --color-card: #F1E4D2;
+  --color-sand: #F3E6D3;
+  --color-khaki: #DCBE96;
+  --color-hairline: #E0D2BE;
+  --color-ink: #1E1E1E;
+  --color-ink-soft: #4A4238;
+  --color-mute: #8A7B69;
+  --color-mute-light: #A2917B;
+
+  /* track colours — disc hubs / case spines, keyed by page */
+  --color-track-council: #0F3C6E;
+  --color-track-archive: #87D7CD;
+  --color-track-sodache: #EE7BA8;
+  --color-track-common: var(--color-seafoam);
+  --color-track-leaders: var(--color-hwachred);
+  --color-track-ccas: var(--color-gold);
+}
+
+:root {
+  --dur-tap: 120ms;
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-slow: 560ms;
+  --dur-page: 700ms;
+  --dur-spinup: 900ms;
+  --ease-standard: cubic-bezier(.22,.61,.36,1);
+  --ease-enter: cubic-bezier(.16,1,.3,1);
+  --ease-exit: cubic-bezier(.4,0,1,1);
+  --ease-mech: cubic-bezier(.65,0,.35,1);
 }
 
 @layer base {
+  body {
+    @apply bg-ivory;
+  }
   h1 {
-    @apply font-inter font-black text-6xl sm:text-8xl lg:text-9xl
+    @apply font-inter font-black text-6xl sm:text-8xl lg:text-9xl tracking-[-0.03em]
   }
   h2 {
-    @apply text-6xl sm:text-7xl lg:text-8xl font-poppins text-wrap
+    @apply text-6xl sm:text-7xl lg:text-8xl font-poppins font-medium text-wrap
   }
   h3{
     @apply text-3xl lg:text-4xl font-poppins
@@ -33,6 +84,13 @@
   p{
     @apply font-poppins text-base sm:text-xl
   }
+}
+
+@layer utilities {
+  .ease-standard { transition-timing-function: var(--ease-standard); }
+  .ease-enter { transition-timing-function: var(--ease-enter); }
+  .ease-exit { transition-timing-function: var(--ease-exit); }
+  .ease-mech { transition-timing-function: var(--ease-mech); }
 }
 
 .custom-cursor-eye-open {
@@ -58,4 +116,52 @@
 .custom-scroll-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Paper grain — deck body, case spines, binder tray */
+.grain {
+  background-image:
+    repeating-linear-gradient(58deg, rgba(120,92,58,0.05) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(148deg, rgba(120,92,58,0.04) 0 1px, transparent 1px 4px);
+}
+
+/* Reveal-on-scroll — see useRevealOnScroll.js. Elements start hidden/offset
+   and each gets .revealed added once, individually, by the observer. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 420ms var(--ease-standard), transform 420ms var(--ease-standard);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes disc-spin { to { transform: rotate(360deg); } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* Route/page-swap transition (App.vue's <Transition name="page">) */
+.page-enter-active { transition: opacity 380ms var(--ease-enter), transform 380ms var(--ease-enter); }
+.page-leave-active { transition: opacity 220ms var(--ease-exit), transform 220ms var(--ease-exit); }
+.page-enter-from { opacity: 0; transform: translateY(12px); }
+.page-leave-to { opacity: 0; transform: translateY(-12px); }
+
+/* Docked spine rail slide-in (DeckRail.vue's <Transition name="rail">) */
+.rail-enter-active, .rail-leave-active { transition: transform 560ms var(--ease-mech), opacity 560ms var(--ease-mech); }
+.rail-enter-from, .rail-leave-to { transform: translateX(40px); opacity: 0; }
+
+/* Mobile deck strip slide-in (DeckRail.vue's <Transition name="rail-mobile">) */
+.rail-mobile-enter-active, .rail-mobile-leave-active { transition: transform 320ms var(--ease-mech), opacity 320ms var(--ease-mech); }
+.rail-mobile-enter-from, .rail-mobile-leave-to { transform: translateY(-12px); opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 160ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    transform: none;
+  }
 }

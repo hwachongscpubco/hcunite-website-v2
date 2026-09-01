@@ -1,96 +1,97 @@
 <!--
-  Home.vue — the / landing page: hero, "why we're here" blurb, embedded
-  Instagram feed, the Official Links / Others card lists (data in
-  src/data/links.js), and the PubCo feedback note.
+  Home.vue — the / landing page. This is the deck's permanent
+  empty-deck state: DeckPlayer.vue (the binder + platter) is the page's
+  hero and the site's whole navigation model on this route — every
+  other page instead shows the docked DeckRail.vue (see App.vue). Below
+  it: the two link-category carousels, "why we're here", and the PubCo
+  feedback note. The old Instagram feed is gone — see /leaders instead.
 -->
 <script setup>
-    import { onMounted } from 'vue'
-    import LinkCategoryCarousel from '../components/LinkCategoryCarousel.vue'
-    import { officialLinks, otherLinks } from '../data/links'
-
-    onMounted(() => {
-    if (!document.querySelector('script[src="https://w.behold.so/widget.js"]')) {
-        const script = document.createElement('script')
-        script.type = 'module'
-        script.src = 'https://w.behold.so/widget.js'
-        document.head.appendChild(script)
-    }
-    })
+import DeckPlayer from '../components/deck/DeckPlayer.vue'
+import LinkCategoryCarousel from '../components/LinkCategoryCarousel.vue'
+import { officialLinks, otherLinks } from '../data/links'
 </script>
 
 <template>
-    <!-- hero section -->
-    <section class="w-full overflow-hidden relative lg:h-screen h-[70vh]">
-        <router-link to="/Council52">
-            <img src="../assets/home/council_pic.jpg" alt="background" class="absolute top-0 left-0 w-full h-full object-cover">
-            <h1 class="p-4 md:p-12 absolute bottom-0 z-20 text-white">WELCOME TO HCUNITE!</h1>
-        </router-link>
-    </section>
+  <!-- the deck -->
+  <section class="pt-4 sm:pt-10 pb-14 px-1 sm:px-4">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 max-w-[1180px] mx-auto mb-8 sm:mb-10">
+      <h1 class="text-ink !text-5xl sm:!text-7xl leading-[0.92] tracking-[-0.035em]">
+        WELCOME TO <span class="text-hwachred">HCUNITE</span>!
+      </h1>
+      <div class="font-poppins text-[11px] text-mute text-left sm:text-right leading-relaxed shrink-0">
+        HWA CHONG<br>STUDENTS' COUNCIL<br>EST. SINGAPORE
+      </div>
+    </div>
 
-    <!-- why were here section -->
-    <section class="w-full">
-        <div class="flex flex-row justify-center xl:justify-between xl:gap-10 w-full py-30 px-[10%] lg:px-0 lg:w-[60%] lg:max-w-[900px] m-auto">
-            <!-- text div -->
-            <div class="font-poppins text-center m-auto xl:mx-0 xl:text-left">
-                <h2 class="m-auto">Why we're here:</h2>
-                <p class=" text-md mt-6 lg:text-lg max-w-lg m-auto">
-                    We are committed to building a united Hwa Chong family. 
-                    <br><br>We are here for you, whenever and wherever you need it. 
-                    <br><br>We are the Hwa Chong Students’ Council.
-                </p>
-            </div>
-            <div class="max-w-[400px] aspect-square">
-                <img src="../assets/home/c1 ori.jpg" alt="photo" class="hidden xl:block size-100 bg-red-50 rounded-xl w-full h-full object-cover object-center">
-            </div>
+    <DeckPlayer />
+  </section>
+
+  <!-- links -->
+  <section class="px-1 sm:px-4 pb-8">
+    <div class="flex flex-col gap-4 max-w-[1180px] mx-auto">
+      <LinkCategoryCarousel
+        title="Official Links"
+        description="Everything you need as a student"
+        :links="officialLinks"
+      />
+      <LinkCategoryCarousel
+        title="Others"
+        description="Explore additional resources and helpful sites"
+        :links="otherLinks"
+      />
+    </div>
+  </section>
+
+  <div class="section-divider my-4"></div>
+
+  <!-- why we're here -->
+  <section class="w-full px-4 sm:px-8 py-16 sm:py-20">
+    <div class="max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 lg:gap-14 items-center">
+      <div>
+        <div class="w-14 h-[3px] bg-hwachred rounded-full mb-5"></div>
+        <h2 class="!text-4xl sm:!text-5xl !leading-[1.05] text-ink">Why we're here:</h2>
+        <p class="text-ink-soft text-base sm:text-lg mt-5 max-w-lg leading-relaxed">
+          We are committed to building a united Hwa Chong family.
+          <br><br>We are here for you, whenever and wherever you need it.
+          <br><br>We are the Hwa Chong Students' Council.
+        </p>
+      </div>
+      <div class="aspect-square rounded-2xl overflow-hidden border border-hairline hidden lg:block">
+        <img src="../assets/home/c1 ori.jpg" alt="council photo" class="w-full h-full object-cover object-center">
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider my-4"></div>
+
+  <!-- pubco note -->
+  <section class="w-full bg-ink text-ivory px-4 sm:px-8 py-16 sm:py-20">
+    <div class="max-w-[1180px] mx-auto">
+      <div class="w-14 h-[3px] bg-hwachred rounded-full mb-5"></div>
+      <h2 class="!text-3xl sm:!text-4xl max-w-2xl">Publication and Publicity Committee's Note:</h2>
+      <p class="text-[#D8CDBD] text-base sm:text-lg mt-5 max-w-2xl leading-relaxed">
+        Hello! Welcome to HCUnite.com! We'd like to thank you for taking the time to visit our Website! Hopefully you've found what you were looking for and that (HC)ULIKE our Website!
+        <br><br>If you have any feedback with regard to HCUnite and any of our related initiatives, we would love to hear it. Please feel free to share your feedback with us in the form below:
+      </p>
+      <a
+        class="inline-block text-ivory font-poppins text-sm sm:text-base bg-hwachred hover:bg-coral rounded-full py-3.5 px-8 mt-7 transition-colors duration-300"
+        href="https://forms.gle/kT7bP6BH9Ddfrw2z9"
+        target="_blank"
+      >Feedback</a>
+
+      <div class="mt-16 flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 font-poppins text-[11px] text-mute">
+        <div class="leading-relaxed">CREDIT: STUDIO ARDENT FOR RELEVANT IMAGES<br>WEBSITE UPDATED BY NG XU THONG AND PUBCO</div>
+        <div class="flex gap-4">
+          <a href="https://www.instagram.com/hcunite/" target="_blank" class="hover:text-ivory transition-colors">INSTAGRAM</a>
+          <a href="https://www.youtube.com/channel/UCPz0DNqC6i1pyJvKYhSHlKw" target="_blank" class="hover:text-ivory transition-colors">YOUTUBE</a>
+          <a href="https://www.facebook.com/hcunite/" target="_blank" class="hover:text-ivory transition-colors">FACEBOOK</a>
         </div>
-    </section>
+      </div>
 
-    <div class="section-divider"></div>
-
-
-     <!-- links section: one rectangle per category, each autoscrolling through its links -->
-     <section class="mt-24 lg:mt-30 px-6 sm:px-12 py-8">
-        <div class="flex flex-col gap-8 max-w-5xl mx-auto">
-            <LinkCategoryCarousel
-                title="Official Links"
-                description="Everything you need as a student"
-                :links="officialLinks"
-            />
-            <LinkCategoryCarousel
-                title="Others"
-                description="Explore additional resources and helpful sites"
-                :links="otherLinks"
-            />
-        </div>
-    </section>
-    
-    <div class="section-divider"></div>
-
-    <!-- insta section -->
-    <section class="w-full py-15 px-6 text-center sm:text-left">
-        <div class="m-auto sm:max-w-[650px] flex flex-col sm:flex-row sm:justify-between  sm:items-end">
-            <h3 class="mb-3"> Follow our Instagram!</h3>
-            <h3 class="text-3xl font-poppins text-hwachred mb-3 bg-red-50 border-1 border-hwachred rounded-xl p-3">@HCUNITE</h3>
-        </div>
-        <behold-widget class="rounded-xl" feed-id="jc8RM2ufBxJ7fUp50RC9"></behold-widget>
-     </section>
-
-     <div class="section-divider"></div>
-    
-    <!-- pubs note section -->
-     <section class="w-full">
-        <div class="w-full py-15 px-[10%] text-center lg:text-left lg:w-[60%] lg:px-0 lg:max-w-[900px] m-auto">
-            <h2 class="">Publication and Publicity Committee’s Note:</h2>
-            <p class="text-md mt-6 lg:text-lg">
-                Hello! Welcome to HCUnite.com! We'd like to thank you for taking the time to visit our Website! Hopefully you've found what you were looking for and that (HC)ULIKE our Website!
-                <br><br>If you have any feedback with regard to HCUnite and any of our related initiatives, we would love to hear it. Please feel free to share your feedback with us in the form below:
-            </p>
-            <a class="text-white font-poppins text-md inline-block bg-black hover:bg-hwachred rounded-full p-6 mt-6 lg:text-lg transition-colors duration-300" href="https://forms.gle/kT7bP6BH9Ddfrw2z9" target="_blank">Feedback</a>
-        </div>
-
-    </section>
+      <div class="overflow-hidden mt-6 -mb-6 sm:-mb-10">
+        <div class="font-inter font-black text-[22vw] sm:text-[13vw] leading-[0.8] tracking-[-0.05em] text-[#2A2A2A] whitespace-nowrap">HCUNITE</div>
+      </div>
+    </div>
+  </section>
 </template>
-
-<!-- FUTURE UPDATES:
-transitions (hero widgets, buttons, nav bar) -->
-

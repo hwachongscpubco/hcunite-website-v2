@@ -25,6 +25,7 @@ import Elections from "./pages/Elections.vue"
 import Candidates from "./pages/Candidates53.vue"
 import Links from "./pages/Links.vue"
 import Common from "./pages/Common.vue"
+import Leaders from "./pages/Leaders.vue"
 
 const routes = [
     { path: '/', component: Home},
@@ -43,6 +44,7 @@ const routes = [
     { path: '/candidates53', component: Candidates},
     { path: '/links', component: Links},
     { path: '/common', component: Common},
+    { path: '/leaders', component: Leaders},
 ]
 
 const router = createRouter({

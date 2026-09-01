@@ -47,6 +47,18 @@
           class="relative mx-auto w-[220px] h-[220px] sm:w-full sm:h-auto sm:aspect-square rounded-full grid place-items-center"
           style="background: radial-gradient(circle at 50% 50%, #E7DBC8 0 30%, #DFD2BC 30% 96%, #D3C4AB 100%); box-shadow: inset 0 6px 18px -6px rgba(90,62,32,0.45), inset 0 0 0 1px #D8C9B1;"
         >
+          <!--
+            [grid-area:1/1] on both the disc and the empty-well dot: the
+            well is a `grid place-items-center` box sized off its own
+            aspect-ratio, not its content. Without this, the outgoing
+            and incoming <Disc> mid-crossfade are two auto-placed grid
+            items (two implicit rows), and a percentage-sized child
+            resolves against its *row's* auto height rather than the
+            well's — which briefly halves it into a squashed capsule.
+            Pinning every child to the same cell keeps it a one-item
+            grid at all times, so the percentage always resolves off
+            the well itself.
+          -->
           <Transition name="disc-fade">
             <Disc
               v-if="previewTrack"
@@ -54,10 +66,10 @@
               :size="180"
               :color="previewTrack.color"
               :spinning="true"
-              class="!w-[92%] !h-[92%]"
+              class="!w-[92%] !h-[92%] [grid-area:1/1]"
             />
           </Transition>
-          <div v-if="!previewTrack" class="w-3 h-3 rounded-full bg-hairline"></div>
+          <div v-if="!previewTrack" class="w-3 h-3 rounded-full bg-hairline [grid-area:1/1]"></div>
         </div>
 
         <!-- readout -->

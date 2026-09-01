@@ -71,7 +71,16 @@ const bgClass = computed(() => {
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col overflow-x-hidden overflow-y-scroll custom-scroll-hide" :class="bgClass">
+  <!--
+    No `overflow` here on purpose: any non-visible overflow-x/-y on an
+    ancestor (even just overflow-x-hidden — the other axis then computes
+    to auto per the CSS overflow spec) makes it the containing block
+    `position: sticky` measures against instead of the real viewport,
+    which is exactly what silently broke DeckRail's docked rail. The
+    scrollbar-hiding + horizontal clip live on html/body in style.css
+    instead, where sticky still resolves against the viewport correctly.
+  -->
+  <div class="min-h-screen flex flex-col" :class="bgClass">
     <div
       class="flex-grow w-full px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8"
       :class="isHome ? '' : 'pt-[58px] lg:pt-8 lg:grid lg:grid-cols-[1fr_216px] lg:gap-2'"

@@ -69,6 +69,23 @@
 }
 
 @layer base {
+  /*
+    Horizontal clip + hidden scrollbar for the whole document, on html/
+    body rather than App.vue's root div: any element with a non-visible
+    overflow becomes the containing block `position: sticky` measures
+    against instead of the real viewport (DeckRail's docked rail relies
+    on tracking the viewport). html/body are the one place this is safe
+    — the root scrolling element still resolves sticky against the
+    viewport correctly.
+  */
+  html {
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar {
+    display: none;
+  }
   body {
     @apply bg-ivory;
   }
@@ -140,11 +157,19 @@
 @keyframes disc-spin { to { transform: rotate(360deg); } }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
-/* Route/page-swap transition (App.vue's <Transition name="page">) */
-.page-enter-active { transition: opacity 380ms var(--ease-enter), transform 380ms var(--ease-enter); }
-.page-leave-active { transition: opacity 220ms var(--ease-exit), transform 220ms var(--ease-exit); }
-.page-enter-from { opacity: 0; transform: translateY(12px); }
-.page-leave-to { opacity: 0; transform: translateY(-12px); }
+/*
+  Route/page-swap transition (App.vue's <Transition name="page">) — an
+  eject/insert motion: the outgoing page (the CD player, leaving home)
+  slides fully off to the right, then the chosen page slides in from
+  off-screen left. translateX(100%)/(-100%) are relative to the page's
+  own box, so this clears the viewport at any width; html's
+  overflow-x: hidden (see @layer base above) keeps it from drawing a
+  horizontal scrollbar while off-screen mid-transition.
+*/
+.page-enter-active { transition: opacity 420ms var(--ease-enter), transform 420ms var(--ease-enter); }
+.page-leave-active { transition: opacity 320ms var(--ease-exit), transform 320ms var(--ease-exit); }
+.page-enter-from { opacity: 0; transform: translateX(-100%); }
+.page-leave-to { opacity: 0; transform: translateX(100%); }
 
 /* Docked spine rail slide-in (DeckRail.vue's <Transition name="rail">) */
 .rail-enter-active, .rail-leave-active { transition: transform 560ms var(--ease-mech), opacity 560ms var(--ease-mech); }
@@ -161,7 +186,8 @@
     transition-duration: 160ms !important;
     scroll-behavior: auto !important;
   }
-  .reveal {
+  .reveal,
+  .page-enter-from, .page-leave-to {
     transform: none;
   }
 }

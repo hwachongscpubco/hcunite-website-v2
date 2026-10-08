@@ -1,7 +1,10 @@
 <!--
   SodacheItem.vue — one song card on the Sodache page (song entries only
   — dance/cheer entries render inline in Sodache.vue instead). Click to
-  expand the description; Spotify/YouTube icons appear on image hover.
+  expand the description; Spotify/YouTube icons appear on image hover,
+  plus a guitar icon to that song's chords PDF when `data.chords` is
+  set (see Sodache.vue — only the 7 songs covered by the SODACHE lyrics
+  + chords booklet have one; it's omitted from the rest, not blank).
 -->
 <template>
     <div class="lg:h-full">
@@ -25,13 +28,33 @@
                         
                         <a v-if="section=='song' && data.link" :href="data.link" target="_blank">
                             <svg
-                            xmlns="http://www.w3.org/2000/svg" 
-                            class="w-12 aspect-square text-green-500 hover:text-white transition-color duration-500" 
-                            fill="none" 
-                            viewBox="0 0 24 24" 
-                            stroke="currentColor" 
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-12 aspect-square text-green-500 hover:text-white transition-color duration-500"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
                             stroke-width="2">
                               <path stroke-linecap="round" stroke-linejoin="round" d="M10 14a3 3 0 004.243 0l3-3a3 3 0 00-4.243-4.243l-1.06 1.06M14 10a3 3 0 00-4.243 0l-3 3a3 3 0 004.243 4.243l1.06-1.06" />
+                            </svg>
+                        </a>
+
+                        <!--
+                          Chords PDF (guitar icon) — only for songs with a `chords`
+                          entry (a page-range extract of the SODACHE lyrics+chords
+                          booklet). Same size/colour/hover treatment as the
+                          Spotify/YouTube icons above; path is Font Awesome Free's
+                          "guitar" solid icon (CC BY 4.0, fontawesome.com/license/free),
+                          kept filled like the Spotify icon rather than outlined like
+                          the link icon since a hand-drawn guitar outline at this size
+                          read as a lollipop, not an instrument.
+                        -->
+                        <a v-if="section=='song' && data.chords" :href="data.chords" target="_blank">
+                            <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-12 aspect-square text-green-500 hover:text-white transition-color duration-500"
+                            fill="currentColor"
+                            viewBox="0 0 512 512">
+                              <path d="M465 7c-9.4-9.4-24.6-9.4-33.9 0L383 55c-2.4 2.4-4.3 5.3-5.5 8.5l-15.4 41-77.5 77.6c-45.1-29.4-99.3-30.2-131 1.6c-11 11-18 24.6-21.4 39.6c-3.7 16.6-19.1 30.7-36.1 31.6c-25.6 1.3-49.3 10.7-67.3 28.6C-16 328.4-7.6 409.4 47.5 464.5s136.1 63.5 180.9 18.7c17.9-17.9 27.4-41.7 28.6-67.3c.9-17 15-32.3 31.6-36.1c15-3.4 28.6-10.5 39.6-21.4c31.8-31.8 31-85.9 1.6-131l77.6-77.6 41-15.4c3.2-1.2 6.1-3.1 8.5-5.5l48-48c9.4-9.4 9.4-24.6 0-33.9L465 7zM208 256a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
                             </svg>
                         </a>
 

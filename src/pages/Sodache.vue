@@ -84,7 +84,8 @@ const sodache = {
         "description": "This song was rearranged from a Taiwanese pop song sung by 张栋梁.This song reminds Hwa Chongians that in times of loneliness, evoking the memories of the good times spent in Hwa Chong with other schoolmates will dispel all feelings of solitude.",
         "image": "/images/sodache/4.png",
         "link": "https://www.youtube.com/watch?v=3QJS-dyroDU",
-        "spotify": "https://open.spotify.com/track/5QqTjc9uZ4EyBDoHN9RFWJ"
+        "spotify": "https://open.spotify.com/track/5QqTjc9uZ4EyBDoHN9RFWJ",
+        "chords": "/chords/dang-ni-gu-dan.pdf"
     },
     {
         "title": "细水长流",
@@ -92,21 +93,24 @@ const sodache = {
         "description": "Composed by one of our former Council presidents and local 新 遥 artiste, Liang Wern Fook, this song was written in the form of a flashback of the memories of one's transient schooling years and beyond, where the strongest camaraderie is founded amongst schoolmates. This heartwarming and reminiscent song serves to remind Hwa Chongians to appreciate every friend who has filled their hearts with warmth and countless unforgettable memories.",
         "image": "/images/sodache/8.png",
         "link": "https://www.youtube.com/watch?v=wq1h8aKNdXo",
-        "spotify": "https://open.spotify.com/track/3a4pNFe8hXT8KlRFmdN7QV"
+        "spotify": "https://open.spotify.com/track/3a4pNFe8hXT8KlRFmdN7QV",
+        "chords": "/chords/xi-shui-chang-liu.pdf"
     },
     {
         "title": "钟声依旧",
         "composer": "Liang Wern Fook",
         "description": "This song was written in celebration of Hwa Chong’s 100th anniversary in 2019 by Liang Wern Fook to describe the emotions of alumni as they return to the campus and reminisce their memories with their teachers and friends.",
         "image": "/images/sodache/1.png",
-        "spotify": "https://open.spotify.com/track/5ei9qo5Qau8bih6VKnPzVy"
+        "spotify": "https://open.spotify.com/track/5ei9qo5Qau8bih6VKnPzVy",
+        "chords": "/chords/zhong-sheng-yi-jiu.pdf"
     },
     {
         "title": "心旅",
         "description": "A fun, light-hearted song which involves interaction between male and female students in the form of mock-jeering at each other. This song is a reflection of the short but meaningful times that every batch of students will experience in Hwa Chong. Although these times may pass, the memories and friendships forged are everlasting.",
         "image": "/images/sodache/6.png",
         "link": "https://www.youtube.com/watch?v=nJ4IfuS7DFs",
-        "spotify": "https://open.spotify.com/track/0xpJNKr07b38TDSGCMHHoM"
+        "spotify": "https://open.spotify.com/track/0xpJNKr07b38TDSGCMHHoM",
+        "chords": "/chords/xin-lu.pdf"
     },
     {
         "title": "情真情深",
@@ -114,7 +118,8 @@ const sodache = {
         "description": "Composed by the 19th Students’ Council Song I/C, Ho Han Kiat, and assisted by his batch. The captivating lyrics encapsulate a shared vision amongst the batch and express their passionate love for the school.",
         "image": "/images/sodache/10.png",
         "link": "https://www.youtube.com/watch?v=tfiEGP-kjb4",
-        "spotify": "https://open.spotify.com/track/5tlSj9IG86yrC4HYxmMMpR"
+        "spotify": "https://open.spotify.com/track/5tlSj9IG86yrC4HYxmMMpR",
+        "chords": "/chords/qing-zhen-qing-shen.pdf"
     },
     {
         "title": "只为那爱我愿",
@@ -122,7 +127,8 @@ const sodache = {
         "description": "Composed by the 12th Students’ Council Song I/C, Sook Neo. The lyrics speak strongly about the love of the school and the dedication of its students. Despite any trials and tribulations, Hwa Chongians will remain strong, push on and enjoy the journey together.",
         "image": "/images/sodache/11.jpg",
         "link": "https://www.youtube.com/watch?v=mkDO0A2B9XI",
-        "spotify": "https://open.spotify.com/track/7y4a4I5MaL7FDKqyNOtktH"
+        "spotify": "https://open.spotify.com/track/7y4a4I5MaL7FDKqyNOtktH",
+        "chords": "/chords/zhi-wei-na-ai-wo-yuan.pdf"
     },
     {
         "title": "唱一首华初的歌",
@@ -130,7 +136,8 @@ const sodache = {
         "description": "This is one of the oldest and most significant college songs, and holds a special place in many Hwa Chongians’ hearts. It was composed by one of the former Council presidents, Mr Liang Wern Fook, after he lost an inter-school debating competition. Written during the time of the pioneering batches, this song has been favoured by students for the popular hand actions that are often used while singing the song.",
         "image": "/images/sodache/9.png",
         "link": "https://www.youtube.com/watch?v=ObqhPXxp17s",
-        "spotify": "https://open.spotify.com/track/7zyBYA3ZAv693lXn9jdtTz"
+        "spotify": "https://open.spotify.com/track/7zyBYA3ZAv693lXn9jdtTz",
+        "chords": "/chords/chang-yi-shou-hua-chu-de-ge.pdf"
     },
     {
         "title": "也是深情",

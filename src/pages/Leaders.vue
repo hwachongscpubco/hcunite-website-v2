@@ -20,13 +20,13 @@ import Disc from '../components/deck/Disc.vue'
 const groups = [
   { name: "Students' Council", note: 'HCSC · 53rd Council', color: '#CE2222', handle: '@hcunite', href: 'https://www.instagram.com/hcunite/', linkLabel: 'INSTAGRAM' },
   { name: 'CCA Council', note: 'CCAs', color: '#0F3C6E', handle: '@hcccas', href: 'https://www.instagram.com/hcccas/', linkLabel: 'INSTAGRAM' },
-  { name: 'Apollo Faculty', note: 'The Bull · Live Loud, Live Proud', color: '#FFCC02', handle: '@apollofaculty', href: 'https://www.instagram.com/apollofaculty/', linkLabel: 'INSTAGRAM' },
+  { name: 'Apollo Faculty', note: 'The Bull', color: '#FFCC02', handle: '@apollofaculty', href: 'https://www.instagram.com/apollofaculty/', linkLabel: 'INSTAGRAM' },
   { name: 'Ares Faculty', note: 'The Horse', color: '#C9102D', handle: '@aresfaculty', href: 'https://www.instagram.com/aresfaculty/', linkLabel: 'INSTAGRAM' },
   { name: 'Artemis Faculty', note: 'The Wolf', color: '#06048D', handle: '@artemisfaculty', href: 'https://www.instagram.com/artemisfaculty/', linkLabel: 'INSTAGRAM' },
   { name: 'Athena Faculty', note: 'The Owl', color: '#027B3E', handle: '@athenafaculty', href: 'https://www.instagram.com/athenafaculty/', linkLabel: 'INSTAGRAM' },
   { name: 'Green Council', note: 'Environmental', color: '#4E7A3A', handle: '@hc_greencouncil', href: 'https://www.instagram.com/hc_greencouncil/', linkLabel: 'INSTAGRAM' },
-  { name: 'VIA Council', note: 'Values In Action', color: '#2F80ED', handle: '@viacouncil', href: 'https://www.instagram.com/viacouncil/', linkLabel: 'INSTAGRAM' },
-  { name: "Students' NE Council", note: 'National Education', color: '#EF3340', handle: '@hcisnec', href: 'https://www.instagram.com/hcisnec/', linkLabel: 'INSTAGRAM' },
+  { name: 'Values-In-Action Council', note: 'Values-In-Action', color: '#87D7CD', handle: '@viacouncil', href: 'https://www.instagram.com/viacouncil/', linkLabel: 'INSTAGRAM' },
+  { name: "Students' National Education Council", note: 'National Education', color: '#F0C35F', handle: '@hcisnec', href: 'https://www.instagram.com/hcisnec/', linkLabel: 'INSTAGRAM' },
 ]
 
 const { setEl } = useRevealOnScroll()

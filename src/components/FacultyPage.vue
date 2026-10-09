@@ -50,7 +50,7 @@
       <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent pointer-events-none"></div>
 
       <div class="absolute left-4 bottom-4 md:left-10 md:bottom-10 pointer-events-none">
-        <div class="font-poppins text-[11px] tracking-[0.16em] uppercase mb-2.5" :class="labelClass">TRACK 03 · {{ name }}</div>
+        <div class="font-jakarta text-[11px] tracking-[0.16em] uppercase mb-2.5" :class="labelClass">TRACK 03 · {{ name }}</div>
         <h1 class="text-ivory !leading-[0.88]">{{ name }}</h1>
       </div>
 
@@ -70,7 +70,7 @@
           @touchend.stop
           target="blank"
           :href="instagram"
-          class="text-white font-poppins text-md inline-block border-1 rounded-full py-3 px-6 mt-6 lg:text-lg transition-colors duration-300"
+          class="text-white font-jakarta text-md inline-block border-1 rounded-full py-3 px-6 mt-6 lg:text-lg transition-colors duration-300"
           :class="[borderClass, hoverClass, { 'pointer-events-auto opacity-100': showOverlay, 'pointer-events-none opacity-0': !showOverlay }]"
         >
           Instagram
@@ -78,7 +78,7 @@
       </div>
 
       <div
-        class="absolute bottom-8 lg:bottom-12 w-full text-center text-white text-base md:text-xl font-poppins pointer-events-none z-20 transition-all duration-500"
+        class="absolute bottom-8 lg:bottom-12 w-full text-center text-white text-base md:text-xl font-jakarta pointer-events-none z-20 transition-all duration-500"
         :class="showOverlay ? 'opacity-50' : 'opacity-0'"
       >
         Tap to reveal image
@@ -97,7 +97,7 @@
   <section class="text-justify p-6 md:p-12">
     <img :src="animalImage" alt="" class="aspect-square w-[70%] max-w-[500px] m-auto rounded-2xl object-cover">
     <div class="w-14 h-[3px] bg-hwachred rounded-full mx-auto mt-10 mb-3"></div>
-    <div class="font-poppins text-[11px] tracking-[0.16em] uppercase text-hwachred text-center">SACRED ANIMAL</div>
+    <div class="font-jakarta text-[11px] tracking-[0.16em] uppercase text-hwachred text-center">SACRED ANIMAL</div>
     <h2 class="mt-2 text-center text-ink">{{ animalTitle }}</h2>
     <p class="centered-text-block text-ink-soft leading-relaxed mt-6">
       <slot name="blurb" />

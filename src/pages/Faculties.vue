@@ -54,8 +54,8 @@ const { setEl } = useRevealOnScroll()
                     >
                 </div>
                 <div class="px-5 py-4 flex items-baseline justify-between">
-                    <span class="font-poppins font-medium text-xl text-ink">{{ f.name }}</span>
-                    <span class="font-poppins text-[11px] text-mute">{{ f.animal }}</span>
+                    <span class="font-jakarta font-medium text-xl text-ink">{{ f.name }}</span>
+                    <span class="font-jakarta text-[11px] text-mute">{{ f.animal }}</span>
                 </div>
             </router-link>
         </div>
@@ -66,7 +66,7 @@ const { setEl } = useRevealOnScroll()
             <div class="lg:sticky lg:top-24 self-start">
                 <div class="w-14 h-[3px] bg-hwachred rounded-full mb-4"></div>
                 <h2 class="!text-3xl text-ink !leading-[1.1]">Address by SnR Chairperson</h2>
-                <div class="font-poppins text-[11px] text-mute mt-4 leading-relaxed">
+                <div class="font-jakarta text-[11px] text-mute mt-4 leading-relaxed">
                     LI XIYUAN<br>SOCIAL AND RELATIONS<br>COMMITTEE CHAIRPERSON<br>53RD HWA CHONG<br>STUDENTS' COUNCIL
                 </div>
             </div>

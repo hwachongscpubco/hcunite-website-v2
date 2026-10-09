@@ -15,7 +15,7 @@
             </Parallax>
             
             <div class="absolute inset-0 w-full h-full flex flex-col justify-center items-center gap-3">
-                <span class="font-poppins text-[11px] tracking-[0.16em] uppercase text-song">TRACK 04 · SIDE B</span>
+                <span class="font-jakarta text-[11px] tracking-[0.16em] uppercase text-song">TRACK 04 · SIDE B</span>
                 <h1 class="text-ivory">SODACHE</h1>
             </div>
         </div>
@@ -37,7 +37,7 @@
                     <span @click="changeSection('dance')" class="transition-colors duration-300" :class="activeSection=='dance' ? 'text-dance':'text-[#4A4238]'">DA</span>
                     <span @click="changeSection('cheer')" class="transition-colors duration-300" :class="activeSection=='cheer' ? 'text-cheer':'text-[#4A4238]'">CHE</span>
                 </h1>
-                <p class="font-poppins text-[10.5px] tracking-[0.1em] uppercase text-mute mt-2">Click on the text above to see other sections</p>
+                <p class="font-jakarta text-[10.5px] tracking-[0.1em] uppercase text-mute mt-2">Click on the text above to see other sections</p>
             </div>
         </div>
     </section>

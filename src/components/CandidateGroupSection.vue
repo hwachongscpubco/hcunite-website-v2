@@ -19,7 +19,7 @@
             </div>
             
     
-            <h2 class="mt-16 sm:mt-32 font-poppins text-6xl sm:text-8xl break-all">{{ group.groupName }}</h2>
+            <h2 class="mt-16 sm:mt-32 font-jakarta text-6xl sm:text-8xl break-all">{{ group.groupName }}</h2>
             
             <div class="mt-4 sm:mt-12">
                 <p v-html="group.groupDescription" class="text-2xl sm:text-3xl"></p>
@@ -33,7 +33,7 @@
                             <img class="w-full object-cover" :src="member.imagePath" alt="">
                         </div>
                         <div class="">
-                            <h4 class="font-poppins text-3xl mt-4">{{ member.name }}</h4>
+                            <h4 class="font-jakarta text-3xl mt-4">{{ member.name }}</h4>
                             <p class="text-base sm:text-lg" v-html="member.description"></p>
                         </div>
                     </div>

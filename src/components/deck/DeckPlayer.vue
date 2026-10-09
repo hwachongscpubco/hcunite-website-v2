@@ -15,7 +15,7 @@
          breakpoint: above the platter (and the carousels slotted below
          it) on mobile, to its left from lg up. -->
     <div class="flex flex-col gap-3.5 w-full lg:w-[300px] shrink-0">
-      <div class="font-poppins text-[11px] tracking-[0.14em] uppercase text-mute">Binder — pick a disc</div>
+      <div class="font-jakarta text-[11px] tracking-[0.14em] uppercase text-mute">Binder — pick a disc</div>
       <div
         class="grain rounded-2xl border border-hairline p-3 flex gap-2 lg:flex-col overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none"
         style="background: linear-gradient(180deg, #F3E6D3, #EADBC5); box-shadow: inset 0 2px 6px rgba(120,90,55,0.18);"
@@ -79,10 +79,10 @@
         <div class="relative flex flex-col gap-3 min-w-0">
           <Transition name="readout-fade" mode="out-in">
             <div :key="previewTrack?.key || 'empty'" class="flex flex-col gap-3">
-              <div class="font-poppins text-[11px] tracking-[0.16em] uppercase text-mute">
+              <div class="font-jakarta text-[11px] tracking-[0.16em] uppercase text-mute">
                 {{ previewTrack ? previewTrack.label + ' · NOW PREVIEWING' : 'NO DISC LOADED' }}
               </div>
-              <div class="font-poppins font-semibold text-2xl sm:text-3xl text-ink leading-tight">
+              <div class="font-jakarta font-semibold text-2xl sm:text-3xl text-ink leading-tight">
                 {{ previewTrack ? previewTrack.title : 'Pick a disc' }}
               </div>
               <p class="text-sm sm:text-base text-ink-soft leading-relaxed min-h-[64px] max-w-[420px]">
@@ -112,12 +112,12 @@
                 :style="{ width: previewTrack ? '34%' : '0%' }"
               ></div>
             </div>
-            <span class="font-poppins text-[11px] text-mute">{{ previewTrack ? previewTrack.time : '—' }}</span>
+            <span class="font-jakarta text-[11px] text-mute">{{ previewTrack ? previewTrack.time : '—' }}</span>
           </div>
         </div>
       </div>
 
-      <div class="flex items-center gap-2.5 font-poppins text-[11px] text-mute">
+      <div class="flex items-center gap-2.5 font-jakarta text-[11px] text-mute">
         <span class="w-2 h-2 rounded-full bg-seafoam"></span>
         <span>Click, tap, or drag a case onto the deck — every case is a real link.</span>
       </div>
@@ -138,7 +138,7 @@
       :style="{ left: dragging.x + 14 + 'px', top: dragging.y + 14 + 'px', transform: 'rotate(4deg)' }"
     >
       <Disc :size="24" :color="dragging.track.color" :spinning="true" />
-      <span class="font-poppins text-xs text-ink">{{ dragging.track.title }}</span>
+      <span class="font-jakarta text-xs text-ink">{{ dragging.track.title }}</span>
     </div>
   </Teleport>
 </template>

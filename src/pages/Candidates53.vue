@@ -20,17 +20,17 @@
     </section>
 
     <section class="p-4 lg:p-8 mt-16">
-        <h4 class="font-poppins text-xl">Click on any campaign group to learn more about them!</h4>
+        <h4 class="font-jakarta text-xl">Click on any campaign group to learn more about them!</h4>
         <div class="flex flex-col sm:flex-row w-full">
             <div v-for="tab in facultyTabs" :key="tab.name" class="flex-1 w-full pt-4">
-                <h4 class="w-full text-left border-b-2 pl-4 py-2 font-poppins" :class="tab.borderClass">{{ tab.name }}</h4>
+                <h4 class="w-full text-left border-b-2 pl-4 py-2 font-jakarta" :class="tab.borderClass">{{ tab.name }}</h4>
                 <div
                 v-for="(group,index) in campaignGroups[tab.name]"
                 :key="index"
                 class="relative w-full group overflow-hidden border-b-2 border-black">
                     <button
                     @click="selectGroup(tab.name, index)"
-                    class="z-10 w-full h-full text-left relative font-poppins group-hover:pl-8 pl-4 py-1 text-black group-hover:text-white transition-all duration-300 ease-in-out ">
+                    class="z-10 w-full h-full text-left relative font-jakarta group-hover:pl-8 pl-4 py-1 text-black group-hover:text-white transition-all duration-300 ease-in-out ">
                         {{ group.groupName }}
                     </button>
                     <div class="z-0 absolute inset-0 w-full translate-y-full group-hover:translate-0 transition-all duration-300" :class="tab.hoverBgClass"></div>

@@ -314,36 +314,36 @@ const councillors = {
 
     <section class="py-12 px-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/51st/51st_NSE.jpg" alt="">
                     <h2 class="ml-6 font-semibold">NSE</h2>
-                    <button @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:py-3 sm:max-w-[50%] md:max-w-[30%] lg:text-sm sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:py-3 sm:max-w-[50%] md:max-w-[30%] lg:text-sm sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/51st/51st_EcaCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">ECACO</h2>
-                    <button @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/51st/51st_PubCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">PUBCO</h2>
-                    <button @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/51st/51st_SecCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">SECCO</h2>
-                    <button @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
                 
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/51st/51st_SnR.jpg" alt="">
                     <h2 class="ml-6 font-semibold">SNR</h2>
-                    <button @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/51st/51st_WelCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">WELCO</h2>
-                    <button @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
         </div>
     </section>
@@ -364,7 +364,7 @@ const councillors = {
         </div>
 
         <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 As the core body in the Executive Committee, the Non-Standing Executive Committee is responsible for 
                 steering the council direction, while pushing boundaries to lead the council to greater heights. 
                 On an individual level, the committee is committed to supporting each and every councillor to pursue their passions, 
@@ -389,7 +389,7 @@ const councillors = {
         </div>
 
         <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 The Extended Council Attaché Committee comprises the Councillors who serve as Presidents and Vice-Presidents 
                 to the Values-In-Action Council, Green Council and Students' National Education Council. 
                 Each of these Presidents and Vice Presidents will serve in both the Students' Council and their 
@@ -415,7 +415,7 @@ const councillors = {
         </div>
 
         <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 Through the use of HCunite and the Council Board, the Publication and Publicity Committee 
                 publicises council events and initiatives, 
                 aiming to increase communication and transparency between the student body and the Students' Council. 
@@ -441,7 +441,7 @@ const councillors = {
         </div>
 
         <div class="px-6 py-12 text-center md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 By forging common experiences, 
                 the Student Engagement and Culture committee aspires to be the champion of our school's culture and identity, 
                 fostering a strong sense of belonging to the school, 
@@ -469,7 +469,7 @@ const councillors = {
         </div>
 
         <div class="px-6 py-12 text-center md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 The Social and Relations Committee seeks to be the eyes and ears of the council, 
                 championing grassroot efforts to connect with the student body on a deeper level. 
                 Through building bonds and promoting interactions between the council and the student body, 
@@ -495,7 +495,7 @@ const councillors = {
         </div>
 
         <div class="px-6 py-12 text-center md:text-left">
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 The Welfare Committee champions the welfare of the student population with heart and dedication. 
                 The committee strives to promote the well being of the student population for a conducive learning environment for 
                 all HwaChongians. Through infrastructure such as the Common Room and Welfare Room, 

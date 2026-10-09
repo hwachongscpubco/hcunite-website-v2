@@ -18,7 +18,7 @@ const props = defineProps({
   },
   textContainerClass: {
     type: String,
-    default: 'flex flex-row flex-nowrap justify-between px-8 py-8 cursor-pointer font-poppins'
+    default: 'flex flex-row flex-nowrap justify-between px-8 py-8 cursor-pointer font-jakarta'
   },
   headerClass: {
     type: String,

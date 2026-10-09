@@ -37,7 +37,7 @@
 
     <span class="relative min-w-0">
       <span
-        class="block font-poppins font-medium truncate"
+        class="block font-jakarta font-medium truncate"
         :class="[
           mode === 'case' ? 'text-[13.5px] leading-tight text-ink' : 'text-xs leading-tight',
           mode === 'spine' && active ? 'text-ivory' : mode === 'spine' ? 'text-ink-soft' : '',
@@ -45,7 +45,7 @@
       >{{ track.title }}</span>
       <span
         v-if="mode === 'case'"
-        class="block font-poppins text-[10px] text-mute-light mt-0.5 truncate"
+        class="block font-jakarta text-[10px] text-mute-light mt-0.5 truncate"
       >{{ track.label }} · {{ track.time }}</span>
     </span>
   </component>

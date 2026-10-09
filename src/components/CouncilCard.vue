@@ -7,7 +7,7 @@
 <template>
     <div>
         <img :src="imageUrl" @error="onImgError" alt="" class="rounded-[10px] m-auto w-full aspect-3/4 object-cover border border-hairline">
-        <div class="py-4 sm:py-6 w-full m-auto font-poppins">
+        <div class="py-4 sm:py-6 w-full m-auto font-jakarta">
             <h2 class="text-2xl sm:text-3xl text-ink">{{ name }}</h2>
             <h4 class=" text-sm sm:text-xl text-mute">{{ position }}</h4>
             <p v-html="formattedDescription" class="text-xs sm:text-sm text-ink-soft text-justify break-words pt-4"></p>

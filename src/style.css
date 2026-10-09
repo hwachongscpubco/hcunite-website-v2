@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Long+Cang&family=Ma+Shan+Zheng&display=swap');
 
 @import "tailwindcss";
@@ -14,7 +14,7 @@
 */
 @theme {
   --font-inter: 'Inter';
-  --font-poppins: 'Poppins';
+  --font-jakarta: 'Plus Jakarta Sans';
   --font-longcang: 'Long Cang';
   --font-mashanzheng: 'Ma Shan Zheng';
 
@@ -93,13 +93,13 @@
     @apply font-inter font-black text-6xl sm:text-8xl lg:text-9xl tracking-[-0.03em]
   }
   h2 {
-    @apply text-6xl sm:text-7xl lg:text-8xl font-poppins font-medium text-wrap
+    @apply text-6xl sm:text-7xl lg:text-8xl font-jakarta font-medium text-wrap
   }
   h3{
-    @apply text-3xl lg:text-4xl font-poppins
+    @apply text-3xl lg:text-4xl font-jakarta
   }
   p{
-    @apply font-poppins text-base sm:text-xl
+    @apply font-jakarta text-base sm:text-xl
   }
 }
 

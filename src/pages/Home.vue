@@ -39,7 +39,7 @@ function goToLinkPage(i) {
       <h1 class="text-ink !text-5xl sm:!text-7xl leading-[0.92] tracking-[-0.035em]">
         WELCOME TO <span class="text-hwachred">HCUNITE</span>!
       </h1>
-      <div class="font-poppins text-[11px] text-mute text-left sm:text-right leading-relaxed shrink-0">
+      <div class="font-jakarta text-[11px] text-mute text-left sm:text-right leading-relaxed shrink-0">
         HWA CHONG<br>STUDENTS' COUNCIL<br>EST. SINGAPORE
       </div>
     </div>
@@ -113,7 +113,7 @@ function goToLinkPage(i) {
               v-if="linkPage === 0"
               type="button"
               @click="goToLinkPage(1)"
-              class="flex items-center gap-1.5 font-poppins text-[11px] text-mute cursor-pointer"
+              class="flex items-center gap-1.5 font-jakarta text-[11px] text-mute cursor-pointer"
             >
               <span>Swipe to see more</span>
               <svg width="7" height="11" viewBox="0 0 9 14" fill="none"><path d="M1.5 1.5L7 7L1.5 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -167,12 +167,12 @@ function goToLinkPage(i) {
         <br><br>If you have any feedback with regard to HCUnite and any of our related initiatives, we would love to hear it. Please feel free to share your feedback with us in the form below:
       </p>
       <a
-        class="inline-block text-ivory font-poppins text-sm sm:text-base bg-hwachred hover:bg-coral rounded-full py-3.5 px-8 mt-7 transition-colors duration-300"
+        class="inline-block text-ivory font-jakarta text-sm sm:text-base bg-hwachred hover:bg-coral rounded-full py-3.5 px-8 mt-7 transition-colors duration-300"
         href="https://forms.gle/kT7bP6BH9Ddfrw2z9"
         target="_blank"
       >Feedback</a>
 
-      <div class="mt-16 flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 font-poppins text-[11px] text-mute">
+      <div class="mt-16 flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 font-jakarta text-[11px] text-mute">
         <div class="leading-relaxed">CREDIT: STUDIO ARDENT FOR RELEVANT IMAGES<br>WEBSITE UPDATED BY NG XU THONG AND PUBCO</div>
         <div class="flex gap-4">
           <a href="https://www.instagram.com/hcunite/" target="_blank" class="hover:text-ivory transition-colors">INSTAGRAM</a>

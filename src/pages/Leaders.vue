@@ -36,7 +36,7 @@ const { setEl } = useRevealOnScroll()
   <section class="pt-8 sm:pt-14 pb-20 px-2 sm:px-4">
     <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10 sm:mb-14">
       <div>
-        <div class="font-poppins text-[11px] tracking-[0.16em] uppercase text-hwachred mb-3">TRACK 06 · NINE GROUPS</div>
+        <div class="font-jakarta text-[11px] tracking-[0.16em] uppercase text-hwachred mb-3">TRACK 06 · NINE GROUPS</div>
         <div class="w-14 h-[3px] bg-hwachred rounded-full mb-4"></div>
         <h1 class="text-ink !text-5xl sm:!text-7xl leading-[0.9]">STUDENT<br>LEADER GROUPS</h1>
       </div>
@@ -58,17 +58,17 @@ const { setEl } = useRevealOnScroll()
         <Disc :size="72" :color="group.color" hover-spin />
 
         <div>
-          <div class="font-poppins font-medium text-lg sm:text-xl text-ink leading-tight">{{ group.name }}</div>
-          <div class="font-poppins text-[11px] text-mute mt-1.5">{{ group.note }}</div>
+          <div class="font-jakarta font-medium text-lg sm:text-xl text-ink leading-tight">{{ group.name }}</div>
+          <div class="font-jakarta text-[11px] text-mute mt-1.5">{{ group.note }}</div>
         </div>
 
         <div class="mt-auto flex items-center justify-between gap-3 pt-3.5 border-t border-hairline">
-          <span class="font-poppins text-xs text-ink-soft truncate">{{ group.handle }}</span>
+          <span class="font-jakarta text-xs text-ink-soft truncate">{{ group.handle }}</span>
           <span
             v-if="group.href"
-            class="font-poppins text-[11px] text-hwachred shrink-0 inline-flex items-center gap-1 transition-transform duration-[180ms] group-hover:translate-x-1 group-hover:-translate-y-0.5"
+            class="font-jakarta text-[11px] text-hwachred shrink-0 inline-flex items-center gap-1 transition-transform duration-[180ms] group-hover:translate-x-1 group-hover:-translate-y-0.5"
           >{{ group.linkLabel }} →</span>
-          <span v-else class="font-poppins text-[11px] text-mute-light shrink-0">SOON</span>
+          <span v-else class="font-jakarta text-[11px] text-mute-light shrink-0">SOON</span>
         </div>
       </component>
     </div>

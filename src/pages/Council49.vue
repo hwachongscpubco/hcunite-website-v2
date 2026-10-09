@@ -242,36 +242,36 @@ const councillors = {
 
     <section class="py-12 px-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/49th/49th_ExCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">EXCO</h2>
-                    <button @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:py-3 sm:max-w-[50%] md:max-w-[30%] lg:text-sm sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:py-3 sm:max-w-[50%] md:max-w-[30%] lg:text-sm sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/49th/49th_EcaCo.png" alt="">
                     <h2 class="ml-6 font-semibold">ECACO</h2>
-                    <button @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/49th/49th_PubCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">PUBCO</h2>
-                    <button @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/49th/49th_SecCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">SECCO</h2>
-                    <button @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
                 
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/49th/49th_SnR.jpg" alt="">
                     <h2 class="ml-6 font-semibold">SNR</h2>
-                    <button @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-poppins font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border-1 border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
                     <img class="w-full grow object-cover" src="/images/49th/49th_WelCo.jpg" alt="">
                     <h2 class="ml-6 font-semibold">WELCO</h2>
-                    <button @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-poppins inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <button @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
                 </div>
         </div>
     </section>
@@ -288,7 +288,7 @@ const councillors = {
         </div>
 
         <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 (FROM LEFT TO RIGHT)
                 <br><br>Front row:
                 <br>Chen Enying; Yam Yen Yee; Tho Ching Shuen, Shannon; Ho Xin Ping Julia; Jenelle Kan Rui Yee
@@ -314,7 +314,7 @@ const councillors = {
         </div>
 
         <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 (FROM LEFT TO RIGHT)
                 <br><br>Front row:
                 <br>Tok Jun Yi Alaric; Lim Xin, Jewell; Jenelle Kan Rui Yee;  Lin Zongkai
@@ -326,7 +326,7 @@ const councillors = {
             
             <div class="my-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
 
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 The Extended Council Attaché Committee (ECACo) comprises 6 Councillors who serve as attachés to the CIP Council, 
                 Green Council and SNEC. Each of these attachés will serve in both the Students' Council and their respective Councils, 
                 acting as a bridge to facilitate better communication between both leadership bodies. In doing so, 
@@ -352,7 +352,7 @@ const councillors = {
         </div>
 
         <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 (FROM LEFT TO RIGHT)
                 <br><br>Front row:
                 <br>Breanna Lim Yen Ru; Yam Yen Yee; Joshua Ng Tian Ian; Kimberly See Su Xin; Ding Jinbo
@@ -364,7 +364,7 @@ const councillors = {
 
             <div class="my-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
 
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 The 49th Publications and Publicity Committee (PubCo) takes charge of the Council's social media presence 
                 through HCUnite on its various social media platforms. 
                 PubCo aims to promote engagement between the Council and our peers through our publications and publicity materials. 
@@ -388,7 +388,7 @@ const councillors = {
         </div>
 
         <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 (FROM LEFT TO RIGHT)
                 <br><br>Front row:
                 <br>Amanda Tan Ying Hui; Yung Cheng Ze, Javier; Kho Wei Xuan; Tho Ching Shuen, Shannon; Liong Kai Rui Reyes; Julia Wong
@@ -400,7 +400,7 @@ const councillors = {
 
             <div class="my-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
 
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 The 49th Student Engagement and Culture Committee (SECCo) seeks to establish a strong school identity 
                 and build a sense of belonging among Hwa Chongians. 
                 This is achieved through supporting the various co-curricular activities (CCAs) 
@@ -427,7 +427,7 @@ const councillors = {
         </div>
 
         <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 (FROM LEFT TO RIGHT)
                 <br><br>Front row:
                 <br>Wong Kai Ray; Ho Xin Ping Julia; Tng Guang Hong, Zak
@@ -441,7 +441,7 @@ const councillors = {
 
             <div class="my-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
 
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 The 49th Social and Relations Committee (SnR) serves to encourage greater interaction and 
                 understanding among students, as well as between the Students' Council and the student body. 
                 SnR also strives to unite the student body at the Faculty level and maintain good relations with other Councils, 
@@ -468,7 +468,7 @@ const councillors = {
         </div>
 
         <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 (FROM LEFT TO RIGHT)
                 <br><br>Front row:
                 <br>Lee Kay Yong, Branson; Bennett Lee Shuen Meng; Teo Jin Yuan; Chen Enying; Althea Ng Jing En
@@ -480,7 +480,7 @@ const councillors = {
 
             <div class="my-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
 
-            <p class="max-w-[700px] mx-auto font-poppins">
+            <p class="max-w-[700px] mx-auto font-jakarta">
                 WelCo champions the welfare of the student population with heart and dedication. 
                 The committee aims to properly address the needs of, and improve services for, 
                 the students so as to facilitate a conducive learning environment for all Hwa Chongians. 

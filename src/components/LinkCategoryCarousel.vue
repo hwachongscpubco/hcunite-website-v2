@@ -20,8 +20,8 @@
 
             <div class="flex-1 min-w-0 flex flex-col justify-center gap-2 py-4">
                 <div class="flex items-center gap-2">
-                    <span class="font-poppins text-[9.5px] tracking-[0.14em] uppercase text-hwachred">{{ title }}</span>
-                    <span class="font-poppins text-[9.5px] text-mute-light">{{ links.length }} LINKS</span>
+                    <span class="font-jakarta text-[9.5px] tracking-[0.14em] uppercase text-hwachred">{{ title }}</span>
+                    <span class="font-jakarta text-[9.5px] text-mute-light">{{ links.length }} LINKS</span>
                 </div>
 
                 <!--
@@ -37,8 +37,8 @@
                         class="col-start-1 row-start-1 min-w-0 transition-opacity duration-300 ease-in-out"
                         :class="i === index ? 'opacity-100' : 'opacity-0 pointer-events-none'"
                     >
-                        <div class="font-poppins font-medium text-lg sm:text-xl text-ink truncate">{{ link.title }}</div>
-                        <div class="font-poppins text-xs sm:text-sm text-mute mt-1 truncate">{{ link.description }}</div>
+                        <div class="font-jakarta font-medium text-lg sm:text-xl text-ink truncate">{{ link.title }}</div>
+                        <div class="font-jakarta text-xs sm:text-sm text-mute mt-1 truncate">{{ link.description }}</div>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                 <a
                     :href="current.href"
                     target="_blank"
-                    class="font-poppins text-[10px] text-hwachred hover:text-coral transition-colors shrink-0"
+                    class="font-jakarta text-[10px] text-hwachred hover:text-coral transition-colors shrink-0"
                 >OPEN →</a>
 
                 <div class="flex items-center gap-1">

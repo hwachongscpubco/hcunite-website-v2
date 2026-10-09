@@ -59,7 +59,7 @@ const selectWelcoItem = (section) => {
         <img src="../assets/common/common_room.jpg" alt="background" class="absolute top-0 left-0 w-full h-full object-cover">
         <div class="w-full h-full absolute bg-gradient-to-t from-ink to-transparent opacity-70"></div>
         <div class="absolute bottom-0 p-4 md:p-12 z-20">
-            <div class="font-poppins text-[11px] tracking-[0.16em] uppercase text-coral mb-3">TRACK 05 · INNER PLAZA</div>
+            <div class="font-jakarta text-[11px] tracking-[0.16em] uppercase text-coral mb-3">TRACK 05 · INNER PLAZA</div>
             <h1 class="text-ivory">COMMON ROOM</h1>
         </div>
     </section>

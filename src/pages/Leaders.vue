@@ -25,8 +25,8 @@ const groups = [
   { name: 'Artemis Faculty', note: 'The Wolf', color: '#06048D', handle: '@artemisfaculty', href: 'https://www.instagram.com/artemisfaculty/', linkLabel: 'INSTAGRAM' },
   { name: 'Athena Faculty', note: 'The Owl', color: '#027B3E', handle: '@athenafaculty', href: 'https://www.instagram.com/athenafaculty/', linkLabel: 'INSTAGRAM' },
   { name: 'Green Council', note: 'Environmental', color: '#4E7A3A', handle: '@hc_greencouncil', href: 'https://www.instagram.com/hc_greencouncil/', linkLabel: 'INSTAGRAM' },
-  { name: 'VIA Council', note: 'Values In Action', color: '#87D7CD', handle: '@viacouncil', href: 'https://www.instagram.com/viacouncil/', linkLabel: 'INSTAGRAM' },
-  { name: "Students' NE Council", note: 'National Education', color: '#F0C35F', handle: '@hcisnec', href: 'https://www.instagram.com/hcisnec/', linkLabel: 'INSTAGRAM' },
+  { name: 'VIA Council', note: 'Values In Action', color: '#2F80ED', handle: '@viacouncil', href: 'https://www.instagram.com/viacouncil/', linkLabel: 'INSTAGRAM' },
+  { name: "Students' NE Council", note: 'National Education', color: '#EF3340', handle: '@hcisnec', href: 'https://www.instagram.com/hcisnec/', linkLabel: 'INSTAGRAM' },
 ]
 
 const { setEl } = useRevealOnScroll()

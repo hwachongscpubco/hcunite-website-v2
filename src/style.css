@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Long+Cang&family=Ma+Shan+Zheng&display=swap');
 
 @import "tailwindcss";
@@ -87,7 +87,7 @@
     display: none;
   }
   body {
-    @apply bg-ivory;
+    @apply bg-ivory font-jakarta;
   }
   h1 {
     @apply font-inter font-black text-6xl sm:text-8xl lg:text-9xl tracking-[-0.03em]

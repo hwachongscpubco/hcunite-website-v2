@@ -7,6 +7,8 @@
 -->
 <script setup>
 import CouncilCommittee from '../components/CouncilCommittee.vue'
+import CouncilYears from '../components/CouncilYears.vue'
+import PageHero from '../components/PageHero.vue'
 
 const councillors = {
     "ExCo": {
@@ -254,44 +256,43 @@ const councillors = {
 
 <template>
 <!-- hero section -->
-    <section class="mt-30 pb-12">
-        <h1 class="z-20 text-ink lg:text-8xl w-full text-center">48TH STUDENTS' COUNCIL</h1>
-    </section>
+    <PageHero image="/images/48th/48th_ExCo.png" alt="The 48th Students' Council Executive Committee" />
 
-    <div class="section-divider"></div>
+    <div class="page-body">
+    <CouncilYears />
 
-    <section class="py-12 px-6">
+    <section class="py-12">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden border border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-4">
                     <img class="w-full grow object-contain object-bottom" src="/images/48th/48th_ExCo.png" alt="">
-                    <h2 class="ml-6 font-semibold">EXCO</h2>
-                    <button @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:py-3 sm:max-w-[50%] md:max-w-[30%] lg:text-sm sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <h2 class="!text-xl uppercase tracking-[0.06em]">EXCO</h2>
+                    <button @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden border border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-4">
                     <img class="w-full grow object-contain object-bottom" src="/images/48th/48th_EcaCo.jpg" alt="">
-                    <h2 class="ml-6 font-semibold">ECACO</h2>
-                    <button @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <h2 class="!text-xl uppercase tracking-[0.06em]">ECACO</h2>
+                    <button @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden border border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-4">
                     <img class="w-full grow object-contain object-bottom" src="/images/48th/48th_PubCo.jpg" alt="">
-                    <h2 class="ml-6 font-semibold">PUBCO</h2>
-                    <button @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <h2 class="!text-xl uppercase tracking-[0.06em]">PUBCO</h2>
+                    <button @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden border border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-4">
                     <img class="w-full grow object-contain object-bottom" src="/images/48th/48th_SecCo.jpg" alt="">
-                    <h2 class="ml-6 font-semibold">SECCO</h2>
-                    <button @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <h2 class="!text-xl uppercase tracking-[0.06em]">SECCO</h2>
+                    <button @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
                 </div>
                 
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden border border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-4">
                     <img class="w-full grow object-contain object-bottom" src="/images/48th/48th_SnR.jpg" alt="">
-                    <h2 class="ml-6 font-semibold">SNR</h2>
-                    <button @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <h2 class="!text-xl uppercase tracking-[0.06em]">SNR</h2>
+                    <button @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden border border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-4">
                     <img class="w-full grow object-contain object-bottom" src="/images/48th/48th_WelCo.jpg" alt="">
-                    <h2 class="ml-6 font-semibold">WELCO</h2>
-                    <button @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <h2 class="!text-xl uppercase tracking-[0.06em]">WELCO</h2>
+                    <button @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
                 </div>
         </div>
     </section>
@@ -299,18 +300,18 @@ const councillors = {
     <div class="section-divider"></div>
 
     <!-- exco -->
-    <section ref="nse" class="pb-12 px-3">
-        <h2 class="text-center text-ink p-8">
+    <section ref="nse" class="pb-12">
+        <h2 class="py-8">
             THE EXECUTIVE
             COMMITTEE
             (EXCO)
         </h2>
-        <div class="rounded-2xl overflow-hidden relative">
+        <div class="overflow-hidden relative">
             <img src="/images/48th/48th_ExCo.png" alt="background" class="w-full max-w-[900px] m-auto z-0 object-contain object-center brightness-90">
         </div>
 
-        <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-jakarta">
+        <div class="py-10">
+            <p class="centered-text-block">
                 (FROM LEFT TO RIGHT)
                 <br><br>First row:
                 <br>Toh En Yu Dylan; Evelyne Chua; Javen Justin Suki; Nicole Naomi Tan; Tan Yan Zhong
@@ -320,23 +321,23 @@ const councillors = {
                 <br>Ms Su Yin Germaine Tan; Mr Benjamin Goh; Mr Kor Zhi Yang; Dr Sin Yee Theng; Ms Ying Min
             </p>
 
-            <div class="mt-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+            <div class="section-divider"></div>
         </div>
 
         <CouncilCommittee :committee="councillors['ExCo']" council="ExCo" year="48th" />
     </section>
 
     <!-- ecaco -->
-    <section ref="ecaco" class="pb-12 px-3">
-        <h2 class="text-center text-ink p-8">
+    <section ref="ecaco" class="pb-12">
+        <h2 class="py-8">
             THE EXTENDED COUNCIL ATTACHÉ COMMITTEE (ECACO)
         </h2>
-        <div class="rounded-2xl overflow-hidden relative">
-            <img src="/images/48th/48th_EcaCo.jpg" alt="background" class="rounded-2xl w-full max-w-[900px] m-auto z-0 object-contain object-center">
+        <div class="overflow-hidden relative">
+            <img src="/images/48th/48th_EcaCo.jpg" alt="background" class="w-full max-w-[900px] m-auto z-0 object-contain object-center">
         </div>
 
-        <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-jakarta">
+        <div class="py-10">
+            <p class="centered-text-block">
                 (FROM LEFT TO RIGHT)
                 <br><br>First row:
                 <br>Cheryl Ow Yu Leng; Isabella Rotschaedl; Javen Justin Suki; Shen Wen'na
@@ -346,9 +347,9 @@ const councillors = {
                 <br>Ms Su Yin Germaine Tan
             </p>
 
-            <div class="my-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+            <div class="section-divider"></div>
 
-            <p class="max-w-[700px] mx-auto font-jakarta">
+            <p class="centered-text-block">
                 Re-established this year, the Extended Council Attaché Committee (ECACo) comprises 6 Councillors 
                 who serve as attachés to the CIP Council, Green Council and SNEC Council. 
                 Each of these attachés will serve in both the Students’ Council and their respective Councils, 
@@ -357,23 +358,23 @@ const councillors = {
                 be it through pushing out more initiatives or supporting one another!
             </p>
 
-            <div class="mt-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+            <div class="section-divider"></div>
         </div>
 
         <CouncilCommittee :committee="councillors['EcaCo']" council="EcaCo" year="48th" />
     </section>
 
     <!-- pubco -->
-    <section ref="pubco" class="pb-12 px-3">
-        <h2 class="text-center text-ink p-8">
+    <section ref="pubco" class="pb-12">
+        <h2 class="py-8">
             THE PUBLICATIONS AND PUBLICITY COMMITTEE (PUBCO)
         </h2>
-        <div class="rounded-2xl overflow-hidden relative">
-            <img src="/images/48th/48th_PubCo.jpg" alt="background" class="rounded-2xl w-full max-w-[900px] m-auto z-0 object-contain object-center">
+        <div class="overflow-hidden relative">
+            <img src="/images/48th/48th_PubCo.jpg" alt="background" class="w-full max-w-[900px] m-auto z-0 object-contain object-center">
         </div>
 
-        <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-jakarta">
+        <div class="py-10">
+            <p class="centered-text-block">
                 (FROM LEFT TO RIGHT)
                 <br><br>First row:
                 <br>Jacob Tseng Wei-Jie; Peng Zikang; Liu Zi Jian; David Wang Jia Bao; Nicole Naomi Tan; Stephanie Ann Koh Shu Hui
@@ -383,9 +384,9 @@ const councillors = {
                 <br>Mr Kor Zhi Yang
             </p>
 
-            <div class="my-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+            <div class="section-divider"></div>
 
-            <p class="max-w-[700px] mx-auto font-jakarta">
+            <p class="centered-text-block">
                 The 48th Publications and Publicity Committee (PubCo) 
                 takes charge of the Council's social media presence through HCUnite on its various social media platforms. 
                 PubCo aims to promote engagement between the Council and our peers through our publications and publicity materials. 
@@ -394,23 +395,23 @@ const councillors = {
                 Through our work, PubCo hopes to promote a common identity for the Council and the College!
             </p>
 
-            <div class="mt-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+            <div class="section-divider"></div>
         </div>
 
         <CouncilCommittee :committee="councillors['PubCo']" council="PubCo" year="48th" />
     </section>
 
     <!-- secco -->
-    <section ref="secco" class="pb-12 px-3">
-        <h2 class="text-center text-ink p-8">
+    <section ref="secco" class="pb-12">
+        <h2 class="py-8">
             THE STUDENT ENGAGEMENT AND CULTURE COMMITTEE (SECCO)
         </h2>
-        <div class="rounded-2xl overflow-hidden relative">
-            <img src="/images/48th/48th_SecCo.jpg" alt="background" class="rounded-2xl w-full max-w-[900px] m-auto z-0 object-contain object-center">
+        <div class="overflow-hidden relative">
+            <img src="/images/48th/48th_SecCo.jpg" alt="background" class="w-full max-w-[900px] m-auto z-0 object-contain object-center">
         </div>
 
-        <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-jakarta">
+        <div class="py-10">
+            <p class="centered-text-block">
                 (FROM LEFT TO RIGHT)
                 <br><br>First row:
                 <br>Chong El Sa; Chong Yin Shan Charlene; Chia Leanne; Tang Teen Chih Luke; Evelyne Chua; Chong Jia Hao, Jordan
@@ -420,9 +421,9 @@ const councillors = {
                 <br>Ms Su Yin Germaine Tan; Mr Benjamin Goh
             </p>
 
-            <div class="my-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+            <div class="section-divider"></div>
 
-            <p class="max-w-[700px] mx-auto font-jakarta">
+            <p class="centered-text-block">
                 School cheers, mass dances, college songs - Student Engagement and Culture Committee (SECCo) 
                 seeks to establish a strong identity and build a sense of belonging among Hwa Chongians. 
                 This is achieved through supporting the various co-cirricular activities (CCAs) (e.g. during cheering season) 
@@ -432,23 +433,23 @@ const councillors = {
                 and the love you have for Hwa Chong!
             </p>
 
-            <div class="mt-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+            <div class="section-divider"></div>
         </div>
 
         <CouncilCommittee :committee="councillors['SecCo']" council="SecCo" year="48th" />
     </section>
 
     <!-- snr -->
-    <section ref="snr" class="pb-12 px-3">
-        <h2 class="text-center text-ink p-8">
+    <section ref="snr" class="pb-12">
+        <h2 class="py-8">
             THE SOCIAL AND RELATIONS (SNR)
         </h2>
-        <div class="rounded-2xl overflow-hidden relative">
-            <img src="/images/48th/48th_SnR.jpg" alt="background" class="rounded-2xl w-full max-w-[900px] m-auto z-0 object-contain object-center">
+        <div class="overflow-hidden relative">
+            <img src="/images/48th/48th_SnR.jpg" alt="background" class="w-full max-w-[900px] m-auto z-0 object-contain object-center">
         </div>
 
-        <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-jakarta">
+        <div class="py-10">
+            <p class="centered-text-block">
                 (FROM LEFT TO RIGHT)
                 <br><br>First row:
                 <br>Leow Yi Xuan; Jerome Ang Shun Kang; Ong Chi Juay; Janice Goh Jia Li; Toh En Yu Dylan; Lee Zhi Ning Dawn
@@ -458,9 +459,9 @@ const councillors = {
                 <br>Ms Ying Min
             </p>
 
-            <div class="my-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+            <div class="section-divider"></div>
 
-            <p class="max-w-[700px] mx-auto font-jakarta">
+            <p class="centered-text-block">
                 The 48th Social and Relations (SnR) serves to encourage greater interaction and understanding among students, 
                 as well as between the Students' Council and the student body. 
                 SnR also strives to unite the student body at the faculty level and maintain good relations with other Councils, 
@@ -469,23 +470,23 @@ const councillors = {
                 By working together with various student bodies, SnR endeavours to make Hwa Chong a vibrant and exciting community!
             </p>
 
-            <div class="mt-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+            <div class="section-divider"></div>
         </div>
 
         <CouncilCommittee :committee="councillors['SnR']" council="SnR" year="48th" />
     </section>
 
     <!-- welco -->
-    <section ref="welco" class="pb-12 px-3">
-        <h2 class="text-center text-ink p-8">
+    <section ref="welco" class="pb-12">
+        <h2 class="py-8">
             THE WELFARE COMMITTEE (WELCO)
         </h2>
-        <div class="rounded-2xl overflow-hidden relative">
-            <img src="/images/48th/48th_WelCo.jpg" alt="background" class="rounded-2xl w-full max-w-[900px] m-auto z-0 object-contain object-center">
+        <div class="overflow-hidden relative">
+            <img src="/images/48th/48th_WelCo.jpg" alt="background" class="w-full max-w-[900px] m-auto z-0 object-contain object-center">
         </div>
 
-        <div class="px-6 py-12 text-justify md:text-justify">
-            <p class="max-w-[700px] mx-auto font-jakarta">
+        <div class="py-10">
+            <p class="centered-text-block">
                 (FROM LEFT TO RIGHT)
                 <br><br>First row:
                 <br>Neo Jing Yi; Yang ChengHan, Roy; Nicale Yee; Tan Yan Zhong; Pierson Loh Bin-En
@@ -495,9 +496,9 @@ const councillors = {
                 <br>Ms Nicole Ann Law Li Ling, Mr Goh Wen Xuan Benjamin
             </p>
 
-            <div class="my-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+            <div class="section-divider"></div>
 
-            <p class="max-w-[700px] mx-auto font-jakarta">
+            <p class="centered-text-block">
                 United together by our desire to serve the student population to the best of our abilities, 
                 the 48th Welfare Committee (WelCo) aims to make Hwa Chong a home for both the student population and the staff. 
                 By implementing meaningful initiatives according to the needs of the students and 
@@ -508,9 +509,10 @@ const councillors = {
                 Together, WelCo wholeheartedly pledges to be a listening ear for students. Because in WelCo, "Your Welfare is our Affair".
             </p>
 
-            <div class="mt-12 h-px w-[60%] max-w-[900px] bg-hwachred m-auto"></div>
+            <div class="section-divider"></div>
         </div>
 
         <CouncilCommittee :committee="councillors['WelCo']" council="WelCo" year="48th" />
     </section>
+    </div>
 </template>

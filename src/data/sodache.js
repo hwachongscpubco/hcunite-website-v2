@@ -1,83 +1,8 @@
-<!--
-  Sodache.vue — the SODACHE archive (/sodache): Song, Dance and Cheer.
-  Switching the SO/DA/CHE tabs below updates the `sodache` object's active
-  section further down this file, which is where the actual song/dance/
-  cheer entries live — add a new entry to the matching array (`song`,
-  `dance` or `cheer`) to add it to the page. `song` entries render as
-  SodacheItem cards; `dance`/`cheer` entries render as a YouTube embed +
-  description.
--->
-<template>
-    <section class="w-full overflow-hidden">
-        <div class="w-full h-screen relative z-0">
-            <Parallax class="w-full relative h-full" :scrollY="scrollY" :speed="0.5" :limit="1200">
-                <img class="absolute inset-0 w-full h-full object-cover z-0" src="/images/sodache/sodache_pic.jpg" alt="">
-            </Parallax>
-            
-            <div class="absolute inset-0 w-full h-full flex flex-col justify-center items-center gap-3">
-                <span class="font-jakarta text-[11px] tracking-[0.16em] uppercase text-song">TRACK 04 · SIDE B</span>
-                <h1 class="text-ivory">SODACHE</h1>
-            </div>
-        </div>
-
-        <!-- <div class="relative w-full h-auto p-32 z-1">
-            <div class="aspect-video bg-amber-950"></div>
-        </div> -->
-    </section>
-
-
-
-
-    <section class="px-4 sm:px-8 py-8 lg:py-14">
-        <div class="max-w-[1180px] mx-auto grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-8 sm:gap-10 items-center">
-            <Disc :size="220" :color="discColor" spinning speed="9s" class="mx-auto sm:mx-0" />
-            <div>
-                <h1 class="!text-6xl lg:!text-8xl cursor-pointer">
-                    <span @click="changeSection('song')" class="transition-colors duration-300" :class="activeSection=='song' ? 'text-song':'text-[#4A4238]'">SO</span>
-                    <span @click="changeSection('dance')" class="transition-colors duration-300" :class="activeSection=='dance' ? 'text-dance':'text-[#4A4238]'">DA</span>
-                    <span @click="changeSection('cheer')" class="transition-colors duration-300" :class="activeSection=='cheer' ? 'text-cheer':'text-[#4A4238]'">CHE</span>
-                </h1>
-                <p class="font-jakarta text-[10.5px] tracking-[0.1em] uppercase text-mute mt-2">Click on the text above to see other sections</p>
-            </div>
-        </div>
-    </section>
-    <section class="px-4 sm:px-8 pb-8">
-        <div v-if="activeSection=='song'" class="max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-3 lg:gap-4">
-            <div v-for="(item, i) in sodache[activeSection]">
-                <SodacheItem :propData="item" :section="activeSection"></SodacheItem>
-            </div>
-        </div>
-        <div v-else class="max-w-[1180px] mx-auto">
-            <div v-for="(item, i) in sodache[activeSection]" class="w-full p-4 flex md:flex-row flex-col gap-4 lg:gap-12 rounded-xl hover:bg-[#1E1E1E] transition-colors duration-300">
-                <iframe class="flex-1 aspect-video md:max-w-1/2 rounded-xl" :src="item.link" title="I&#39;ve Had The Time of My Life" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <div class="flex-1 py-4">
-                    <h2 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl text-ivory">{{ item.title }}</h2>
-                    <h3 v-if="item.artist" class="text-base md:text-xl md:mt-2 text-[#ABA298]">{{ item.artist }}</h3>
-                    <p class="text-[#ABA298] mt-4">{{ item.description }}</p>
-                </div>
-            </div>
-        </div>
-    </section>
-</template>
-
-<script setup>
-import SodacheItem from '../components/SodacheItem.vue'
-import Parallax from '../components/Parallax.vue'
-import Disc from '../components/deck/Disc.vue'
-import { useSodacheStore } from '../stores/sodacheStore'
-import {ref, computed, watch, onMounted, onUnmounted } from 'vue'
-
-const activeSection = ref("song")
-const sodacheStore = useSodacheStore()
-
-const SECTION_COLORS = { song: '#00D689', dance: '#AB00D6', cheer: '#FFB71C' }
-const discColor = computed(() => SECTION_COLORS[activeSection.value])
-
-function changeSection(section){
-    activeSection.value = section
-}
-
-const sodache = {
+// sodache.js — every Song, Dance and Cheer shown in the homepage's SODACHE
+// section (pages/Home.vue). Add an entry to the matching array to add it
+// to the site. `song` entries render as SodacheItem cards; `dance` and
+// `cheer` entries render as a YouTube embed + description.
+export const sodache = {
     "song": [{
         "title": "当你孤单你会想起谁",
         "composer": "张栋梁",
@@ -259,30 +184,3 @@ const sodache = {
         }
     ]
 }
-
-watch(activeSection, (newVal) => {
-  sodacheStore.activeSection = newVal
-}, { immediate: true })
-
-
-const scrollY = ref(0)
-let ticking = false;
-
-const onScroll = () => {
-  if (!ticking) {
-    requestAnimationFrame(() => {
-      scrollY.value = window.scrollY
-      ticking = false
-    })
-    ticking = true
-  }
-}
-
-onMounted(() => {
-  window.addEventListener('scroll', onScroll, { passive: true })
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', onScroll)
-})
-</script>

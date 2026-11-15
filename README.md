@@ -33,15 +33,21 @@ content follows the same shape as what's already there.
 
 ## The navigation model
 
-There's no word navbar. The site is styled as a CD deck: the homepage
-(`Home.vue`) renders `DeckPlayer.vue`, an interactive binder-of-cases +
-platter; every other page instead shows `DeckRail.vue` (mounted once in
-`App.vue`, outside `<router-view>`) — a sticky spine rail on desktop, a
-fixed horizontal strip on mobile. Both read off the same array,
-[`src/data/tracks.js`](src/data/README.md), which is the single source
-of truth for what's in the deck and which routes count as "this track is
-active" for highlighting. See `src/components/README.md`'s "Navigation —
-the CD deck" section for the component breakdown.
+Three fixed pieces of chrome, mounted once in `App.vue` outside
+`<router-view>`, are on screen on every page:
+
+- **`SiteHeader.vue`** — top-left title ("WELCOME TO" on the homepage,
+  turning into the SO/DA/CHE tabs as it scrolls into SODACHE; the page's
+  own title everywhere else), and top-right **SCHOOL LINKS**, **OTHERS**
+  and **More about us**.
+- **`LinksOverlay.vue`** — the full-screen list of links those first two
+  open, from [`src/data/links.js`](src/data/README.md).
+- **`Wordmark.vue`** — the big HCUNITE pinned to the bottom-right corner.
+
+The homepage is the first screen plus SODACHE, one scroll down. Every
+other page is reached from the **More about us** menu, which is
+[`src/data/nav.js`](src/data/README.md)'s `menuItems`. See
+`src/components/README.md`'s "Site chrome" section for the breakdown.
 
 ## Adding or removing a page
 
@@ -53,14 +59,15 @@ one:
    [`src/pages/README.md`](src/pages/README.md) for what's already there)
    rather than starting from a blank file.
 2. **Register the route** in [`src/main.js`](src/main.js): import the
-   component and add `{ path: '/new-page', component: NewPage }` to the
-   `routes` array.
-3. **Add it to the deck** (optional, but almost always wanted) by adding
-   an entry to [`src/data/tracks.js`](src/data/README.md) — both
-   `DeckPlayer.vue` (homepage) and `DeckRail.vue` (everywhere else) pick
-   it up automatically. Give it a `routes` list covering every path that
-   should highlight it (e.g. a page with year variants should list all
-   of them).
+   component and add `{ path: '/new-page', component: NewPage, meta: {
+   title: 'New Page', hero: true } }` to the `routes` array. `title` is
+   what the header shows top-left; use `hero: true` if the page opens
+   with a `<PageHero>`, or `plain: true` if it has none (the comment at
+   the top of `main.js` lists every meta field).
+3. **Add it to the menu** (optional, but almost always wanted) by adding
+   an entry to `menuItems` in [`src/data/nav.js`](src/data/README.md) —
+   the "More about us" menu and the footer both pick it up
+   automatically.
 4. **Add its images**, following whichever convention applies —
    [`src/assets/README.md`](src/assets/README.md) vs
    [`public/images/README.md`](public/images/README.md) explains which
@@ -70,7 +77,7 @@ one:
    [`generate-sitemap.js`](generate-sitemap.js).
 
 To **remove** a page, reverse the above: delete its entry in
-`src/data/tracks.js`, delete the route in `main.js`, delete it from
+`src/data/nav.js`, delete the route in `main.js`, delete it from
 `generate-sitemap.js` if it was there, then delete the page file itself
 (and its images, if nothing else uses them).
 

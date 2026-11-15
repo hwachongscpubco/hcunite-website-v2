@@ -1,105 +1,101 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Long+Cang&family=Ma+Shan+Zheng&display=swap');
 
 @import "tailwindcss";
 
-/*
-  "Now Playing" redesign tokens — see HCUnite Redesign.dc.html / its
-  README for the full spec these come from. Surface/ink/accent/track
-  colours live in @theme so Tailwind generates utilities for them
-  (bg-ivory, text-ink, border-hairline, ...). Motion tokens are plain
-  CSS custom properties on :root instead — they're durations/easings,
-  not colours/fonts, so there's no Tailwind utility to generate; use
-  them via inline style bindings or the .ease-* utilities below.
-*/
 @theme {
   --font-inter: 'Inter';
   --font-jakarta: 'Plus Jakarta Sans';
   --font-longcang: 'Long Cang';
   --font-mashanzheng: 'Ma Shan Zheng';
 
-  /* accent — one per surface, never two */
   --color-hwachred: #CE2222;
   --color-hwachred-dark: #6D1212;
-  --color-coral: #FF6441;
-  --color-seafoam: #C3D79B;
-  --color-gold: #F0C35F;
+  --color-hwachyellow: #FFE000;
 
-  /* faculty + sodache tokens — unchanged */
   --color-apollo: #ffcc02;
   --color-apollo-dark: #f1aa00;
   --color-ares: #c9102d;
   --color-artemis: #06048d;
   --color-athena:#027b3e;
-  --color-song: #00D689;
-  --color-dance: #AB00D6;
-  --color-cheer: #FFB71C;
+  --color-song: #1DB954;
+  --color-dance: #8B5CF6;
+  --color-cheer: #FFE000;
 
-  /* surface + ink */
-  --color-ivory: #FAF0E6;
-  --color-card: #F1E4D2;
-  --color-sand: #F3E6D3;
-  --color-khaki: #DCBE96;
-  --color-hairline: #E0D2BE;
-  --color-ink: #1E1E1E;
-  --color-ink-soft: #4A4238;
-  --color-mute: #8A7B69;
-  --color-mute-light: #A2917B;
+  --color-ivory: #F7F2EB;
+  --color-card: #F1EADF;
+  --color-hairline: #D9D0C3;
+  --color-ink: #111111;
+  --color-ink-soft: #4A4540;
+  --color-mute: #8A8279;
+  --color-mute-light: #A8A096;
+}
 
-  /* track colours — disc hubs / case spines, keyed by page */
-  --color-track-council: #0F3C6E;
-  --color-track-archive: #87D7CD;
-  --color-track-sodache: #EE7BA8;
-  --color-track-common: var(--color-seafoam);
-  --color-track-leaders: var(--color-hwachred);
-  --color-track-ccas: var(--color-gold);
+/*
+  Theme-aware colours. --bg/--fg/--mute/--line/--hc are set on <html> by
+  App.vue (they fade from the light palette to the dark one as the
+  homepage scrolls into SODACHE), so these utilities (bg-bg, text-fg,
+  text-soft, border-line) always match the current surface.
+*/
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-soft: var(--mute);
+  --color-line: var(--line);
 }
 
 :root {
-  --dur-tap: 120ms;
+  --bg: #F7F2EB;
+  --fg: #111111;
+  --mute: #8A8279;
+  --line: #D9D0C3;
+  --hc: #FFE000;
+  --p: 0;
+
+  /* page gutter, and the right-hand rail the menu/search live in (lg+) */
+  --gutter: clamp(16px, 2.6vw, 40px);
+  --rail: 23vw;
+  --header-h: clamp(92px, 9.4vw, 136px);
+
   --dur-fast: 180ms;
   --dur-base: 320ms;
   --dur-slow: 560ms;
   --dur-page: 700ms;
-  --dur-spinup: 900ms;
   --ease-standard: cubic-bezier(.22,.61,.36,1);
   --ease-enter: cubic-bezier(.16,1,.3,1);
   --ease-exit: cubic-bezier(.4,0,1,1);
-  --ease-mech: cubic-bezier(.65,0,.35,1);
 }
 
 @layer base {
-  /*
-    Horizontal clip + hidden scrollbar for the whole document, on html/
-    body rather than App.vue's root div: any element with a non-visible
-    overflow becomes the containing block `position: sticky` measures
-    against instead of the real viewport (DeckRail's docked rail relies
-    on tracking the viewport). html/body are the one place this is safe
-    — the root scrolling element still resolves sticky against the
-    viewport correctly.
-  */
   html {
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    background-color: var(--bg);
+    color: var(--fg);
   }
   html::-webkit-scrollbar {
     display: none;
   }
+  /* The homepage's two full-screen slides settle into place, Zara-style. */
+  html.snap-home {
+    scroll-snap-type: y proximity;
+  }
   body {
-    @apply bg-ivory font-jakarta;
+    @apply font-jakarta;
+    -webkit-font-smoothing: antialiased;
   }
   h1 {
-    @apply font-inter font-black text-6xl sm:text-8xl lg:text-9xl tracking-[-0.03em]
+    @apply font-inter font-extralight uppercase text-5xl sm:text-7xl lg:text-8xl tracking-[-0.02em] leading-[0.95]
   }
   h2 {
-    @apply text-6xl sm:text-7xl lg:text-8xl font-jakarta font-medium text-wrap
+    @apply font-inter font-light text-3xl sm:text-4xl lg:text-5xl tracking-[-0.01em] leading-[1.08] text-wrap
   }
   h3{
-    @apply text-3xl lg:text-4xl font-jakarta
+    @apply font-inter font-light text-xl lg:text-2xl
   }
   p{
-    @apply font-jakarta text-base sm:text-xl
+    @apply font-jakarta text-[15px] sm:text-base leading-relaxed
   }
 }
 
@@ -107,24 +103,57 @@
   .ease-standard { transition-timing-function: var(--ease-standard); }
   .ease-enter { transition-timing-function: var(--ease-enter); }
   .ease-exit { transition-timing-function: var(--ease-exit); }
-  .ease-mech { transition-timing-function: var(--ease-mech); }
 }
 
-.custom-cursor-eye-open {
-  cursor: url('/eye-open-large.png') 24 24, auto;
+/* ---- shared page furniture ---- */
+
+/* Everything below a page's hero: left column, clear of the right rail. */
+.page-body {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  padding-bottom: 5rem;
+}
+/* Pages with no hero start below the fixed header instead. */
+.page-body--plain {
+  padding-top: calc(var(--header-h) + 2rem);
+}
+@media (min-width: 1024px) {
+  .page-body {
+    padding-right: calc(var(--rail) + var(--gutter));
+  }
 }
 
-.custom-cursor-eye-close {
-  cursor: url('/eye-close-large.png') 24 24, auto;
+/* In-page jumps (the council committee "View" links) land below the header. */
+.page-body section {
+  scroll-margin-top: var(--header-h);
+}
+
+.eyebrow {
+  @apply font-inter font-light uppercase text-[11px] tracking-[0.16em];
+  color: var(--mute);
+}
+
+/* Underlined uppercase text link — the site's only "button". */
+.text-link {
+  @apply font-inter font-light uppercase text-xs tracking-[0.14em] inline-block cursor-pointer;
+  padding-bottom: 3px;
+  background: linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat;
+  transition: background-size var(--dur-slow) var(--ease-enter), opacity var(--dur-base);
+}
+.text-link:hover {
+  background-size: 0% 1px;
+  background-position: right bottom;
 }
 
 .centered-text-block{
-  @apply mx-auto max-w-[700px] text-justify
+  @apply max-w-[680px] text-ink-soft
 }
 
-/* Thin red rule used between page sections (Council/Faculties pages) */
 .section-divider{
-  @apply h-px w-[60%] max-w-[900px] bg-hwachred m-auto
+  height: 1px;
+  width: 100%;
+  background: var(--line);
+  margin: 3rem 0;
 }
 
 .custom-scroll-hide::-webkit-scrollbar {
@@ -135,69 +164,60 @@
   scrollbar-width: none;
 }
 
-/* Paper grain — deck body, case spines, binder tray */
-.grain {
-  background-image:
-    repeating-linear-gradient(58deg, rgba(120,92,58,0.05) 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(148deg, rgba(120,92,58,0.04) 0 1px, transparent 1px 4px);
-}
-
-/* Reveal-on-scroll — see useRevealOnScroll.js. Elements start hidden/offset
-   and each gets .revealed added once, individually, by the observer. */
+/* Reveal-on-scroll — see useRevealOnScroll.js. */
 .reveal {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 420ms var(--ease-standard), transform 420ms var(--ease-standard);
+  transition: opacity 700ms var(--ease-enter), transform 700ms var(--ease-enter);
 }
 .reveal.revealed {
   opacity: 1;
   transform: translateY(0);
 }
 
-@keyframes disc-spin { to { transform: rotate(360deg); } }
-@keyframes marquee { to { transform: translateX(-50%); } }
+/* Hero pictures settle in on load (PageHero.vue, Home.vue). Uses the
+   individual `scale` property so it never fights a transform/translate. */
+@keyframes hero-in { from { opacity: 0; scale: 1.04; } }
+.hero-in { animation: hero-in 1400ms var(--ease-enter) backwards; }
 
-/*
-  Route/page-swap transition (App.vue's <Transition :name="pageTransitionName">)
-  — an eject/insert motion, direction set by App.vue depending on
-  whether home is being left or returned to:
-    - "forward" (leaving home for a page): the CD player slides fully
-      off to the right, the chosen page slides in from off-screen left.
-    - "backward" (ejecting back to home): reversed — the page slides
-      off to the left, the CD player slides back in from the right.
-  translateX(100%)/(-100%) are relative to the page's own box, so this
-  clears the viewport at any width; html's overflow-x: hidden (see
-  @layer base above) keeps it from drawing a horizontal scrollbar while
-  off-screen mid-transition. Durations lean on the --dur-page/--dur-slow
-  tokens (style.css's own motion scale) rather than one-off numbers —
-  slower than a plain fade needs to be, since the eye has a full slide
-  to track, not just a cross-dissolve.
-*/
-.page-forward-enter-active, .page-backward-enter-active { transition: opacity var(--dur-page) var(--ease-enter), transform var(--dur-page) var(--ease-enter); }
-.page-forward-leave-active, .page-backward-leave-active { transition: opacity var(--dur-slow) var(--ease-exit), transform var(--dur-slow) var(--ease-exit); }
-.page-forward-enter-from { opacity: 0; transform: translateX(-100%); }
-.page-forward-leave-to { opacity: 0; transform: translateX(100%); }
-.page-backward-enter-from { opacity: 0; transform: translateX(100%); }
-.page-backward-leave-to { opacity: 0; transform: translateX(-100%); }
+/* ---- transitions ---- */
 
-/* Docked spine rail slide-in (DeckRail.vue's <Transition name="rail">) */
-.rail-enter-active, .rail-leave-active { transition: transform 560ms var(--ease-mech), opacity 560ms var(--ease-mech); }
-.rail-enter-from, .rail-leave-to { transform: translateX(40px); opacity: 0; }
+/* Route change (App.vue) */
+.page-enter-active { transition: opacity var(--dur-page) var(--ease-enter), transform var(--dur-page) var(--ease-enter); }
+.page-leave-active { transition: opacity var(--dur-base) var(--ease-exit); }
+.page-enter-from { opacity: 0; transform: translateY(16px); }
+.page-leave-to { opacity: 0; }
 
-/* Mobile deck strip slide-in (DeckRail.vue's <Transition name="rail-mobile">) */
-.rail-mobile-enter-active, .rail-mobile-leave-active { transition: transform 320ms var(--ease-mech), opacity 320ms var(--ease-mech); }
-.rail-mobile-enter-from, .rail-mobile-leave-to { transform: translateY(-12px); opacity: 0; }
+/* Generic cross-fade (header title, SODACHE tab content) */
+.fade-enter-active { transition: opacity var(--dur-slow) var(--ease-enter), transform var(--dur-slow) var(--ease-enter); }
+.fade-leave-active { transition: opacity var(--dur-fast) var(--ease-exit); }
+.fade-enter-from { opacity: 0; transform: translateY(10px); }
+.fade-leave-to { opacity: 0; }
+
+/* Full-screen layers (links overlay, mobile menu panel) */
+.layer-enter-active { transition: opacity var(--dur-slow) var(--ease-standard); }
+.layer-leave-active { transition: opacity var(--dur-base) var(--ease-exit); }
+.layer-enter-from, .layer-leave-to { opacity: 0; }
+
+/* Staggered list items: set --i on each item. */
+.stagger-enter-active {
+  transition: opacity var(--dur-slow) var(--ease-enter), transform var(--dur-slow) var(--ease-enter);
+  transition-delay: calc(var(--i, 0) * 45ms + 80ms);
+}
+.stagger-leave-active { transition: opacity var(--dur-fast) var(--ease-exit); }
+.stagger-enter-from { opacity: 0; transform: translateY(12px); }
+.stagger-leave-to { opacity: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 160ms !important;
+    transition-delay: 0ms !important;
     scroll-behavior: auto !important;
   }
-  .reveal,
-  .page-forward-enter-from, .page-forward-leave-to,
-  .page-backward-enter-from, .page-backward-leave-to {
+  html.snap-home { scroll-snap-type: none; }
+  .reveal, .page-enter-from, .fade-enter-from, .stagger-enter-from {
     transform: none;
   }
 }

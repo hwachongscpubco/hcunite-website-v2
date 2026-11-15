@@ -1,189 +1,179 @@
 <!--
-  Home.vue — the / landing page. This is the deck's permanent
-  empty-deck state: DeckPlayer.vue (the binder + platter) is the page's
-  hero and the site's whole navigation model on this route — every
-  other page instead shows the docked DeckRail.vue (see App.vue). Below
-  it: the two link-category carousels, "why we're here", and the PubCo
-  feedback note. The old Instagram feed is gone — see /leaders instead.
+  Home.vue — the / page, in two parts:
+    1. A pinned full-screen stage. Scrolling the first screen cross-fades
+       the council picture into the SODACHE picture while App.vue fades
+       the whole theme from light to dark and SiteHeader swaps
+       "WELCOME TO" for the SO/DA/CHE tabs.
+    2. The SODACHE list (#sodache-list): the active tab's songs (cards),
+       or dances/cheers (video + description), filtered by the Search
+       field in the right-hand rail. Content lives in data/sodache.js.
 -->
 <script setup>
-import { ref } from 'vue'
-import DeckPlayer from '../components/deck/DeckPlayer.vue'
-import LinkCategoryCarousel from '../components/LinkCategoryCarousel.vue'
-import { officialLinks, otherLinks } from '../data/links'
+import { computed } from 'vue'
+import HeroPicture from '../components/HeroPicture.vue'
+import SodacheItem from '../components/SodacheItem.vue'
+import { sodache } from '../data/sodache'
+import { useUiStore } from '../stores/uiStore'
+import { useSodacheStore } from '../stores/sodacheStore'
+import councilPic from '../assets/home/council_pic.jpg'
 
-// Below sm, the two link carousels page one-at-a-time (native
-// scroll-snap, so swiping "just works" in any browser) instead of
-// sitting side by side — each LinkCategoryCarousel keeps its exact
-// existing box, only how the pair of them is navigated changes.
-// linkPage drives the dots and hides the "Swipe to see more" text
-// hint once there's nothing further to swipe to.
-const pagerEl = ref(null)
-const linkPage = ref(0)
+const ui = useUiStore()
+const sodacheStore = useSodacheStore()
 
-function onPagerScroll() {
-  const el = pagerEl.value
-  if (!el || !el.clientWidth) return
-  linkPage.value = Math.round(el.scrollLeft / el.clientWidth)
-}
+const clamp = (v) => Math.min(1, Math.max(0, v))
+const smooth = (t) => t * t * (3 - 2 * t)
 
-function goToLinkPage(i) {
-  pagerEl.value?.scrollTo({ left: i * pagerEl.value.clientWidth, behavior: 'smooth' })
+// 0 → 1 across the first screen of scrolling.
+const p = computed(() => (ui.vh ? clamp(ui.scrollY / ui.vh) : 0))
+const firstStyle = computed(() => ({
+  opacity: 1 - smooth(clamp(p.value / 0.55)),
+  transform: `translateY(${-p.value * 5}vh) scale(${1 - p.value * 0.04})`,
+}))
+const secondStyle = computed(() => ({
+  opacity: smooth(clamp((p.value - 0.45) / 0.55)),
+  transform: `translateY(${(1 - p.value) * 5}vh)`,
+}))
+
+const SECTION_LABEL = { song: 'songs', dance: 'dances', cheer: 'cheers' }
+const section = computed(() => sodacheStore.activeSection)
+const query = computed(() => ui.search.trim().toLowerCase())
+const items = computed(() => {
+  const all = sodache[section.value]
+  if (!query.value) return all
+  return all.filter((item) =>
+    [item.title, item.composer, item.artist, item.description].some(
+      (text) => text && text.toLowerCase().includes(query.value),
+    ),
+  )
+})
+
+// The data mixes youtube.com/watch, m.youtube.com and /embed links;
+// only /embed URLs are allowed inside an iframe.
+function embedUrl(link) {
+  const id = link.match(/(?:[?&]v=|embed\/|youtu\.be\/)([\w-]{11})/)
+  return id ? `https://www.youtube.com/embed/${id[1]}` : link
 }
 </script>
 
 <template>
-  <!-- the deck -->
-  <section class="pt-4 sm:pt-10 pb-14 px-1 sm:px-4">
-    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 max-w-[1180px] mx-auto mb-8 sm:mb-10">
-      <h1 class="text-ink !text-5xl sm:!text-7xl leading-[0.92] tracking-[-0.035em]">
-        WELCOME TO <span class="text-hwachred">HCUNITE</span>!
-      </h1>
-      <div class="font-jakarta text-[11px] text-mute text-left sm:text-right leading-relaxed shrink-0">
-        HWA CHONG<br>STUDENTS' COUNCIL<br>EST. SINGAPORE
-      </div>
+  <!-- the stage: two screens tall, pinned for the first -->
+  <section class="relative h-[200svh]">
+    <div class="absolute top-0 h-px w-px snap-start"></div>
+    <div id="sodache" class="absolute top-[100svh] h-px w-px snap-start"></div>
+
+    <div class="sticky top-0 h-[100svh] min-h-[480px] overflow-hidden">
+      <HeroPicture>
+        <img
+          :src="councilPic"
+          alt="The Hwa Chong Students' Council"
+          class="hero-in absolute inset-0 w-full h-full object-cover will-change-transform"
+          :style="firstStyle"
+        >
+        <img
+          src="/images/sodache/sodache_pic.jpg"
+          alt="SODACHE at Hwa Chong"
+          class="absolute inset-0 w-full h-full object-cover will-change-transform"
+          :style="secondStyle"
+        >
+      </HeroPicture>
+
+      <p class="hidden lg:block absolute left-(--gutter) bottom-[6vh] eyebrow" :style="{ opacity: 1 - clamp(p * 3) }">
+        Scroll — SODACHE
+      </p>
     </div>
-
-    <DeckPlayer>
-      <!--
-        Right in the platter's own column, snug under it, rather than a
-        separate full-width section spanning the binder too.
-      -->
-      <template #below>
-        <!--
-          sm and up: side by side, so the pair's combined height
-          matches one carousel, not two — stacked, "Others" ran on well
-          past the binder's own bottom edge; side by side, this row
-          ends level with the binder, and everything below moves up to
-          match.
-        -->
-        <div class="hidden sm:flex sm:flex-row gap-4">
-          <LinkCategoryCarousel
-            title="Official Links"
-            description="Everything you need as a student"
-            :links="officialLinks"
-            class="flex-1 min-w-0"
-          />
-          <LinkCategoryCarousel
-            title="Others"
-            description="Explore additional resources and helpful sites"
-            :links="otherLinks"
-            class="flex-1 min-w-0"
-          />
-        </div>
-
-        <!--
-          Below sm, side by side would squeeze both boxes to half
-          width — instead, one full-size box at a time, paged via
-          native horizontal scroll-snap (swipes for free, no gesture
-          code needed, and standards-based so it works the same in any
-          browser — not a hand-rolled touch handler). Each
-          LinkCategoryCarousel's own box is completely untouched; the
-          hint text + dots live below it, not on top of it, so they
-          can't grow the box or cover its own "OPEN →"/dot UI. The hint
-          is text-first (not just an icon) precisely so it reads
-          clearly everywhere, including screen readers. Each carousel
-          keeps cycling its own links on its own timer underneath,
-          exactly as before.
-        -->
-        <div class="sm:hidden">
-          <div
-            ref="pagerEl"
-            class="flex overflow-x-auto snap-x snap-mandatory custom-scroll-hide [-webkit-overflow-scrolling:touch]"
-            @scroll.passive="onPagerScroll"
-          >
-            <div class="w-full shrink-0 snap-center">
-              <LinkCategoryCarousel
-                title="Official Links"
-                description="Everything you need as a student"
-                :links="officialLinks"
-              />
-            </div>
-            <div class="w-full shrink-0 snap-center">
-              <LinkCategoryCarousel
-                title="Others"
-                description="Explore additional resources and helpful sites"
-                :links="otherLinks"
-              />
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center gap-1.5 mt-2.5">
-            <button
-              v-if="linkPage === 0"
-              type="button"
-              @click="goToLinkPage(1)"
-              class="flex items-center gap-1.5 font-jakarta text-[11px] text-mute cursor-pointer"
-            >
-              <span>Swipe to see more</span>
-              <svg width="7" height="11" viewBox="0 0 9 14" fill="none"><path d="M1.5 1.5L7 7L1.5 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="flex items-center gap-1.5">
-              <button
-                v-for="(label, i) in ['Official Links', 'Others']"
-                :key="label"
-                type="button"
-                @click="goToLinkPage(i)"
-                class="h-[5px] rounded-full transition-all duration-300 cursor-pointer"
-                :class="linkPage === i ? 'w-3.5 bg-hwachred' : 'w-[5px] bg-khaki'"
-                :aria-label="`Show ${label}`"
-              ></button>
-            </div>
-          </div>
-        </div>
-      </template>
-    </DeckPlayer>
   </section>
 
-  <div class="section-divider my-4"></div>
+  <!-- SODACHE -->
+  <section id="sodache-list" class="list relative min-h-screen px-(--gutter)">
+    <aside class="hidden lg:block absolute inset-y-0 right-0 w-(--rail)">
+      <div
+        class="search sticky pr-(--gutter) pl-4 transition-opacity duration-500 ease-standard"
+        :class="ui.menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'"
+      >
+        <input v-model="ui.search" type="search" placeholder="Search" aria-label="Search SODACHE" class="search-input">
+      </div>
+    </aside>
 
-  <!-- why we're here -->
-  <section class="w-full px-4 sm:px-8 py-16 sm:py-20">
-    <div class="max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 lg:gap-14 items-center">
-      <div>
-        <div class="w-14 h-[3px] bg-hwachred rounded-full mb-5"></div>
-        <h2 class="!text-4xl sm:!text-5xl !leading-[1.05] text-ink">Why we're here:</h2>
-        <p class="text-ink-soft text-base sm:text-lg mt-5 max-w-lg leading-relaxed">
-          We are committed to building a united Hwa Chong family.
-          <br><br>We are here for you, whenever and wherever you need it.
-          <br><br>We are the Hwa Chong Students' Council.
+    <div class="lg:hidden mb-8">
+      <input v-model="ui.search" type="search" placeholder="Search" aria-label="Search SODACHE" class="search-input">
+    </div>
+
+    <Transition name="fade" mode="out-in">
+      <div :key="section">
+        <div v-if="section === 'song'" class="grid grid-cols-2 lg:grid-cols-3 gap-x-[clamp(12px,2.1vw,30px)] gap-y-10">
+          <SodacheItem v-for="item in items" :key="item.title" :item="item" />
+        </div>
+
+        <div v-else>
+          <article
+            v-for="item in items"
+            :key="item.title"
+            class="grid md:grid-cols-2 gap-x-[clamp(16px,3vw,44px)] gap-y-4 py-7 border-t border-line first:border-t-0 first:pt-0"
+          >
+            <iframe
+              class="w-full aspect-video rounded-[10px] bg-black"
+              :src="embedUrl(item.link)"
+              :title="item.title"
+              loading="lazy"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <div>
+              <h2 class="!text-2xl lg:!text-4xl">{{ item.title }}</h2>
+              <p v-if="item.artist" class="eyebrow mt-3">{{ item.artist }}</p>
+              <p class="text-soft mt-4 max-w-md">{{ item.description }}</p>
+            </div>
+          </article>
+        </div>
+
+        <p v-if="!items.length" class="text-soft py-16">
+          No {{ SECTION_LABEL[section] }} match “{{ ui.search }}”.
         </p>
       </div>
-      <div class="aspect-square rounded-2xl overflow-hidden border border-hairline hidden lg:block">
-        <img src="../assets/home/c1 ori.jpg" alt="council photo" class="w-full h-full object-cover object-center">
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider my-4"></div>
-
-  <!-- pubco note -->
-  <section class="w-full bg-ink text-ivory px-4 sm:px-8 py-16 sm:py-20">
-    <div class="max-w-[1180px] mx-auto">
-      <div class="w-14 h-[3px] bg-hwachred rounded-full mb-5"></div>
-      <h2 class="!text-3xl sm:!text-4xl max-w-2xl">Publication and Publicity Committee's Note:</h2>
-      <p class="text-[#D8CDBD] text-base sm:text-lg mt-5 max-w-2xl leading-relaxed">
-        Hello! Welcome to HCUnite.com! We'd like to thank you for taking the time to visit our Website! Hopefully you've found what you were looking for and that (HC)ULIKE our Website!
-        <br><br>If you have any feedback with regard to HCUnite and any of our related initiatives, we would love to hear it. Please feel free to share your feedback with us in the form below:
-      </p>
-      <a
-        class="inline-block text-ivory font-jakarta text-sm sm:text-base bg-hwachred hover:bg-coral rounded-full py-3.5 px-8 mt-7 transition-colors duration-300"
-        href="https://forms.gle/kT7bP6BH9Ddfrw2z9"
-        target="_blank"
-      >Feedback</a>
-
-      <div class="mt-16 flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 font-jakarta text-[11px] text-mute">
-        <div class="leading-relaxed">CREDIT: STUDIO ARDENT FOR RELEVANT IMAGES<br>WEBSITE UPDATED BY NG XU THONG AND PUBCO</div>
-        <div class="flex gap-4">
-          <a href="https://www.instagram.com/hcunite/" target="_blank" class="hover:text-ivory transition-colors">INSTAGRAM</a>
-          <a href="https://www.youtube.com/channel/UCPz0DNqC6i1pyJvKYhSHlKw" target="_blank" class="hover:text-ivory transition-colors">YOUTUBE</a>
-          <a href="https://www.facebook.com/hcunite/" target="_blank" class="hover:text-ivory transition-colors">FACEBOOK</a>
-        </div>
-      </div>
-
-      <div class="overflow-hidden mt-6 -mb-6 sm:-mb-10">
-        <div class="font-inter font-black text-[22vw] sm:text-[13vw] leading-[0.8] tracking-[-0.05em] text-[#2A2A2A] whitespace-nowrap">HCUNITE</div>
-      </div>
-    </div>
+    </Transition>
   </section>
 </template>
+
+<style scoped>
+.list {
+  padding-top: calc(var(--header-h) + 6px);
+  padding-bottom: 6rem;
+}
+@media (min-width: 1024px) {
+  .list {
+    padding-right: calc(var(--rail) + var(--gutter));
+  }
+}
+.search {
+  top: calc(var(--gutter) + 13.2vw);
+}
+.search-input {
+  display: block;
+  width: 100%;
+  padding-bottom: 0.55rem;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+  color: var(--fg);
+  font-family: var(--font-inter);
+  font-weight: 300;
+  font-size: clamp(1.15rem, 2vw, 1.8rem);
+  outline: none;
+  transition: border-color 400ms var(--ease-standard);
+}
+@media (min-width: 1024px) {
+  .search-input {
+    text-align: right;
+  }
+}
+.search-input::placeholder {
+  color: var(--mute);
+}
+.search-input:focus {
+  border-color: var(--fg);
+}
+.search-input::-webkit-search-cancel-button {
+  display: none;
+}
+</style>

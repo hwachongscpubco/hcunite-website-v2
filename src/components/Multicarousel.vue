@@ -6,7 +6,7 @@
   and `faculty` (used only to pick this faculty's accent colour below).
 -->
 <template>
-  <div class="rounded-xl border-1 overflow-hidden flex flex-col lg:flex-row" :class="(isMobile? '': 'max-h-[70vh] ') + borderClass">
+  <div class="border-1 overflow-hidden flex flex-col lg:flex-row" :class="(isMobile? '': 'max-h-[70vh] ') + borderClass">
     <!-- Mobile (horizontal) -->
     <div v-if="isMobile" class="relative overflow-hidden">
       <div class="absolute top-0 left-0 h-full w-28 z-10 bg-linear-to-r from-ivory to-transparent pointer-events-none"></div>
@@ -107,11 +107,11 @@
                 @click="handleDesktopClick(i)"
                 @touchstart="handleTouchStart"
                 @touchend="(e) => handleTouchEnd(e, i)"
-                class="w-full snap-center flex-shrink-0 rounded-xl overflow-hidden relative"
+                class="w-full snap-center flex-shrink-0 overflow-hidden relative"
                 >
                     <img :src="img" alt="event picture" class="w-full h-full aspect-auto object-cover object-center" />
                     <div 
-                    class="absolute inset-0 transition-opacity duration-500 bg-black/40 backdrop-blur-md rounded-xl" 
+                    class="absolute inset-0 transition-opacity duration-500 bg-black/40 backdrop-blur-md" 
                     :class="overlayToggles[selectedIndex][i] ? 'opacity-100' : 'opacity-0'"
                     >
                     </div>

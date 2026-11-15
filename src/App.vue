@@ -1,207 +1,139 @@
 <!--
-  App.vue — the root layout. The word navbar is gone: DeckRail.vue (the
-  docked CD-spine rail) is the site's navigation on every page except
-  the homepage, which renders its own full DeckPlayer.vue inline
-  instead (see src/components/deck/README notes in
-  src/components/README.md). This file now only wires up: the
-  page-swap transition around <router-view>, the right-hand gutter
-  DeckRail sticks in, and the footer (unchanged content, recoloured
-  per-route/per-sodache-tab exactly as before via footerClass).
+  App.vue — the root layout: the fixed chrome (SiteHeader, LinksOverlay,
+  Wordmark), the routed page, and the footer. It also owns the two
+  things the chrome and pages share:
+    - the single scroll/resize listener, mirrored into uiStore
+    - the theme: --bg/--fg/--mute/--line/--hc on <html>, which fade from
+      the light palette to the dark one as the homepage scrolls from
+      its first screen into SODACHE (every other page is light)
 -->
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import DeckRail from './components/deck/DeckRail.vue'
-import { useSodacheStore } from './stores/sodacheStore'
+import SiteHeader from './components/SiteHeader.vue'
+import LinksOverlay from './components/LinksOverlay.vue'
+import Wordmark from './components/Wordmark.vue'
+import SiteFooter from './components/SiteFooter.vue'
+import { useUiStore } from './stores/uiStore'
 
 const route = useRoute()
 const router = useRouter()
-const sodacheStore = useSodacheStore()
+const ui = useUiStore()
 const isHome = computed(() => route.path === '/')
 
-// Eject/insert page-swap direction: leaving home is "forward" (the CD
-// player slides out right, the chosen page slides in from the left);
-// returning to home — ejecting back to the deck — reverses it. Set in
-// beforeEach (not a route.path watcher) so the name is already updated
-// before the route change triggers <Transition>'s own re-render.
-const pageTransitionName = ref('page-forward')
-router.beforeEach((to) => {
-  pageTransitionName.value = to.path === '/' ? 'page-backward' : 'page-forward'
-})
-
-// Per-faculty theme classes, keyed by route path, shared by the footer
-// colour computeds below (each faculty page used to repeat its own
-// text-<faculty>/bg-<faculty> class in separate switch statements).
-const FACULTY_ROUTE_THEME = {
-  '/apollo':  { footer: 'bg-apollo text-black', icon: 'text-apollo' },
-  '/ares':    { footer: 'bg-ares text-white',   icon: 'text-ares' },
-  '/artemis': { footer: 'bg-artemis text-white',icon: 'text-artemis' },
-  '/athena':  { footer: 'bg-athena text-white', icon: 'text-athena' },
+let ticking = false
+function measure() {
+  ticking = false
+  ui.scrollY = window.scrollY
+  ui.vw = document.documentElement.clientWidth
+  ui.vh = window.innerHeight
+  ui.docH = document.documentElement.scrollHeight
+}
+function requestMeasure() {
+  if (ticking) return
+  ticking = true
+  requestAnimationFrame(measure)
 }
 
-const footerClass = computed(() => {
-  const theme = FACULTY_ROUTE_THEME[route.path]
-  if (theme) return theme.footer
-
-  if (route.path === '/sodache') {
-    switch (sodacheStore.activeSection) {
-      case 'song': return 'bg-song text-black'
-      case 'dance': return 'bg-dance text-white'
-      case 'cheer': return 'bg-cheer text-white'
-      default: return 'bg-hwachred text-white'
-    }
-  }
-
-  return 'bg-hwachred text-white'
+// 0 on the light first screen → 1 once SODACHE fills the screen.
+const progress = computed(() => {
+  if (!isHome.value || !ui.vh) return 0
+  const t = Math.min(1, Math.max(0, (ui.scrollY / ui.vh - 0.12) / 0.76))
+  return t * t * (3 - 2 * t)
 })
 
-const footerIconClass = computed(() => {
-  const theme = FACULTY_ROUTE_THEME[route.path]
-  if (theme) return theme.icon
-
-  if (route.path === '/sodache') {
-    switch (sodacheStore.activeSection) {
-      case 'song': return 'text-song'
-      case 'dance': return 'text-dance'
-      case 'cheer': return 'text-cheer'
-      default: return 'text-hwachred'
-    }
+// `shown` follows `progress` exactly while scrolling, but eases to it
+// across a route change so leaving the dark SODACHE section for a light
+// page fades rather than snaps.
+const shown = ref(0)
+let switching = false
+let raf = 0
+watch(progress, (value) => {
+  if (!switching) shown.value = value
+})
+function easeToProgress() {
+  cancelAnimationFrame(raf)
+  switching = true
+  const from = shown.value
+  const start = performance.now()
+  const step = (now) => {
+    const k = Math.min(1, (now - start) / 600)
+    shown.value = from + (progress.value - from) * (1 - Math.pow(1 - k, 3))
+    if (k < 1) raf = requestAnimationFrame(step)
+    else switching = false
   }
+  raf = requestAnimationFrame(step)
+}
 
-  return 'text-hwachred'
+router.afterEach((to, from) => {
+  ui.closeAll()
+  if (to.path !== from.path) easeToProgress()
+  nextTick(requestMeasure)
 })
 
-const bgClass = computed(() => {
-  switch (route.path) {
-    case '/sodache':
-      return 'bg-[#141414]'
-    default:
-      return 'bg-ivory'
-  }
+const LIGHT = { bg: [247, 242, 235], fg: [17, 17, 17], mute: [138, 130, 121], line: [217, 208, 195], hc: [255, 224, 0] }
+const DARK = { bg: [14, 14, 14], fg: [255, 255, 255], mute: [150, 150, 150], line: [64, 64, 64], hc: [206, 34, 34] }
+function mix(key, p) {
+  const a = LIGHT[key]
+  const b = DARK[key]
+  return `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * p)).join(' ')})`
+}
+
+watchEffect(() => {
+  const p = shown.value
+  const root = document.documentElement
+  root.style.setProperty('--p', p.toFixed(3))
+  root.style.setProperty('--bg', mix('bg', p))
+  // Text flips quickly around the midpoint instead of fading through the
+  // same mid-grey as the background, so it never disappears into it.
+  const ink = Math.min(1, Math.max(0, (p - 0.42) / 0.16))
+  for (const key of ['fg', 'mute', 'line']) root.style.setProperty(`--${key}`, mix(key, ink))
+  // Faculty pages tint the wordmark's "HC" with their own colour (meta.hc).
+  root.style.setProperty('--hc', isHome.value ? mix('hc', p) : route.meta.hc || mix('hc', 0))
+  root.classList.toggle('snap-home', isHome.value)
+})
+
+let resizeObserver = null
+onMounted(() => {
+  measure()
+  window.addEventListener('scroll', requestMeasure, { passive: true })
+  window.addEventListener('resize', requestMeasure)
+  // Page height changes without a scroll or resize (images loading, a
+  // SODACHE tab or search changing the list) — the wordmark needs it.
+  resizeObserver = new ResizeObserver(requestMeasure)
+  resizeObserver.observe(document.body)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', requestMeasure)
+  window.removeEventListener('resize', requestMeasure)
+  resizeObserver?.disconnect()
+  cancelAnimationFrame(raf)
 })
 </script>
 
 <template>
   <!--
-    No `overflow` here on purpose: any non-visible overflow-x/-y on an
-    ancestor (even just overflow-x-hidden — the other axis then computes
-    to auto per the CSS overflow spec) makes it the containing block
-    `position: sticky` measures against instead of the real viewport,
-    which is exactly what silently broke DeckRail's docked rail. The
-    scrollbar-hiding + horizontal clip live on html/body in style.css
-    instead, where sticky still resolves against the viewport correctly.
+    No background, transform or overflow on this wrapper: the page colour
+    lives on <html> (style.css) so SiteHeader's z-index:-1 tint can sit
+    between it and the content, and sticky/fixed children keep resolving
+    against the real viewport.
   -->
-  <div class="min-h-screen flex flex-col" :class="bgClass">
-    <div
-      class="flex-grow w-full px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8"
-      :class="isHome ? '' : 'pt-[58px] lg:pt-8 lg:grid lg:grid-cols-[1fr_216px] lg:gap-2'"
-    >
-      <main class="min-w-0">
-        <router-view v-slot="{ Component }">
-          <Transition :name="pageTransitionName" mode="out-in">
-            <!--
-              The wrapping div (not the route component's own root) is
-              what <Transition> tracks. Page components render several
-              top-level sections (a Fragment) — animating a Fragment
-              directly isn't supported and silently drops the page on
-              route change, so every page gets funnelled through this
-              single real element instead, keyed on the path.
-            -->
-            <div :key="route.path">
-              <component :is="Component" />
-            </div>
-          </Transition>
-        </router-view>
-      </main>
-      <DeckRail />
-    </div>
+  <div class="text-fg">
+    <SiteHeader :progress="shown" />
+    <LinksOverlay />
+    <Wordmark />
 
-    <footer class="text-inter text-center transition-all duration-500 mt-16" :class="footerClass">
-      <div class="flex flex-row gap-4 px-[3vw] py-8">
-        <div class="w-[40px] h-[40px] lg:w-[60px] lg:h-[60px]">
-          <div class="bg-white rounded-full p-1">
-            <a :class="footerIconClass" class="" target="_blank" href="https://www.instagram.com/hcunite/">
-              <svg class="fill-current w-full h-full" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.445 5h-8.891A6.559 6.559 0 0 0 5 11.554v8.891A6.559 6.559 0 0 0 11.554 27h8.891a6.56 6.56 0 0 0 6.554-6.555v-8.891A6.557 6.557 0 0 0 20.445 5zm4.342 15.445a4.343 4.343 0 0 1-4.342 4.342h-8.891a4.341 4.341 0 0 1-4.341-4.342v-8.891a4.34 4.34 0 0 1 4.341-4.341h8.891a4.342 4.342 0 0 1 4.341 4.341l.001 8.891z"/>
-                <path d="M16 10.312c-3.138 0-5.688 2.551-5.688 5.688s2.551 5.688 5.688 5.688 5.688-2.551 5.688-5.688-2.55-5.688-5.688-5.688zm0 9.163a3.475 3.475 0 1 1-.001-6.95 3.475 3.475 0 0 1 .001 6.95zM21.7 8.991a1.363 1.363 0 1 1-1.364 1.364c0-.752.51-1.364 1.364-1.364z"/>
-              </svg>
-            </a>
+    <main class="min-h-screen">
+      <router-view v-slot="{ Component }">
+        <Transition name="page" mode="out-in">
+          <!-- Pages are multi-root; Transition needs one real element. -->
+          <div :key="route.path" :class="route.meta.plain ? 'page-body page-body--plain' : ''">
+            <component :is="Component" />
           </div>
-        </div>
-        <div class="w-[40px] h-[40px] lg:w-[60px] lg:h-[60px]">
-          <div class="bg-white rounded-full p-2">
-            <a :class="footerIconClass" class="" target="_blank" href="https://www.youtube.com/channel/UCPz0DNqC6i1pyJvKYhSHlKw">
-              <svg class="fill-current w-full h-full" viewBox="0 -3 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>youtube [#168]</title>
-                <desc>Created with Sketch.</desc>
-                <defs></defs>
-                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -7442.000000)" fill="currentColor">
-                    <g id="icons" transform="translate(56.000000, 160.000000)">
-                      <path d="M251.988432,7291.58588 L251.988432,7285.97425 C253.980638,7286.91168 255.523602,7287.8172 257.348463,7288.79353 C255.843351,7289.62824 253.980638,7290.56468 251.988432,7291.58588 M263.090998,7283.18289 C262.747343,7282.73013 262.161634,7282.37809 261.538073,7282.26141 C259.705243,7281.91336 248.270974,7281.91237 246.439141,7282.26141 C245.939097,7282.35515 245.493839,7282.58153 245.111335,7282.93357 C243.49964,7284.42947 244.004664,7292.45151 244.393145,7293.75096 C244.556505,7294.31342 244.767679,7294.71931 245.033639,7294.98558 C245.376298,7295.33761 245.845463,7295.57995 246.384355,7295.68865 C247.893451,7296.0008 255.668037,7296.17532 261.506198,7295.73552 C262.044094,7295.64178 262.520231,7295.39147 262.895762,7295.02447 C264.385932,7293.53455 264.28433,7285.06174 263.090998,7283.18289" id="youtube-[#168]"></path>
-                    </g>
-                  </g>
-                </g>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div class="w-[40px] h-[40px] lg:w-[60px] lg:h-[60px]">
-          <div class="bg-white rounded-full p-2">
-            <a :class="footerIconClass" class="" target="_blank" href="https://www.facebook.com/hcunite/">
-            <svg class="fill-current h-full w-full" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <rect x="0" fill="none" width="20" height="20"/>
-              <g>
-                <path d="M2.89 2h14.23c.49 0 .88.39.88.88v14.24c0 .48-.39.88-.88.88h-4.08v-6.2h2.08l.31-2.41h-2.39V7.85c0-.7.2-1.18 1.2-1.18h1.28V4.51c-.22-.03-.98-.09-1.86-.09-1.85 0-3.11 1.12-3.11 3.19v1.78H8.46v2.41h2.09V18H2.89c-.49 0-.89-.4-.89-.88V2.88c0-.49.4-.88.89-.88z"/>
-              </g>
-            </svg>
-            </a>
-          </div>
-        </div>
-      </div>
+        </Transition>
+      </router-view>
+    </main>
 
-      <div class="px-[3vw] flex flex-col gap-8 lg:flex-row">
-        <div class="max-w-[800px] w-full grid grid-cols-2">
-          <div class="text-left flex flex-col gap-1">
-            <p class="mb-2 font-bold">Resources</p>
-            <router-link to="/council52">
-              <p>52nd HCSC</p>
-            </router-link>
-            <router-link to="/sodache">
-              <p>SODACHE</p>
-            </router-link>
-            <router-link to="/common">
-              <p>Common Room</p>
-            </router-link>
-            <router-link to="/leaders">
-              <p>Leader Groups</p>
-            </router-link>
-          </div>
-          <div class="text-left flex flex-col gap-1">
-            <p class="mb-2 font-bold">Faculties</p>
-            <router-link to="/apollo">
-              <p>Apollo</p>
-            </router-link>
-            <router-link to="/ares">
-              <p>Ares</p>
-            </router-link>
-            <router-link to="/artemis">
-              <p>Artemis</p>
-            </router-link>
-            <router-link to="/athena">
-              <p>Athena</p>
-            </router-link>
-          </div>
-        </div>
-        <div class="w-full text-left lg:text-right">
-          <p>CREDIT: STUDIO ARDENT FOR RELEVANT IMAGES</p>
-          <p>WEBSITE UPDATED BY NG XU THONG AND PUBCO</p>
-        </div>
-      </div>
-
-      <div class="mt-16 w-full flex items-center justify-center overflow-hidden">
-        <h1 class="text-[21vw]">HCUNITE</h1>
-      </div>
-    </footer>
+    <SiteFooter />
   </div>
 </template>

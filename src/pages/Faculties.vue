@@ -1,10 +1,11 @@
 <!--
-  Faculties.vue — the /faculties landing page: 4 logo links out to the
-  individual Faculty pages (Apollo/Ares/Artemis/Athena), plus a static
-  address from the SnR Chairperson. Fully static — no script needed
-  beyond the scroll-reveal stagger.
+  Faculties.vue — the /faculties landing page: the 4 faculty logos (the
+  hero) and a list, both linking out to the individual Faculty pages,
+  plus a static address from the SnR Chairperson.
 -->
 <script setup>
+import PageHero from '../components/PageHero.vue'
+import { faculties } from '../data/nav'
 import { useRevealOnScroll } from '../composables/useRevealOnScroll'
 
 // Vite only rewrites *static* src="../assets/..." attributes to hashed
@@ -16,61 +17,56 @@ function logoFor(name) {
     return logoModules[`../assets/faculties/${name}.png`]
 }
 
-const faculties = [
-    { key: 'apollo', name: 'Apollo', animal: 'THE BULL', bg: 'bg-apollo', to: '/apollo' },
-    { key: 'ares', name: 'Ares', animal: 'THE HORSE', bg: 'bg-ares', to: '/ares' },
-    { key: 'artemis', name: 'Artemis', animal: 'THE WOLF', bg: 'bg-artemis', to: '/artemis' },
-    { key: 'athena', name: 'Athena', animal: 'THE OWL', bg: 'bg-athena', to: '/athena' },
-]
+// Complete class names, so Tailwind's scanner can see them.
+const BG = { apollo: 'bg-apollo', ares: 'bg-ares', artemis: 'bg-artemis', athena: 'bg-athena' }
 
 const { setEl } = useRevealOnScroll()
 </script>
 
 <template>
-    <!-- hero section -->
-    <section class="flex flex-col gap-10 sm:gap-12 px-2 sm:px-4 pt-8 sm:pt-14">
-        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <div>
-                <div class="w-14 h-[3px] bg-hwachred rounded-full mb-4"></div>
-                <h1 class="text-ink !text-6xl sm:!text-8xl tracking-[-0.04em] leading-[0.9]">FACULTIES</h1>
-            </div>
-            <p class="text-ink-soft text-base sm:text-lg max-w-[300px]">Click on the different logos to learn more about the faculty!</p>
-        </div>
-
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-[1180px] mx-auto w-full">
+    <PageHero ratio="square">
+        <div class="grid grid-cols-2 w-full h-full">
             <router-link
-                v-for="(f, i) in faculties"
+                v-for="f in faculties"
                 :key="f.key"
                 :to="f.to"
-                :ref="setEl(i)"
-                :style="{ transitionDelay: i * 90 + 'ms' }"
-                class="reveal group rounded-2xl overflow-hidden border border-hairline bg-card block"
+                class="group relative flex items-center justify-center overflow-hidden"
+                :class="BG[f.key]"
+                :aria-label="f.name + ' Faculty'"
             >
-                <div class="relative aspect-square overflow-hidden flex items-center justify-center" :class="f.bg">
-                    <img
-                        class="w-[45%] transition-transform duration-[320ms] ease-standard group-hover:scale-105"
-                        :src="logoFor(f.name)"
-                        :alt="f.name"
-                    >
-                </div>
-                <div class="px-5 py-4 flex items-baseline justify-between">
-                    <span class="font-jakarta font-medium text-xl text-ink">{{ f.name }}</span>
-                    <span class="font-jakarta text-[11px] text-mute">{{ f.animal }}</span>
-                </div>
+                <img
+                    class="w-[46%] transition-transform duration-700 ease-enter group-hover:scale-110"
+                    :src="logoFor(f.name)"
+                    :alt="f.name"
+                >
             </router-link>
         </div>
-    </section>
+    </PageHero>
 
-    <section class="w-full px-2 sm:px-4 mt-16 sm:mt-24">
-        <div class="max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 lg:gap-12">
-            <div class="lg:sticky lg:top-24 self-start">
-                <div class="w-14 h-[3px] bg-hwachred rounded-full mb-4"></div>
-                <h2 class="!text-3xl text-ink !leading-[1.1]">Address by SnR Chairperson</h2>
-                <div class="font-jakarta text-[11px] text-mute mt-4 leading-relaxed">
-                    LI XIYUAN<br>SOCIAL AND RELATIONS<br>COMMITTEE CHAIRPERSON<br>53RD HWA CHONG<br>STUDENTS' COUNCIL
-                </div>
+    <div class="page-body">
+        <section>
+            <p class="eyebrow mb-6">4Facs, 1Hwach</p>
+            <ul class="border-t border-hairline">
+                <li v-for="(f, i) in faculties" :key="f.key" :ref="setEl(i)" class="reveal" :style="{ transitionDelay: i * 70 + 'ms' }">
+                    <router-link
+                        :to="f.to"
+                        class="group flex items-baseline justify-between gap-6 py-5 sm:py-7 border-b border-hairline"
+                    >
+                        <span class="font-inter font-extralight uppercase text-4xl sm:text-6xl tracking-[-0.02em] transition-transform duration-700 ease-enter group-hover:translate-x-3">{{ f.name }}</span>
+                        <span class="eyebrow shrink-0">{{ f.animal }}</span>
+                    </router-link>
+                </li>
+            </ul>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-8 lg:gap-12 mt-20 sm:mt-28">
+            <div class="lg:sticky lg:top-[calc(var(--header-h)+1rem)] self-start">
+                <h2>Address by SnR Chairperson</h2>
+                <p class="eyebrow mt-5 leading-relaxed">
+                    Li Xiyuan<br>Social and Relations<br>Committee Chairperson<br>53rd Hwa Chong<br>Students' Council
+                </p>
             </div>
-            <p class="text-ink-soft text-base sm:text-lg leading-relaxed max-w-[640px]">
+            <p class="text-ink-soft max-w-[640px]">
                 When Hwa Chong unite, we show our might!
                 <br><br>
                 Welcome to Hwa Chong’s faculty system, the heart of the College experience. Comprising Apollo, Ares, Artemis, and Athena, each faculty is formed by students from different subject combinations and classes, and carries its own distinct identity, culture and spirit. From Apollo’s yellow and its iconic cows, Ares’ red and roaring horses, Artemis’ blue and its moonlit wolves, to Athena’s green and wise owls — every faculty offers students a community they can confidently call their own.
@@ -83,6 +79,6 @@ const { setEl } = useRevealOnScroll()
                 <br><br>
                 4Facs1Hwach, the Hwa Chong spirit lives on.
             </p>
-        </div>
-    </section>
+        </section>
+    </div>
 </template>

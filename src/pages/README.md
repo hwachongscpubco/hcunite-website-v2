@@ -51,15 +51,15 @@ editing any of the four.
 
 ## Everything else
 
-- `Home.vue` — landing page: the CD deck (`DeckPlayer.vue`), official
-  links, "why we're here" and the PubCo note. The old Instagram feed is
-  gone — see `Leaders.vue` below.
+- `Home.vue` — the landing page: a full-screen first slide that
+  cross-fades (light to dark) into SODACHE as you scroll, then the
+  Song/Dance/Cheer list from [`src/data/sodache.js`](../data/README.md).
+  `/sodache` redirects here.
 - `Leaders.vue` — `/leaders`, every student leadership body with a link
-  out to its Instagram (or, where none exists, its website). Data is
-  local to this file (only page that needs it).
+  out to its Instagram. Data is local to this file (only page that
+  needs it).
 - `Faculties.vue` — the `/faculties` landing page linking out to the 4 faculty pages above.
-- `Sodache.vue` — the Song/Dance/Cheer archive (`/sodache`), driven by the `sodache` data object in that file.
 - `Elections.vue` — general elections info page.
 - `Candidates53.vue` — election candidate campaign groups; large local data object, same shape idea as the Council pages.
 - `Common.vue` — the Common Room page (about blurb, house rules by category, opening schedule and booking form links).
-- `Links.vue` — legacy `/links` page, no longer linked from the nav (content now lives on `Home.vue` too). Kept only for its unique "Freshmen Essentials" section — see the comment at the top of that file before touching it.
+- `Links.vue` — legacy `/links` page, no longer linked from the nav (its two link lists now live in the SCHOOL LINKS / OTHERS overlay). Kept only for its unique "Freshmen Essentials" section — see the comment at the top of that file before touching it.

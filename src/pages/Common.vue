@@ -3,15 +3,11 @@
   list of house rules, and links to the opening schedule / booking form.
   To edit the rules, edit the `guidelines` object below — each key is a
   category shown in the left list, each value is an array of rule strings.
-
-  The rule-text hover used to scale rows by cursor proximity (a
-  field-of-view curve); the redesign dials that down to a flat 1.01
-  scale + colour shift on :hover, so the JS proximity tracking that used
-  to live here (computeBoxCenters/changeScaleOnMouseMove/resetScales)
-  is gone — plain Tailwind hover: utilities do the whole thing now.
 -->
 <script setup>
 import {ref} from 'vue'
+import PageHero from '../components/PageHero.vue'
+import commonRoomImg from '../assets/common/common_room.jpg'
 
 const guidelines = {
     "General Conduct":[
@@ -54,92 +50,91 @@ const selectWelcoItem = (section) => {
 }
 </script>
 
+
 <template>
-    <section class="relative w-full overflow-hidden rounded-b-3xl lg:h-screen h-[70vh]">
-        <img src="../assets/common/common_room.jpg" alt="background" class="absolute top-0 left-0 w-full h-full object-cover">
-        <div class="w-full h-full absolute bg-gradient-to-t from-ink to-transparent opacity-70"></div>
-        <div class="absolute bottom-0 p-4 md:p-12 z-20">
-            <div class="font-jakarta text-[11px] tracking-[0.16em] uppercase text-coral mb-3">TRACK 05 · INNER PLAZA</div>
-            <h1 class="text-ivory">COMMON ROOM</h1>
-        </div>
-    </section>
-    <section>
-        <p class="text-justify text-ink-soft px-6 md:px-12 py-10 md:max-w-[60%] md:text-left md:ml-[5%] leading-relaxed">
-            The Common Room — located at the Inner Plaza — is your go-to space to rest, recharge, or
-            simply hangout with friends. Whether you’re looking for a cosy spot to study, a bean bag to unwind, or
-            enjoy a quick round of board games or mini foosball, the Common Room has something for everyone.
-            From quiet study sessions to vibrant Welfare Initiatives, and even casual conversations,
-            it is a space for the students, by the students, and a space where everyone is welcome!
-        </p>
-    </section>
-    <section class="px-6 md:px-12 py-8 w-full lg:flex lg:flex-row lg:gap-8">
-        <div class="lg:flex-2">
-            <h2 class="mb-4 text-ink">House Rules</h2>
-            <p>
+    <PageHero :image="commonRoomImg" alt="The Common Room" />
+
+    <div class="page-body">
+        <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-8 lg:gap-12">
+            <div>
+                <p class="eyebrow mb-4">Inner Plaza</p>
+                <h2>A space for the students, by the students</h2>
+            </div>
+            <p class="text-ink-soft max-w-[640px]">
+                The Common Room — located at the Inner Plaza — is your go-to space to rest, recharge, or
+                simply hangout with friends. Whether you’re looking for a cosy spot to study, a bean bag to unwind, or
+                enjoy a quick round of board games or mini foosball, the Common Room has something for everyone.
+                From quiet study sessions to vibrant Welfare Initiatives, and even casual conversations,
+                it is a space for the students, by the students, and a space where everyone is welcome!
+            </p>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-8 lg:gap-12">
+            <div>
+                <h2>House Rules</h2>
                 <a
                 target="_blank"
+                rel="noopener"
                 href="https://docs.google.com/document/d/11JQaOtSR0vX_2abRcMibvEtwDp1giUs_N7MrbQ7Jm_g/edit?tab=t.0"
-                class="inline-block px-6 py-5 rounded-full border border-hwachred text-hwachred
-                hover:bg-hwachred hover:text-ivory
-                transition-colors duration-500 ease-in-out"
+                class="text-link mt-6"
                 >
                 See document
                 </a>
-            </p>
-        </div>
-        <div class="p-4 mt-4 bg-card rounded-xl lg:rounded-none lg:mt-0 lg:flex-1 lg:pl-6 lg:border-l-2 border-hwachred">
-            <ul>
-                <li
-                v-for="(rules, section) in guidelines"
-                :key="section"
-                @click="selectWelcoItem(section)"
-                class="py-2.5 cursor-pointer
-                hover:translate-x-4 hover:text-ink
-                transition-all duration-150 ease-in-out"
-                :class="selectedWelcoItem === section ? 'text-hwachred' : 'text-ink-soft'"
-                >
-                {{ section }}</li>
-            </ul>
-        </div>
-        <div class="lg:flex-2 p-4">
-            <ul>
-                <li
-                v-for="(guideline,i) in guidelines[selectedWelcoItem]"
-                :key="i"
-                class="text-ink-soft py-2.5 hover:text-ink hover:scale-[1.01] origin-left
-                transition-all duration-180 ease-in-out"
-                >
-                    {{ guideline }}
-                </li>
-            </ul>
-        </div>
-    </section>
-    <section class="px-6 md:px-12 py-8 w-full">
-        <h2 class="mb-4 text-ink">Opening Schedule</h2>
-            <p>
+                <ul class="mt-10 border-t border-hairline">
+                    <li v-for="(rules, section) in guidelines" :key="section" class="border-b border-hairline">
+                        <button
+                        type="button"
+                        @click="selectWelcoItem(section)"
+                        class="w-full text-left py-3.5 font-inter font-light uppercase text-xs tracking-[0.14em] cursor-pointer
+                        hover:translate-x-2 hover:text-ink
+                        transition-all duration-500 ease-enter"
+                        :class="selectedWelcoItem === section ? 'text-hwachred translate-x-2' : 'text-mute'"
+                        :aria-pressed="selectedWelcoItem === section"
+                        >
+                        {{ section }}</button>
+                    </li>
+                </ul>
+            </div>
+            <Transition name="fade" mode="out-in">
+                <ol :key="selectedWelcoItem" class="max-w-[640px]">
+                    <li
+                    v-for="(guideline,i) in guidelines[selectedWelcoItem]"
+                    :key="i"
+                    class="grid grid-cols-[2.5rem_minmax(0,1fr)] py-4 border-b border-hairline last:border-b-0 text-ink-soft"
+                    >
+                        <span class="eyebrow pt-1.5">{{ String(i + 1).padStart(2, '0') }}</span>
+                        <p>{{ guideline }}</p>
+                    </li>
+                </ol>
+            </Transition>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+            <div>
+                <h2>Opening Schedule</h2>
                 <a
                 target="_blank"
                 href="about:blank"
-                class="inline-block px-6 py-5 rounded-full border border-hwachred text-hwachred
-                hover:bg-hwachred hover:text-ivory
-                transition-colors duration-500 ease-in-out"
+                class="text-link mt-6"
                 >
                 See document
                 </a>
-            </p>
-    </section>
-    <section class="px-6 md:px-12 py-8 w-full">
-        <h2 class="mb-4 text-ink">Booking Form</h2>
-            <p>
+            </div>
+            <div>
+                <h2>Booking Form</h2>
                 <a
                 target="_blank"
+                rel="noopener"
                 href="https://docs.google.com/forms/d/e/1FAIpQLSezWSornwTlAZ2K9tFl0ZVk8rZXDrhThNeulpLoXapol0ywNQ/viewform?usp=sharing&ouid=105980804582763504075"
-                class="inline-block px-6 py-5 rounded-full border border-hwachred text-hwachred
-                hover:bg-hwachred hover:text-ivory
-                transition-colors duration-500 ease-in-out"
+                class="text-link mt-6"
                 >
-                See document
+                Open form
                 </a>
-            </p>
-    </section>
+            </div>
+        </section>
+    </div>
 </template>

@@ -5,13 +5,13 @@
 <template>
     <div class="relative">
 
-        <div class="absolute top-1/2 left-0 sm:left-12 z-20 transform -translate-y-1/2 backdrop-blur-xl bg-white/60 rounded-3xl">
+        <div class="absolute top-1/2 left-0 sm:left-12 z-20 transform -translate-y-1/2 backdrop-blur-xl bg-white/60">
             <svg @click="prev" class="w-12 sm:w-16 aspect-square" viewBox="0 0 24 24" fill="none">
             <path d="M15 7L10 12L15 17" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </div>
 
-        <div class="absolute top-1/2 right-0 sm:right-12 z-20 transform -translate-y-1/2  backdrop-blur-xl bg-white/60 rounded-3xl">
+        <div class="absolute top-1/2 right-0 sm:right-12 z-20 transform -translate-y-1/2  backdrop-blur-xl bg-white/60">
             <svg @click="next" class="w-12 sm:w-16 aspect-square" viewBox="0 0 24 24" fill="none">
             <path d="M10 7L15 12L10 17" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -27,7 +27,7 @@
             @load="event => onImageLoad(event, i)"
             :src="img" 
             alt="cheers booklet" 
-            class="aspect-auto rounded-xl transition-all duration-500" 
+            class="aspect-auto transition-all duration-500" 
             :ref="el => cheerRefs[i] = el"
             :class="[
                 currentIndex === i ? 'scale-100':'scale-60',

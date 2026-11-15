@@ -6,9 +6,11 @@ explaining its props — this file is just the map of what exists.
 
 ## Layout components (compose a whole page section)
 
+- **`PageHero.vue`** — the full-screen opening of every page other than
+  the homepage: one centred picture (via `HeroPicture.vue`, which also
+  frames the homepage's two slides and slides aside when the menu opens).
 - **`FacultyPage.vue`** — the full layout shared by the 4 Faculty pages
-  (tap-to-reveal hero, roster, animal blurb, events + cheers carousels).
-  Pairs with the [`useTapToReveal`](../composables/README.md) composable.
+  (hero, roster, animal blurb, events + cheers carousels).
 - **`CouncilCommittee.vue`** — one committee's grid of councillor
   portraits, used repeatedly inside the `Council##.vue` pages.
 
@@ -20,10 +22,9 @@ explaining its props — this file is just the map of what exists.
   filename convention this depends on.
 - **`CandidateGroupSection.vue`** — the expanded view of one election
   campaign group (used by `Candidates53.vue`).
-- **`SodacheItem.vue`** — one song/dance/cheer card on the Sodache page.
-- **`LinkCard.vue`** — one link card in the "Official Links"/"Others"
-  lists on the homepage; content comes from
-  [`src/data/links.js`](../data/README.md).
+- **`SodacheItem.vue`** — one song card in the homepage's SODACHE grid.
+- **`LinkCard.vue`** — one link card on the legacy `/links` page;
+  content comes from [`src/data/links.js`](../data/README.md).
 
 ## Carousels
 
@@ -33,23 +34,23 @@ explaining its props — this file is just the map of what exists.
   captioned image gallery) used on Faculty pages; the desktop/mobile
   layouts differ, so this one is the most involved component in the repo.
 
-## Navigation — the CD deck
+## Site chrome
 
-The word navbar is gone. `src/components/deck/` is the site's whole
-navigation model now — see the root [README](../../README.md#the-navigation-model)
-for the concept, and [`src/data/tracks.js`](../data/README.md) for the
-one data array both pieces below render off:
+Mounted once in [`App.vue`](../App.vue), on screen on every page — see
+the root [README](../../README.md#the-navigation-model) for the concept:
 
-- **`deck/Disc.vue`** — the CD visual (spectral sheen + coloured hub)
-  used at every size: binder/spine mini-discs, the platter, the
-  `/leaders` cards, the Sodache side disc.
-- **`deck/DeckRow.vue`** — one binder case or docked spine row for a
-  single track (`mode: 'case' | 'spine'`).
-- **`deck/DeckPlayer.vue`** — the homepage's interactive binder +
-  platter (`Home.vue` only).
-- **`deck/DeckRail.vue`** — the site's navigation everywhere else:
-  mounted once in [`App.vue`](../App.vue), a sticky right-hand rail on
-  desktop, a fixed horizontal strip on mobile.
+- **`SiteHeader.vue`** — the fixed header: page title / SO-DA-CHE tabs
+  top-left; SCHOOL LINKS, OTHERS and the "More about us" menu top-right
+  (menu entries come from [`src/data/nav.js`](../data/README.md)).
+- **`LinksOverlay.vue`** — the full-screen SCHOOL LINKS / OTHERS lists.
+- **`Wordmark.vue`** — the fixed HCUNITE in the bottom-right corner; it
+  shrinks out of the way mid-page and docks top-left as the heading of
+  the links overlay.
+- **`SiteFooter.vue`** — the footer.
+- **`CouncilYears.vue`** — the 52nd–48th year switcher at the top of
+  each `Council##.vue` page.
+
+## Misc
 
 - **`Dropdown.vue`** — a generic collapsible/accordion (header + content
   slot). Not currently used by any page, but kept as a ready-made building
@@ -59,8 +60,8 @@ one data array both pieces below render off:
 ## Effects
 
 - **`Parallax.vue`** — wraps its slot content and offsets it vertically
-  based on a `scrollY` prop the parent tracks (see `Elections.vue` or
-  `Sodache.vue` for the scroll-listener pattern this expects).
+  based on a `scrollY` prop the parent tracks (see `Elections.vue`
+  for the scroll-listener pattern this expects).
 - **`PanoramaViewer.vue`** — embeds a 360° equirectangular photo (e.g. a
   room interior) using Pannellum, loaded from a CDN the same way the
   Instagram widget is loaded in `Home.vue`. See the root

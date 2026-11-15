@@ -18,7 +18,7 @@
       straight through to CouncilCard for building the image path.
 -->
 <template>
-  <div class="px-3 sm:px-6 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-[1000px] m-auto">
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-x-5 sm:gap-x-8 gap-y-12">
     <CouncilCard
       v-for="(data, name, i) in committee"
       :key="name"

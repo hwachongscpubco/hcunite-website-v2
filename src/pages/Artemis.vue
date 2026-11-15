@@ -10,8 +10,6 @@
     name="ARTEMIS"
     instagram="https://www.instagram.com/artemisfaculty/"
     hero-image="/images/Artemis/artemis_photo.jpg"
-    border-class="border-artemis"
-    hover-class="hover:bg-artemis"
     accent-class="bg-artemis"
     animal-title="The Wolf"
     animal-image="/images/Artemis/artemis.png"

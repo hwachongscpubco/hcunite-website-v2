@@ -7,6 +7,8 @@
 -->
 <script setup>
 import CouncilCommittee from '../components/CouncilCommittee.vue'
+import CouncilYears from '../components/CouncilYears.vue'
+import PageHero from '../components/PageHero.vue'
 
 const councillors = {
   "NSE": {
@@ -248,10 +250,12 @@ const councillors = {
 <template>
 
 <!-- hero section -->
-    <section class="mt-30 pb-12">
-        <h1 class="z-20 text-ink lg:text-8xl w-full text-center p-4">52ND STUDENTS' COUNCIL</h1>
-        <img src="/images/52nd/52nd_HCSC.jpg" alt="background" class="z-0 w-full rounded-2xl">
-        <div class="p-6">
+    <PageHero image="/images/52nd/52nd_HCSC.jpg" alt="The 52nd Students' Council" />
+
+    <div class="page-body">
+    <CouncilYears />
+    <section>
+        <div>
             <p class="centered-text-block">
                 (FROM LEFT TO RIGHT)
                 <br><br>Front Row:
@@ -330,10 +334,10 @@ const councillors = {
 
     <div class="section-divider"></div>
 
-    <section class="w-full py-15 px-6">
+    <section class="w-full py-15">
         <div class="w-full">
-            <h2 class="text-left! centered-text-block">A message from the 52nd...</h2>
-            <p class="centered-text-block mt-6 ">
+            <h2 class="max-w-[680px]">A message from the 52nd...</h2>
+            <p class="centered-text-block mt-6">
                 Hi everyone! We’re the 52nd Hwa Chong Students’ Council (HCSC)!
                 <br><br>We are a passionate cohort of 50 Councillors who are privileged 
                 to have received the mandate from our peers to serve our school, and more importantly, our student body.
@@ -348,9 +352,9 @@ const councillors = {
     
     <div class="section-divider"></div>
 
-    <section class="w-full py-15 px-6">
+    <section class="w-full py-15">
         <div class="w-full">
-            <h2 class="centered-text-block">Our Committees</h2>
+            <h2 class="max-w-[680px]">Our Committees</h2>
             <p class="centered-text-block mt-6">
                 The HCSC consists of the Executive Committee, the 5 Standing Committees (SC), and the 6 Working Committees (WC).
                 Headed by the Non-Standing Executive Committee (NSE), the 5 SCs work together over their 2 Council Terms to best serve the students and their needs, in their differently unique aspects. 
@@ -365,38 +369,38 @@ const councillors = {
 
     <div class="section-divider"></div>
 
-    <section class="py-12 px-6">
+    <section class="py-12">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-4">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_NSE.jpg" alt="">
-                    <h2 class="ml-6 font-semibold">NSE</h2>
-                    <button @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:py-3 sm:max-w-[50%] md:max-w-[30%] lg:text-sm sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <h2 class="!text-xl uppercase tracking-[0.06em]">NSE</h2>
+                    <button @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-4">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_EcaCo.jpg" alt="">
-                    <h2 class="ml-6 font-semibold">ECACO</h2>
-                    <button @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <h2 class="!text-xl uppercase tracking-[0.06em]">ECACO</h2>
+                    <button @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-4">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_PubCo.jpg" alt="">
-                    <h2 class="ml-6 font-semibold">PUBCO</h2>
-                    <button @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <h2 class="!text-xl uppercase tracking-[0.06em]">PUBCO</h2>
+                    <button @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-4">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_SecCo.jpg" alt="">
-                    <h2 class="ml-6 font-semibold">SECCO</h2>
-                    <button @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <h2 class="!text-xl uppercase tracking-[0.06em]">SECCO</h2>
+                    <button @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
                 </div>
                 
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-4">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_SnR.jpg" alt="">
-                    <h2 class="ml-6 font-semibold">SNR</h2>
-                    <button @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <h2 class="!text-xl uppercase tracking-[0.06em]">SNR</h2>
+                    <button @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
                 </div>
-                <div class="grow flex flex-col gap-6 rounded-2xl overflow-hidden bg-card border border-hairline font-jakarta font-normal transition-transform duration-300 ease-standard hover:-translate-y-1">
+                <div class="grow flex flex-col gap-4">
                     <img class="w-full grow object-cover" src="/images/52nd/52nd_WelCo.jpg" alt="">
-                    <h2 class="ml-6 font-semibold">WELCO</h2>
-                    <button @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="py-6 sm:max-w-[50%] sm:py-3 md:max-w-[30%] sm:mb-6 sm:ml-6 sm:rounded-full text-white font-jakarta inline-block bg-ink hover:bg-hwachred transition-colors duration-300">View</button>
+                    <h2 class="!text-xl uppercase tracking-[0.06em]">WELCO</h2>
+                    <button @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
                 </div>
         </div>
     </section>
@@ -404,16 +408,16 @@ const councillors = {
     <div class="section-divider"></div>
 
     <!-- nse -->
-    <section ref="nse" class="pb-12 px-3">
+    <section ref="nse" class="pb-12">
 
-        <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
-          <div class= "xl:flex-1/2 overflow-hidden rounded-2xl">
+        <div class="w-full flex flex-col gap-6 pt-8 pb-16">
+          <div class= "xl:flex-1/2 overflow-hidden">
             <img src="/images/52nd/52nd_NSE.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
           </div>
           <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
             <h2 class="flex-2/3 xl:mb-8">THE NON-STANDING EXECUTIVE COMMITTEE (NSE)</h2>
             <div class="flex-1/3">
-              <p class=" text-justify font-jakarta lg:text-right">
+              <p class="text-ink-soft">
                 As the core body in the Executive Committee, the Non-Standing Executive Committee is responsible for 
                 steering the council direction, while pushing boundaries to lead the council to greater heights. 
                 On an individual level, the committee is committed to supporting each and every councillor to pursue their passions, 
@@ -428,15 +432,15 @@ const councillors = {
     </section>
 
     <!-- ecaco -->
-    <section ref="ecaco" class="pb-12 px-3">
-        <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
-          <div class= "xl:flex-1/2 overflow-hidden rounded-2xl">
+    <section ref="ecaco" class="pb-12">
+        <div class="w-full flex flex-col gap-6 pt-8 pb-16">
+          <div class= "xl:flex-1/2 overflow-hidden">
             <img src="/images/52nd/52nd_EcaCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
           </div>
           <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
             <h2 class="flex-2/3 xl:mb-8">THE EXTENDED-COUNCIL ATTACHE COMMITTEE (ECACO)</h2>
             <div class="flex-1/3">
-              <p class=" text-justify font-jakarta lg:text-right">
+              <p class="text-ink-soft">
                 The Extended Council Attaché Committee comprises the Councillors who serve as Presidents and Vice-Presidents 
                 to the Values-In-Action Council, Green Council and Students' National Education Council. 
                 Each of these Presidents and Vice Presidents will serve in both the Students' Council and their 
@@ -452,15 +456,15 @@ const councillors = {
     </section>
 
     <!-- pubco -->
-    <section ref="pubco" class="pb-12 px-3 ">
-        <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
-          <div class= "xl:flex-1/2 overflow-hidden rounded-2xl">
+    <section ref="pubco" class="pb-12">
+        <div class="w-full flex flex-col gap-6 pt-8 pb-16">
+          <div class= "xl:flex-1/2 overflow-hidden">
             <img src="/images/52nd/52nd_PubCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
           </div>
           <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
             <h2 class="flex-2/3 xl:mb-8">THE PUBLICATIONS AND PUBLICITY COMMITTEE (PUBCO)</h2>
             <div class="flex-1/3">
-              <p class=" text-justify font-jakarta lg:text-right">
+              <p class="text-ink-soft">
                 Through the use of HCunite and the Council Board, the Publication and Publicity Committee 
                 publicises council events and initiatives, 
                 aiming to increase communication and transparency between the student body and the Students' Council. 
@@ -475,15 +479,15 @@ const councillors = {
     </section>
 
     <!-- secco -->
-    <section ref="secco" class="pb-12 px-3 ">
-        <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
-          <div class= "xl:flex-1/2 overflow-hidden rounded-2xl">
+    <section ref="secco" class="pb-12">
+        <div class="w-full flex flex-col gap-6 pt-8 pb-16">
+          <div class= "xl:flex-1/2 overflow-hidden">
             <img src="/images/52nd/52nd_SecCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
           </div>
           <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
             <h2 class="flex-2/3 xl:mb-8">THE STUDENT ENGAGEMENT AND CULTURE COMMITTEE (SECCO)</h2>
             <div class="flex-1/3">
-              <p class=" text-justify font-jakarta lg:text-right">
+              <p class="text-ink-soft">
                 By forging common experiences, the Student Engagement and Culture committee aspires to be 
                 the champion of our school's culture and identity, fostering a strong sense of belonging to the school, 
                 and keeping the Hwa Chong spirit burning bright. The committee is also the torchbearer of our school's 
@@ -498,15 +502,15 @@ const councillors = {
     </section>
 
     <!-- snr -->
-    <section ref="snr" class="pb-12 px-3 ">
-        <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
-          <div class= "xl:flex-1/2 overflow-hidden rounded-2xl">
+    <section ref="snr" class="pb-12">
+        <div class="w-full flex flex-col gap-6 pt-8 pb-16">
+          <div class= "xl:flex-1/2 overflow-hidden">
             <img src="/images/52nd/52nd_SnR.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
           </div>
           <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
             <h2 class="flex-2/3 xl:mb-8">THE SOCIAL AND RELATIONS COMMITTEE (SNR)</h2>
             <div class="flex-1/3">
-              <p class=" text-justify font-jakarta lg:text-right">
+              <p class="text-ink-soft">
                 The Social and Relations Committee seeks to be the eyes and ears of the council, 
                 championing grassroot efforts to connect with the student body on a deeper level. 
                 Through building bonds and promoting interactions between the council and the student body, 
@@ -523,15 +527,15 @@ const councillors = {
     </section>
 
     <!-- welco -->
-    <section ref="welco" class="pb-12 px-3 ">
-        <div class="w-full flex flex-col gap-6 pt-8 pb-16 px-4">
-          <div class= "xl:flex-1/2 overflow-hidden rounded-2xl">
+    <section ref="welco" class="pb-12">
+        <div class="w-full flex flex-col gap-6 pt-8 pb-16">
+          <div class= "xl:flex-1/2 overflow-hidden">
             <img src="/images/52nd/52nd_WelCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
           </div>
           <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
             <h2 class="flex-2/3 xl:mb-8">THE WELFARE COMMITTEE (WELCO)</h2>
             <div class="flex-1/3">
-              <p class=" text-justify font-jakarta lg:text-right">
+              <p class="text-ink-soft">
                 The Welfare Committee champions the welfare of the student population with heart and dedication. 
                 The committee strives to promote the well being of the student population for a conducive learning environment for 
                 all HwaChongians. Through infrastructure such as the Common Room and Welfare Room, 
@@ -546,4 +550,5 @@ const councillors = {
 
         <CouncilCommittee :committee="councillors['WelCo']" council="WelCo" year="52nd" />
     </section>
+    </div>
 </template>

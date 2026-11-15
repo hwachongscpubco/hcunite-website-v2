@@ -1,76 +1,60 @@
 <!--
   Leaders.vue — /leaders: every student leadership body in one place,
-  each card linking out to its Instagram (see the root README's "Now
-  Playing" section, track 06). New page — replaces the homepage's old
-  Instagram widget. `groups` is local (this is the only page that needs
-  it — see src/data/README.md for when something graduates to src/data).
-
-  Instagram handles for Students' Council and all 4 faculties are real,
-  taken from the existing footer link and each FacultyPage.vue's
-  `instagram` prop. CCA Council has no known Instagram, so its card
-  links to the existing CCA website instead (same URL as the old nav's
-  external CCAS link). Green/VIA/NE Council have no confirmed handle or
-  brand colour yet — placeholders, flagged below, swap in the real ones
-  when known.
+  each row linking out to its Instagram. `groups` is local (this is the
+  only page that needs it — see src/data/README.md for when something
+  graduates to src/data).
 -->
 <script setup>
+import PageHero from '../components/PageHero.vue'
+import councilPic from '../assets/informal_council_pic.jpg'
 import { useRevealOnScroll } from '../composables/useRevealOnScroll'
-import Disc from '../components/deck/Disc.vue'
 
 const groups = [
-  { name: "Students' Council", note: 'HCSC · 53rd Council', color: '#CE2222', handle: '@hcunite', href: 'https://www.instagram.com/hcunite/', linkLabel: 'INSTAGRAM' },
-  { name: 'CCA Council', note: 'CCAs', color: '#0F3C6E', handle: '@hcccas', href: 'https://www.instagram.com/hcccas/', linkLabel: 'INSTAGRAM' },
-  { name: 'Apollo Faculty', note: 'The Bull', color: '#FFCC02', handle: '@apollofaculty', href: 'https://www.instagram.com/apollofaculty/', linkLabel: 'INSTAGRAM' },
-  { name: 'Ares Faculty', note: 'The Horse', color: '#C9102D', handle: '@aresfaculty', href: 'https://www.instagram.com/aresfaculty/', linkLabel: 'INSTAGRAM' },
-  { name: 'Artemis Faculty', note: 'The Wolf', color: '#06048D', handle: '@artemisfaculty', href: 'https://www.instagram.com/artemisfaculty/', linkLabel: 'INSTAGRAM' },
-  { name: 'Athena Faculty', note: 'The Owl', color: '#027B3E', handle: '@athenafaculty', href: 'https://www.instagram.com/athenafaculty/', linkLabel: 'INSTAGRAM' },
-  { name: 'Green Council', note: 'Environmental', color: '#4E7A3A', handle: '@hc_greencouncil', href: 'https://www.instagram.com/hc_greencouncil/', linkLabel: 'INSTAGRAM' },
-  { name: 'Values-In-Action Council', note: 'Values-In-Action', color: '#87D7CD', handle: '@viacouncil', href: 'https://www.instagram.com/viacouncil/', linkLabel: 'INSTAGRAM' },
-  { name: "Students' National Education Council", note: 'National Education', color: '#F0C35F', handle: '@hcisnec', href: 'https://www.instagram.com/hcisnec/', linkLabel: 'INSTAGRAM' },
+  { name: "Students' Council", note: 'HCSC · 53rd Council', color: '#CE2222', handle: '@hcunite', href: 'https://www.instagram.com/hcunite/' },
+  { name: 'CCA Council', note: 'CCAs', color: '#0F3C6E', handle: '@hcccas', href: 'https://www.instagram.com/hcccas/' },
+  { name: 'Apollo Faculty', note: 'The Bull', color: '#FFCC02', handle: '@apollofaculty', href: 'https://www.instagram.com/apollofaculty/' },
+  { name: 'Ares Faculty', note: 'The Horse', color: '#C9102D', handle: '@aresfaculty', href: 'https://www.instagram.com/aresfaculty/' },
+  { name: 'Artemis Faculty', note: 'The Wolf', color: '#06048D', handle: '@artemisfaculty', href: 'https://www.instagram.com/artemisfaculty/' },
+  { name: 'Athena Faculty', note: 'The Owl', color: '#027B3E', handle: '@athenafaculty', href: 'https://www.instagram.com/athenafaculty/' },
+  { name: 'Green Council', note: 'Environmental', color: '#4E7A3A', handle: '@hc_greencouncil', href: 'https://www.instagram.com/hc_greencouncil/' },
+  { name: 'Values-In-Action Council', note: 'Values-In-Action', color: '#87D7CD', handle: '@viacouncil', href: 'https://www.instagram.com/viacouncil/' },
+  { name: "Students' National Education Council", note: 'National Education', color: '#F0C35F', handle: '@hcisnec', href: 'https://www.instagram.com/hcisnec/' },
 ]
 
 const { setEl } = useRevealOnScroll()
 </script>
 
 <template>
-  <section class="pt-8 sm:pt-14 pb-20 px-2 sm:px-4">
-    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10 sm:mb-14">
-      <div>
-        <div class="font-jakarta text-[11px] tracking-[0.16em] uppercase text-hwachred mb-3">TRACK 06 · NINE GROUPS</div>
-        <div class="w-14 h-[3px] bg-hwachred rounded-full mb-4"></div>
-        <h1 class="text-ink !text-5xl sm:!text-7xl leading-[0.9]">STUDENT<br>LEADER GROUPS</h1>
-      </div>
-      <p class="text-ink-soft text-base sm:text-lg max-w-xs">
-        Every student leadership body in one place. Each disc links out to that group's Instagram.
-      </p>
-    </div>
+  <PageHero :image="councilPic" alt="Hwa Chong student leaders" />
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-      <component
-        :is="group.href ? 'a' : 'div'"
+  <div class="page-body">
+    <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-8 lg:gap-12 mb-14 sm:mb-20">
+      <p class="eyebrow">Nine groups</p>
+      <h2 class="max-w-[640px] !text-2xl sm:!text-3xl">Every student leadership body in one place. Each links out to that group's Instagram.</h2>
+    </section>
+
+    <ul class="border-t border-hairline">
+      <li
         v-for="(group, i) in groups"
         :key="group.name"
-        v-bind="group.href ? { href: group.href, target: '_blank', rel: 'noopener' } : {}"
         :ref="setEl(i)"
-        :style="{ transitionDelay: (i % 3) * 70 + Math.floor(i / 3) * 70 + 'ms' }"
-        class="reveal group bg-ivory border border-hairline rounded-2xl p-5 sm:p-6 flex flex-col gap-4 transition-[transform,box-shadow] duration-[320ms] ease-standard hover:-translate-y-[5px] hover:shadow-[0_18px_34px_-22px_rgba(60,40,20,0.55)]"
+        class="reveal"
+        :style="{ transitionDelay: (i % 4) * 60 + 'ms' }"
       >
-        <Disc :size="72" :color="group.color" hover-spin />
-
-        <div>
-          <div class="font-jakarta font-medium text-lg sm:text-xl text-ink leading-tight">{{ group.name }}</div>
-          <div class="font-jakarta text-[11px] text-mute mt-1.5">{{ group.note }}</div>
-        </div>
-
-        <div class="mt-auto flex items-center justify-between gap-3 pt-3.5 border-t border-hairline">
-          <span class="font-jakarta text-xs text-ink-soft truncate">{{ group.handle }}</span>
-          <span
-            v-if="group.href"
-            class="font-jakarta text-[11px] text-hwachred shrink-0 inline-flex items-center gap-1 transition-transform duration-[180ms] group-hover:translate-x-1 group-hover:-translate-y-0.5"
-          >{{ group.linkLabel }} →</span>
-          <span v-else class="font-jakarta text-[11px] text-mute-light shrink-0">SOON</span>
-        </div>
-      </component>
-    </div>
-  </section>
+        <a
+          :href="group.href"
+          target="_blank"
+          rel="noopener"
+          class="group grid grid-cols-[minmax(0,1fr)_auto] sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)_minmax(0,1fr)] items-baseline gap-x-6 gap-y-1 py-5 sm:py-6 border-b border-hairline"
+        >
+          <span class="flex items-baseline gap-4 min-w-0 transition-transform duration-700 ease-enter group-hover:translate-x-3">
+            <span class="w-2.5 h-2.5 rounded-full shrink-0 -translate-y-0.5" :style="{ background: group.color }"></span>
+            <span class="font-inter font-light text-xl sm:text-3xl tracking-[-0.01em]">{{ group.name }}</span>
+          </span>
+          <span class="eyebrow hidden sm:block">{{ group.note }}</span>
+          <span class="eyebrow !text-ink text-right transition-opacity duration-300 group-hover:opacity-50">{{ group.handle }} ↗</span>
+        </a>
+      </li>
+    </ul>
+  </div>
 </template>

@@ -6,13 +6,15 @@
     - top-right: SCHOOL LINKS / OTHERS (open LinksOverlay.vue — on the
       homepage they belong to its first screen instead) and "More about
       us", whose two lines cross into an X and drop the menu
-      (data/nav.js) down the right-hand rail.
-  The header turns white while a dark picture is under it — the
-  homepage's SODACHE screen, or a dark-topped hero (uiStore.chromeDark,
-  set by App.vue).
+      (data/nav.js) down the right-hand rail. On the homepage (lg+) the
+      SODACHE search sits under it, at a fixed distance.
+  The header turns white while a dark picture is under it — a
+  dark-topped hero (uiStore.chromeDark, set by App.vue). On the homepage
+  "More about us", its lines and the search instead change along the
+  exact edge of the SODACHE screen as it scrolls past, like the wordmark.
 -->
 <script setup>
-import { computed, onBeforeUnmount, onMounted } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useUiStore } from '../stores/uiStore'
 import { menuItems } from '../data/nav'
@@ -38,6 +40,52 @@ const barVisible = computed(() => {
 
 // White text while a dark picture is under the header (App.vue).
 const tone = computed(() => (ui.chromeDark ? 'theme-dark' : ''))
+
+// The homepage's dark zone, in viewport px — from where the SODACHE
+// screen starts to where its list ends — re-read on every scroll/resize.
+const zone = computed(() => {
+  void ui.scrollY
+  void ui.vw
+  if (!isHome.value || ui.settling) return null
+  const start = document.getElementById('sodache')
+  const list = document.getElementById('sodache-list')
+  if (!start || !list) return null
+  return { top: start.getBoundingClientRect().top, bottom: list.getBoundingClientRect().bottom }
+})
+
+// On the homepage, "More about us" and its two lines change colour along
+// the edge of the SODACHE screen like the wordmark does: dark above it,
+// white below. (While the menu is open its panel sets one colour.)
+const INK = '#111111'
+const WHITE = '#FFFFFF'
+const split = computed(() => !!zone.value && !ui.menuOpen)
+const moreEl = ref(null)
+const burgerEl = ref(null)
+const searchEl = ref(null)
+
+// clip-path keeping only the part of `el` between two viewport y's
+function clipBetween(el, top, bottom) {
+  const y = el.getBoundingClientRect().top
+  return `polygon(-50% ${top - y}px, 150% ${top - y}px, 150% ${bottom - y}px, -50% ${bottom - y}px)`
+}
+const moreClip = computed(() => (split.value && moreEl.value ? clipBetween(moreEl.value, zone.value.top, 1e5) : 'none'))
+function lineStyle(offset) {
+  if (!split.value || !burgerEl.value) return null
+  const y = burgerEl.value.getBoundingClientRect().top + offset
+  return { color: y >= zone.value.top ? WHITE : INK }
+}
+
+// The SODACHE search (lg+) sits a fixed distance under "More about us",
+// shown only where the dark zone is behind it.
+const searchClip = computed(() => {
+  if (!zone.value || !searchEl.value) return 'polygon(0 0, 0 0, 0 0)'
+  return clipBetween(searchEl.value, zone.value.top, zone.value.bottom)
+})
+const searchShown = computed(() => {
+  if (!zone.value || !searchEl.value || ui.menuOpen) return false
+  const r = searchEl.value.getBoundingClientRect()
+  return zone.value.top < r.bottom && zone.value.bottom > r.top
+})
 
 function toggleMenu() {
   ui.menuOpen = !ui.menuOpen
@@ -106,19 +154,41 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
         aria-controls="site-menu"
         @click="toggleMenu"
       >
-        More<br>about us
+        <span ref="moreEl" class="grid">
+          <span class="[grid-area:1/1]" :style="split ? { color: INK } : null">More<br>about us</span>
+          <span v-if="split" class="[grid-area:1/1]" aria-hidden="true" :style="{ color: WHITE, clipPath: moreClip }">More<br>about us</span>
+        </span>
       </button>
     </div>
 
     <button
+      ref="burgerEl"
       type="button"
       class="burger relative cursor-pointer pointer-events-auto"
       :aria-label="ui.menuOpen ? 'Close menu' : 'Open menu'"
       @click="toggleMenu"
     >
-      <span class="top-[5px]" :class="ui.menuOpen ? 'translate-y-[8px] rotate-[10deg]' : ''"></span>
-      <span class="top-[21px]" :class="ui.menuOpen ? '-translate-y-[8px] -rotate-[10deg]' : ''"></span>
+      <span class="top-[5px]" :class="ui.menuOpen ? 'translate-y-[8px] rotate-[10deg]' : ''" :style="lineStyle(5)"></span>
+      <span class="top-[21px]" :class="ui.menuOpen ? '-translate-y-[8px] -rotate-[10deg]' : ''" :style="lineStyle(21)"></span>
     </button>
+
+    <div v-if="isHome" class="relative">
+      <div
+        ref="searchEl"
+        class="theme-dark hidden lg:block absolute right-0 top-5 w-[calc(var(--rail)-var(--gutter)-1rem)] transition-opacity duration-500 ease-standard"
+        :class="{ 'pointer-events-auto': searchShown }"
+        :style="{ clipPath: searchClip, opacity: ui.menuOpen ? 0 : 1 }"
+      >
+        <input
+          v-model="ui.search"
+          type="search"
+          placeholder="Search"
+          aria-label="Search SODACHE"
+          class="search-input"
+          :tabindex="searchShown ? 0 : -1"
+        >
+      </div>
+    </div>
 
     <TransitionGroup
       id="site-menu"

@@ -135,6 +135,35 @@ html.theme-dark, .theme-dark {
     opacity: 0.55;
   }
 
+  /* The SODACHE search field (Home.vue below lg, SiteHeader.vue lg+). */
+  .search-input {
+    display: block;
+    width: 100%;
+    padding-bottom: 0.55rem;
+    background: transparent;
+    border-bottom: 1px solid var(--line);
+    color: var(--fg);
+    font-family: var(--font-inter);
+    font-weight: 300;
+    font-size: clamp(1.15rem, 2vw, 1.8rem);
+    outline: none;
+    transition: border-color 400ms var(--ease-standard);
+  }
+  @media (min-width: 1024px) {
+    .search-input {
+      text-align: right;
+    }
+  }
+  .search-input::placeholder {
+    color: var(--mute);
+  }
+  .search-input:focus {
+    border-color: var(--fg);
+  }
+  .search-input::-webkit-search-cancel-button {
+    display: none;
+  }
+
   /* A soft fade of the hero's own colour behind the titles at the top of
      a full-screen picture. */
   .hero-scrim {

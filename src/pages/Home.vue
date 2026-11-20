@@ -7,8 +7,9 @@
     2. SODACHE (dark, #sodache) — the SODACHE picture. Its SO/DA/CHE
        title rides up with it, then sticks to the top over the list.
   The list (#sodache-list) shows the active tab's songs (cards), or
-  dances/cheers (video + description), filtered by the Search field in
-  the right-hand rail. Content lives in data/sodache.js.
+  dances/cheers (video + description), filtered by the Search field
+  (inline below lg; on lg+ it's part of SiteHeader.vue, under "More
+  about us"). Content lives in data/sodache.js.
   HCUNITE and "More about us" are the site's fixed chrome (App.vue),
   over both screens.
 -->
@@ -133,15 +134,6 @@ function embedUrl(link) {
     </section>
 
     <section id="sodache-list" class="list relative min-h-screen px-(--gutter)">
-      <aside class="hidden lg:block absolute inset-y-0 right-0 w-(--rail)">
-        <div
-          class="search sticky pr-(--gutter) pl-4 transition-opacity duration-500 ease-standard"
-          :class="ui.menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'"
-        >
-          <input v-model="ui.search" type="search" placeholder="Search" aria-label="Search SODACHE" class="search-input">
-        </div>
-      </aside>
-
       <div class="lg:hidden mb-8">
         <input v-model="ui.search" type="search" placeholder="Search" aria-label="Search SODACHE" class="search-input">
       </div>
@@ -203,35 +195,5 @@ function embedUrl(link) {
   .list {
     padding-right: calc(var(--rail) + var(--gutter));
   }
-}
-.search {
-  top: calc(var(--gutter) + 13.2vw);
-}
-.search-input {
-  display: block;
-  width: 100%;
-  padding-bottom: 0.55rem;
-  background: transparent;
-  border-bottom: 1px solid var(--line);
-  color: var(--fg);
-  font-family: var(--font-inter);
-  font-weight: 300;
-  font-size: clamp(1.15rem, 2vw, 1.8rem);
-  outline: none;
-  transition: border-color 400ms var(--ease-standard);
-}
-@media (min-width: 1024px) {
-  .search-input {
-    text-align: right;
-  }
-}
-.search-input::placeholder {
-  color: var(--mute);
-}
-.search-input:focus {
-  border-color: var(--fg);
-}
-.search-input::-webkit-search-cancel-button {
-  display: none;
 }
 </style>

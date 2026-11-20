@@ -11,6 +11,10 @@
     - dock:   small, top-left, as the heading of the SCHOOL LINKS /
               OTHERS overlay — HC lights up for school links, UNITE
               for others, and each half switches tab when clicked
+  On the homepage it's drawn twice, stacked exactly: the first screen's
+  colours (yellow HC) and SODACHE's (all red), the second cut off at the
+  line where the two screens meet, so the colour changes along that same
+  line as you scroll rather than fading.
 -->
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref, watchEffect } from 'vue'
@@ -79,23 +83,24 @@ watchEffect(() => {
   s.setProperty('--dock-bottom', `${dock.value.bottom}px`)
 })
 
-const YELLOW = [255, 224, 0]
-const RED = [206, 34, 34]
-const clamp = (v) => Math.min(1, Math.max(0, v))
-
-// On the homepage HC turns from yellow to red exactly as the dark
-// SODACHE screen slides up behind the wordmark (k = how much of the
-// wordmark it covers). The first screen is 100svh, at least 480px.
-const homeHc = computed(() => {
-  if (ui.settling || !h.value) return YELLOW
-  const firstScreen = Math.max(ui.vh, 480)
-  const k = clamp((ui.scrollY + ui.vh - firstScreen - bottom.value) / h.value)
-  return YELLOW.map((v, i) => Math.round(v + (RED[i] - v) * k))
+// Where the homepage's two screens meet, in the wordmark's own
+// coordinates (0 = its top edge); Infinity when there's no seam to show.
+// Re-measured on every scroll and resize.
+const seam = computed(() => {
+  void ui.scrollY
+  if (!isHome.value || ui.linksOpen || ui.settling || !h.value) return Infinity
+  const second = document.getElementById('sodache')
+  if (!second) return Infinity
+  const top = ui.vh - bottom.value - h.value
+  return second.getBoundingClientRect().top - top
+})
+const lowerClip = computed(() => {
+  const y = `${seam.value}px`
+  return `polygon(-50% ${y}, 150% ${y}, 150% 300%, -50% 300%)`
 })
 
 const hcColor = computed(() => {
   if (ui.linksOpen) return ui.linksTab === 'school' ? '#FFE000' : '#FFFFFF'
-  if (isHome.value) return `rgb(${homeHc.value.join(' ')})`
   return '#FFE000'
 })
 const uniteColor = computed(() => {
@@ -114,13 +119,21 @@ function onClick(part) {
 <template>
   <div
     ref="el"
-    class="wordmark fixed z-[60] font-inter font-black leading-[0.74] tracking-[-0.03em] whitespace-nowrap select-none text-[20.5vw] sm:text-[18vw] lg:text-[16vw]"
+    class="wordmark fixed z-[60] grid font-inter font-black leading-[0.74] tracking-[-0.03em] whitespace-nowrap select-none text-[20.5vw] sm:text-[18vw] lg:text-[16vw]"
     :class="interactive ? 'cursor-pointer' : 'pointer-events-none'"
     :style="{ right: gutter + 'px', bottom: bottom + 'px', transform }"
     :role="interactive ? 'link' : undefined"
     :aria-label="ui.linksOpen ? 'Switch between school links and others' : 'HCUnite home'"
   >
-    <span :style="{ color: hcColor }" @click="onClick('school')">HC</span><span :style="{ color: uniteColor }" @click="onClick('others')">UNITE</span>
+    <div class="[grid-area:1/1]">
+      <span :style="{ color: hcColor }" @click="onClick('school')">HC</span><span :style="{ color: uniteColor }" @click="onClick('others')">UNITE</span>
+    </div>
+    <div
+      v-show="Number.isFinite(seam)"
+      class="[grid-area:1/1] text-hwachred pointer-events-none"
+      aria-hidden="true"
+      :style="{ clipPath: lowerClip }"
+    >HCUNITE</div>
   </div>
 </template>
 

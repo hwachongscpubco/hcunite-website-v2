@@ -69,9 +69,8 @@ function embedUrl(link) {
 <template>
   <!-- 1 · WELCOME TO -->
   <section class="screen theme-light relative overflow-hidden bg-bg text-fg snap-start">
-    <div class="menu-tint" :class="{ 'is-open': ui.menuOpen }"></div>
 
-    <div class="absolute z-10 left-(--gutter) top-(--gutter)">
+    <div class="absolute z-[46] left-(--gutter) top-(--gutter)">
       <h1 class="chrome-title">Welcome to<span class="sr-only"> HCUnite</span></h1>
       <div class="sm:hidden mt-3 flex gap-6 font-inter font-light uppercase text-[13px] tracking-[0.12em]">
         <button type="button" class="uppercase cursor-pointer" @click="ui.openLinks('school')">School Links</button>
@@ -84,7 +83,7 @@ function embedUrl(link) {
       copy of "More about us" holds its place), so these two line up
       with it but scroll away with this screen.
     -->
-    <div class="hidden sm:flex absolute z-10 right-(--gutter) top-(--gutter) items-center gap-[5.3vw] font-inter font-light">
+    <div class="hidden sm:flex absolute z-[46] right-(--gutter) top-(--gutter) items-center gap-[5.3vw] font-inter font-light">
       <div class="chrome-nav flex gap-[5.3vw] uppercase">
         <button type="button" class="nav-item uppercase cursor-pointer" @click="ui.openLinks('school')">School Links</button>
         <button type="button" class="nav-item uppercase cursor-pointer" @click="ui.openLinks('others')">Others</button>
@@ -95,22 +94,18 @@ function embedUrl(link) {
     <HeroPicture>
       <img :src="councilPic" alt="The Hwa Chong Students' Council" class="hero-in w-full h-full object-cover">
     </HeroPicture>
-    <div class="hero-scrim" :class="{ 'is-hidden': ui.menuOpen }"></div>
+    <div class="hero-scrim"></div>
 
   </section>
 
   <!-- 2 · SODACHE, then its list -->
   <div class="theme-dark relative bg-bg text-fg">
-    <div class="menu-tint" :class="{ 'is-open': ui.menuOpen }"></div>
-
     <!-- Zero height, so it takes no room: rides up with this screen, then sticks. -->
     <div class="sticky top-0 z-40 h-0">
       <div
         class="title-bar absolute inset-x-0 top-0 bg-bg pointer-events-none transition-opacity duration-300"
         :class="overList ? 'opacity-100' : 'opacity-0'"
-      >
-        <div class="menu-tint" :class="{ 'is-open': ui.menuOpen }"></div>
-      </div>
+      ></div>
       <h2 class="chrome-title absolute left-(--gutter) top-(--gutter) flex">
         <button
           v-for="tab in tabs"
@@ -134,7 +129,7 @@ function embedUrl(link) {
       <HeroPicture>
         <img src="/images/sodache/sodache_pic.jpg" alt="SODACHE at Hwa Chong" class="w-full h-full object-cover object-[33%_50%]">
       </HeroPicture>
-      <div class="hero-scrim" :class="{ 'is-hidden': ui.menuOpen }"></div>
+      <div class="hero-scrim"></div>
     </section>
 
     <section id="sodache-list" class="list relative min-h-screen px-(--gutter)">

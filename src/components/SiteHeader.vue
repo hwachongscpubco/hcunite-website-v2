@@ -55,20 +55,20 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 </script>
 
 <template>
-  <!-- left-half tint behind the page while the menu is open (lg+) -->
-  <div class="menu-tint fixed -z-10" :class="{ 'is-open': ui.menuOpen }"></div>
-
   <!-- header backdrop -->
   <div
     class="header-bar fixed inset-x-0 top-0 z-30 bg-bg pointer-events-none transition-opacity duration-500"
     :class="barVisible ? 'opacity-100' : 'opacity-0'"
-  >
-    <div class="menu-tint" :class="{ 'is-open': ui.menuOpen }"></div>
-  </div>
+  ></div>
 
-  <!-- click-away (lg+) / full-screen panel (below lg) behind the open menu -->
-  <Transition name="layer">
-    <div v-if="ui.menuOpen" class="fixed inset-0 z-[45] bg-bg lg:bg-transparent" :class="tone" @click="ui.menuOpen = false"></div>
+  <!--
+    The open menu's panel: fades in over whatever is on screen, without
+    moving it — on lg+ the page shows through on the left and blends into
+    a solid panel on the right; below lg it covers the screen. Clicking
+    it closes the menu.
+  -->
+  <Transition name="panel">
+    <div v-if="ui.menuOpen" class="menu-panel fixed inset-0 z-[45]" :class="tone" @click="ui.menuOpen = false"></div>
   </Transition>
 
   <!-- top-left -->
@@ -145,6 +145,20 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
   height: var(--header-h);
   -webkit-mask-image: linear-gradient(#000 86%, transparent);
   mask-image: linear-gradient(#000 86%, transparent);
+}
+.menu-panel {
+  background: var(--bg);
+}
+@media (min-width: 1024px) {
+  .menu-panel {
+    background: linear-gradient(to right, transparent 36%, var(--bg) 64%);
+  }
+}
+.panel-enter-active, .panel-leave-active {
+  transition: opacity 800ms var(--ease-standard);
+}
+.panel-enter-from, .panel-leave-to {
+  opacity: 0;
 }
 .burger {
   width: clamp(64px, 9.4vw, 132px);

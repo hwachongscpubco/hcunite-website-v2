@@ -50,14 +50,12 @@
   --fg: #111111;
   --mute: #8A8279;
   --line: #D9D0C3;
-  --tint: rgb(0 0 0 / 0.035);
 }
 html.theme-dark, .theme-dark {
   --bg: #0E0E0E;
   --fg: #FFFFFF;
   --mute: #969696;
   --line: #404040;
-  --tint: rgb(0 0 0 / 0.9);
 }
 
 :root {
@@ -137,42 +135,14 @@ html.theme-dark, .theme-dark {
     opacity: 0.55;
   }
 
-  /* Left-half shade while the "More about us" menu is open (lg+). Put one
-     inside anything with its own background, before its content. */
-  .menu-tint {
-    display: none;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    pointer-events: none;
-    opacity: 0;
-    background: var(--tint);
-    transition: opacity 700ms var(--ease-standard);
-  }
-  .menu-tint.is-open {
-    opacity: 1;
-  }
-
   /* A soft fade of the hero's own colour behind the titles at the top of
-     a full-screen picture; it steps aside with the picture when the
-     menu opens (add .is-hidden). */
+     a full-screen picture. */
   .hero-scrim {
     position: absolute;
     inset: 0 0 auto 0;
     height: 32%;
     pointer-events: none;
     background: linear-gradient(color-mix(in srgb, var(--bg) 62%, transparent), transparent);
-    transition: opacity 600ms var(--ease-standard);
-  }
-  @media (min-width: 1024px) {
-    .menu-tint {
-      display: block;
-    }
-    .hero-scrim.is-hidden {
-      opacity: 0;
-    }
   }
 }
 

@@ -24,7 +24,7 @@ explaining its props — this file is just the map of what exists.
   filename convention this depends on.
 - **`CandidateGroupSection.vue`** — the expanded view of one election
   campaign group (used by `Candidates53.vue`).
-- **`SodacheItem.vue`** — one song card in the homepage's SODACHE grid.
+- **`SodacheItem.vue`** — one song, dance or cheer card in the homepage's SODACHE grid.
 - **`LinkCard.vue`** — one link card on the legacy `/links` page;
   content comes from [`src/data/links.js`](../data/README.md).
 

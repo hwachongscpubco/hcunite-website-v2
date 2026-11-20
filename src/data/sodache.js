@@ -1,7 +1,10 @@
 // sodache.js — every Song, Dance and Cheer shown in the homepage's SODACHE
 // section (pages/Home.vue). Add an entry to the matching array to add it
-// to the site. `song` entries render as SodacheItem cards; `dance` and
-// `cheer` entries render as a YouTube embed + description.
+// to the site. Every entry renders as a SodacheItem card: `image` is the
+// cover (dances and cheers use their YouTube video's thumbnail instead),
+// `link` the YouTube video, `chords` a PDF under public/chords/. Only
+// songs show their `description` (on click); the dance and cheer ones
+// are kept here but not shown.
 export const sodache = {
     "song": [{
         "title": "当你孤单你会想起谁",

@@ -6,8 +6,8 @@
     1. WELCOME TO (light) — the council picture, SCHOOL LINKS / OTHERS
     2. SODACHE (dark, #sodache) — the SODACHE picture. Its SO/DA/CHE
        title rides up with it, then sticks to the top over the list.
-  The list (#sodache-list) shows the active tab's songs (cards), or
-  dances/cheers (video + description), filtered by the Search field
+  The list (#sodache-list) shows the active tab's songs, dances or
+  cheers as cards (SodacheItem.vue), filtered by the Search field
   (inline below lg; on lg+ it's part of SiteHeader.vue, under "More
   about us"). Content lives in data/sodache.js.
   HCUNITE and "More about us" are the site's fixed chrome (App.vue),
@@ -53,18 +53,11 @@ const items = computed(() => {
   const all = sodache[section.value]
   if (!query.value) return all
   return all.filter((item) =>
-    [item.title, item.composer, item.artist, item.description].some(
+    [item.title, item.composer, item.artist, section.value === 'song' && item.description].some(
       (text) => text && text.toLowerCase().includes(query.value),
     ),
   )
 })
-
-// The data mixes youtube.com/watch, m.youtube.com and /embed links;
-// only /embed URLs are allowed inside an iframe.
-function embedUrl(link) {
-  const id = link.match(/(?:[?&]v=|embed\/|youtu\.be\/)([\w-]{11})/)
-  return id ? `https://www.youtube.com/embed/${id[1]}` : link
-}
 </script>
 
 <template>
@@ -140,32 +133,8 @@ function embedUrl(link) {
 
       <Transition name="fade" mode="out-in">
         <div :key="section">
-          <div v-if="section === 'song'" class="grid grid-cols-2 lg:grid-cols-3 gap-x-[clamp(12px,2.1vw,30px)] gap-y-10">
-            <SodacheItem v-for="item in items" :key="item.title" :item="item" />
-          </div>
-
-          <div v-else>
-            <article
-              v-for="item in items"
-              :key="item.title"
-              class="grid md:grid-cols-2 gap-x-[clamp(16px,3vw,44px)] gap-y-4 py-7 border-t border-line first:border-t-0 first:pt-0"
-            >
-              <iframe
-                class="w-full aspect-video rounded-[10px] bg-black"
-                :src="embedUrl(item.link)"
-                :title="item.title"
-                loading="lazy"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-              <div>
-                <h2 class="!text-2xl lg:!text-4xl">{{ item.title }}</h2>
-                <p v-if="item.artist" class="meta mt-2">{{ item.artist }}</p>
-                <p class="text-soft mt-4 max-w-[520px]">{{ item.description }}</p>
-              </div>
-            </article>
+          <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-[clamp(12px,2.1vw,30px)] gap-y-10">
+            <SodacheItem v-for="item in items" :key="item.title" :item="item" :describe="section === 'song'" />
           </div>
 
           <p v-if="!items.length" class="text-soft py-16">

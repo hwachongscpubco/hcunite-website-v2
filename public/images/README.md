@@ -53,6 +53,20 @@ where `<N>` is the group's 1-based position within its faculty's list in
 photos should get their own `Candidates<NN>/` folder plus a matching
 `Candidates<NN>.vue` page (copy `Candidates53.vue`'s structure).
 
+## `leaders/` — Instagram profile pictures
+
+Used by [`Leaders.vue`](../../src/pages/README.md): one square picture
+per leadership group, named after its Instagram handle **without the
+@**, as a `.jpg`:
+
+```
+leaders/<handle>.jpg
+```
+
+e.g. `@hcunite` → `public/images/leaders/hcunite.jpg`. A group with no
+picture here yet shows a tile in its colour with its short name instead.
+At least 600×600px keeps it sharp on high-resolution screens.
+
 ## `elections/` and `sodache/`
 
 Miscellaneous images for the `Elections.vue` and `Sodache.vue` pages

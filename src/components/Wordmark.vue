@@ -3,12 +3,13 @@
   every page. It never leaves that corner while you scroll; it only
   changes size/place between three states, always with one smooth
   transform transition:
-    - big:    full size (the homepage always; other pages at their hero
+    - big:    full size, the same size it docks at in the links overlay
+              (the homepage always; other pages at their hero
               and again at the very bottom, where the footer leaves
               room for it)
     - corner: shrunk into the corner so it never covers what you're
               reading (other pages, mid-scroll)
-    - dock:   small, top-left, as the heading of the SCHOOL LINKS /
+    - dock:   full size, top-left, as the heading of the SCHOOL LINKS /
               OTHERS overlay — HC lights up for school links, UNITE
               for others, and each half switches tab when clicked
   On the homepage it's drawn twice, stacked exactly: the first screen's
@@ -45,9 +46,11 @@ const gutter = computed(() => Math.min(40, Math.max(16, ui.vw * 0.026)))
 // Same margin from the bottom-right corner as the header keeps from the top.
 const bottom = gutter
 
+// Docked at full size (the font size below is chosen so full size is
+// 38.8vw wide on desktop and 62vw below lg — the width the links
+// overlay's columns are laid out against); only its position changes.
 const dock = computed(() => {
-  const width = desktop.value ? ui.vw * 0.388 : ui.vw * 0.62
-  const scale = w.value ? width / w.value : 1
+  const scale = 1
   const left = desktop.value ? ui.vw * 0.035 : gutter.value
   const top = desktop.value ? ui.vw * 0.033 : 22
   return { scale, left, top, bottom: top + h.value * scale }
@@ -120,7 +123,7 @@ function onClick(part) {
 <template>
   <div
     ref="el"
-    class="wordmark fixed z-[60] grid font-inter font-black leading-[0.74] tracking-[-0.03em] whitespace-nowrap select-none text-[12vw] sm:text-[10vw] lg:text-[8vw]"
+    class="wordmark fixed z-[60] grid font-inter font-black leading-[0.74] tracking-[-0.03em] whitespace-nowrap select-none text-[14.2vw] lg:text-[8.9vw]"
     :class="interactive ? 'cursor-pointer' : 'pointer-events-none'"
     :style="{ right: gutter + 'px', bottom: bottom + 'px', transform }"
     :role="interactive ? 'link' : undefined"

@@ -5,8 +5,6 @@
   graduates to src/data).
 -->
 <script setup>
-import PageHero from '../components/PageHero.vue'
-import councilPic from '../assets/informal_council_pic.jpg'
 import { useRevealOnScroll } from '../composables/useRevealOnScroll'
 
 const groups = [
@@ -25,39 +23,35 @@ const { setEl } = useRevealOnScroll()
 </script>
 
 <template>
-  <PageHero :image="councilPic" alt="Hwa Chong student leaders" />
+  <section class="split mb-(--space)">
+    <h2>Every leadership body, in one place</h2>
+    <p class="split-text">
+      The Students' Council, the CCA Council, the four Faculty Committees and the Extended Councils.
+      Each one links out to that group's Instagram.
+    </p>
+  </section>
 
-  <div class="page-body">
-    <section class="split mb-(--space)">
-      <h2>Every leadership body, in one place</h2>
-      <p class="split-text">
-        The Students' Council, the CCA Council, the four Faculty Committees and the Extended Councils.
-        Each one links out to that group's Instagram.
-      </p>
-    </section>
-
-    <ul class="border-t border-hairline">
-      <li
-        v-for="(group, i) in groups"
-        :key="group.name"
-        :ref="setEl(i)"
-        class="reveal"
-        :style="{ transitionDelay: (i % 4) * 60 + 'ms' }"
+  <ul class="border-t border-hairline">
+    <li
+      v-for="(group, i) in groups"
+      :key="group.name"
+      :ref="setEl(i)"
+      class="reveal"
+      :style="{ transitionDelay: (i % 4) * 60 + 'ms' }"
+    >
+      <a
+        :href="group.href"
+        target="_blank"
+        rel="noopener"
+        class="group grid grid-cols-[minmax(0,1fr)_auto] sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)_minmax(0,1fr)] items-baseline gap-x-6 gap-y-1 py-5 sm:py-6 border-b border-hairline"
       >
-        <a
-          :href="group.href"
-          target="_blank"
-          rel="noopener"
-          class="group grid grid-cols-[minmax(0,1fr)_auto] sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)_minmax(0,1fr)] items-baseline gap-x-6 gap-y-1 py-5 sm:py-6 border-b border-hairline"
-        >
-          <span class="flex items-baseline gap-4 min-w-0 transition-transform duration-700 ease-enter group-hover:translate-x-3">
-            <span class="w-2.5 h-2.5 rounded-full shrink-0 -translate-y-0.5" :style="{ background: group.color }"></span>
-            <span class="font-inter font-light text-xl sm:text-3xl tracking-[-0.01em]">{{ group.name }}</span>
-          </span>
-          <span class="meta hidden sm:block">{{ group.note }}</span>
-          <span class="meta !text-ink text-right transition-opacity duration-300 group-hover:opacity-50">{{ group.handle }} ↗</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+        <span class="flex items-baseline gap-4 min-w-0 transition-transform duration-700 ease-enter group-hover:translate-x-3">
+          <span class="w-2.5 h-2.5 rounded-full shrink-0 -translate-y-0.5" :style="{ background: group.color }"></span>
+          <span class="font-inter font-light text-xl sm:text-3xl tracking-[-0.01em]">{{ group.name }}</span>
+        </span>
+        <span class="meta hidden sm:block">{{ group.note }}</span>
+        <span class="meta !text-ink text-right transition-opacity duration-300 group-hover:opacity-50">{{ group.handle }} ↗</span>
+      </a>
+    </li>
+  </ul>
 </template>

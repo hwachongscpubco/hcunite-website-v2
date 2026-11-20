@@ -40,7 +40,7 @@ const routes = [
     { path: '/council50', component: Council50, meta: { title: '50th HCSC', hero: true } },
     { path: '/council49', component: Council49, meta: { title: '49th HCSC', hero: true, tone: 'dark' } },
     { path: '/council48', component: Council48, meta: { title: '48th HCSC', hero: true } },
-    { path: '/faculties', component: Faculties, meta: { title: 'Faculties', hero: true } },
+    { path: '/faculties', component: Faculties, meta: { title: 'Faculties', plain: true } },
     { path: '/apollo', component: Apollo, meta: { title: 'Apollo', hero: true } },
     { path: '/ares', component: Ares, meta: { title: 'Ares', hero: true } },
     { path: '/artemis', component: Artemis, meta: { title: 'Artemis', hero: true, tone: 'dark' } },
@@ -51,7 +51,7 @@ const routes = [
     { path: '/candidates53', component: Candidates, meta: { title: 'Candidates', plain: true } },
     { path: '/links', component: Links, meta: { title: 'Links', plain: true } },
     { path: '/common', component: Common, meta: { title: 'Common Room', hero: true } },
-    { path: '/leaders', component: Leaders, meta: { title: 'Student Leaders', hero: true } },
+    { path: '/leaders', component: Leaders, meta: { title: 'Student Leaders', plain: true } },
 ]
 
 const router = createRouter({

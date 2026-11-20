@@ -7,9 +7,8 @@
       homepage they belong to its first screen instead) and "More about
       us", whose two lines cross into an X and drop the menu
       (data/nav.js) down the right-hand rail.
-  The top-right corner is drawn white with mix-blend-mode: difference,
-  so it reads dark on light screens and light on dark ones, flipping at
-  the exact line where the homepage's two screens meet.
+  On the homepage the header turns light the moment the dark SODACHE
+  screen slides up under "More about us" (App.vue's .theme-dark).
 -->
 <script setup>
 import { computed, onBeforeUnmount, onMounted } from 'vue'
@@ -81,7 +80,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 
   <!-- top-right -->
   <nav
-    class="fixed z-50 right-(--gutter) top-(--gutter) flex flex-col items-end font-inter font-light text-white mix-blend-difference pointer-events-none"
+    class="fixed z-50 right-(--gutter) top-(--gutter) flex flex-col items-end font-inter font-light text-fg transition-colors duration-300 ease-standard pointer-events-none"
     aria-label="Main"
   >
     <div class="flex items-center gap-[5.3vw]">

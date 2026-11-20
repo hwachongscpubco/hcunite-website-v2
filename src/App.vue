@@ -3,8 +3,8 @@
   Wordmark), the routed page, and the footer. It also owns the two
   things the chrome and pages share:
     - the single scroll/resize listener, mirrored into uiStore
-    - .theme-dark on <html> once the homepage is scrolled into its dark
-      SODACHE screen, so the footer and the fixed chrome match it (the
+    - .theme-dark on <html> once the homepage's dark SODACHE screen has
+      reached the top, so the fixed chrome and the footer match it (the
       homepage's two screens carry their own colours; every other page
       is light)
 -->
@@ -52,7 +52,15 @@ router.afterEach((to, from) => {
   nextTick(requestMeasure)
 })
 
-const dark = computed(() => isHome.value && !ui.settling && ui.scrollY > ui.vh * 0.5)
+// The fixed header flips to the dark theme as soon as the SODACHE screen
+// (top edge = first screen's height − scrollY; screens are 100svh, at
+// least 480px) reaches the first line of "More about us".
+const dark = computed(() => {
+  if (!isHome.value || ui.settling) return false
+  const gutter = Math.min(40, Math.max(16, ui.vw * 0.026))
+  const moreLine = Math.min(35.2, Math.max(16.8, ui.vw * 0.0235)) * 1.36
+  return ui.scrollY > Math.max(ui.vh, 480) - gutter - moreLine
+})
 
 watchEffect(() => {
   const root = document.documentElement

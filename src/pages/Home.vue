@@ -1,7 +1,8 @@
 <!--
   Home.vue — the / page: two full-screen screens stacked one on top of
   the other, then the SODACHE list. Scrolling only moves the view down
-  the stack; nothing fades or animates between the two screens.
+  the stack; nothing fades or animates between the two screens. Each
+  screen's picture fills it edge to edge (HeroPicture's `fill`).
     1. WELCOME TO (light) — the council picture, SCHOOL LINKS / OTHERS
     2. SODACHE (dark, #sodache) — the SODACHE picture. Its SO/DA/CHE
        title rides up with it, then sticks to the top over the list.
@@ -36,6 +37,14 @@ function pickSection(key) {
   if (list) window.scrollTo({ top: list.getBoundingClientRect().top + window.scrollY, behavior: 'smooth' })
 }
 
+// The SODACHE title's backdrop only shows once the list (not the
+// picture) is running under it. Screens are 100svh, at least 480px.
+const overList = computed(() => {
+  const screen = Math.max(ui.vh, 480)
+  const headerH = Math.min(136, Math.max(92, ui.vw * 0.094))
+  return ui.scrollY > screen * 2 - headerH
+})
+
 const SECTION_LABEL = { song: 'songs', dance: 'dances', cheer: 'cheers' }
 const section = computed(() => sodacheStore.activeSection)
 const query = computed(() => ui.search.trim().toLowerCase())
@@ -62,7 +71,7 @@ function embedUrl(link) {
   <section class="screen theme-light relative overflow-hidden bg-bg text-fg snap-start">
     <div class="menu-tint" :class="{ 'is-open': ui.menuOpen }"></div>
 
-    <div class="absolute left-(--gutter) top-(--gutter)">
+    <div class="absolute z-10 left-(--gutter) top-(--gutter)">
       <h1 class="chrome-title">Welcome to<span class="sr-only"> HCUnite</span></h1>
       <div class="sm:hidden mt-2.5 flex gap-5 font-inter font-light uppercase text-[11px] tracking-[0.14em]">
         <button type="button" class="uppercase cursor-pointer" @click="ui.openLinks('school')">School Links</button>
@@ -75,7 +84,7 @@ function embedUrl(link) {
       copy of "More about us" holds its place), so these two line up
       with it but scroll away with this screen.
     -->
-    <div class="hidden sm:flex absolute right-(--gutter) top-(--gutter) items-center gap-[5.3vw] font-inter font-light">
+    <div class="hidden sm:flex absolute z-10 right-(--gutter) top-(--gutter) items-center gap-[5.3vw] font-inter font-light">
       <div class="chrome-nav flex gap-[5.3vw] uppercase">
         <button type="button" class="nav-item uppercase cursor-pointer" @click="ui.openLinks('school')">School Links</button>
         <button type="button" class="nav-item uppercase cursor-pointer" @click="ui.openLinks('others')">Others</button>
@@ -83,11 +92,12 @@ function embedUrl(link) {
       <span class="chrome-more invisible" aria-hidden="true">More<br>about us</span>
     </div>
 
-    <HeroPicture>
+    <HeroPicture fill>
       <img :src="councilPic" alt="The Hwa Chong Students' Council" class="hero-in w-full h-full object-cover">
     </HeroPicture>
+    <div class="scrim" :class="{ 'is-hidden': ui.menuOpen }"></div>
 
-    <p class="hidden lg:block absolute left-(--gutter) bottom-[6vh] eyebrow">Scroll — SODACHE</p>
+    <p class="hidden lg:block absolute left-(--gutter) bottom-[6vh] eyebrow !text-ink">Scroll — SODACHE</p>
   </section>
 
   <!-- 2 · SODACHE, then its list -->
@@ -96,7 +106,10 @@ function embedUrl(link) {
 
     <!-- Zero height, so it takes no room: rides up with this screen, then sticks. -->
     <div class="sticky top-0 z-40 h-0">
-      <div class="title-bar absolute inset-x-0 top-0 bg-bg pointer-events-none">
+      <div
+        class="title-bar absolute inset-x-0 top-0 bg-bg pointer-events-none transition-opacity duration-300"
+        :class="overList ? 'opacity-100' : 'opacity-0'"
+      >
         <div class="menu-tint" :class="{ 'is-open': ui.menuOpen }"></div>
       </div>
       <h2 class="chrome-title absolute left-(--gutter) top-(--gutter) flex">
@@ -119,9 +132,10 @@ function embedUrl(link) {
     </div>
 
     <section id="sodache" class="screen relative overflow-hidden snap-start">
-      <HeroPicture>
-        <img src="/images/sodache/sodache_pic.jpg" alt="SODACHE at Hwa Chong" class="w-full h-full object-cover">
+      <HeroPicture fill>
+        <img src="/images/sodache/sodache_pic.jpg" alt="SODACHE at Hwa Chong" class="w-full h-full object-cover object-[33%_50%]">
       </HeroPicture>
+      <div class="scrim" :class="{ 'is-hidden': ui.menuOpen }"></div>
     </section>
 
     <section id="sodache-list" class="list relative min-h-screen px-(--gutter)">
@@ -181,6 +195,20 @@ function embedUrl(link) {
 .screen {
   height: 100svh;
   min-height: 480px;
+}
+/* A soft fade of the screen's own colour behind the titles at the top. */
+.scrim {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 32%;
+  pointer-events: none;
+  background: linear-gradient(color-mix(in srgb, var(--bg) 62%, transparent), transparent);
+  transition: opacity 600ms var(--ease-standard);
+}
+@media (min-width: 1024px) {
+  .scrim.is-hidden {
+    opacity: 0;
+  }
 }
 .title-bar {
   height: var(--header-h);

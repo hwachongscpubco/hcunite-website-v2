@@ -8,7 +8,8 @@ explaining its props — this file is just the map of what exists.
 
 - **`PageHero.vue`** — the full-screen opening of every page other than
   the homepage: one centred picture (via `HeroPicture.vue`, which also
-  frames the homepage's two slides and slides aside when the menu opens).
+  draws the homepage's two edge-to-edge pictures with its `fill` prop,
+  and moves either kind aside when the menu opens).
 - **`FacultyPage.vue`** — the full layout shared by the 4 Faculty pages
   (hero, roster, animal blurb, events + cheers carousels).
 - **`CouncilCommittee.vue`** — one committee's grid of councillor

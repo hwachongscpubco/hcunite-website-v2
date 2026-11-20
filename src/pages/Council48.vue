@@ -261,258 +261,220 @@ const councillors = {
     <div class="page-body">
     <CouncilYears />
 
-    <section class="py-12">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="grow flex flex-col gap-4">
-                    <img class="w-full grow object-contain object-bottom" src="/images/48th/48th_ExCo.png" alt="">
-                    <h2 class="!text-xl uppercase tracking-[0.06em]">EXCO</h2>
-                    <button @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
-                </div>
-                <div class="grow flex flex-col gap-4">
-                    <img class="w-full grow object-contain object-bottom" src="/images/48th/48th_EcaCo.jpg" alt="">
-                    <h2 class="!text-xl uppercase tracking-[0.06em]">ECACO</h2>
-                    <button @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
-                </div>
-                <div class="grow flex flex-col gap-4">
-                    <img class="w-full grow object-contain object-bottom" src="/images/48th/48th_PubCo.jpg" alt="">
-                    <h2 class="!text-xl uppercase tracking-[0.06em]">PUBCO</h2>
-                    <button @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
-                </div>
-                <div class="grow flex flex-col gap-4">
-                    <img class="w-full grow object-contain object-bottom" src="/images/48th/48th_SecCo.jpg" alt="">
-                    <h2 class="!text-xl uppercase tracking-[0.06em]">SECCO</h2>
-                    <button @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
-                </div>
-                
-                <div class="grow flex flex-col gap-4">
-                    <img class="w-full grow object-contain object-bottom" src="/images/48th/48th_SnR.jpg" alt="">
-                    <h2 class="!text-xl uppercase tracking-[0.06em]">SNR</h2>
-                    <button @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
-                </div>
-                <div class="grow flex flex-col gap-4">
-                    <img class="w-full grow object-contain object-bottom" src="/images/48th/48th_WelCo.jpg" alt="">
-                    <h2 class="!text-xl uppercase tracking-[0.06em]">WELCO</h2>
-                    <button @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
-                </div>
+    <section>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+            <div class="flex flex-col">
+                <img class="w-full aspect-3/2 object-cover" src="/images/48th/48th_ExCo.png" alt="ExCo" loading="lazy">
+                <h3 class="mt-4">ExCo</h3>
+                <button type="button" @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start mt-3">View</button>
+            </div>
+            <div class="flex flex-col">
+                <img class="w-full aspect-3/2 object-cover" src="/images/48th/48th_EcaCo.jpg" alt="ECACo" loading="lazy">
+                <h3 class="mt-4">ECACo</h3>
+                <button type="button" @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start mt-3">View</button>
+            </div>
+            <div class="flex flex-col">
+                <img class="w-full aspect-3/2 object-cover" src="/images/48th/48th_PubCo.jpg" alt="PubCo" loading="lazy">
+                <h3 class="mt-4">PubCo</h3>
+                <button type="button" @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start mt-3">View</button>
+            </div>
+            <div class="flex flex-col">
+                <img class="w-full aspect-3/2 object-cover" src="/images/48th/48th_SecCo.jpg" alt="SECCo" loading="lazy">
+                <h3 class="mt-4">SECCo</h3>
+                <button type="button" @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start mt-3">View</button>
+            </div>
+            <div class="flex flex-col">
+                <img class="w-full aspect-3/2 object-cover" src="/images/48th/48th_SnR.jpg" alt="SnR" loading="lazy">
+                <h3 class="mt-4">SnR</h3>
+                <button type="button" @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start mt-3">View</button>
+            </div>
+            <div class="flex flex-col">
+                <img class="w-full aspect-3/2 object-cover" src="/images/48th/48th_WelCo.jpg" alt="WelCo" loading="lazy">
+                <h3 class="mt-4">WelCo</h3>
+                <button type="button" @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start mt-3">View</button>
+            </div>
         </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- exco -->
-    <section ref="nse" class="pb-12">
-        <h2 class="py-8">
-            THE EXECUTIVE
-            COMMITTEE
-            (EXCO)
-        </h2>
-        <div class="overflow-hidden relative">
-            <img src="/images/48th/48th_ExCo.png" alt="background" class="w-full max-w-[900px] m-auto z-0 object-contain object-center brightness-90">
+    <section ref="nse">
+        <img src="/images/48th/48th_ExCo.png" alt="The Executive Committee (ExCo)" loading="lazy" class="w-full max-h-[80vh] object-cover object-[50%_25%]">
+        <div class="split mt-10">
+            <h2>The Executive Committee (ExCo)</h2>
+            <div class="split-text">
+                <p>
+                    (FROM LEFT TO RIGHT)
+                    <br><br>First row:
+                    <br>Toh En Yu Dylan; Evelyne Chua; Javen Justin Suki; Nicole Naomi Tan; Tan Yan Zhong
+                    <br><br>Second Row:
+                    <br>Janice Goh Jia Li; David Wang Jia Bao; Tang Teen Chih Luke; Nicale Yee
+                    <br><br>Teacher Advisors:
+                    <br>Ms Su Yin Germaine Tan; Mr Benjamin Goh; Mr Kor Zhi Yang; Dr Sin Yee Theng; Ms Ying Min
+                </p>
+            </div>
         </div>
-
-        <div class="py-10">
-            <p class="centered-text-block">
-                (FROM LEFT TO RIGHT)
-                <br><br>First row:
-                <br>Toh En Yu Dylan; Evelyne Chua; Javen Justin Suki; Nicole Naomi Tan; Tan Yan Zhong
-                <br><br>Second Row:
-                <br>Janice Goh Jia Li; David Wang Jia Bao; Tang Teen Chih Luke; Nicale Yee
-                <br><br>Teacher Advisors:
-                <br>Ms Su Yin Germaine Tan; Mr Benjamin Goh; Mr Kor Zhi Yang; Dr Sin Yee Theng; Ms Ying Min
-            </p>
-
-            <div class="section-divider"></div>
+        <div class="mt-14">
+            <CouncilCommittee :committee="councillors['ExCo']" council="ExCo" year="48th" />
         </div>
-
-        <CouncilCommittee :committee="councillors['ExCo']" council="ExCo" year="48th" />
     </section>
 
-    <!-- ecaco -->
-    <section ref="ecaco" class="pb-12">
-        <h2 class="py-8">
-            THE EXTENDED COUNCIL ATTACHÉ COMMITTEE (ECACO)
-        </h2>
-        <div class="overflow-hidden relative">
-            <img src="/images/48th/48th_EcaCo.jpg" alt="background" class="w-full max-w-[900px] m-auto z-0 object-contain object-center">
+    <div class="section-divider"></div>
+
+    <section ref="ecaco">
+        <img src="/images/48th/48th_EcaCo.jpg" alt="The Extended Council Attaché Committee (ECACo)" loading="lazy" class="w-full max-h-[80vh] object-cover object-[50%_25%]">
+        <div class="split mt-10">
+            <h2>The Extended Council Attaché Committee (ECACo)</h2>
+            <div class="split-text">
+                <p>
+                    (FROM LEFT TO RIGHT)
+                    <br><br>First row:
+                    <br>Cheryl Ow Yu Leng; Isabella Rotschaedl; Javen Justin Suki; Shen Wen'na
+                    <br><br>Second row:
+                    <br>Jennifer Lee; Raphael Isaiah Lim Keah Way; Joshua Ng Chun How
+                    <br><br>Teacher Advisor:
+                    <br>Ms Su Yin Germaine Tan
+                </p>
+                <p>
+                    Re-established this year, the Extended Council Attaché Committee (ECACo) comprises 6 Councillors
+                    who serve as attachés to the CIP Council, Green Council and SNEC Council.
+                    Each of these attachés will serve in both the Students’ Council and their respective Councils,
+                    acting as a bridge to facilitate better communication between both leadership bodies.
+                    In doing so, we hope to be able to better align the direction of the 4 Councils to better serve the students,
+                    be it through pushing out more initiatives or supporting one another!
+                </p>
+            </div>
         </div>
-
-        <div class="py-10">
-            <p class="centered-text-block">
-                (FROM LEFT TO RIGHT)
-                <br><br>First row:
-                <br>Cheryl Ow Yu Leng; Isabella Rotschaedl; Javen Justin Suki; Shen Wen'na
-                <br><br>Second row:
-                <br>Jennifer Lee; Raphael Isaiah Lim Keah Way; Joshua Ng Chun How
-                <br><br>Teacher Advisor:
-                <br>Ms Su Yin Germaine Tan
-            </p>
-
-            <div class="section-divider"></div>
-
-            <p class="centered-text-block">
-                Re-established this year, the Extended Council Attaché Committee (ECACo) comprises 6 Councillors 
-                who serve as attachés to the CIP Council, Green Council and SNEC Council. 
-                Each of these attachés will serve in both the Students’ Council and their respective Councils, 
-                acting as a bridge to facilitate better communication between both leadership bodies. 
-                In doing so, we hope to be able to better align the direction of the 4 Councils to better serve the students, 
-                be it through pushing out more initiatives or supporting one another!
-            </p>
-
-            <div class="section-divider"></div>
+        <div class="mt-14">
+            <CouncilCommittee :committee="councillors['EcaCo']" council="EcaCo" year="48th" />
         </div>
-
-        <CouncilCommittee :committee="councillors['EcaCo']" council="EcaCo" year="48th" />
     </section>
 
-    <!-- pubco -->
-    <section ref="pubco" class="pb-12">
-        <h2 class="py-8">
-            THE PUBLICATIONS AND PUBLICITY COMMITTEE (PUBCO)
-        </h2>
-        <div class="overflow-hidden relative">
-            <img src="/images/48th/48th_PubCo.jpg" alt="background" class="w-full max-w-[900px] m-auto z-0 object-contain object-center">
+    <div class="section-divider"></div>
+
+    <section ref="pubco">
+        <img src="/images/48th/48th_PubCo.jpg" alt="The Publications and Publicity Committee (PubCo)" loading="lazy" class="w-full max-h-[80vh] object-cover object-[50%_25%]">
+        <div class="split mt-10">
+            <h2>The Publications and Publicity Committee (PubCo)</h2>
+            <div class="split-text">
+                <p>
+                    (FROM LEFT TO RIGHT)
+                    <br><br>First row:
+                    <br>Jacob Tseng Wei-Jie; Peng Zikang; Liu Zi Jian; David Wang Jia Bao; Nicole Naomi Tan; Stephanie Ann Koh Shu Hui
+                    <br><br>Second Row:
+                    <br>Jonathan Koh Zhaoyun; Siau Hui Xin; Tan Sing Kuang; Lim Shu Wei, Samantha; Sara Chen Yi Hsin
+                    <br><br>Teacher Advisor:
+                    <br>Mr Kor Zhi Yang
+                </p>
+                <p>
+                    The 48th Publications and Publicity Committee (PubCo)
+                    takes charge of the Council's social media presence through HCUnite on its various social media platforms.
+                    PubCo aims to promote engagement between the Council and our peers through our publications and publicity materials.
+                    PubCo is also in charge of Hwa Chong's Own Media, otherwise affectionately known as MOCH,
+                    where lifestyle articles and school-related topics are written for the enjoyment of our peers.
+                    Through our work, PubCo hopes to promote a common identity for the Council and the College!
+                </p>
+            </div>
         </div>
-
-        <div class="py-10">
-            <p class="centered-text-block">
-                (FROM LEFT TO RIGHT)
-                <br><br>First row:
-                <br>Jacob Tseng Wei-Jie; Peng Zikang; Liu Zi Jian; David Wang Jia Bao; Nicole Naomi Tan; Stephanie Ann Koh Shu Hui
-                <br><br>Second Row:
-                <br>Jonathan Koh Zhaoyun; Siau Hui Xin; Tan Sing Kuang; Lim Shu Wei, Samantha; Sara Chen Yi Hsin
-                <br><br>Teacher Advisor:
-                <br>Mr Kor Zhi Yang
-            </p>
-
-            <div class="section-divider"></div>
-
-            <p class="centered-text-block">
-                The 48th Publications and Publicity Committee (PubCo) 
-                takes charge of the Council's social media presence through HCUnite on its various social media platforms. 
-                PubCo aims to promote engagement between the Council and our peers through our publications and publicity materials. 
-                PubCo is also in charge of Hwa Chong's Own Media, otherwise affectionately known as MOCH, 
-                where lifestyle articles and school-related topics are written for the enjoyment of our peers. 
-                Through our work, PubCo hopes to promote a common identity for the Council and the College!
-            </p>
-
-            <div class="section-divider"></div>
+        <div class="mt-14">
+            <CouncilCommittee :committee="councillors['PubCo']" council="PubCo" year="48th" />
         </div>
-
-        <CouncilCommittee :committee="councillors['PubCo']" council="PubCo" year="48th" />
     </section>
 
-    <!-- secco -->
-    <section ref="secco" class="pb-12">
-        <h2 class="py-8">
-            THE STUDENT ENGAGEMENT AND CULTURE COMMITTEE (SECCO)
-        </h2>
-        <div class="overflow-hidden relative">
-            <img src="/images/48th/48th_SecCo.jpg" alt="background" class="w-full max-w-[900px] m-auto z-0 object-contain object-center">
+    <div class="section-divider"></div>
+
+    <section ref="secco">
+        <img src="/images/48th/48th_SecCo.jpg" alt="The Student Engagement and Culture Committee (SECCo)" loading="lazy" class="w-full max-h-[80vh] object-cover object-[50%_25%]">
+        <div class="split mt-10">
+            <h2>The Student Engagement and Culture Committee (SECCo)</h2>
+            <div class="split-text">
+                <p>
+                    (FROM LEFT TO RIGHT)
+                    <br><br>First row:
+                    <br>Chong El Sa; Chong Yin Shan Charlene; Chia Leanne; Tang Teen Chih Luke; Evelyne Chua; Chong Jia Hao, Jordan
+                    <br><br>Second row:
+                    <br>Yang Supeng; Zhu Bolin; Lau Tse En; Lee Ling Yuan, Kevyn; Josiah Olive Ang Liang Ing
+                    <br><br>Teacher Advisors:
+                    <br>Ms Su Yin Germaine Tan; Mr Benjamin Goh
+                </p>
+                <p>
+                    School cheers, mass dances, college songs - Student Engagement and Culture Committee (SECCo)
+                    seeks to establish a strong identity and build a sense of belonging among Hwa Chongians.
+                    This is achieved through supporting the various co-cirricular activities (CCAs) (e.g. during cheering season)
+                    and contributing to and promoting our rich culture of song, dance and cheer (fondly known as SODACHE).
+                    SECCo strives to inspire more students to embody school pride, love and appreciation for the
+                    unique and vibrant culture of Hwa Chong. We want to remind you of the love Hwa Chong has for you,
+                    and the love you have for Hwa Chong!
+                </p>
+            </div>
         </div>
-
-        <div class="py-10">
-            <p class="centered-text-block">
-                (FROM LEFT TO RIGHT)
-                <br><br>First row:
-                <br>Chong El Sa; Chong Yin Shan Charlene; Chia Leanne; Tang Teen Chih Luke; Evelyne Chua; Chong Jia Hao, Jordan
-                <br><br>Second row:
-                <br>Yang Supeng; Zhu Bolin; Lau Tse En; Lee Ling Yuan, Kevyn; Josiah Olive Ang Liang Ing
-                <br><br>Teacher Advisors:
-                <br>Ms Su Yin Germaine Tan; Mr Benjamin Goh
-            </p>
-
-            <div class="section-divider"></div>
-
-            <p class="centered-text-block">
-                School cheers, mass dances, college songs - Student Engagement and Culture Committee (SECCo) 
-                seeks to establish a strong identity and build a sense of belonging among Hwa Chongians. 
-                This is achieved through supporting the various co-cirricular activities (CCAs) (e.g. during cheering season) 
-                and contributing to and promoting our rich culture of song, dance and cheer (fondly known as SODACHE). 
-                SECCo strives to inspire more students to embody school pride, love and appreciation for the 
-                unique and vibrant culture of Hwa Chong. We want to remind you of the love Hwa Chong has for you, 
-                and the love you have for Hwa Chong!
-            </p>
-
-            <div class="section-divider"></div>
+        <div class="mt-14">
+            <CouncilCommittee :committee="councillors['SecCo']" council="SecCo" year="48th" />
         </div>
-
-        <CouncilCommittee :committee="councillors['SecCo']" council="SecCo" year="48th" />
     </section>
 
-    <!-- snr -->
-    <section ref="snr" class="pb-12">
-        <h2 class="py-8">
-            THE SOCIAL AND RELATIONS (SNR)
-        </h2>
-        <div class="overflow-hidden relative">
-            <img src="/images/48th/48th_SnR.jpg" alt="background" class="w-full max-w-[900px] m-auto z-0 object-contain object-center">
+    <div class="section-divider"></div>
+
+    <section ref="snr">
+        <img src="/images/48th/48th_SnR.jpg" alt="The Social and Relations Committee (SnR)" loading="lazy" class="w-full max-h-[80vh] object-cover object-[50%_25%]">
+        <div class="split mt-10">
+            <h2>The Social and Relations Committee (SnR)</h2>
+            <div class="split-text">
+                <p>
+                    (FROM LEFT TO RIGHT)
+                    <br><br>First row:
+                    <br>Leow Yi Xuan; Jerome Ang Shun Kang; Ong Chi Juay; Janice Goh Jia Li; Toh En Yu Dylan; Lee Zhi Ning Dawn
+                    <br><br>Second row:
+                    <br>Timothy Chia Chen; Phua Kai Jie; Lucien Leong Guang Shian; Low Ying Shan, Ignatius; Keslyn Poh Jen En
+                    <br><br>Teacher Advisor:
+                    <br>Ms Ying Min
+                </p>
+                <p>
+                    The 48th Social and Relations (SnR) serves to encourage greater interaction and understanding among students,
+                    as well as between the Students' Council and the student body.
+                    SnR also strives to unite the student body at the faculty level and maintain good relations with other Councils,
+                    in and out of the College. SnR comprises passionate Councillors who strongly desire to strengthen the
+                    4Facs1Hwach spirit and add colour to the lives of their fellow Hwa Chongians.
+                    By working together with various student bodies, SnR endeavours to make Hwa Chong a vibrant and exciting community!
+                </p>
+            </div>
         </div>
-
-        <div class="py-10">
-            <p class="centered-text-block">
-                (FROM LEFT TO RIGHT)
-                <br><br>First row:
-                <br>Leow Yi Xuan; Jerome Ang Shun Kang; Ong Chi Juay; Janice Goh Jia Li; Toh En Yu Dylan; Lee Zhi Ning Dawn
-                <br><br>Second row:
-                <br>Timothy Chia Chen; Phua Kai Jie; Lucien Leong Guang Shian; Low Ying Shan, Ignatius; Keslyn Poh Jen En
-                <br><br>Teacher Advisor:
-                <br>Ms Ying Min
-            </p>
-
-            <div class="section-divider"></div>
-
-            <p class="centered-text-block">
-                The 48th Social and Relations (SnR) serves to encourage greater interaction and understanding among students, 
-                as well as between the Students' Council and the student body. 
-                SnR also strives to unite the student body at the faculty level and maintain good relations with other Councils, 
-                in and out of the College. SnR comprises passionate Councillors who strongly desire to strengthen the 
-                4Facs1Hwach spirit and add colour to the lives of their fellow Hwa Chongians. 
-                By working together with various student bodies, SnR endeavours to make Hwa Chong a vibrant and exciting community!
-            </p>
-
-            <div class="section-divider"></div>
+        <div class="mt-14">
+            <CouncilCommittee :committee="councillors['SnR']" council="SnR" year="48th" />
         </div>
-
-        <CouncilCommittee :committee="councillors['SnR']" council="SnR" year="48th" />
     </section>
 
-    <!-- welco -->
-    <section ref="welco" class="pb-12">
-        <h2 class="py-8">
-            THE WELFARE COMMITTEE (WELCO)
-        </h2>
-        <div class="overflow-hidden relative">
-            <img src="/images/48th/48th_WelCo.jpg" alt="background" class="w-full max-w-[900px] m-auto z-0 object-contain object-center">
+    <div class="section-divider"></div>
+
+    <section ref="welco">
+        <img src="/images/48th/48th_WelCo.jpg" alt="The Welfare Committee (WelCo)" loading="lazy" class="w-full max-h-[80vh] object-cover object-[50%_25%]">
+        <div class="split mt-10">
+            <h2>The Welfare Committee (WelCo)</h2>
+            <div class="split-text">
+                <p>
+                    (FROM LEFT TO RIGHT)
+                    <br><br>First row:
+                    <br>Neo Jing Yi; Yang ChengHan, Roy; Nicale Yee; Tan Yan Zhong; Pierson Loh Bin-En
+                    <br><br>Second row:
+                    <br>Marcus Seet Kai Feng; Bennett Ho Cheng Xun; Brandon Hoon Jing Feng
+                    <br><br>Teacher Advisors:
+                    <br>Ms Nicole Ann Law Li Ling, Mr Goh Wen Xuan Benjamin
+                </p>
+                <p>
+                    United together by our desire to serve the student population to the best of our abilities,
+                    the 48th Welfare Committee (WelCo) aims to make Hwa Chong a home for both the student population and the staff.
+                    By implementing meaningful initiatives according to the needs of the students and
+                    providing more convenient platforms to gather feedback,
+                    WelCo aspires to make the time here in Hwa Chong for both staff and students a memorable one.
+                    Dedicated to making Hwa Chong a more conducive environment for everyone,
+                    WelCo strives to bridge the gap between the student population as well as the school administration.
+                    Together, WelCo wholeheartedly pledges to be a listening ear for students. Because in WelCo, "Your Welfare is our Affair".
+                </p>
+            </div>
         </div>
-
-        <div class="py-10">
-            <p class="centered-text-block">
-                (FROM LEFT TO RIGHT)
-                <br><br>First row:
-                <br>Neo Jing Yi; Yang ChengHan, Roy; Nicale Yee; Tan Yan Zhong; Pierson Loh Bin-En
-                <br><br>Second row:
-                <br>Marcus Seet Kai Feng; Bennett Ho Cheng Xun; Brandon Hoon Jing Feng
-                <br><br>Teacher Advisors:
-                <br>Ms Nicole Ann Law Li Ling, Mr Goh Wen Xuan Benjamin
-            </p>
-
-            <div class="section-divider"></div>
-
-            <p class="centered-text-block">
-                United together by our desire to serve the student population to the best of our abilities, 
-                the 48th Welfare Committee (WelCo) aims to make Hwa Chong a home for both the student population and the staff. 
-                By implementing meaningful initiatives according to the needs of the students and 
-                providing more convenient platforms to gather feedback, 
-                WelCo aspires to make the time here in Hwa Chong for both staff and students a memorable one. 
-                Dedicated to making Hwa Chong a more conducive environment for everyone, 
-                WelCo strives to bridge the gap between the student population as well as the school administration. 
-                Together, WelCo wholeheartedly pledges to be a listening ear for students. Because in WelCo, "Your Welfare is our Affair".
-            </p>
-
-            <div class="section-divider"></div>
+        <div class="mt-14">
+            <CouncilCommittee :committee="councillors['WelCo']" council="WelCo" year="48th" />
         </div>
-
-        <CouncilCommittee :committee="councillors['WelCo']" council="WelCo" year="48th" />
     </section>
     </div>
 </template>

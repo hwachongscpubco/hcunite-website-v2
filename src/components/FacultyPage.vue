@@ -35,25 +35,24 @@
   <PageHero :image="heroImage" :alt="name + ' Faculty Committee'" :position="heroPosition" />
 
   <div class="page-body">
-    <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-8 lg:gap-12">
+    <section class="split">
       <div>
-        <p class="eyebrow mb-5">Faculty Committee</p>
-        <a :href="instagram" target="_blank" rel="noopener" class="text-link">Instagram</a>
+        <h2>Faculty Committee</h2>
+        <a :href="instagram" target="_blank" rel="noopener" class="text-link mt-6">Instagram</a>
       </div>
-      <p class="centered-text-block">
+      <p class="split-text">
         <slot name="roster" />
       </p>
     </section>
 
-    <div class="h-px w-full my-12 sm:my-16" :class="accentClass"></div>
+    <div class="h-0.5 w-full my-(--space)" :class="accentClass"></div>
 
-    <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-8 lg:gap-12">
+    <section class="split">
       <div>
-        <p class="eyebrow mb-4">Sacred animal</p>
         <h2>{{ animalTitle }}</h2>
-        <img :src="animalImage" :alt="animalTitle" class="aspect-square w-full max-w-[420px] object-cover mt-8">
+        <img :src="animalImage" :alt="animalTitle" class="aspect-square w-full max-w-[360px] object-cover mt-8">
       </div>
-      <p class="centered-text-block">
+      <p class="split-text">
         <slot name="blurb" />
       </p>
     </section>
@@ -61,9 +60,11 @@
     <div class="section-divider"></div>
 
     <section>
-      <h2>Events</h2>
-      <p class="eyebrow mt-3">Click on the images to learn more</p>
-      <div class="mt-8">
+      <div class="split items-baseline">
+        <h2>Events</h2>
+        <p class="text-soft">Click on a picture to read about it.</p>
+      </div>
+      <div class="mt-10">
         <MultiCarousel :events="events" :faculty="faculty"></MultiCarousel>
       </div>
     </section>
@@ -72,7 +73,7 @@
 
     <section>
       <h2>Faculty Cheers</h2>
-      <div class="mt-4">
+      <div class="mt-6">
         <Carousel :cheers="cheers"></Carousel>
       </div>
     </section>

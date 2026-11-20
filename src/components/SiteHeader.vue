@@ -79,7 +79,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
       </router-link>
 
       <!-- below sm the two link buttons sit under the title instead -->
-      <div class="sm:hidden mt-2.5 flex gap-5 font-inter font-light uppercase text-[11px] tracking-[0.14em]">
+      <div class="sm:hidden mt-3 flex gap-6 font-inter font-light uppercase text-[13px] tracking-[0.12em]">
         <button type="button" class="uppercase cursor-pointer" @click="ui.openLinks('school')">School Links</button>
         <button type="button" class="uppercase cursor-pointer" @click="ui.openLinks('others')">Others</button>
       </div>
@@ -161,12 +161,12 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 }
 .header-menu {
   font-size: clamp(1.4rem, 1.9vw, 1.7rem);
-  line-height: 2.1;
+  line-height: 2.2;
 }
 @media (min-width: 1024px) {
   .header-menu {
     font-size: clamp(1.1rem, 1.9vw, 1.7rem);
-    line-height: 1.75;
+    line-height: 2.05;
   }
 }
 </style>

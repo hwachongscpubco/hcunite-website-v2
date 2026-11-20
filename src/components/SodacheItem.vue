@@ -43,19 +43,19 @@ const links = computed(() => [
       </div>
     </div>
 
-    <div class="pt-3.5 px-1 sm:px-3">
+    <div class="pt-4">
       <button type="button" class="block w-full text-left cursor-pointer" :aria-expanded="open" @click="open = !open">
-        <span class="block font-jakarta font-bold text-[15px] sm:text-lg leading-snug">{{ item.title }}</span>
-        <span v-if="item.composer" class="block font-jakarta text-xs sm:text-[13px] text-soft mt-0.5">{{ item.composer }}</span>
+        <span class="block font-jakarta font-bold text-base sm:text-lg leading-snug">{{ item.title }}</span>
+        <span v-if="item.composer" class="block meta mt-1">{{ item.composer }}</span>
       </button>
 
       <div class="lg:hidden flex flex-wrap gap-x-4 gap-y-1 mt-2.5">
-        <a v-for="l in links" :key="l.label" :href="l.href" target="_blank" rel="noopener" class="text-link !text-[10px]">{{ l.label }}</a>
+        <a v-for="l in links" :key="l.label" :href="l.href" target="_blank" rel="noopener" class="text-link !text-xs">{{ l.label }}</a>
       </div>
 
       <div class="grid transition-[grid-template-rows,opacity] duration-700 ease-enter" :class="open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'">
         <div class="overflow-hidden">
-          <p class="!text-[13px] text-soft pt-3">{{ item.description }}</p>
+          <p class="!text-sm text-soft pt-3">{{ item.description }}</p>
         </div>
       </div>
     </div>

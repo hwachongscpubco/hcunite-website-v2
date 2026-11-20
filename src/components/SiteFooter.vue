@@ -79,8 +79,8 @@ import { menuItems, faculties, socials } from '../data/nav'
   gap: 0.55rem;
   font-family: var(--font-inter);
   font-weight: 300;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 .links a {

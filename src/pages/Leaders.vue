@@ -28,9 +28,12 @@ const { setEl } = useRevealOnScroll()
   <PageHero :image="councilPic" alt="Hwa Chong student leaders" />
 
   <div class="page-body">
-    <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-8 lg:gap-12 mb-14 sm:mb-20">
-      <p class="eyebrow">Nine groups</p>
-      <h2 class="max-w-[640px] !text-2xl sm:!text-3xl">Every student leadership body in one place. Each links out to that group's Instagram.</h2>
+    <section class="split mb-(--space)">
+      <h2>Every leadership body, in one place</h2>
+      <p class="split-text">
+        The Students' Council, the CCA Council, the four Faculty Committees and the Extended Councils.
+        Each one links out to that group's Instagram.
+      </p>
     </section>
 
     <ul class="border-t border-hairline">
@@ -51,8 +54,8 @@ const { setEl } = useRevealOnScroll()
             <span class="w-2.5 h-2.5 rounded-full shrink-0 -translate-y-0.5" :style="{ background: group.color }"></span>
             <span class="font-inter font-light text-xl sm:text-3xl tracking-[-0.01em]">{{ group.name }}</span>
           </span>
-          <span class="eyebrow hidden sm:block">{{ group.note }}</span>
-          <span class="eyebrow !text-ink text-right transition-opacity duration-300 group-hover:opacity-50">{{ group.handle }} ↗</span>
+          <span class="meta hidden sm:block">{{ group.note }}</span>
+          <span class="meta !text-ink text-right transition-opacity duration-300 group-hover:opacity-50">{{ group.handle }} ↗</span>
         </a>
       </li>
     </ul>

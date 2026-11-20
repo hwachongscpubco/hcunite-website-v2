@@ -8,13 +8,12 @@ import { councilYears } from '../data/nav'
 </script>
 
 <template>
-  <nav class="flex flex-wrap items-baseline gap-x-7 gap-y-3 pb-12" aria-label="Council years">
-    <span class="eyebrow">Council</span>
+  <nav class="flex flex-wrap items-baseline gap-x-8 gap-y-3 mb-(--space)" aria-label="Council years">
     <router-link
       v-for="year in councilYears"
       :key="year.to"
       :to="year.to"
-      class="year font-inter font-light uppercase text-sm tracking-[0.12em] text-mute"
+      class="year font-inter font-light text-lg lg:text-xl text-mute"
       exact-active-class="year--active"
     >{{ year.label }}</router-link>
   </nav>
@@ -22,7 +21,7 @@ import { councilYears } from '../data/nav'
 
 <style scoped>
 .year {
-  padding-bottom: 3px;
+  padding-bottom: 4px;
   border-bottom: 1px solid transparent;
   transition: color 300ms var(--ease-standard), border-color 300ms var(--ease-standard);
 }

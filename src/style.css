@@ -65,6 +65,9 @@ html.theme-dark, .theme-dark {
   --gutter: clamp(16px, 2.6vw, 40px);
   --rail: 23vw;
   --header-h: clamp(92px, 9.4vw, 136px);
+  /* The one vertical gap between blocks of content: below a hero, and
+     either side of a .section-divider. */
+  --space: clamp(3.5rem, 7vw, 6rem);
 
   --dur-fast: 180ms;
   --dur-base: 320ms;
@@ -99,7 +102,7 @@ html.theme-dark, .theme-dark {
     @apply font-inter font-extralight uppercase text-5xl sm:text-7xl lg:text-8xl tracking-[-0.02em] leading-[0.95]
   }
   h2 {
-    @apply font-inter font-light text-3xl sm:text-4xl lg:text-5xl tracking-[-0.01em] leading-[1.08] text-wrap
+    @apply font-inter font-light text-3xl lg:text-4xl tracking-[-0.01em] leading-[1.12] text-wrap
   }
   h3{
     @apply font-inter font-light text-xl lg:text-2xl
@@ -125,7 +128,7 @@ html.theme-dark, .theme-dark {
   }
   .chrome-more {
     font-size: clamp(1.05rem, 2.35vw, 2.2rem);
-    line-height: 1.36;
+    line-height: 1.6;
   }
   .nav-item {
     transition: opacity 300ms var(--ease-standard);
@@ -181,53 +184,89 @@ html.theme-dark, .theme-dark {
 
 /* ---- shared page furniture ---- */
 
-/* Everything below a page's hero: left column, clear of the right rail. */
-.page-body {
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
-  padding-bottom: 5rem;
-}
-/* Pages with no hero start below the fixed header instead. */
-.page-body--plain {
-  padding-top: calc(var(--header-h) + 2rem);
-}
-@media (min-width: 1024px) {
+/* In @layer components (not unlayered) so a page's own utilities —
+   gap-y-12 on a .split, mt-6 on a .text-link — can still adjust them. */
+@layer components {
+  /* Everything below a page's hero: left column, clear of the right rail,
+     starting one --space below the hero. */
   .page-body {
-    padding-right: calc(var(--rail) + var(--gutter));
+    padding-top: var(--space);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    padding-bottom: 5rem;
   }
-}
+  /* Pages with no hero start below the fixed header instead. */
+  .page-body--plain {
+    padding-top: calc(var(--header-h) + 2rem);
+  }
+  @media (min-width: 1024px) {
+    .page-body {
+      padding-right: calc(var(--rail) + var(--gutter));
+    }
+  }
 
-/* In-page jumps (the council committee "View" links) land below the header. */
-.page-body section {
-  scroll-margin-top: var(--header-h);
-}
+  /* In-page jumps (the council committee "View" links) land below the header. */
+  .page-body section {
+    scroll-margin-top: var(--header-h);
+  }
 
-.eyebrow {
-  @apply font-inter font-light uppercase text-[11px] tracking-[0.16em];
-  color: var(--mute);
-}
+  /* Small uppercase label: column headings in the footer, and the like. */
+  .eyebrow {
+    @apply font-inter font-light uppercase text-xs tracking-[0.14em];
+    color: var(--mute);
+  }
 
-/* Underlined uppercase text link — the site's only "button". */
-.text-link {
-  @apply font-inter font-light uppercase text-xs tracking-[0.14em] inline-block cursor-pointer;
-  padding-bottom: 3px;
-  background: linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat;
-  transition: background-size var(--dur-slow) var(--ease-enter), opacity var(--dur-base);
-}
-.text-link:hover {
-  background-size: 0% 1px;
-  background-position: right bottom;
-}
+  /* Secondary information under a name or title (a role, a composer). */
+  .meta {
+    @apply font-jakarta text-sm leading-snug;
+    color: var(--mute);
+  }
 
-.centered-text-block{
-  @apply max-w-[680px] text-ink-soft
-}
+  /* Underlined uppercase text link — the site's only "button". */
+  .text-link {
+    @apply font-inter font-light uppercase text-[13px] tracking-[0.12em] inline-block cursor-pointer;
+    padding-bottom: 3px;
+    background: linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat;
+    transition: background-size var(--dur-slow) var(--ease-enter), opacity var(--dur-base);
+  }
+  .text-link:hover {
+    background-size: 0% 1px;
+    background-position: right bottom;
+  }
 
-.section-divider{
-  height: 1px;
-  width: 100%;
-  background: var(--line);
-  margin: 3rem 0;
+  /* The site's one text layout: a heading in the left third, its text in
+     the right two thirds (stacked on small screens). Text with no heading
+     goes in the right column with .split-text--alone. */
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem 3rem;
+  }
+  @media (min-width: 1024px) {
+    .split {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    }
+    .split-text--alone {
+      grid-column-start: 2;
+    }
+  }
+
+  /* A column of body text at a comfortable reading width. */
+  .split-text,
+  .centered-text-block {
+    max-width: 680px;
+    color: var(--color-ink-soft);
+  }
+  .split-text > p + p {
+    margin-top: 1.25rem;
+  }
+
+  .section-divider{
+    height: 1px;
+    width: 100%;
+    background: var(--line);
+    margin: var(--space) 0;
+  }
 }
 
 .custom-scroll-hide::-webkit-scrollbar {

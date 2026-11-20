@@ -58,7 +58,7 @@ router.afterEach((to, from) => {
 // (screens are 100svh, at least 480px on the homepage, 520px in PageHero).
 const seam = computed(() => {
   const gutter = Math.min(40, Math.max(16, ui.vw * 0.026))
-  const moreLine = Math.min(35.2, Math.max(16.8, ui.vw * 0.0235)) * 1.36
+  const moreLine = Math.min(35.2, Math.max(16.8, ui.vw * 0.0235)) * 1.6
   return Math.max(ui.vh, isHome.value ? 480 : 520) - gutter - moreLine
 })
 // The homepage's dark SODACHE screen has slid up under the header.

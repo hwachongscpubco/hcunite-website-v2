@@ -46,7 +46,6 @@ const { setEl } = useRevealOnScroll()
 
     <div class="page-body">
         <section>
-            <p class="eyebrow mb-6">4Facs, 1Hwach</p>
             <ul class="border-t border-hairline">
                 <li v-for="(f, i) in faculties" :key="f.key" :ref="setEl(i)" class="reveal" :style="{ transitionDelay: i * 70 + 'ms' }">
                     <router-link
@@ -54,20 +53,22 @@ const { setEl } = useRevealOnScroll()
                         class="group flex items-baseline justify-between gap-6 py-5 sm:py-7 border-b border-hairline"
                     >
                         <span class="font-inter font-extralight uppercase text-4xl sm:text-6xl tracking-[-0.02em] transition-transform duration-700 ease-enter group-hover:translate-x-3">{{ f.name }}</span>
-                        <span class="eyebrow shrink-0">{{ f.animal }}</span>
+                        <span class="meta shrink-0 !text-base">{{ f.animal }}</span>
                     </router-link>
                 </li>
             </ul>
         </section>
 
-        <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-8 lg:gap-12 mt-20 sm:mt-28">
+        <div class="section-divider"></div>
+
+        <section class="split">
             <div class="lg:sticky lg:top-[calc(var(--header-h)+1rem)] self-start">
                 <h2>Address by SnR Chairperson</h2>
-                <p class="eyebrow mt-5 leading-relaxed">
-                    Li Xiyuan<br>Social and Relations<br>Committee Chairperson<br>53rd Hwa Chong<br>Students' Council
+                <p class="meta mt-4">
+                    Li Xiyuan, Social and Relations Committee Chairperson, 53rd Hwa Chong Students' Council
                 </p>
             </div>
-            <p class="text-ink-soft max-w-[640px]">
+            <p class="split-text">
                 When Hwa Chong unite, we show our might!
                 <br><br>
                 Welcome to Hwa Chong’s faculty system, the heart of the College experience. Comprising Apollo, Ares, Artemis, and Athena, each faculty is formed by students from different subject combinations and classes, and carries its own distinct identity, culture and spirit. From Apollo’s yellow and its iconic cows, Ares’ red and roaring horses, Artemis’ blue and its moonlit wolves, to Athena’s green and wise owls — every faculty offers students a community they can confidently call their own.

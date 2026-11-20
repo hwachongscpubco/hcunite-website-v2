@@ -254,114 +254,116 @@ const councillors = {
 
     <div class="page-body">
     <CouncilYears />
-    <section>
-        <div>
-            <p class="centered-text-block">
+
+    <section class="split">
+        <h2>The 52nd Students' Council</h2>
+        <div class="split-text">
+            <p>
                 (FROM LEFT TO RIGHT)
                 <br><br>Front Row:
                 <br>
-                Ms Chan Hui Chieh (Teacher Advisor); 
-                Mrs Raj-Priyahlatha Nainar (Teacher Advisor); 
-                Mr Edwin Zheng Zhehong (Teacher Advisor); 
-                Ms How Lai Yin Deborah (Deputy Principal (College)); 
-                Zhou Jingyi; 
-                Mr Lee Peck Ping (Principal); 
-                Chia Zhen Teng; 
-                Dr Lim Hong Seng Melvyn (Deputy Principal (College)); 
+                Ms Chan Hui Chieh (Teacher Advisor);
+                Mrs Raj-Priyahlatha Nainar (Teacher Advisor);
+                Mr Edwin Zheng Zhehong (Teacher Advisor);
+                Ms How Lai Yin Deborah (Deputy Principal (College));
+                Zhou Jingyi;
+                Mr Lee Peck Ping (Principal);
+                Chia Zhen Teng;
+                Dr Lim Hong Seng Melvyn (Deputy Principal (College));
                 Ms Lim Siew Hui (HOD / Student Leadership)
                 Mr Jeremy Ng (Teacher Advisor);
                 Mr How Hung Kin (Teacher Advisor);
                 Dr Sin Yee Theng (Teacher Advisor)
-                <br><br>Second Row: 
+                <br><br>Second Row:
                 <br>
-                Noelle Lee Hsuen; 
-                Karine Toh Yun Ying; 
+                Noelle Lee Hsuen;
+                Karine Toh Yun Ying;
                 Lau Han Ning;
-                Chua Zhi En; 
-                Benjamin Lien Chen Yan; 
-                Chan Jian Kai; 
-                Ashton Tan Ke Han; 
-                Elijah Christian Koh Zhi En; 
-                Teo Jie Jun Jayden; 
-                Tan Xuanqi, Arin; 
+                Chua Zhi En;
+                Benjamin Lien Chen Yan;
+                Chan Jian Kai;
+                Ashton Tan Ke Han;
+                Elijah Christian Koh Zhi En;
+                Teo Jie Jun Jayden;
+                Tan Xuanqi, Arin;
                 <br><br>Third Row:
                 <br>
-                Lee Si Ying, Renae; 
-                Tan King Hei Isaac; 
+                Lee Si Ying, Renae;
+                Tan King Hei Isaac;
                 Lin Zicheng
-                Jovan Lim Chen Yu; 
-                Kartha Jeremiah Jeevan; 
-                Randal Siow Yi Xuan; 
-                Mikhail Sergeyevich Parinov; 
-                Daryl Lee Tzer Yuh; 
-                Brayden Tee Qi Yuan; 
-                Goh Mu Xun; 
+                Jovan Lim Chen Yu;
+                Kartha Jeremiah Jeevan;
+                Randal Siow Yi Xuan;
+                Mikhail Sergeyevich Parinov;
+                Daryl Lee Tzer Yuh;
+                Brayden Tee Qi Yuan;
+                Goh Mu Xun;
                 Jake Ying Jue Rui;
-                Ryan Vaswani; 
-                Kwa Ming Feng; 
-                Li Yuquan; 
-                Ong Jia Zhen; 
-                Sincere Foo; 
+                Ryan Vaswani;
+                Kwa Ming Feng;
+                Li Yuquan;
+                Ong Jia Zhen;
+                Sincere Foo;
                 <br><br>Fourth Row:
                 <br>
-                Ng Yu Wen; 
-                Ong Yee Lynn; 
-                Tan E Shyan; 
-                Choo En Min, Chloe; 
-                Rishika Kashyap; 
-                Goh Kong Yi; 
-                Liu Jinghan, Sophie; 
-                Teng Yun Xin; 
-                Tan Zhen Ying; 
-                Chong En Yu; 
-                Hebe Tang Qiao En; 
-                Djie Atria; 
+                Ng Yu Wen;
+                Ong Yee Lynn;
+                Tan E Shyan;
+                Choo En Min, Chloe;
+                Rishika Kashyap;
+                Goh Kong Yi;
+                Liu Jinghan, Sophie;
+                Teng Yun Xin;
+                Tan Zhen Ying;
+                Chong En Yu;
+                Hebe Tang Qiao En;
+                Djie Atria;
                 <br><br>Last Row:
                 <br>
-                Choo Qian Ning; 
-                Shane Lee Zi Hao; 
-                Pan Xi; 
-                Huang Ju; 
-                Kong Cheng Jun; 
-                Yang Shurui; 
+                Choo Qian Ning;
+                Shane Lee Zi Hao;
+                Pan Xi;
+                Huang Ju;
+                Kong Cheng Jun;
+                Yang Shurui;
                 Yang He;
-                Goh Kai Tong; 
-                Huang Xi; 
-                Danielle Oh Xuan Rong; 
+                Goh Kai Tong;
+                Huang Xi;
+                Danielle Oh Xuan Rong;
             </p>
         </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <section class="w-full py-15">
-        <div class="w-full">
-            <h2 class="max-w-[680px]">A message from the 52nd...</h2>
-            <p class="centered-text-block mt-6">
+    <section class="split">
+        <h2>A message from the 52nd...</h2>
+        <div class="split-text">
+            <p>
                 Hi everyone! We’re the 52nd Hwa Chong Students’ Council (HCSC)!
-                <br><br>We are a passionate cohort of 50 Councillors who are privileged 
+                <br><br>We are a passionate cohort of 50 Councillors who are privileged
                 to have received the mandate from our peers to serve our school, and more importantly, our student body.
-                <br><br>Since its inception in 1974, the Council has strived to make the JC experience a memorable one 
-                for every student through building a home for all right here in Hwa Chong. 
-                As leaders, we endeavour to be the voice that represents you – the students. 
-                We do so through our commitment to carry out our responsibilities to the best of our ability, 
+                <br><br>Since its inception in 1974, the Council has strived to make the JC experience a memorable one
+                for every student through building a home for all right here in Hwa Chong.
+                As leaders, we endeavour to be the voice that represents you – the students.
+                We do so through our commitment to carry out our responsibilities to the best of our ability,
                 working as one for the interest of the school, and the welfare of the students.
             </p>
         </div>
     </section>
-    
+
     <div class="section-divider"></div>
 
-    <section class="w-full py-15">
-        <div class="w-full">
-            <h2 class="max-w-[680px]">Our Committees</h2>
-            <p class="centered-text-block mt-6">
+    <section class="split">
+        <h2>Our Committees</h2>
+        <div class="split-text">
+            <p>
                 The HCSC consists of the Executive Committee, the 5 Standing Committees (SC), and the 6 Working Committees (WC).
-                Headed by the Non-Standing Executive Committee (NSE), the 5 SCs work together over their 2 Council Terms to best serve the students and their needs, in their differently unique aspects. 
-                <br><br>The 5 SCs consist of: the Extended Council Attaché Committee (ECACo), the Publications and Publicity Committee (PubCo), the Student Engagement and Culture Committee (SECCo), 
+                Headed by the Non-Standing Executive Committee (NSE), the 5 SCs work together over their 2 Council Terms to best serve the students and their needs, in their differently unique aspects.
+                <br><br>The 5 SCs consist of: the Extended Council Attaché Committee (ECACo), the Publications and Publicity Committee (PubCo), the Student Engagement and Culture Committee (SECCo),
                 the Social and Relations Committee (SnR), and the Welfare Committee (WelCo).
-                <br><br>The 6 WCs serve to organise 6 Working Events, namely Teachers’ Day (TDCo), Mid-Autumn Festival (MAFCo), Prom Night (PromCo), 
-                Open House (OHCo), Orientation (O1Co), and Elections (EleCo). 
+                <br><br>The 6 WCs serve to organise 6 Working Events, namely Teachers’ Day (TDCo), Mid-Autumn Festival (MAFCo), Prom Night (PromCo),
+                Open House (OHCo), Orientation (O1Co), and Elections (EleCo).
                 Each WC consists of its elected Chairperson, Secretary-Treasurer, ExCo Attaché, and members.
             </p>
         </div>
@@ -369,186 +371,169 @@ const councillors = {
 
     <div class="section-divider"></div>
 
-    <section class="py-12">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="grow flex flex-col gap-4">
-                    <img class="w-full grow object-cover" src="/images/52nd/52nd_NSE.jpg" alt="">
-                    <h2 class="!text-xl uppercase tracking-[0.06em]">NSE</h2>
-                    <button @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
-                </div>
-                <div class="grow flex flex-col gap-4">
-                    <img class="w-full grow object-cover" src="/images/52nd/52nd_EcaCo.jpg" alt="">
-                    <h2 class="!text-xl uppercase tracking-[0.06em]">ECACO</h2>
-                    <button @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
-                </div>
-                <div class="grow flex flex-col gap-4">
-                    <img class="w-full grow object-cover" src="/images/52nd/52nd_PubCo.jpg" alt="">
-                    <h2 class="!text-xl uppercase tracking-[0.06em]">PUBCO</h2>
-                    <button @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
-                </div>
-                <div class="grow flex flex-col gap-4">
-                    <img class="w-full grow object-cover" src="/images/52nd/52nd_SecCo.jpg" alt="">
-                    <h2 class="!text-xl uppercase tracking-[0.06em]">SECCO</h2>
-                    <button @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
-                </div>
-                
-                <div class="grow flex flex-col gap-4">
-                    <img class="w-full grow object-cover" src="/images/52nd/52nd_SnR.jpg" alt="">
-                    <h2 class="!text-xl uppercase tracking-[0.06em]">SNR</h2>
-                    <button @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
-                </div>
-                <div class="grow flex flex-col gap-4">
-                    <img class="w-full grow object-cover" src="/images/52nd/52nd_WelCo.jpg" alt="">
-                    <h2 class="!text-xl uppercase tracking-[0.06em]">WELCO</h2>
-                    <button @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start">View</button>
-                </div>
+    <section>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+            <div class="flex flex-col">
+                <img class="w-full aspect-3/2 object-cover" src="/images/52nd/52nd_NSE.jpg" alt="NSE" loading="lazy">
+                <h3 class="mt-4">NSE</h3>
+                <button type="button" @click="$refs.nse.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start mt-3">View</button>
+            </div>
+            <div class="flex flex-col">
+                <img class="w-full aspect-3/2 object-cover" src="/images/52nd/52nd_EcaCo.jpg" alt="ECACo" loading="lazy">
+                <h3 class="mt-4">ECACo</h3>
+                <button type="button" @click="$refs.ecaco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start mt-3">View</button>
+            </div>
+            <div class="flex flex-col">
+                <img class="w-full aspect-3/2 object-cover" src="/images/52nd/52nd_PubCo.jpg" alt="PubCo" loading="lazy">
+                <h3 class="mt-4">PubCo</h3>
+                <button type="button" @click="$refs.pubco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start mt-3">View</button>
+            </div>
+            <div class="flex flex-col">
+                <img class="w-full aspect-3/2 object-cover" src="/images/52nd/52nd_SecCo.jpg" alt="SECCo" loading="lazy">
+                <h3 class="mt-4">SECCo</h3>
+                <button type="button" @click="$refs.secco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start mt-3">View</button>
+            </div>
+            <div class="flex flex-col">
+                <img class="w-full aspect-3/2 object-cover" src="/images/52nd/52nd_SnR.jpg" alt="SnR" loading="lazy">
+                <h3 class="mt-4">SnR</h3>
+                <button type="button" @click="$refs.snr.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start mt-3">View</button>
+            </div>
+            <div class="flex flex-col">
+                <img class="w-full aspect-3/2 object-cover" src="/images/52nd/52nd_WelCo.jpg" alt="WelCo" loading="lazy">
+                <h3 class="mt-4">WelCo</h3>
+                <button type="button" @click="$refs.welco.scrollIntoView({ behavior: 'smooth' })" class="text-link self-start mt-3">View</button>
+            </div>
         </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- nse -->
-    <section ref="nse" class="pb-12">
-
-        <div class="w-full flex flex-col gap-6 pt-8 pb-16">
-          <div class= "xl:flex-1/2 overflow-hidden">
-            <img src="/images/52nd/52nd_NSE.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
-          </div>
-          <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
-            <h2 class="flex-2/3 xl:mb-8">THE NON-STANDING EXECUTIVE COMMITTEE (NSE)</h2>
-            <div class="flex-1/3">
-              <p class="text-ink-soft">
-                As the core body in the Executive Committee, the Non-Standing Executive Committee is responsible for 
-                steering the council direction, while pushing boundaries to lead the council to greater heights. 
-                On an individual level, the committee is committed to supporting each and every councillor to pursue their passions, 
-                and partner them in their council journey ahead.
-              </p>
+    <section ref="nse">
+        <img src="/images/52nd/52nd_NSE.jpg" alt="The Non-Standing Executive Committee (NSE)" loading="lazy" class="w-full max-h-[80vh] object-cover object-[50%_25%]">
+        <div class="split mt-10">
+            <h2>The Non-Standing Executive Committee (NSE)</h2>
+            <div class="split-text">
+                <p>
+                    As the core body in the Executive Committee, the Non-Standing Executive Committee is responsible for
+                    steering the council direction, while pushing boundaries to lead the council to greater heights.
+                    On an individual level, the committee is committed to supporting each and every councillor to pursue their passions,
+                    and partner them in their council journey ahead.
+                </p>
             </div>
-          </div>
-            
         </div>
-
-        <CouncilCommittee :committee="councillors['NSE']" council="NSE" year="52nd" />
+        <div class="mt-14">
+            <CouncilCommittee :committee="councillors['NSE']" council="NSE" year="52nd" />
+        </div>
     </section>
 
-    <!-- ecaco -->
-    <section ref="ecaco" class="pb-12">
-        <div class="w-full flex flex-col gap-6 pt-8 pb-16">
-          <div class= "xl:flex-1/2 overflow-hidden">
-            <img src="/images/52nd/52nd_EcaCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
-          </div>
-          <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
-            <h2 class="flex-2/3 xl:mb-8">THE EXTENDED-COUNCIL ATTACHE COMMITTEE (ECACO)</h2>
-            <div class="flex-1/3">
-              <p class="text-ink-soft">
-                The Extended Council Attaché Committee comprises the Councillors who serve as Presidents and Vice-Presidents 
-                to the Values-In-Action Council, Green Council and Students' National Education Council. 
-                Each of these Presidents and Vice Presidents will serve in both the Students' Council and their 
-                Extended Councils, acting as a bridge to promote better communication between leadership bodies. 
-                In doing so, they work to build meaningful collaborations 
-                that will create a holistic experience for the student body.
-              </p>
-            </div>
-          </div>
-        </div>
+    <div class="section-divider"></div>
 
-        <CouncilCommittee :committee="councillors['EcaCo']" council="EcaCo" year="52nd" />
+    <section ref="ecaco">
+        <img src="/images/52nd/52nd_EcaCo.jpg" alt="The Extended Council Attaché Committee (ECACo)" loading="lazy" class="w-full max-h-[80vh] object-cover object-[50%_25%]">
+        <div class="split mt-10">
+            <h2>The Extended Council Attaché Committee (ECACo)</h2>
+            <div class="split-text">
+                <p>
+                    The Extended Council Attaché Committee comprises the Councillors who serve as Presidents and Vice-Presidents
+                    to the Values-In-Action Council, Green Council and Students' National Education Council.
+                    Each of these Presidents and Vice Presidents will serve in both the Students' Council and their
+                    Extended Councils, acting as a bridge to promote better communication between leadership bodies.
+                    In doing so, they work to build meaningful collaborations
+                    that will create a holistic experience for the student body.
+                </p>
+            </div>
+        </div>
+        <div class="mt-14">
+            <CouncilCommittee :committee="councillors['EcaCo']" council="EcaCo" year="52nd" />
+        </div>
     </section>
 
-    <!-- pubco -->
-    <section ref="pubco" class="pb-12">
-        <div class="w-full flex flex-col gap-6 pt-8 pb-16">
-          <div class= "xl:flex-1/2 overflow-hidden">
-            <img src="/images/52nd/52nd_PubCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
-          </div>
-          <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
-            <h2 class="flex-2/3 xl:mb-8">THE PUBLICATIONS AND PUBLICITY COMMITTEE (PUBCO)</h2>
-            <div class="flex-1/3">
-              <p class="text-ink-soft">
-                Through the use of HCunite and the Council Board, the Publication and Publicity Committee 
-                publicises council events and initiatives, 
-                aiming to increase communication and transparency between the student body and the Students' Council. 
-                Moreover, our team is also dedicated to promoting a common identity for the Council and the school, 
-                while aspiring to make student life more exciting!
-              </p>
-            </div>
-          </div>
-        </div>
+    <div class="section-divider"></div>
 
-        <CouncilCommittee :committee="councillors['PubCo']" council="PubCo" year="52nd" />
+    <section ref="pubco">
+        <img src="/images/52nd/52nd_PubCo.jpg" alt="The Publications and Publicity Committee (PubCo)" loading="lazy" class="w-full max-h-[80vh] object-cover object-[50%_25%]">
+        <div class="split mt-10">
+            <h2>The Publications and Publicity Committee (PubCo)</h2>
+            <div class="split-text">
+                <p>
+                    Through the use of HCunite and the Council Board, the Publication and Publicity Committee
+                    publicises council events and initiatives,
+                    aiming to increase communication and transparency between the student body and the Students' Council.
+                    Moreover, our team is also dedicated to promoting a common identity for the Council and the school,
+                    while aspiring to make student life more exciting!
+                </p>
+            </div>
+        </div>
+        <div class="mt-14">
+            <CouncilCommittee :committee="councillors['PubCo']" council="PubCo" year="52nd" />
+        </div>
     </section>
 
-    <!-- secco -->
-    <section ref="secco" class="pb-12">
-        <div class="w-full flex flex-col gap-6 pt-8 pb-16">
-          <div class= "xl:flex-1/2 overflow-hidden">
-            <img src="/images/52nd/52nd_SecCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
-          </div>
-          <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
-            <h2 class="flex-2/3 xl:mb-8">THE STUDENT ENGAGEMENT AND CULTURE COMMITTEE (SECCO)</h2>
-            <div class="flex-1/3">
-              <p class="text-ink-soft">
-                By forging common experiences, the Student Engagement and Culture committee aspires to be 
-                the champion of our school's culture and identity, fostering a strong sense of belonging to the school, 
-                and keeping the Hwa Chong spirit burning bright. The committee is also the torchbearer of our school's 
-                vibrant song, dance and cheer culture, also known as SODACHE. The Student Engagement and Culture Committee 
-                works to strengthen student bonds and create memories that will last a lifetime.
-              </p>
-            </div>
-          </div>
-        </div>
+    <div class="section-divider"></div>
 
-        <CouncilCommittee :committee="councillors['SECCo']" council="SECCo" year="52nd" />
+    <section ref="secco">
+        <img src="/images/52nd/52nd_SecCo.jpg" alt="The Student Engagement and Culture Committee (SECCo)" loading="lazy" class="w-full max-h-[80vh] object-cover object-[50%_25%]">
+        <div class="split mt-10">
+            <h2>The Student Engagement and Culture Committee (SECCo)</h2>
+            <div class="split-text">
+                <p>
+                    By forging common experiences, the Student Engagement and Culture committee aspires to be
+                    the champion of our school's culture and identity, fostering a strong sense of belonging to the school,
+                    and keeping the Hwa Chong spirit burning bright. The committee is also the torchbearer of our school's
+                    vibrant song, dance and cheer culture, also known as SODACHE. The Student Engagement and Culture Committee
+                    works to strengthen student bonds and create memories that will last a lifetime.
+                </p>
+            </div>
+        </div>
+        <div class="mt-14">
+            <CouncilCommittee :committee="councillors['SECCo']" council="SECCo" year="52nd" />
+        </div>
     </section>
 
-    <!-- snr -->
-    <section ref="snr" class="pb-12">
-        <div class="w-full flex flex-col gap-6 pt-8 pb-16">
-          <div class= "xl:flex-1/2 overflow-hidden">
-            <img src="/images/52nd/52nd_SnR.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
-          </div>
-          <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
-            <h2 class="flex-2/3 xl:mb-8">THE SOCIAL AND RELATIONS COMMITTEE (SNR)</h2>
-            <div class="flex-1/3">
-              <p class="text-ink-soft">
-                The Social and Relations Committee seeks to be the eyes and ears of the council, 
-                championing grassroot efforts to connect with the student body on a deeper level. 
-                Through building bonds and promoting interactions between the council and the student body, 
-                the committee strives to inculcate a unified sense of belonging to the school across all domains, 
-                promoting the #Fac1Hwach spirit that we all know and love! 
-                In addition, the committee spearheads external communications with external Councils from other institutions, 
-                laying the groundwork for prospective collaborations to further vitalise the experience of Hwa Chongians.
-              </p>
-            </div>
-          </div>
-        </div>
+    <div class="section-divider"></div>
 
-        <CouncilCommittee :committee="councillors['SnR']" council="SnR" year="52nd" />
+    <section ref="snr">
+        <img src="/images/52nd/52nd_SnR.jpg" alt="The Social and Relations Committee (SnR)" loading="lazy" class="w-full max-h-[80vh] object-cover object-[50%_25%]">
+        <div class="split mt-10">
+            <h2>The Social and Relations Committee (SnR)</h2>
+            <div class="split-text">
+                <p>
+                    The Social and Relations Committee seeks to be the eyes and ears of the council,
+                    championing grassroot efforts to connect with the student body on a deeper level.
+                    Through building bonds and promoting interactions between the council and the student body,
+                    the committee strives to inculcate a unified sense of belonging to the school across all domains,
+                    promoting the #Fac1Hwach spirit that we all know and love!
+                    In addition, the committee spearheads external communications with external Councils from other institutions,
+                    laying the groundwork for prospective collaborations to further vitalise the experience of Hwa Chongians.
+                </p>
+            </div>
+        </div>
+        <div class="mt-14">
+            <CouncilCommittee :committee="councillors['SnR']" council="SnR" year="52nd" />
+        </div>
     </section>
 
-    <!-- welco -->
-    <section ref="welco" class="pb-12">
-        <div class="w-full flex flex-col gap-6 pt-8 pb-16">
-          <div class= "xl:flex-1/2 overflow-hidden">
-            <img src="/images/52nd/52nd_WelCo.jpg" alt="background" class="w-full aspect-auto xl:max-h-[80vh] object-cover z-0">
-          </div>
-          <div class="xl:flex-1/2 flex flex-col lg:flex-row gap-4 xl:gap-16">
-            <h2 class="flex-2/3 xl:mb-8">THE WELFARE COMMITTEE (WELCO)</h2>
-            <div class="flex-1/3">
-              <p class="text-ink-soft">
-                The Welfare Committee champions the welfare of the student population with heart and dedication. 
-                The committee strives to promote the well being of the student population for a conducive learning environment for 
-                all HwaChongians. Through infrastructure such as the Common Room and Welfare Room, 
-                the committee reaches out to the student body, 
-                rendering services and hosting activities that add vibrancy to the student experience. 
-                As the saying in the Welfare Committee goes, "Your Welfare Is Our Affair". 
-                The 52nd Welfare Committee hopes to do their best to let you smile a little wider, laugh a little louder.
-              </p>
-            </div>
-          </div>
-        </div>
+    <div class="section-divider"></div>
 
-        <CouncilCommittee :committee="councillors['WelCo']" council="WelCo" year="52nd" />
+    <section ref="welco">
+        <img src="/images/52nd/52nd_WelCo.jpg" alt="The Welfare Committee (WelCo)" loading="lazy" class="w-full max-h-[80vh] object-cover object-[50%_25%]">
+        <div class="split mt-10">
+            <h2>The Welfare Committee (WelCo)</h2>
+            <div class="split-text">
+                <p>
+                    The Welfare Committee champions the welfare of the student population with heart and dedication.
+                    The committee strives to promote the well being of the student population for a conducive learning environment for
+                    all HwaChongians. Through infrastructure such as the Common Room and Welfare Room,
+                    the committee reaches out to the student body,
+                    rendering services and hosting activities that add vibrancy to the student experience.
+                    As the saying in the Welfare Committee goes, "Your Welfare Is Our Affair".
+                    The 52nd Welfare Committee hopes to do their best to let you smile a little wider, laugh a little louder.
+                </p>
+            </div>
+        </div>
+        <div class="mt-14">
+            <CouncilCommittee :committee="councillors['WelCo']" council="WelCo" year="52nd" />
+        </div>
     </section>
     </div>
 </template>

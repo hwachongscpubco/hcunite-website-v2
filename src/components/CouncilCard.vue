@@ -9,10 +9,10 @@
         <div class="overflow-hidden">
             <img :src="imageUrl" @error="onImgError" :alt="name" loading="lazy" class="w-full aspect-3/4 object-cover transition-transform duration-[900ms] ease-enter hover:scale-[1.03]">
         </div>
-        <div class="pt-4 pb-2 w-full">
-            <h3 class="!text-base sm:!text-xl uppercase tracking-[0.02em] text-ink">{{ name }}</h3>
-            <p class="eyebrow mt-1.5 leading-relaxed">{{ position }}</p>
-            <p v-html="formattedDescription" class="!text-xs sm:!text-[13px] text-ink-soft break-words pt-4"></p>
+        <div class="pt-4 w-full">
+            <h3 class="!text-lg sm:!text-xl text-ink leading-snug">{{ name }}</h3>
+            <p class="meta mt-1">{{ position }}</p>
+            <p v-html="formattedDescription" class="!text-sm text-ink-soft break-words pt-3"></p>
         </div>
     </div>
 </template>

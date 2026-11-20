@@ -55,12 +55,9 @@ const selectWelcoItem = (section) => {
     <PageHero :image="commonRoomImg" alt="The Common Room" position="50% 65%" />
 
     <div class="page-body">
-        <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-8 lg:gap-12">
-            <div>
-                <p class="eyebrow mb-4">Inner Plaza</p>
-                <h2>A space for the students, by the students</h2>
-            </div>
-            <p class="text-ink-soft max-w-[640px]">
+        <section class="split">
+            <h2>A space for the students, by the students</h2>
+            <p class="split-text">
                 The Common Room — located at the Inner Plaza — is your go-to space to rest, recharge, or
                 simply hangout with friends. Whether you’re looking for a cosy spot to study, a bean bag to unwind, or
                 enjoy a quick round of board games or mini foosball, the Common Room has something for everyone.
@@ -71,7 +68,7 @@ const selectWelcoItem = (section) => {
 
         <div class="section-divider"></div>
 
-        <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-8 lg:gap-12">
+        <section class="split">
             <div>
                 <h2>House Rules</h2>
                 <a
@@ -87,7 +84,7 @@ const selectWelcoItem = (section) => {
                         <button
                         type="button"
                         @click="selectWelcoItem(section)"
-                        class="w-full text-left py-3.5 font-inter font-light uppercase text-xs tracking-[0.14em] cursor-pointer
+                        class="w-full text-left py-3 font-inter font-light text-base lg:text-lg cursor-pointer
                         hover:translate-x-2 hover:text-ink
                         transition-all duration-500 ease-enter"
                         :class="selectedWelcoItem === section ? 'text-hwachred translate-x-2' : 'text-mute'"
@@ -98,39 +95,38 @@ const selectWelcoItem = (section) => {
                 </ul>
             </div>
             <Transition name="fade" mode="out-in">
-                <ol :key="selectedWelcoItem" class="max-w-[640px]">
+                <ul :key="selectedWelcoItem" class="split-text">
                     <li
                     v-for="(guideline,i) in guidelines[selectedWelcoItem]"
                     :key="i"
-                    class="grid grid-cols-[2.5rem_minmax(0,1fr)] py-4 border-b border-hairline last:border-b-0 text-ink-soft"
+                    class="py-4 first:pt-0 border-b border-hairline last:border-b-0"
                     >
-                        <span class="eyebrow pt-1.5">{{ String(i + 1).padStart(2, '0') }}</span>
                         <p>{{ guideline }}</p>
                     </li>
-                </ol>
+                </ul>
             </Transition>
         </section>
 
         <div class="section-divider"></div>
 
-        <section class="grid grid-cols-1 sm:grid-cols-2 gap-10">
-            <div>
-                <h2>Opening Schedule</h2>
+        <section class="split gap-y-12">
+            <h2>Opening Schedule</h2>
+            <div class="lg:pt-3">
                 <a
                 target="_blank"
                 href="about:blank"
-                class="text-link mt-6"
+                class="text-link"
                 >
                 See document
                 </a>
             </div>
-            <div>
-                <h2>Booking Form</h2>
+            <h2>Booking Form</h2>
+            <div class="lg:pt-3">
                 <a
                 target="_blank"
                 rel="noopener"
                 href="https://docs.google.com/forms/d/e/1FAIpQLSezWSornwTlAZ2K9tFl0ZVk8rZXDrhThNeulpLoXapol0ywNQ/viewform?usp=sharing&ouid=105980804582763504075"
-                class="text-link mt-6"
+                class="text-link"
                 >
                 Open form
                 </a>

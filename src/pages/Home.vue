@@ -73,7 +73,7 @@ function embedUrl(link) {
 
     <div class="absolute z-10 left-(--gutter) top-(--gutter)">
       <h1 class="chrome-title">Welcome to<span class="sr-only"> HCUnite</span></h1>
-      <div class="sm:hidden mt-2.5 flex gap-5 font-inter font-light uppercase text-[11px] tracking-[0.14em]">
+      <div class="sm:hidden mt-3 flex gap-6 font-inter font-light uppercase text-[13px] tracking-[0.12em]">
         <button type="button" class="uppercase cursor-pointer" @click="ui.openLinks('school')">School Links</button>
         <button type="button" class="uppercase cursor-pointer" @click="ui.openLinks('others')">Others</button>
       </div>
@@ -97,7 +97,6 @@ function embedUrl(link) {
     </HeroPicture>
     <div class="hero-scrim" :class="{ 'is-hidden': ui.menuOpen }"></div>
 
-    <p class="hidden lg:block absolute left-(--gutter) bottom-[6vh] eyebrow !text-ink">Scroll — SODACHE</p>
   </section>
 
   <!-- 2 · SODACHE, then its list -->
@@ -176,8 +175,8 @@ function embedUrl(link) {
               ></iframe>
               <div>
                 <h2 class="!text-2xl lg:!text-4xl">{{ item.title }}</h2>
-                <p v-if="item.artist" class="eyebrow mt-3">{{ item.artist }}</p>
-                <p class="text-soft mt-4 max-w-md">{{ item.description }}</p>
+                <p v-if="item.artist" class="meta mt-2">{{ item.artist }}</p>
+                <p class="text-soft mt-4 max-w-[520px]">{{ item.description }}</p>
               </div>
             </article>
           </div>
@@ -202,7 +201,7 @@ function embedUrl(link) {
   mask-image: linear-gradient(#000 86%, transparent);
 }
 .list {
-  padding-top: calc(var(--header-h) + 6px);
+  padding-top: calc(var(--header-h) + 2rem);
   padding-bottom: 6rem;
 }
 @media (min-width: 1024px) {

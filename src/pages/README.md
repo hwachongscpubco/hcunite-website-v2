@@ -10,11 +10,14 @@ copying the closest existing example over writing a page from scratch.
 
 ## Council pages — `Council48.vue` … `Council52.vue`
 
-One page per HCSC term. All the shared layout (hero, "Our Committees"
-overview grid, per-committee sections) is hand-written per file because
-each council term has tweaked the layout slightly over the years — but the
-repeated "grid of councillor portraits" block is not: it's the
+One page per HCSC term, all five laid out the same way: hero, year
+switcher, the council photo's roster and messages (`.split` sections —
+heading left, text right), the committee overview cards, then one
+section per committee (photo, title + text, portraits). The markup is
+written out in each file, but the repeated "grid of councillor
+portraits" block is the
 [`CouncilCommittee`](../components/CouncilCommittee.vue) component.
+Keep a new year's file to the same structure as `Council52.vue`.
 
 Each file's `<script setup>` holds one `councillors` object shaped like:
 

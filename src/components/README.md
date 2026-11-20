@@ -7,9 +7,10 @@ explaining its props — this file is just the map of what exists.
 ## Layout components (compose a whole page section)
 
 - **`PageHero.vue`** — the full-screen opening of every page other than
-  the homepage: one centred picture (via `HeroPicture.vue`, which also
-  draws the homepage's two edge-to-edge pictures with its `fill` prop,
-  and moves either kind aside when the menu opens).
+  the homepage: one picture filling the screen, with a `position` prop
+  for how it's cropped. The picture itself is `HeroPicture.vue` (also
+  used by the homepage's two screens), which shrinks it into the left
+  half when the menu opens.
 - **`FacultyPage.vue`** — the full layout shared by the 4 Faculty pages
   (hero, roster, animal blurb, events + cheers carousels).
 - **`CouncilCommittee.vue`** — one committee's grid of councillor

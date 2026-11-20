@@ -1,6 +1,7 @@
 <!--
-  Faculties.vue — the /faculties landing page: the 4 faculty logos (the
-  hero) and a list, both linking out to the individual Faculty pages,
+  Faculties.vue — the /faculties landing page: the 4 faculty colours and
+  logos filling the screen in quarters (the hero) and a list, both
+  linking out to the individual Faculty pages,
   plus a static address from the SnR Chairperson.
 -->
 <script setup>
@@ -24,8 +25,8 @@ const { setEl } = useRevealOnScroll()
 </script>
 
 <template>
-    <PageHero ratio="square">
-        <div class="grid grid-cols-2 w-full h-full">
+    <PageHero>
+        <div class="grid grid-cols-2 grid-rows-2 w-full h-full">
             <router-link
                 v-for="f in faculties"
                 :key="f.key"
@@ -35,7 +36,7 @@ const { setEl } = useRevealOnScroll()
                 :aria-label="f.name + ' Faculty'"
             >
                 <img
-                    class="w-[46%] transition-transform duration-700 ease-enter group-hover:scale-110"
+                    class="max-w-[46%] max-h-[50%] object-contain transition-transform duration-700 ease-enter group-hover:scale-110"
                     :src="logoFor(f.name)"
                     :alt="f.name"
                 >

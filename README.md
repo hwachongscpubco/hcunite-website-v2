@@ -62,8 +62,9 @@ one:
    component and add `{ path: '/new-page', component: NewPage, meta: {
    title: 'New Page', hero: true } }` to the `routes` array. `title` is
    what the header shows top-left; use `hero: true` if the page opens
-   with a `<PageHero>`, or `plain: true` if it has none (the comment at
-   the top of `main.js` lists every meta field).
+   with a `<PageHero>` (add `tone: 'dark'` if the top of its picture is
+   dark, so the header turns white), or `plain: true` if it has none
+   (the comment at the top of `main.js` lists every meta field).
 3. **Add it to the menu** (optional, but almost always wanted) by adding
    an entry to `menuItems` in [`src/data/nav.js`](src/data/README.md) —
    the "More about us" menu and the footer both pick it up

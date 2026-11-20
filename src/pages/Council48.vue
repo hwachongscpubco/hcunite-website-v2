@@ -256,7 +256,7 @@ const councillors = {
 
 <template>
 <!-- hero section -->
-    <PageHero image="/images/48th/48th_ExCo.png" alt="The 48th Students' Council Executive Committee" />
+    <PageHero image="/images/48th/48th_ExCo.png" alt="The 48th Students' Council Executive Committee" position="50% 12%" />
 
     <div class="page-body">
     <CouncilYears />

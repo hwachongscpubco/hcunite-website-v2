@@ -10,6 +10,7 @@
     name="ARES"
     instagram="https://www.instagram.com/aresfaculty/"
     hero-image="/images/Ares/ares_photo.jpg"
+    hero-position="50% 65%"
     accent-class="bg-ares"
     animal-title="The Horse"
     animal-image="/images/Ares/ares.png"

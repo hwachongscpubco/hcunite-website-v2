@@ -13,7 +13,7 @@
       name="APOLLO"
       instagram="https://www.instagram.com/apollofaculty/"
       hero-image="/images/Apollo/apollo_photo.jpg"
-      hero-ratio="portrait"
+      hero-position="50% 45%"
       accent-class="bg-apollo"
       animal-title="The Bull"
       animal-image="/images/Apollo/apollo.jpg"
@@ -28,11 +28,11 @@
   `accent-class` must be a complete class string (e.g. "bg-apollo")
   passed in from the calling page rather than built dynamically here —
   Tailwind only generates CSS for class names it can find as literal
-  text. The page title (top-left) and the wordmark's faculty-coloured
-  "HC" come from the route's meta in main.js.
+  text. The page title (top-left), and whether the header turns white
+  over the hero photo (`tone`), come from the route's meta in main.js.
 -->
 <template>
-  <PageHero :image="heroImage" :alt="name + ' Faculty Committee'" :ratio="heroRatio" />
+  <PageHero :image="heroImage" :alt="name + ' Faculty Committee'" :position="heroPosition" />
 
   <div class="page-body">
     <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-8 lg:gap-12">
@@ -88,9 +88,9 @@ defineProps({
   name: { type: String, required: true },
   instagram: { type: String, required: true },
   heroImage: { type: String, required: true },
-  // 'landscape' | 'portrait' — match the group photo's orientation so
-  // nobody is cropped out of the hero frame.
-  heroRatio: { type: String, default: 'landscape' },
+  // Which part of the photo the full-screen hero keeps (CSS
+  // object-position) — set it so nobody is cropped out.
+  heroPosition: { type: String, default: '50% 50%' },
   accentClass: { type: String, required: true },
   animalTitle: { type: String, required: true },
   animalImage: { type: String, required: true },

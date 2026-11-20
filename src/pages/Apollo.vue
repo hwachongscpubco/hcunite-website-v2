@@ -10,7 +10,7 @@
     name="APOLLO"
     instagram="https://www.instagram.com/apollofaculty/"
     hero-image="/images/Apollo/apollo_photo.jpg"
-    hero-ratio="portrait"
+    hero-position="50% 45%"
     accent-class="bg-apollo"
     animal-title="The Bull"
     animal-image="/images/Apollo/apollo.jpg"

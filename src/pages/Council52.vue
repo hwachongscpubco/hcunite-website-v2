@@ -250,7 +250,7 @@ const councillors = {
 <template>
 
 <!-- hero section -->
-    <PageHero image="/images/52nd/52nd_HCSC.jpg" alt="The 52nd Students' Council" />
+    <PageHero image="/images/52nd/52nd_HCSC.jpg" alt="The 52nd Students' Council" position="50% 75%" />
 
     <div class="page-body">
     <CouncilYears />

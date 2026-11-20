@@ -52,7 +52,7 @@ const selectWelcoItem = (section) => {
 
 
 <template>
-    <PageHero :image="commonRoomImg" alt="The Common Room" />
+    <PageHero :image="commonRoomImg" alt="The Common Room" position="50% 65%" />
 
     <div class="page-body">
         <section class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-8 lg:gap-12">

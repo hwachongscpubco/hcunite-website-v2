@@ -2,7 +2,7 @@
   Home.vue — the / page: two full-screen screens stacked one on top of
   the other, then the SODACHE list. Scrolling only moves the view down
   the stack; nothing fades or animates between the two screens. Each
-  screen's picture fills it edge to edge (HeroPicture's `fill`).
+  screen's picture fills it edge to edge (HeroPicture.vue).
     1. WELCOME TO (light) — the council picture, SCHOOL LINKS / OTHERS
     2. SODACHE (dark, #sodache) — the SODACHE picture. Its SO/DA/CHE
        title rides up with it, then sticks to the top over the list.
@@ -92,10 +92,10 @@ function embedUrl(link) {
       <span class="chrome-more invisible" aria-hidden="true">More<br>about us</span>
     </div>
 
-    <HeroPicture fill>
+    <HeroPicture>
       <img :src="councilPic" alt="The Hwa Chong Students' Council" class="hero-in w-full h-full object-cover">
     </HeroPicture>
-    <div class="scrim" :class="{ 'is-hidden': ui.menuOpen }"></div>
+    <div class="hero-scrim" :class="{ 'is-hidden': ui.menuOpen }"></div>
 
     <p class="hidden lg:block absolute left-(--gutter) bottom-[6vh] eyebrow !text-ink">Scroll — SODACHE</p>
   </section>
@@ -132,10 +132,10 @@ function embedUrl(link) {
     </div>
 
     <section id="sodache" class="screen relative overflow-hidden snap-start">
-      <HeroPicture fill>
+      <HeroPicture>
         <img src="/images/sodache/sodache_pic.jpg" alt="SODACHE at Hwa Chong" class="w-full h-full object-cover object-[33%_50%]">
       </HeroPicture>
-      <div class="scrim" :class="{ 'is-hidden': ui.menuOpen }"></div>
+      <div class="hero-scrim" :class="{ 'is-hidden': ui.menuOpen }"></div>
     </section>
 
     <section id="sodache-list" class="list relative min-h-screen px-(--gutter)">
@@ -195,20 +195,6 @@ function embedUrl(link) {
 .screen {
   height: 100svh;
   min-height: 480px;
-}
-/* A soft fade of the screen's own colour behind the titles at the top. */
-.scrim {
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 32%;
-  pointer-events: none;
-  background: linear-gradient(color-mix(in srgb, var(--bg) 62%, transparent), transparent);
-  transition: opacity 600ms var(--ease-standard);
-}
-@media (min-width: 1024px) {
-  .scrim.is-hidden {
-    opacity: 0;
-  }
 }
 .title-bar {
   height: var(--header-h);

@@ -10,7 +10,7 @@
     name="ATHENA"
     instagram="https://www.instagram.com/athenafaculty/"
     hero-image="/images/Athena/athena_photo.jpg"
-    hero-ratio="portrait"
+    hero-position="50% 78%"
     accent-class="bg-athena"
     animal-title="The Owl"
     animal-image="/images/Athena/athena.png"

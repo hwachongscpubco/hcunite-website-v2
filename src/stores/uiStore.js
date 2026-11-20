@@ -17,6 +17,8 @@ export const useUiStore = defineStore('uiStore', () => {
   // True for the moment after a page change before the new page has
   // scrolled to its start, while scrollY still belongs to the old page.
   const settling = ref(false)
+  // True while a dark picture is under the fixed header (set by App.vue).
+  const chromeDark = ref(false)
 
   function openLinks(tab) {
     linksTab.value = tab
@@ -28,5 +30,5 @@ export const useUiStore = defineStore('uiStore', () => {
     linksOpen.value = false
   }
 
-  return { menuOpen, linksOpen, linksTab, search, scrollY, vw, vh, docH, settling, openLinks, closeAll }
+  return { menuOpen, linksOpen, linksTab, search, scrollY, vw, vh, docH, settling, chromeDark, openLinks, closeAll }
 })

@@ -3,10 +3,11 @@
   Wordmark), the routed page, and the footer. It also owns the two
   things the chrome and pages share:
     - the single scroll/resize listener, mirrored into uiStore
-    - .theme-dark on <html> once the homepage's dark SODACHE screen has
-      reached the top, so the fixed chrome and the footer match it (the
-      homepage's two screens carry their own colours; every other page
-      is light)
+    - which colours the fixed chrome takes: dark (white text) while a
+      dark picture is under the header — the homepage's SODACHE screen,
+      or a dark-topped hero (route meta.tone) — via uiStore.chromeDark;
+      and .theme-dark on <html> once the homepage is into SODACHE, so its
+      footer matches (every other page is light underneath its hero)
 -->
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, watchEffect } from 'vue'
@@ -52,20 +53,25 @@ router.afterEach((to, from) => {
   nextTick(requestMeasure)
 })
 
-// The fixed header flips to the dark theme as soon as the SODACHE screen
-// (top edge = first screen's height − scrollY; screens are 100svh, at
-// least 480px) reaches the first line of "More about us".
-const dark = computed(() => {
-  if (!isHome.value || ui.settling) return false
+// The scroll position at which the edge between the first full-screen
+// picture and what follows it reaches the first line of "More about us"
+// (screens are 100svh, at least 480px on the homepage, 520px in PageHero).
+const seam = computed(() => {
   const gutter = Math.min(40, Math.max(16, ui.vw * 0.026))
   const moreLine = Math.min(35.2, Math.max(16.8, ui.vw * 0.0235)) * 1.36
-  return ui.scrollY > Math.max(ui.vh, 480) - gutter - moreLine
+  return Math.max(ui.vh, isHome.value ? 480 : 520) - gutter - moreLine
 })
+// The homepage's dark SODACHE screen has slid up under the header.
+const homeDark = computed(() => isHome.value && !ui.settling && ui.scrollY > seam.value)
+// A dark-topped hero (route meta.tone) is still under the header — or is
+// about to be, while the new page is being scrolled to its top.
+const heroDark = computed(() => !isHome.value && route.meta.tone === 'dark' && (ui.settling || ui.scrollY < seam.value))
 
 watchEffect(() => {
   const root = document.documentElement
-  root.classList.toggle('theme-dark', dark.value)
+  root.classList.toggle('theme-dark', homeDark.value)
   root.classList.toggle('snap-home', isHome.value)
+  ui.chromeDark = homeDark.value || heroDark.value
 })
 
 let resizeObserver = null

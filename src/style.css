@@ -151,9 +151,24 @@ html.theme-dark, .theme-dark {
   .menu-tint.is-open {
     opacity: 1;
   }
+
+  /* A soft fade of the hero's own colour behind the titles at the top of
+     a full-screen picture; it steps aside with the picture when the
+     menu opens (add .is-hidden). */
+  .hero-scrim {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 32%;
+    pointer-events: none;
+    background: linear-gradient(color-mix(in srgb, var(--bg) 62%, transparent), transparent);
+    transition: opacity 600ms var(--ease-standard);
+  }
   @media (min-width: 1024px) {
     .menu-tint {
       display: block;
+    }
+    .hero-scrim.is-hidden {
+      opacity: 0;
     }
   }
 }

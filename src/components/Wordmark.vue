@@ -96,8 +96,7 @@ const homeHc = computed(() => {
 const hcColor = computed(() => {
   if (ui.linksOpen) return ui.linksTab === 'school' ? '#FFE000' : '#FFFFFF'
   if (isHome.value) return `rgb(${homeHc.value.join(' ')})`
-  // Faculty pages tint HC with their own colour (route meta.hc).
-  return route.meta.hc || '#FFE000'
+  return '#FFE000'
 })
 const uniteColor = computed(() => {
   if (!ui.linksOpen) return '#CE2222'

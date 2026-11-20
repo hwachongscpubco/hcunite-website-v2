@@ -7,8 +7,9 @@
       homepage they belong to its first screen instead) and "More about
       us", whose two lines cross into an X and drop the menu
       (data/nav.js) down the right-hand rail.
-  On the homepage the header turns light the moment the dark SODACHE
-  screen slides up under "More about us" (App.vue's .theme-dark).
+  The header turns white while a dark picture is under it — the
+  homepage's SODACHE screen, or a dark-topped hero (uiStore.chromeDark,
+  set by App.vue).
 -->
 <script setup>
 import { computed, onBeforeUnmount, onMounted } from 'vue'
@@ -27,9 +28,16 @@ const title = computed(() => route.meta.title || '')
 // The homepage's SODACHE screen draws its own (Home.vue).
 const barVisible = computed(() => {
   if (isHome.value) return false
-  if (route.meta.hero) return ui.scrollY > ui.vh * 0.3
+  if (route.meta.hero) {
+    // once the full-screen picture (100svh, at least 520px) has left the header
+    const headerH = Math.min(136, Math.max(92, ui.vw * 0.094))
+    return ui.scrollY > Math.max(ui.vh, 520) - headerH
+  }
   return true
 })
+
+// White text while a dark picture is under the header (App.vue).
+const tone = computed(() => (ui.chromeDark ? 'theme-dark' : ''))
 
 function toggleMenu() {
   ui.menuOpen = !ui.menuOpen
@@ -60,12 +68,12 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 
   <!-- click-away (lg+) / full-screen panel (below lg) behind the open menu -->
   <Transition name="layer">
-    <div v-if="ui.menuOpen" class="fixed inset-0 z-[45] bg-bg lg:bg-transparent" @click="ui.menuOpen = false"></div>
+    <div v-if="ui.menuOpen" class="fixed inset-0 z-[45] bg-bg lg:bg-transparent" :class="tone" @click="ui.menuOpen = false"></div>
   </Transition>
 
   <!-- top-left -->
   <Transition name="fade" mode="out-in">
-    <div v-if="!isHome" :key="title" class="fixed z-50 left-(--gutter) top-(--gutter) text-fg">
+    <div v-if="!isHome" :key="title" class="fixed z-50 left-(--gutter) top-(--gutter) text-fg transition-colors duration-300 ease-standard" :class="tone">
       <router-link to="/" class="chrome-title block" :aria-label="title + ' — back to home'">
         {{ title }}
       </router-link>
@@ -81,6 +89,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
   <!-- top-right -->
   <nav
     class="fixed z-50 right-(--gutter) top-(--gutter) flex flex-col items-end font-inter font-light text-fg transition-colors duration-300 ease-standard pointer-events-none"
+    :class="tone"
     aria-label="Main"
   >
     <div class="flex items-center gap-[5.3vw]">

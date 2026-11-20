@@ -42,7 +42,8 @@ onBeforeUnmount(() => observer?.disconnect())
 const isHome = computed(() => route.path === '/')
 const desktop = computed(() => ui.vw >= 1024)
 const gutter = computed(() => Math.min(40, Math.max(16, ui.vw * 0.026)))
-const bottom = computed(() => Math.max(18, ui.vh * 0.06))
+// Same margin from the bottom-right corner as the header keeps from the top.
+const bottom = gutter
 
 const dock = computed(() => {
   const width = desktop.value ? ui.vw * 0.388 : ui.vw * 0.62
@@ -70,7 +71,7 @@ const transform = computed(() => {
     return `translate(${dx}px, ${dy}px) scale(${scale})`
   }
   if (state.value === 'corner') {
-    const width = desktop.value ? ui.vw * 0.17 : ui.vw * 0.3
+    const width = desktop.value ? ui.vw * 0.12 : ui.vw * 0.26
     return `scale(${width / w.value})`
   }
   return 'none'
@@ -119,7 +120,7 @@ function onClick(part) {
 <template>
   <div
     ref="el"
-    class="wordmark fixed z-[60] grid font-inter font-black leading-[0.74] tracking-[-0.03em] whitespace-nowrap select-none text-[20.5vw] sm:text-[18vw] lg:text-[16vw]"
+    class="wordmark fixed z-[60] grid font-inter font-black leading-[0.74] tracking-[-0.03em] whitespace-nowrap select-none text-[12vw] sm:text-[10vw] lg:text-[8vw]"
     :class="interactive ? 'cursor-pointer' : 'pointer-events-none'"
     :style="{ right: gutter + 'px', bottom: bottom + 'px', transform }"
     :role="interactive ? 'link' : undefined"

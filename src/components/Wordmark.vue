@@ -79,9 +79,25 @@ watchEffect(() => {
   s.setProperty('--dock-bottom', `${dock.value.bottom}px`)
 })
 
+const YELLOW = [255, 224, 0]
+const RED = [206, 34, 34]
+const clamp = (v) => Math.min(1, Math.max(0, v))
+
+// On the homepage HC turns from yellow to red exactly as the dark
+// SODACHE screen slides up behind the wordmark (k = how much of the
+// wordmark it covers). The first screen is 100svh, at least 480px.
+const homeHc = computed(() => {
+  if (ui.settling || !h.value) return YELLOW
+  const firstScreen = Math.max(ui.vh, 480)
+  const k = clamp((ui.scrollY + ui.vh - firstScreen - bottom.value) / h.value)
+  return YELLOW.map((v, i) => Math.round(v + (RED[i] - v) * k))
+})
+
 const hcColor = computed(() => {
-  if (!ui.linksOpen) return 'var(--hc)'
-  return ui.linksTab === 'school' ? '#FFE000' : '#FFFFFF'
+  if (ui.linksOpen) return ui.linksTab === 'school' ? '#FFE000' : '#FFFFFF'
+  if (isHome.value) return `rgb(${homeHc.value.join(' ')})`
+  // Faculty pages tint HC with their own colour (route meta.hc).
+  return route.meta.hc || '#FFE000'
 })
 const uniteColor = computed(() => {
   if (!ui.linksOpen) return '#CE2222'
@@ -116,6 +132,6 @@ function onClick(part) {
   will-change: transform;
 }
 .wordmark span {
-  transition: color 500ms var(--ease-standard);
+  transition: color 300ms var(--ease-standard);
 }
 </style>

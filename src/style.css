@@ -32,10 +32,11 @@
 }
 
 /*
-  Theme-aware colours. --bg/--fg/--mute/--line/--hc are set on <html> by
-  App.vue (they fade from the light palette to the dark one as the
-  homepage scrolls into SODACHE), so these utilities (bg-bg, text-fg,
-  text-soft, border-line) always match the current surface.
+  Theme-aware colours: bg-bg, text-fg, text-soft and border-line follow
+  whichever palette the nearest .theme-light / .theme-dark ancestor sets
+  (the homepage's two screens set their own; App.vue puts .theme-dark on
+  <html> once the homepage is scrolled into SODACHE, for the footer and
+  the fixed chrome).
 */
 @theme inline {
   --color-bg: var(--bg);
@@ -44,14 +45,22 @@
   --color-line: var(--line);
 }
 
-:root {
+:root, .theme-light {
   --bg: #F7F2EB;
   --fg: #111111;
   --mute: #8A8279;
   --line: #D9D0C3;
-  --hc: #FFE000;
-  --p: 0;
+  --tint: rgb(0 0 0 / 0.035);
+}
+html.theme-dark, .theme-dark {
+  --bg: #0E0E0E;
+  --fg: #FFFFFF;
+  --mute: #969696;
+  --line: #404040;
+  --tint: rgb(0 0 0 / 0.9);
+}
 
+:root {
   /* page gutter, and the right-hand rail the menu/search live in (lg+) */
   --gutter: clamp(16px, 2.6vw, 40px);
   --rail: 23vw;
@@ -73,6 +82,7 @@
     scrollbar-width: none;
     background-color: var(--bg);
     color: var(--fg);
+    transition: background-color 500ms var(--ease-standard);
   }
   html::-webkit-scrollbar {
     display: none;
@@ -96,6 +106,55 @@
   }
   p{
     @apply font-jakarta text-[15px] sm:text-base leading-relaxed
+  }
+}
+
+/* Header type, shared by SiteHeader.vue and the homepage's own titles. */
+@layer components {
+  .chrome-title {
+    font-family: var(--font-inter);
+    font-weight: 200;
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    font-size: clamp(1.6rem, 4.55vw, 4.5rem);
+  }
+  .chrome-nav {
+    font-size: clamp(0.8rem, 2.05vw, 1.95rem);
+  }
+  .chrome-more {
+    font-size: clamp(1.05rem, 2.35vw, 2.2rem);
+    line-height: 1.36;
+  }
+  .nav-item {
+    transition: opacity 300ms var(--ease-standard);
+  }
+  .nav-item:hover {
+    opacity: 0.55;
+  }
+
+  /* Left-half shade while the "More about us" menu is open (lg+). Put one
+     inside anything with its own background, before its content. */
+  .menu-tint {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    pointer-events: none;
+    opacity: 0;
+    background: var(--tint);
+    transition: opacity 700ms var(--ease-standard);
+  }
+  .menu-tint.is-open {
+    opacity: 1;
+  }
+  @media (min-width: 1024px) {
+    .menu-tint {
+      display: block;
+    }
   }
 }
 

@@ -3,12 +3,13 @@
   Wordmark), the routed page, and the footer. It also owns the two
   things the chrome and pages share:
     - the single scroll/resize listener, mirrored into uiStore
-    - the theme: --bg/--fg/--mute/--line/--hc on <html>, which fade from
-      the light palette to the dark one as the homepage scrolls from
-      its first screen into SODACHE (every other page is light)
+    - .theme-dark on <html> once the homepage is scrolled into its dark
+      SODACHE screen, so the footer and the fixed chrome match it (the
+      homepage's two screens carry their own colours; every other page
+      is light)
 -->
 <script setup>
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import SiteHeader from './components/SiteHeader.vue'
 import LinksOverlay from './components/LinksOverlay.vue'
@@ -35,61 +36,27 @@ function requestMeasure() {
   requestAnimationFrame(measure)
 }
 
-// 0 on the light first screen → 1 once SODACHE fills the screen.
-const progress = computed(() => {
-  if (!isHome.value || !ui.vh) return 0
-  const t = Math.min(1, Math.max(0, (ui.scrollY / ui.vh - 0.12) / 0.76))
-  return t * t * (3 - 2 * t)
-})
-
-// `shown` follows `progress` exactly while scrolling, but eases to it
-// across a route change so leaving the dark SODACHE section for a light
-// page fades rather than snaps.
-const shown = ref(0)
-let switching = false
-let raf = 0
-watch(progress, (value) => {
-  if (!switching) shown.value = value
-})
-function easeToProgress() {
-  cancelAnimationFrame(raf)
-  switching = true
-  const from = shown.value
-  const start = performance.now()
-  const step = (now) => {
-    const k = Math.min(1, (now - start) / 600)
-    shown.value = from + (progress.value - from) * (1 - Math.pow(1 - k, 3))
-    if (k < 1) raf = requestAnimationFrame(step)
-    else switching = false
-  }
-  raf = requestAnimationFrame(step)
-}
-
+// main.js's scrollBehavior resets the scroll ~340ms after a page change;
+// until then scrollY is the old page's and mustn't drive the theme.
+let settleTimer = 0
 router.afterEach((to, from) => {
   ui.closeAll()
-  if (to.path !== from.path) easeToProgress()
+  if (to.path !== from.path) {
+    ui.settling = true
+    clearTimeout(settleTimer)
+    settleTimer = setTimeout(() => {
+      ui.settling = false
+      requestMeasure()
+    }, 420)
+  }
   nextTick(requestMeasure)
 })
 
-const LIGHT = { bg: [247, 242, 235], fg: [17, 17, 17], mute: [138, 130, 121], line: [217, 208, 195], hc: [255, 224, 0] }
-const DARK = { bg: [14, 14, 14], fg: [255, 255, 255], mute: [150, 150, 150], line: [64, 64, 64], hc: [206, 34, 34] }
-function mix(key, p) {
-  const a = LIGHT[key]
-  const b = DARK[key]
-  return `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * p)).join(' ')})`
-}
+const dark = computed(() => isHome.value && !ui.settling && ui.scrollY > ui.vh * 0.5)
 
 watchEffect(() => {
-  const p = shown.value
   const root = document.documentElement
-  root.style.setProperty('--p', p.toFixed(3))
-  root.style.setProperty('--bg', mix('bg', p))
-  // Text flips quickly around the midpoint instead of fading through the
-  // same mid-grey as the background, so it never disappears into it.
-  const ink = Math.min(1, Math.max(0, (p - 0.42) / 0.16))
-  for (const key of ['fg', 'mute', 'line']) root.style.setProperty(`--${key}`, mix(key, ink))
-  // Faculty pages tint the wordmark's "HC" with their own colour (meta.hc).
-  root.style.setProperty('--hc', isHome.value ? mix('hc', p) : route.meta.hc || mix('hc', 0))
+  root.classList.toggle('theme-dark', dark.value)
   root.classList.toggle('snap-home', isHome.value)
 })
 
@@ -107,7 +74,7 @@ onBeforeUnmount(() => {
   window.removeEventListener('scroll', requestMeasure)
   window.removeEventListener('resize', requestMeasure)
   resizeObserver?.disconnect()
-  cancelAnimationFrame(raf)
+  clearTimeout(settleTimer)
 })
 </script>
 
@@ -119,7 +86,7 @@ onBeforeUnmount(() => {
     against the real viewport.
   -->
   <div class="text-fg">
-    <SiteHeader :progress="shown" />
+    <SiteHeader />
     <LinksOverlay />
     <Wordmark />
 

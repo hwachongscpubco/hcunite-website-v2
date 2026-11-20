@@ -36,10 +36,10 @@ content follows the same shape as what's already there.
 Three fixed pieces of chrome, mounted once in `App.vue` outside
 `<router-view>`, are on screen on every page:
 
-- **`SiteHeader.vue`** — top-left title ("WELCOME TO" on the homepage,
-  turning into the SO/DA/CHE tabs as it scrolls into SODACHE; the page's
-  own title everywhere else), and top-right **SCHOOL LINKS**, **OTHERS**
-  and **More about us**.
+- **`SiteHeader.vue`** — top-left, the page's own title; top-right
+  **SCHOOL LINKS**, **OTHERS** and **More about us**. (On the homepage
+  only "More about us" is fixed — its titles and the two link buttons
+  belong to its screens and scroll with them; see `Home.vue`.)
 - **`LinksOverlay.vue`** — the full-screen list of links those first two
   open, from [`src/data/links.js`](src/data/README.md).
 - **`Wordmark.vue`** — the big HCUNITE pinned to the bottom-right corner.

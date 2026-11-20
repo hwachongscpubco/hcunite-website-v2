@@ -69,6 +69,10 @@ import { menuItems, faculties, socials } from '../data/nav'
     padding-right: calc(var(--rail) + var(--gutter));
   }
 }
+/* Fades with <html>'s background when the theme changes on a page change. */
+.site-footer, .site-footer :is(p, a, div) {
+  transition: color 500ms var(--ease-standard), background-color 500ms var(--ease-standard);
+}
 .links {
   display: flex;
   flex-direction: column;
@@ -80,7 +84,7 @@ import { menuItems, faculties, socials } from '../data/nav'
   text-transform: uppercase;
 }
 .links a {
-  transition: opacity 300ms var(--ease-standard);
+  transition: color 500ms var(--ease-standard), opacity 300ms var(--ease-standard);
 }
 .links a:hover {
   opacity: 0.5;

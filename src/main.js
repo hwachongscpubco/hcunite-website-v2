@@ -63,7 +63,9 @@ const router = createRouter({
     const toSodache = to.hash === '#sodache'
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(toSodache ? { top: window.innerHeight, behavior: 'smooth' } : { top: 0 })
+        if (!toSodache) return resolve({ top: 0 })
+        const el = document.getElementById('sodache')
+        resolve(el ? { el, behavior: 'smooth' } : { top: window.innerHeight, behavior: 'smooth' })
       }, changingPage ? (toSodache ? 460 : 340) : 0)
     })
   },

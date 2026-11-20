@@ -9,8 +9,8 @@ otherwise):
   SODACHE search text, and the scroll position / viewport size that
   [`App.vue`](../App.vue)'s single scroll listener keeps up to date.
 - **`sodacheStore.js`** — holds which SODACHE tab (`song` / `dance` /
-  `cheer`) is currently active. The tabs in `SiteHeader.vue` write to
-  it; `Home.vue` reads it to show that tab's list.
+  `cheer`) is currently active. `Home.vue`'s SO/DA/CHE title sets it
+  and shows that tab's list.
 
 Only add a new store if you have a similar cross-component-but-not-nav
 piece of state to share — a single page's own local state should just be

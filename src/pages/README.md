@@ -51,9 +51,10 @@ editing any of the four.
 
 ## Everything else
 
-- `Home.vue` — the landing page: a full-screen first slide that
-  cross-fades (light to dark) into SODACHE as you scroll, then the
-  Song/Dance/Cheer list from [`src/data/sodache.js`](../data/README.md).
+- `Home.vue` — the landing page: two full-screen screens stacked one
+  on top of the other (WELCOME TO, light; SODACHE, dark) that scrolling
+  simply moves down through, then the Song/Dance/Cheer list from
+  [`src/data/sodache.js`](../data/README.md).
   `/sodache` redirects here.
 - `Leaders.vue` — `/leaders`, every student leadership body with a link
   out to its Instagram. Data is local to this file (only page that

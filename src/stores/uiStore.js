@@ -14,6 +14,9 @@ export const useUiStore = defineStore('uiStore', () => {
   const vw = ref(0)
   const vh = ref(0)
   const docH = ref(0)
+  // True for the moment after a page change before the new page has
+  // scrolled to its start, while scrollY still belongs to the old page.
+  const settling = ref(false)
 
   function openLinks(tab) {
     linksTab.value = tab
@@ -25,5 +28,5 @@ export const useUiStore = defineStore('uiStore', () => {
     linksOpen.value = false
   }
 
-  return { menuOpen, linksOpen, linksTab, search, scrollY, vw, vh, docH, openLinks, closeAll }
+  return { menuOpen, linksOpen, linksTab, search, scrollY, vw, vh, docH, settling, openLinks, closeAll }
 })

@@ -1,57 +1,33 @@
 <!--
   SiteHeader.vue — the fixed chrome along the top of every page:
-    - top-left: "WELCOME TO" on the homepage, cross-fading into the
-      SO/DA/CHE tabs as the page scrolls into SODACHE; the page's own
-      title everywhere else (route meta.title, see main.js)
-    - top-right: SCHOOL LINKS / OTHERS (open LinksOverlay.vue) and
-      "More about us", whose two lines cross into an X and drop the
-      menu (data/nav.js) down the right-hand rail
-  `progress` is the homepage's light→dark scroll progress (0–1), owned
-  by App.vue.
+    - top-left: the page's own title (route meta.title, see main.js). The
+      homepage has none here: its WELCOME TO and SODACHE titles belong
+      to its two screens (Home.vue) and scroll with them.
+    - top-right: SCHOOL LINKS / OTHERS (open LinksOverlay.vue — on the
+      homepage they belong to its first screen instead) and "More about
+      us", whose two lines cross into an X and drop the menu
+      (data/nav.js) down the right-hand rail.
+  The top-right corner is drawn white with mix-blend-mode: difference,
+  so it reads dark on light screens and light on dark ones, flipping at
+  the exact line where the homepage's two screens meet.
 -->
 <script setup>
 import { computed, onBeforeUnmount, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useUiStore } from '../stores/uiStore'
-import { useSodacheStore } from '../stores/sodacheStore'
 import { menuItems } from '../data/nav'
-
-const props = defineProps({
-  progress: { type: Number, default: 0 },
-})
 
 const route = useRoute()
 const ui = useUiStore()
-const sodacheStore = useSodacheStore()
 
 const isHome = computed(() => route.path === '/')
 const title = computed(() => route.meta.title || '')
 
-const clamp = (v) => Math.min(1, Math.max(0, v))
-const welcomeOpacity = computed(() => clamp(1 - props.progress * 2.2))
-const sodacheOpacity = computed(() => clamp((props.progress - 0.55) * 2.2))
-const inSodache = computed(() => props.progress > 0.6)
-
-// SCHOOL LINKS / OTHERS belong to the light first screen only.
-const linksOpacity = computed(() => (isHome.value ? welcomeOpacity.value : 1))
-
-const sections = [
-  { key: 'song', text: 'SO', color: 'var(--color-song)' },
-  { key: 'dance', text: 'DA', color: 'var(--color-dance)' },
-  { key: 'cheer', text: 'CHE', color: 'var(--color-cheer)' },
-]
-
-function pickSection(key) {
-  sodacheStore.activeSection = key
-  ui.search = ''
-  const list = document.getElementById('sodache-list')
-  if (list) window.scrollTo({ top: list.offsetTop, behavior: 'smooth' })
-}
-
 // The backdrop keeps scrolling content from running under the header
 // text; heroes are left clear so their picture sits on an open page.
+// The homepage's SODACHE screen draws its own (Home.vue).
 const barVisible = computed(() => {
-  if (isHome.value) return ui.scrollY > ui.vh * 1.15
+  if (isHome.value) return false
   if (route.meta.hero) return ui.scrollY > ui.vh * 0.3
   return true
 })
@@ -73,79 +49,51 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 
 <template>
   <!-- left-half tint behind the page while the menu is open (lg+) -->
-  <div
-    class="fixed inset-y-0 left-0 w-1/2 -z-10 hidden lg:block pointer-events-none transition-opacity duration-700 ease-standard"
-    :class="ui.menuOpen ? 'opacity-100' : 'opacity-0'"
-    style="background: rgb(0 0 0 / calc(0.035 + var(--p) * 0.9))"
-  ></div>
+  <div class="menu-tint fixed -z-10" :class="{ 'is-open': ui.menuOpen }"></div>
 
   <!-- header backdrop -->
   <div
     class="header-bar fixed inset-x-0 top-0 z-30 bg-bg pointer-events-none transition-opacity duration-500"
     :class="barVisible ? 'opacity-100' : 'opacity-0'"
-  ></div>
+  >
+    <div class="menu-tint" :class="{ 'is-open': ui.menuOpen }"></div>
+  </div>
 
   <!-- click-away (lg+) / full-screen panel (below lg) behind the open menu -->
   <Transition name="layer">
-    <div v-if="ui.menuOpen" class="fixed inset-0 z-40 bg-bg lg:bg-transparent" @click="ui.menuOpen = false"></div>
+    <div v-if="ui.menuOpen" class="fixed inset-0 z-[45] bg-bg lg:bg-transparent" @click="ui.menuOpen = false"></div>
   </Transition>
 
   <!-- top-left -->
-  <div class="fixed z-50 left-(--gutter) top-(--gutter) text-fg">
-    <Transition name="fade" mode="out-in">
-      <div v-if="isHome" key="home" class="header-title relative">
-        <span class="block" :style="{ opacity: welcomeOpacity }" :aria-hidden="inSodache">WELCOME TO</span>
-        <span
-          class="absolute left-0 top-0 flex"
-          :style="{ opacity: sodacheOpacity, pointerEvents: inSodache ? 'auto' : 'none' }"
-          :aria-hidden="!inSodache"
-        >
-          <button
-            v-for="s in sections"
-            :key="s.key"
-            type="button"
-            class="relative cursor-pointer transition-colors duration-500 ease-standard"
-            :style="{ color: sodacheStore.activeSection === s.key ? s.color : 'var(--fg)' }"
-            :tabindex="inSodache ? 0 : -1"
-            :aria-pressed="sodacheStore.activeSection === s.key"
-            @click="pickSection(s.key)"
-          >
-            {{ s.text }}
-            <span
-              class="absolute left-0 right-[0.04em] -bottom-[0.14em] h-px bg-fg origin-left transition-transform duration-500 ease-enter"
-              :class="sodacheStore.activeSection === s.key ? 'scale-x-100' : 'scale-x-0'"
-            ></span>
-          </button>
-        </span>
-      </div>
-      <router-link v-else :key="title" to="/" class="header-title block" :aria-label="title + ' — back to home'">
+  <Transition name="fade" mode="out-in">
+    <div v-if="!isHome" :key="title" class="fixed z-50 left-(--gutter) top-(--gutter) text-fg">
+      <router-link to="/" class="chrome-title block" :aria-label="title + ' — back to home'">
         {{ title }}
       </router-link>
-    </Transition>
 
-    <!-- below sm the two link buttons sit under the title instead -->
-    <div
-      class="sm:hidden mt-2.5 flex gap-5 font-inter font-light uppercase text-[11px] tracking-[0.14em] transition-opacity duration-300"
-      :style="{ opacity: linksOpacity, pointerEvents: linksOpacity > 0.5 ? 'auto' : 'none' }"
-    >
-      <button type="button" class="uppercase cursor-pointer" @click="ui.openLinks('school')">School Links</button>
-      <button type="button" class="uppercase cursor-pointer" @click="ui.openLinks('others')">Others</button>
+      <!-- below sm the two link buttons sit under the title instead -->
+      <div class="sm:hidden mt-2.5 flex gap-5 font-inter font-light uppercase text-[11px] tracking-[0.14em]">
+        <button type="button" class="uppercase cursor-pointer" @click="ui.openLinks('school')">School Links</button>
+        <button type="button" class="uppercase cursor-pointer" @click="ui.openLinks('others')">Others</button>
+      </div>
     </div>
-  </div>
+  </Transition>
 
   <!-- top-right -->
-  <nav class="fixed z-50 right-(--gutter) top-(--gutter) flex flex-col items-end font-inter font-light text-fg pointer-events-none" aria-label="Main">
+  <nav
+    class="fixed z-50 right-(--gutter) top-(--gutter) flex flex-col items-end font-inter font-light text-white mix-blend-difference pointer-events-none"
+    aria-label="Main"
+  >
     <div class="flex items-center gap-[5.3vw]">
-      <div
-        class="hidden sm:flex gap-[5.3vw] uppercase header-nav"
-        :style="{ opacity: linksOpacity, pointerEvents: linksOpacity > 0.5 ? 'auto' : 'none' }"
-      >
-        <button type="button" class="nav-item uppercase cursor-pointer" @click="ui.openLinks('school')">School Links</button>
-        <button type="button" class="nav-item uppercase cursor-pointer" @click="ui.openLinks('others')">Others</button>
-      </div>
+      <Transition name="fade">
+        <div v-if="!isHome" class="chrome-nav hidden sm:flex gap-[5.3vw] uppercase pointer-events-auto">
+          <button type="button" class="nav-item uppercase cursor-pointer" @click="ui.openLinks('school')">School Links</button>
+          <button type="button" class="nav-item uppercase cursor-pointer" @click="ui.openLinks('others')">Others</button>
+        </div>
+      </Transition>
       <button
         type="button"
-        class="header-more nav-item text-right cursor-pointer pointer-events-auto"
+        class="chrome-more nav-item text-right cursor-pointer pointer-events-auto"
         :aria-expanded="ui.menuOpen"
         aria-controls="site-menu"
         @click="toggleMenu"
@@ -189,28 +137,6 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
   height: var(--header-h);
   -webkit-mask-image: linear-gradient(#000 86%, transparent);
   mask-image: linear-gradient(#000 86%, transparent);
-}
-.header-title {
-  font-family: var(--font-inter);
-  font-weight: 200;
-  text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
-  letter-spacing: -0.01em;
-  font-size: clamp(1.6rem, 4.55vw, 4.5rem);
-}
-.header-nav, .header-more {
-  transition: opacity 300ms var(--ease-standard);
-}
-.header-nav {
-  font-size: clamp(0.8rem, 2.05vw, 1.95rem);
-}
-.header-more {
-  font-size: clamp(1.05rem, 2.35vw, 2.2rem);
-  line-height: 1.36;
-}
-.nav-item:hover {
-  opacity: 0.55;
 }
 .burger {
   width: clamp(64px, 9.4vw, 132px);

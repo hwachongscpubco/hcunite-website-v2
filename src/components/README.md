@@ -39,9 +39,9 @@ explaining its props — this file is just the map of what exists.
 Mounted once in [`App.vue`](../App.vue), on screen on every page — see
 the root [README](../../README.md#the-navigation-model) for the concept:
 
-- **`SiteHeader.vue`** — the fixed header: page title / SO-DA-CHE tabs
-  top-left; SCHOOL LINKS, OTHERS and the "More about us" menu top-right
-  (menu entries come from [`src/data/nav.js`](../data/README.md)).
+- **`SiteHeader.vue`** — the fixed header: page title top-left; SCHOOL
+  LINKS, OTHERS and the "More about us" menu top-right (menu entries
+  come from [`src/data/nav.js`](../data/README.md)).
 - **`LinksOverlay.vue`** — the full-screen SCHOOL LINKS / OTHERS lists.
 - **`Wordmark.vue`** — the fixed HCUNITE in the bottom-right corner; it
   shrinks out of the way mid-page and docks top-left as the heading of
